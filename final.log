@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  17 JUL 2014 02:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  28 JUL 2014 02:07
 entering extended mode
 **final.tex
 (C:\Users\Manmohan\Documents\GitHub\research\final.tex
@@ -621,11 +621,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 402--403
  []
 
 
-Overfull \hbox (56.1551pt too wide) detected at line 409
-\OMS/cmsy/m/n/10 ) \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 [\OML/
-cmm/m/it/10 C[] \OT1/cmr/m/n/10 + []] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 [] [
-] [] \OT1/cmr/m/n/10 + [] [] = (1 + \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 ) [] []
-
+Overfull \hbox (51.15509pt too wide) detected at line 409
+\OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 C[] \
+OT1/cmr/m/n/10 + []] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 [] [] [] \OT1/cmr/m/n
+/10 + [] [] = (1 + \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 ) [] []
  []
 
 
@@ -833,7 +832,7 @@ public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
 /utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final.pdf (5 pages, 185199 bytes).
+Output written on final.pdf (5 pages, 185295 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
