@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  28 JUL 2014 02:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  6 AUG 2014 13:42
 entering extended mode
 **final.tex
 (C:\Users\Manmohan\Documents\GitHub\research\final.tex
@@ -412,23 +412,33 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen133
 \l_MT_below_shortintertext_sep=\dimen134
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 
 LaTeX Warning: Unused global option(s):
     [compsocconf].
 
 (C:\Users\Manmohan\Documents\GitHub\research\final.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
@@ -472,18 +482,16 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen137
 \Gin@req@width=\dimen138
 )
-Underfull \hbox (badness 1661) in paragraph at lines 198--200
-\OT1/ptm/m/n/10 is min-i-mized. $\OML/cmm/m/it/10 C[]$ \OT1/ptm/m/n/10 de-notes
- op-ti-mal makespan of
- []
+LaTeX Font Info:    Try loading font information for U+msa on input line 188.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 188.
 
-
-Underfull \hbox (badness 2027) in paragraph at lines 198--200
-\OT1/ptm/m/n/10 sched-ule. We are con-sid-er-ing the prob-lems where
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
 
  []
 
@@ -491,7 +499,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--200
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 
  []
 
@@ -526,277 +534,228 @@ Underfull \hbox (badness 10000) in paragraph at lines 215--217
  []
 
 
-Underfull \hbox (badness 3503) in paragraph at lines 238--239
+Underfull \hbox (badness 3503) in paragraph at lines 241--242
 []\OT1/ptm/m/n/10 where $[]$ is makespan con-sid-er-ing es-i-mated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--299
+Underfull \hbox (badness 10000) in paragraph at lines 299--302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--314
+Underfull \hbox (badness 10000) in paragraph at lines 314--317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--329
+Underfull \hbox (badness 10000) in paragraph at lines 327--332
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--329
+Underfull \hbox (badness 10000) in paragraph at lines 327--332
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 336--337
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--344
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 353--355
+Underfull \hbox (badness 10000) in paragraph at lines 344--347
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 363--367
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--367
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--374
+Underfull \hbox (badness 10000) in paragraph at lines 366--370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--393
+Underfull \hbox (badness 10000) in paragraph at lines 366--370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
+Underfull \hbox (badness 10000) in paragraph at lines 374--377
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 402--403
+Underfull \hbox (badness 10000) in paragraph at lines 394--396
 
  []
 
 
-Overfull \hbox (51.15509pt too wide) detected at line 409
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
+
+ []
+
+
+Overfull \hbox (51.15509pt too wide) detected at line 412
 \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 C[] \
 OT1/cmr/m/n/10 + []] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 [] [] [] \OT1/cmr/m/n
 /10 + [] [] = (1 + \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 ) [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--420
+Underfull \hbox (badness 10000) in paragraph at lines 420--423
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--420
+Underfull \hbox (badness 10000) in paragraph at lines 420--423
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--431
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--431
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--431
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--433
-
- []
-
-
-Underfull \hbox (badness 3439) in paragraph at lines 429--433
-\OT1/ptm/b/n/10 Proof: \OT1/ptm/m/n/10 We have $\OML/cmm/m/it/10 k$ \OT1/ptm/m/
-n/10 groups of $\OML/cmm/m/it/10 m$ \OT1/ptm/m/n/10 ma-chines. We
- []
-
-
-Underfull \hbox (badness 1895) in paragraph at lines 434--435
-\OT1/ptm/m/n/10 Also, tak-ing the prop-erty of List Schedul-ing that
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
-[]$\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OMS/cmsy/m/n/10   \OT
-1/cmr/m/n/10 1) [][] [] \OMS/cmsy/m/n/10   [][] [][] []j $
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
+Underfull \hbox (badness 10000) in paragraph at lines 432--436
 
  []
 
 [4]
+Underfull \hbox (badness 1895) in paragraph at lines 437--438
+\OT1/ptm/m/n/10 Also, tak-ing the prop-erty of List Schedul-ing that
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 446--449
+Underfull \hbox (badness 10000) in paragraph at lines 454--456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 446--449
-| $\OML/cmm/m/it/10  [][] [][] [] \OMS/cmsy/m/n/10 $
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 446--449
+Underfull \hbox (badness 10000) in paragraph at lines 454--456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--459
+Underfull \hbox (badness 10000) in paragraph at lines 467--469
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--465
-[]| $\OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10 $
+Overfull \hbox (21.40147pt too wide) detected at line 487
+[] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--465
-
+Overfull \hbox (35.78386pt too wide) detected at line 491
+[] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 m[]C[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/
+10 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1)
+[][] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 [] [] [] \OT1/cmr/m/n/10 + (\OML/cmm/
+m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1) [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--471
-| $\OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10 $
+Overfull \hbox (37.08694pt too wide) detected at line 500
+[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 C
+[] \OT1/cmr/m/n/10 + [][][]] + []\OML/cmm/m/it/10 p[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--471
-
- []
-
-
-Underfull \hbox (badness 6592) in paragraph at lines 472--473
-[]| $\OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 km[]C[] \OT1/cmr/m/n/10 + \OML/cmm/m/
-it/10 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OMS/cmsy/m/n/10  $
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
+Underfull \hbox (badness 10000) in paragraph at lines 500--502
 
  []
 
 
-Overfull \hbox (71.18466pt too wide) detected at line 478
-| []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 kmC[] \OT1/cmr/m/n/10 + (\OML/cmm/m/it/10
- k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1)[][]] \OMS/cmsy/m/n/10  [] []
+Overfull \hbox (2.38112pt too wide) detected at line 503
+[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 C
+[] \OT1/cmr/m/n/10 + [][]] + []\OML/cmm/m/it/10 C[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--487
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 482--487
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
 
-Underfull \hbox (badness 2600) in paragraph at lines 482--487
-|  $\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10
- kC[] \OT1/cmr/m/n/10 +$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 482--487
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 490--492
-
- []
-
+[5]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -808,33 +767,35 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5] (C:\Users\Manmohan\Documents\GitHub\research\final.aux) ) 
+[6
+
+] (C:\Users\Manmohan\Documents\GitHub\research\final.aux) ) 
 Here is how much of TeX's memory you used:
- 3183 strings out of 493921
- 46796 string characters out of 3147273
- 115121 words of memory out of 3000000
- 6465 multiletter control sequences out of 15000+200000
- 35704 words of font info for 66 fonts, out of 3000000 for 9000
+ 3471 strings out of 493921
+ 49999 string characters out of 3147273
+ 115623 words of memory out of 3000000
+ 6734 multiletter control sequences out of 15000+200000
+ 36949 words of font info for 72 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
- 29i,8n,21p,13379b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/
-MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
-/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final.pdf (5 pages, 185295 bytes).
+ 29i,8n,26p,13379b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
+tmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on final.pdf (6 pages, 188525 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 82 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
