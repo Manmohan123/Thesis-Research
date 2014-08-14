@@ -107,6 +107,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
 \usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{C:\Users\Manmohan\Documents\GitHub\research}}
 
 
 
@@ -210,6 +212,7 @@ We have used  Graham's List Scheduling (LS) and Largest Processing Time (LPT) al
 \section{Model 1: No replication} 
 In this problem model we have considered  situation where each task is restricted to be scheduled on only one machine.  We have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines. The processing time of job $j$ is $p_{j}$ on machine $i$. Let $f : J \leftarrow M$ be a function that assigns each job to exactly one machine. Let us denote $E_{i}$ as the set tasks which is assigned to a machine $i$.  The restriction that each task can be scheduled to only one machine restrict the problem constrution to phase one only. There is no replication of tasks in this model.\\
 \\
+
 We have  considered List scheduling and Longest processing time algorithms and have  assigned each task on machine on which they are restricted to.   Based on the estimated processing times of  tasks loaded on each machine we will derive makespan. \\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 \subsection{Lower Bound}
 \textbf{Lemma 1.1:}There is no online algorithm having competitive  ratio better than $\alpha^{2} $.\\
@@ -224,7 +227,14 @@ We have  considered List scheduling and Longest processing time algorithms and h
  
  
  
-\subsection{Using LPT}
+\subsection{Algorithm}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width= 4 cm]{fig1}
+\caption{ShareLaTeX logo}
+\label{fig:rara}
+\end{figure}
 
 \textbf{Theorem 1.1:} Using LPT the competitive ratio is $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
 
@@ -289,12 +299,12 @@ By the property of LPT $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde
 
 
 \section{Model 2: replication is done everywhere}
-In this problem model we consider no restrictaion on task assignment.  There is no initial first phase to select where replication need to be done.  All tasks are allowed to replicate everywhere There are $ n$ tasks which need to be  assigned to $m$ processors. We have applied simple Largest Processing Time Algorithms (LPT) using estimated processing times of tasks in non-increasing order as input.  \\
+In this problem model we consider no restrictaion on task assignment.  In the first phase task are replicated everywhere i.e. $\forall i, M_{i}=M $.  All tasks are allowed to replicate everywhere There are $ n$ tasks which need to be  assigned to $m$ processors. In the second phase we   simplly use the  Largest Processing Time algorithm (LPT) using estimated processing times of tasks in non-increasing order as input.  \\
 
 
 
 
-\textbf{Theorem 2.1:} $C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l $ for when there are at least two tasks in the machine to which $l$ is scheduled.
+\textbf{Lemma 2.1:} $C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l $  when there are at least two tasks in the machine to which the last task, $l$ is scheduled.
 
 \textbf{Proof:} Suppose $l$ be the last task with estimated processing time $\tilde p_l$. Suppose
 there are at least two tasks in the machine in which $l$ is assigned including $l$. Let
@@ -318,22 +328,18 @@ As $j$ is scheduled before $l$ using LPT on estimated values of processing times
 \begin{equation}\nonumber
  C_{max}^{*} \geq \frac{2}{\alpha}\tilde p_l
  \end{equation}
-\begin{equation}\nonumber 
+\begin{equation}
 \Rightarrow C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l  \end{equation}
 
-So, for at least two tasks in machine, We have the following condition\\
-\begin{equation}
-C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l 
-\end{equation}
+
+\textbf{Theorem 2.1:} $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$\\
 \\
-\textbf{Theorem 2.2:} $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$\\
-\\
-\textbf{proof:} The optimal makespan, $C_{max}^{*}$ must be atleast equal to average load on the $m$ machines, We have\\
+\textbf{Proof:} The optimal makespan, $C_{max}^{*}$ must be at least equal to the average load on the $m$ machines. We have\\
 \begin{equation}
 C_{max}^{*}\geq\frac{\sum p_j}{m}
 \end{equation}
 
-By the property of LPT the load on each machine $i$ is greater than the load on machine which reach $C_{max}$ before the last task $l$ is scheduled. So for each machine, $C_{max} \leq  \sum_{j \in E_i}^{}{p_j} + p_l$ holds true.  Adding for all the machines, We have\\
+By the property of LPT the load on each machine $i$ is greater than the load on the machine which reach $C_{max}$ before the last task $l$ is scheduled. So for each machine $i$, $C_{max} \leq  \sum_{j \in E_i}^{}{p_j} + p_l$ holds true.  Summing for all the machines we have\\
 
 \begin{equation}\nonumber 
 mC_{max} \leq  \sum {p_j} + (m-1)p_l
@@ -343,7 +349,7 @@ mC_{max} \leq  \sum {p_j} + (m-1)p_l
 C_{max} \leq  \frac{\sum {p_j}}{m} + \frac{(m-1)}{m}p_l
 \end{equation}
 \\
-Using (6) and (7), We have\\
+Using (6) and (7), we have\\
 
 \begin{equation}\nonumber
 \frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}(\frac{p_l}{C_{max}^{*}})
@@ -361,74 +367,22 @@ Hence the theorem follows.   \\
 \section{Model 3: Replication in groups}
 We are tackling the  problem of restricted scheduling where tasks are scheduled to machines in two phases. The first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  The size of each group is equal and have $m/2$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1.  We propose  List Sheduling algorithm in both the phases. In phase 1 using LS we pre-assign the tasks in different groups.  In phase 2 we use online LS to schedule tasks to processors within each group.
 
-\subsection{When number of groups is 2}
+\begin{figure}[htp]
+\centering
+\includegraphics[width= 8 cm]{fig2}
+\caption{}
+\label{fig:fig2}
+\end{figure}
 
-\textbf{Theorem 3.1:} When number of groups is 2 the approximation ratio is $1 + \frac{2\alpha^{2}}{1+\alpha^{2}} $ \\
-\\
-\textbf{Proof:} 
- Let us consider two groups be $G1$ and $G2$ and after phase 1 the load on  each of two processors be $\sum_{i \in G1 }^{}{\tilde p_{i}}$ and $\sum_{i \in G2 }^{}{\tilde p_{i}}$ respectively. Without loss of generality, We can assume makespan, $C_{max}$ comes from $G1$.  As the consequense of List Scheduling load difference between two groups cannot exceed estimated longest task, ${max_{i \in T}}{\tilde p_{i}}$\\
-\begin{equation}\nonumber
-|\sum_{i \in G1 }^{}{\tilde p_{i}}- \sum_{i \in G2 }^{}{\tilde p_{i}}| \leq {max_{i \in T}}{\tilde p_{i}}\end{equation}
-
-\begin{equation}\nonumber 
-\Rightarrow \sum_{i \in G2 }^{}{\tilde p_{i}} \geq \sum_{i \in G1 }^{}{\tilde p_{i}} - {max_{i \in T}}{\tilde p_{i}}\end{equation}
-\\
-As the actual processing time of a task is between $\frac{1}{\alpha}$ and $\alpha$ times of its estimated value, so we have the following inequality\\
-\begin{equation}\nonumber 
-\Rightarrow \alpha\sum_{i \in G2 }^{}{{p_{i}}} \geq  {\frac{1}{\alpha}} \sum_{i \in G1 }^{}{{p_{i}}} - \alpha {max_{i \in T}}{{p_{i}}}
-\end{equation}
-
-\begin{equation}
-\Rightarrow \sum_{i \in G2 }^{}{{p_{i}}} \geq {\frac{1}{\alpha^{2}}} \sum_{i \in G1 }^{}{{p_{i}}} - {max_{i \in T}}{{p_{i}}}
-\end{equation}
+\begin{figure}[htp]
+\centering
+\includegraphics[width= 8 cm]{fig3}
+\caption{}
+\label{fig:fig3}
+\end{figure}
 
 
 
-
-In phase 2, We  apply List Scheduling in online mode. As makespan, $C_{max}$ comes from $G1$. Using List Scheduling, We have
-
-\begin{equation}
- C_{max} \leq \frac{\sum_{i \in G1 }^{}{{p_{i}}}}{m/2} + {\frac{m/2-1}{m/2}} p_{max} 
-\end{equation}
-
-where $p_{max}$ is the longest task in $G1$
-\\
-
-Also, $C_{max}^{*}$ must be greater than the average of the  loads on  machines, We have\\
-
-\begin{equation}\nonumber 
-C_{max}^{*} \geq  \frac{\sum_{i \in T }^{}{{p_{i}}}}{m}
-\end{equation}
-\begin{equation}\nonumber
-\Leftrightarrow C_{max}^{*}\geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}}{m} + \frac{\sum_{i \in G2 }^{}{{p_{i}}}}{m} \end{equation}
-
-from (8), We derive\\
-\begin{equation}\nonumber
-C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}}{m} + {\frac{1}{m\alpha^{2}}} \sum_{i \in G1 }^{}{{p_{i}}} - {\frac{1}{m}}{max_{i \in T}}{{p_{i}}} 
-\end{equation}
-
- 
-\begin{equation}\nonumber
-\Rightarrow m\alpha^{2}[C_{max}^{*}+ \frac{{max_{i \in T}}{p_{i}}}{m}] \geq  \alpha^{2} \sum_{i \in G1 }^{}{{p_{i}}} + \sum_{i \in G1 }^{}{{p_{i}}} = (1+\alpha^{2}) \sum_{i \in G1 }^{}{{p_{i}}} \end{equation}
-
-\begin{equation}
-\Rightarrow\sum_{i \in G1 }^{}{{p_{i}}} \leq \frac{m\alpha^{2}}{1+ \alpha^{2}}[C_{max}^{*}+ \frac{{max_{i \in T}}{p_{i}}}{m}] 
-\end{equation}
-\\
-Using (9)and (10),
-
- $C_{max} \leq \frac{2\alpha^{2}}{1+ \alpha^{2}}[C_{max}^{*}+ \frac{{max_{i \in T}}{p_{i}}}{m}]  + {\frac{m-1}{m/2}} p_{max} $ \\
-\\
- As $C_{max}^{*}\geq {{max_{i \in T}}{p_{i}}}\geq p_{max}$, we have\\
- 
- $C_{max} \leq \frac{2\alpha^{2}}{1+ \alpha^{2}}[C_{max}^{*}+ \frac{C_{max}^{*}}{m}] + {\frac{m/2-1}{m/2}} C_{max}^{*} $\\
- 
- So we have approximation ratio,\\
- $\frac{C_{max}}{C_{max}^{*}} \leq \frac{2\alpha^{2}}{1+\alpha^{2}} + \frac{2\alpha^{2}}{m{(1+\alpha^{2})}}  + \frac{m-2}{m}$\\
- \\
-$ \leq 1 + \frac{2\alpha^{2}}{1+\alpha^{2}} $\\
-\\
-\subsection{When number of groups is k}
 \textbf{Theorem 3.2:} When the number of groups is $k$ the approximation ratio is $  \frac{k\alpha^{2}}{\alpha^{2}+k-1}[1+ {\frac{k-1}{m}} ]+ {\frac{m-k}{m}}   $ \\
 \\
 \textbf{Proof:} 
