@@ -204,68 +204,69 @@ estimated processing time for the task $i$.  We have this estimate:\\
 [Note:give justification ]
 
 
-We consider various problem models  incorporating the above mentioned scenario of uncertain processing times of tasks with an estimate. Depending upon  a problem model the scheduling is done in two phases or just in one phase. In Phase 1, we allocate tasks to certain processors or group of processors depending upon a problem model.  Phase 1 chooses where data to be  replicated using estimated processing time $\tilde p_i $, for each of the task $i$.  In Phase 2, we choose actual schedule with semi-clairvoyant algorithm which uses only approximate knowledge of initial processing time, and after scheduling the task the actual $p_i$ is known.  With  objective to find schedule which minimizes makespan, we investigate greedy algorithms for each of the problem models and prove their comptetitive ratios. \\
+We consider various problem models  incorporating the above mentioned scenario of uncertain processing times of tasks with an estimate. Depending upon  a problem model the scheduling is done in two phases or just in one phase. In Phase 1, we allocate tasks to certain processors or group of processors depending upon a problem model.  Phase 1 chooses where data to be  replicated using estimated processing time $\tilde p_i $, for each of the task $i$. Phase 1 takes $\tilde{p_i}$, $m$ and $\alpha$ as input and outputs set of machines, $M_j \subseteq M $ where a task $j$ can be scheduled or is replicated. Phase 2 takes output of phase 1 as input and outputs set of task assigned to a machine $i$, $E_i \subseteq J$.   In Phase 2, we choose actual schedule with semi-clairvoyant algorithm which uses only approximate knowledge of initial processing time, and after scheduling the task the actual $p_i$ is known.  With  objective to find schedule which minimizes makespan, we investigate greedy algorithms for each of the problem models and prove their comptetitive ratios. \\
 
 We have used  Graham's List Scheduling (LS) and Largest Processing Time (LPT) algorithms to derive approximation ratios in different scenarios. The LS algorithm takes tasks one at a time and assign  it to the processor having least load at that time. LS is 2-approximation algorithm and is widely used in online scheduling problems.  The LPT sorts tasks in decreasing order of processing time and assign them one at a time in this order to the processor with the smallest current load. The LPT algorithm have worst case performance ratio as $4/3-1/(3m) $ in offline setting
 . Depending upon which among these two algorithms suits more for a problem model we have used these algorithms accordingly. 
 
 \section{Model 1: No replication} 
-In this problem model we have considered  situation where each task is restricted to be scheduled on only one machine.  We have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines. The processing time of job $j$ is $p_{j}$ on machine $i$. Let $f : J \leftarrow M$ be a function that assigns each job to exactly one machine. Let us denote $E_{i}$ as the set tasks which is assigned to a machine $i$.  The restriction that each task can be scheduled to only one machine restrict the problem constrution to phase one only. There is no replication of tasks in this model.\\
+In this problem model we have considered  situation where each task is restricted to be scheduled on only one machine, i.e. $|M_j|=1$.  We have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f : J \leftarrow M$ be a function that assigns each job to exactly one machine. Let us denote $E_{i}$ as the set tasks which is assigned to a machine $i$.  The restriction that each task can be scheduled to only one machine restrict the problem constrution to phase one only. There is no replication of tasks in this model.\\
 \\
 
 We have  considered List scheduling and Longest processing time algorithms and have  assigned each task on machine on which they are restricted to.   Based on the estimated processing times of  tasks loaded on each machine we will derive makespan. \\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 \subsection{Lower Bound}
-\textbf{Lemma 1.1:}There is no online algorithm having competitive  ratio better than $\alpha^{2} $.\\
-\textbf{Proof:}  We  use adversery technique to prove that there is no online algorithm having competitive  ratio better than $\alpha^{2} $\\
+\textbf{Thoerem 1.1:} There is no online algorithm having competitive  ratio better than $\alpha^{2} $.\\
+\textbf{Proof:}  We  use adversary technique to prove that there is no online algorithm having competitive  ratio better than $\alpha^{2} $\\
  
- Let total tasks be $\lambda M$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. So, $B \geq \lambda$. Adversery technique increases the task on $j$ by $\alpha$ and decreases the other task by $\alpha$. So, $ C_{max}$ becomes $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  M - B) }{M}$. We have,
+ Let us consider an instance in which total tasks be $\lambda m$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary  increases the tasks on $j$ by $\alpha$ and decreases the other tasks by $\alpha$. So, $ C_{max}$ = $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  m - B) }{m}$. We have,
  
  \begin{equation}\nonumber
-\frac{C_{max}}{C^{*}_{max}}\leq \frac{\alpha^{2} B M }{\alpha^{2} B + \lambda M - B}=\frac{\alpha^{2}  M }{\alpha^{2}  + \frac{\lambda M}{B}  - 1}
+\frac{C_{max}}{C^{*}_{max}}\leq \frac{\alpha^{2} B m }{\alpha^{2} B + \lambda m - B}=\frac{\alpha^{2}  m }{\alpha^{2}  + \frac{\lambda m}{B}  - 1}
  \end{equation} 
- So, the value of above expression is directly proportional to $B$. From above expression it is clear that smaller the value of $B$, the value of $\frac{C_{max}}{C^{*}_{max}}$ decreases.  For $B= \lambda$ the value of expression would be minimum and is equal to $\frac{\alpha^{2}  M }{\alpha^{2}  + \frac{\lambda M}{B}  - 1}$. So, any algorithm   cannot give competitive ratio better than this.
+  From above expression it is clear that smaller the value of $B$, the value of $\frac{C_{max}}{C^{*}_{max}}$ decreases.  Irrespective of the value of $\lambda$,for $B= \lambda$ the value of expression would be minimum and is equal to $\frac{\alpha^{2}  m }{\alpha^{2}  + m  - 1}$. When $m$ tends to $\infty$ the expression equals $\alpha^2$. So, any algorithm   cannot give competitive ratio better than $\alpha^2$.
+  
+  \begin{figure}[htp]
+  \centering
+  \includegraphics[width= 8 cm]{fig1}
+  \caption{ Model 1  }
+  \label{fig:rara}
+  \end{figure}
  
  
  
 \subsection{Algorithm}
 
-\begin{figure}[htp]
-\centering
-\includegraphics[width= 4 cm]{fig1}
-\caption{ShareLaTeX logo}
-\label{fig:rara}
-\end{figure}
 
-\textbf{Theorem 1.1:} Using LPT the competitive ratio is $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
 
-\textbf{Proof:} In this problem model we are assigning tasks to processors using LPT in offilne mode using non-inceasing order of estimated processing times of tasks.
+\textbf{Theorem 1.2:} Using LPT the competitive ratio is $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
+
+\textbf{Proof:} In this problem model we are assigning tasks to processors using LPT in offline mode using non-increasing order of estimated processing times of tasks.
 
  
 
 
  
 \begin{equation}
-\tilde C_{max}\leq  [\frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}
+\tilde C_{max}\leq  \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}
 \end{equation}
 
-where $\tilde C_{max}$ is makespan considering esimated processing  times  of tasks.  Also actual processing time  $C_{max}$ must be smaller the $\alpha\tilde C_{max}$, we have \\
+where $\tilde C_{max}$ is makespan considering estimated processing  times  of tasks.  Also actual processing time  $C_{max}$ must be smaller the $\alpha\tilde C_{max}$, we have \\
 
 \begin{equation}
  C_{max}\leq \alpha \tilde C_{max}\leq \alpha [\frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}] 
 \end{equation} 
 
-Considering worst case situation the $\tilde C_{max}$ will increase to $\alpha$ times and load on rest of the processors will shrink  $\frac{1}{\alpha}$ times. So total actual prosessing time will be given by following equation.  The argument behind this is that greater the value of ratio $\frac{C_{max}}{\sum{p_j}}$, the algorithm will give bad approximation. So increasing the load on machine wchich have $C_{max} $to maximum
-value and decrasing rests of the load on other processors will reach worst case scenario. So total actual processing time will be given by following equation.
+Considering the worst case situation the processor with $\tilde C_{max}$ will see its tasks increase by $\alpha$  and the load on the  rest of the processors will by shrink  $\frac{1}{\alpha}$.  The argument behind this statement is that greater the value of ratio $\frac{C_{max}}{\sum{p_j}}$, the algorithm will give bad approximation. So increasing the load on the machine which have $C_{max} $ and decrasing the rest of the load on other processors will reach worst case scenario. So the total actual processing time is given by the  following equation.
  \begin{equation}
  \sum {p_j} = \frac{\tilde p_j- \tilde C_{max}}{\alpha} + \alpha \tilde C_{max}
  \end{equation}
  
- Also the actual optimal processing time have following constraint
+ Also the actual optimal makespan have following constraint
  \begin{equation}\nonumber 
 C_{max}^{*}\geq \frac{\sum {p_j}}{m}
 \end{equation}
 
-After putting the value of  $ \sum {p_j}$, we have
+Substituiting for  $ \sum {p_j}$, we have
 
  \begin{equation}\nonumber 
  m C_{max}^{*}\geq \frac{\tilde p_j- \tilde C_{max}}{\alpha} + \alpha \tilde C_{max}
@@ -276,21 +277,21 @@ After putting the value of  $ \sum {p_j}$, we have
 \end{equation}
 
 \begin{equation}\nonumber
- m C_{max}^{*}\geq \frac{m-1}{\alpha m} [\sum \tilde p_j-\tilde p_l] + {C_{max}}
+\Rightarrow m C_{max}^{*}\geq \frac{m-1}{\alpha m} [\sum \tilde p_j-\tilde p_l] + {C_{max}}
  \end{equation}
 
 By the property of LPT $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde p_l)$, putting this we have,\\
 \begin{equation}\nonumber 
- m C_{max}^{*}\geq \frac{m-1}{\alpha } [\tilde C_{max}-\tilde p_l] + {C_{max}}
+ m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\tilde p_l\right] + {C_{max}}
  \end{equation}
 \begin{equation}\nonumber
-\Rightarrow m C_{max}^{*}\geq \frac{m-1}{\alpha } [\tilde C_{max}-\frac{\tilde C_{max}}{2}] + {C_{max}}
+\Rightarrow m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\frac{\tilde C_{max}}{2}\right] + {C_{max}}
 \end{equation}
 \begin{equation}\nonumber
-\Rightarrow m C_{max}^{*}\geq \frac{m-1}{2\alpha } [\frac{C_{max}} {\alpha} ]+ {C_{max}}
+\Rightarrow m C_{max}^{*}\geq \frac{m-1}{2\alpha } \left[\frac{C_{max}} {\alpha} \right]+ {C_{max}}
 \end{equation}
 \begin{equation}\nonumber
-\Rightarrow m C_{max}^{*}\geq[\frac{m-1}{2\alpha^{2} } +1]{C_{max}}
+\Rightarrow m C_{max}^{*}\geq \left[\frac{m-1}{2\alpha^{2} } +1\right]{C_{max}}
 \end{equation}
 \begin{equation}\nonumber
 \Rightarrow \frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}
@@ -299,7 +300,7 @@ By the property of LPT $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde
 
 
 \section{Model 2: replication is done everywhere}
-In this problem model we consider no restrictaion on task assignment.  In the first phase task are replicated everywhere i.e. $\forall i, M_{i}=M $.  All tasks are allowed to replicate everywhere There are $ n$ tasks which need to be  assigned to $m$ processors. In the second phase we   simplly use the  Largest Processing Time algorithm (LPT) using estimated processing times of tasks in non-increasing order as input.  \\
+In this problem model we consider no restrictaion on task assignment.  In the first phase task are replicated everywhere i.e. $\forall j, |M_{j}|=|M|$.  All tasks are allowed to replicate everywhere There are $ n$ tasks which need to be  assigned to $m$ processors. In the second phase we   simplly use the  Largest Processing Time algorithm (LPT) using estimated processing times of tasks in non-increasing order as input.  \\
 
 
 
@@ -352,38 +353,33 @@ C_{max} \leq  \frac{\sum {p_j}}{m} + \frac{(m-1)}{m}p_l
 Using (6) and (7), we have\\
 
 \begin{equation}\nonumber
-\frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}(\frac{p_l}{C_{max}^{*}})
+\frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}\left(\frac{p_l}{C_{max}^{*}}\right)
 \end{equation}
 
 As $C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l $, We have \\
 
 \begin{equation}\nonumber
-\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}
+\frac{C_{max}}{C_{max}^{*}} \leq 1 + \left(\frac{m-1}{m}\right)\frac{\alpha^{2}}{2}
 \end{equation}
 Hence the theorem follows.   \\                            
 
 
 
 \section{Model 3: Replication in groups}
-We are tackling the  problem of restricted scheduling where tasks are scheduled to machines in two phases. The first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  The size of each group is equal and have $m/2$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1.  We propose  List Sheduling algorithm in both the phases. In phase 1 using LS we pre-assign the tasks in different groups.  In phase 2 we use online LS to schedule tasks to processors within each group.
+In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  There are $k$ groups and size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1.  We propose  List Sheduling algorithm in both the phases. In phase 1 using LS we pre-assign the tasks in different groups.  In phase 2 we use online LS to schedule tasks to processors within each group.
 
-\begin{figure}[htp]
+\begin{figure*}[htp]
 \centering
-\includegraphics[width= 8 cm]{fig2}
-\caption{}
-\label{fig:fig2}
-\end{figure}
-
-\begin{figure}[htp]
-\centering
-\includegraphics[width= 8 cm]{fig3}
-\caption{}
-\label{fig:fig3}
-\end{figure}
+\includegraphics[width= 16 cm]{fig2}
+\caption{Model 3}
+\label{fig:Model 3}
+\end{figure*}
 
 
 
-\textbf{Theorem 3.2:} When the number of groups is $k$ the approximation ratio is $  \frac{k\alpha^{2}}{\alpha^{2}+k-1}[1+ {\frac{k-1}{m}} ]+ {\frac{m-k}{m}}   $ \\
+
+
+\textbf{Theorem 3.1:} When the number of groups is $k$ the approximation ratio is $  \frac{k\alpha^{2}}{\alpha^{2}+k-1}[1+ {\frac{k-1}{m}} ]+ {\frac{m-k}{m}}   $ \\
 \\
 \textbf{Proof:} 
   We have $k$ groups of $m/k$ machines. We have restriction that each task can be assigned to only one of these groups. In Phase 1, each task is assigned to different groups. In Phase 2, tasks are scheduled online within repective group.
@@ -437,30 +433,34 @@ C_{max}^{*} \geq  \frac{\sum_{i \in T }^{}{{p_{i}}}}{m}
 from (11), we derive\\
 
 \begin{equation}{\nonumber}
-\Rightarrow C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ (k-1)[\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in T}}{{p_{i}}}]}{m}
+\Rightarrow C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ (k-1)\left[\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in T}}{{p_{i}}}\right]}{m}
 \end{equation}
 
 \begin{equation}{\nonumber}
 \Rightarrow m\alpha^{2}C_{max}^{*} + \alpha^{2} (k-1){max_{i \in T}}{{p_{i}}} \geq  \alpha^{2}\sum_{i \in G1 }^{}{{p_{i}}}+ (k-1)\sum_{i \in G1 }^{}{{p_{i}}} 
 \end{equation}
 \begin{equation}
-\Rightarrow\frac{\alpha^{2}}{\alpha^{2}+k-1}[m C_{max}^{*}+(k-1) {max_{i \in T}}{{p_{i}}}] \geq \sum_{i \in G1 }^{}{{p_{i}}}  
+\Rightarrow\frac{\alpha^{2}}{\alpha^{2}+k-1}\left[m C_{max}^{*}+(k-1) {max_{i \in T}}{{p_{i}}}\right] \geq \sum_{i \in G1 }^{}{{p_{i}}}  
 \end{equation}
 \\
 Using (12) and (13), We have
 
 \begin{equation}{\nonumber}
-C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}[ C_{max}^{*}+\frac{(k-1)}{m} {max_{i \in T}}{{p_{i}}}] + {\frac{m/k-1}{m/k}} p_{max} 
+C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[ C_{max}^{*}+\frac{(k-1)}{m} {max_{i \in T}}{{p_{i}}}\right] + {\frac{m/k-1}{m/k}} p_{max} 
 \end{equation}
  As $C_{max}^{*}\geq {{max_{i \in T}}{p_{i}}}\geq p_{max}$, we have\\
 \begin{equation}{\nonumber}
- C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}[ C_{max}^{*}+ {\frac{k-1}{m}}{C_{max}^{*}}] + {\frac{m-k}{m}} C_{max}^{*} \end{equation} \\
+ C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[ C_{max}^{*}+ {\frac{k-1}{m}}{C_{max}^{*}}\right] + {\frac{m-k}{m}} C_{max}^{*} \end{equation} \\
  
 
  
  So we have approximation ratio,\\
  \begin{equation}{\nonumber}
-\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}[1+ {\frac{k-1}{m}} ]+ {\frac{m-k}{m}} \end{equation}
+\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}} \end{equation}
+
+
+
+\textbf{Corollary 3.1:} When the number of groups is $2$ the approximation ratio is $ 1+ \frac{2}{1+\alpha^{2}} (\alpha^2-\frac{1}{m})  $ \\
 
 
 
@@ -552,18 +552,52 @@ C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}[ C_{max}^{*}+\frac{(k-1)}{m} {ma
 
 
 
-\section{Conclusion}
-The conclusion goes here. this is more of the conclusionhhhhhhh
+\section{Summary}
 
-% conference papers do not normally have an appendix
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Model & Approximation ratio & Replication \\
+\hline
+$|M_j|=1$ & $\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ [Theorem 1.2] & No Replication \\
+ & No approximation better than $\alpha^2$ [Thoerem 1.1] &  \\
 
+\hline
+$|M_j|=|M|$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ [Theorem 2.1] &  Replication everywhere \\
 
-% use section* for acknowledgement
-\section*{Acknowledgment}
+ \hline
+ 
+ $|M_j|= m/k $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}}$ [Theorem 3.1] &  Replication in groups \\
+  & $\frac{C_{max}}{C_{max}^{*}} \leq  1+ \frac{2}{1+\alpha^{2}} \left(\alpha^2-\frac{1}{m}\right)$ when $k=2$ [Corollary 3.1] &  \\
+  
+  \hline
+ \end{tabular}
+\caption{Summary Table}
+\label{tab:template}
+\end{table}
 
+\begin{figure}[htp]
+\centering
+\includegraphics[width= 8 cm]{graph2}
+\caption{Graph 1}
+\label{}
+\end{figure}
 
-The authors would like to thank...
-more thanks here
+\begin{figure}[htp]
+\centering
+\includegraphics[width= 8 cm]{graph3}
+\caption{Graph 2}
+\label{}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width= 8 cm]{graph5}
+\caption{Graph 3}
+\label{}
+\end{figure}
+
 
 
 % trigger a \newpage just before the given reference

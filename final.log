@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  14 AUG 2014 08:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  29 AUG 2014 14:36
 entering extended mode
 **final.tex
 (C:\Users\Manmohan\Documents\GitHub\research\final.tex
@@ -454,7 +454,14 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 LaTeX Warning: Unused global option(s):
     [compsocconf].
 
-(C:\Users\Manmohan\Documents\GitHub\research\final.aux)
+(C:\Users\Manmohan\Documents\GitHub\research\final.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
 LaTeX Font Info:    ... okay on input line 135.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
@@ -467,8 +474,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
 LaTeX Font Info:    ... okay on input line 135.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
 LaTeX Font Info:    ... okay on input line 135.
-
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+ ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count109
 \scratchdimen=\dimen137
@@ -533,146 +539,139 @@ Underfull \hbox (badness 10000) in paragraph at lines 218--220
 
  []
 
-<fig1.png, id=12, 246.1697pt x 270.25969pt>
+<fig1.png, id=12, 465.23813pt x 216.81pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 234.
-(pdftex.def)             Requested size: 113.81102pt x 124.94777pt.
+Package pdftex.def Info: fig1.png used on input line 230.
+(pdftex.def)             Requested size: 227.62204pt x 106.07571pt.
  [2 <C:/Users/Manmohan/Documents/GitHub/research/fig1.png>]
-Underfull \hbox (badness 3503) in paragraph at lines 251--252
-[]\OT1/ptm/m/n/10 where $[]$ is makespan con-sid-er-ing es-i-mated
+Underfull \hbox (badness 2443) in paragraph at lines 253--254
+[]\OT1/ptm/m/n/10 where $[]$ is makespan con-sid-er-ing es-ti-mated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--252
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--312
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--327
+Underfull \hbox (badness 10000) in paragraph at lines 310--313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--338
+Underfull \hbox (badness 10000) in paragraph at lines 325--328
 
  []
 
 
-Underfull \hbox (badness 2126) in paragraph at lines 335--338
+Underfull \hbox (badness 10000) in paragraph at lines 336--339
+
+ []
+
+
+Underfull \hbox (badness 2126) in paragraph at lines 336--339
 \OT1/ptm/b/n/10 Proof: \OT1/ptm/m/n/10 The op-ti-mal makespan, $\OML/cmm/m/it/1
 0 C[]$ \OT1/ptm/m/n/10 must be at
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--338
+Underfull \hbox (badness 10000) in paragraph at lines 336--339
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 342--343
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 350--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--354
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--364
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
 
  []
 
-<fig2.png, id=29, 322.20375pt x 258.9675pt>
+<fig2.png, id=29, 459.21562pt x 185.94469pt>
 File: fig2.png Graphic file (type png)
  <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 372.
-(pdftex.def)             Requested size: 227.62204pt x 182.95538pt.
+Package pdftex.def Info: fig2.png used on input line 373.
+(pdftex.def)             Requested size: 455.24408pt x 184.34682pt.
 
-<fig3.png, id=30, 319.94531pt x 249.93375pt>
-File: fig3.png Graphic file (type png)
- <use fig3.png>
-Package pdftex.def Info: fig3.png used on input line 379.
-(pdftex.def)             Requested size: 227.62204pt x 177.8165pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 386--390
+Underfull \hbox (badness 10000) in paragraph at lines 382--386
 
  []
 
 
-Underfull \hbox (badness 1895) in paragraph at lines 391--392
+Underfull \hbox (badness 1895) in paragraph at lines 387--388
 \OT1/ptm/m/n/10 Also, tak-ing the prop-erty of List Schedul-ing that
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
-
- []
-
-[4 <C:/Users/Manmohan/Documents/GitHub/research/fig2.png> <C:/Users/Manmohan/Do
-cuments/GitHub/research/fig3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 408--410
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--410
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--423
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--425
+Underfull \hbox (badness 10000) in paragraph at lines 417--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
  []
 
 
-Overfull \hbox (21.40147pt too wide) detected at line 441
+Underfull \hbox (badness 10000) in paragraph at lines 433--434
+
+ []
+
+
+Overfull \hbox (25.8459pt too wide) detected at line 437
 [] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []
  []
 
-
-Overfull \hbox (35.78386pt too wide) detected at line 445
+[4]
+Overfull \hbox (35.78386pt too wide) detected at line 441
 [] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 m[]C[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/
 10 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1)
 [][] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 [] [] [] \OT1/cmr/m/n/10 + (\OML/cmm/
@@ -680,20 +679,25 @@ m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1) [] []
  []
 
 
-Overfull \hbox (37.08694pt too wide) detected at line 454
-[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 C
-[] \OT1/cmr/m/n/10 + [][][]] + []\OML/cmm/m/it/10 p[]
+Overfull \hbox (48.19794pt too wide) detected at line 450
+[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  [] [] \OT1/cmr/m/n/10 + []\OML/cmm/m/
+it/10 p[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 454--456
+Underfull \hbox (badness 10000) in paragraph at lines 450--452
 
  []
 
 
-Overfull \hbox (2.38112pt too wide) detected at line 457
-[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 C
-[] \OT1/cmr/m/n/10 + [][]] + []\OML/cmm/m/it/10 C[]
+Overfull \hbox (13.49211pt too wide) detected at line 453
+[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  [] [] \OT1/cmr/m/n/10 + []\OML/cmm/m/
+it/10 C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+
  []
 
 
@@ -702,10 +706,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 457--458
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--462
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 
  []
 
+
+Overfull \hbox (129.82713pt too wide) in paragraph at lines 559--576
+ [][] 
+ []
+
+<graph2.png, id=33, 428.35031pt x 246.1697pt>
+File: graph2.png Graphic file (type png)
+ <use graph2.png>
+Package pdftex.def Info: graph2.png used on input line 582.
+(pdftex.def)             Requested size: 227.62204pt x 130.81113pt.
+
+<graph3.png, id=34, 428.35031pt x 246.1697pt>
+File: graph3.png Graphic file (type png)
+ <use graph3.png>
+Package pdftex.def Info: graph3.png used on input line 589.
+(pdftex.def)             Requested size: 227.62204pt x 130.81113pt.
+
+<graph5.png, id=35, 414.79968pt x 249.93375pt>
+File: graph5.png Graphic file (type png)
+ <use graph5.png>
+Package pdftex.def Info: graph5.png used on input line 596.
+(pdftex.def)             Requested size: 227.62204pt x 137.15126pt.
+ [5 <C:/Users/Manmohan/Documents/GitHub/research/fig2.png> <C:/Users/Manmohan/D
+ocuments/GitHub/research/graph2.png> <C:/Users/Manmohan/Documents/GitHub/resear
+ch/graph3.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -717,33 +746,46 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5] (C:\Users\Manmohan\Documents\GitHub\research\final.aux) ) 
+[6
+
+ <C:/Users/Manmohan/Documents/GitHub/research/graph5.png>]
+(C:\Users\Manmohan\Documents\GitHub\research\final.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3496 strings out of 493921
- 50252 string characters out of 3147273
- 114284 words of memory out of 3000000
- 6755 multiletter control sequences out of 15000+200000
- 36949 words of font info for 72 fonts, out of 3000000 for 9000
+ 3529 strings out of 493921
+ 50622 string characters out of 3147273
+ 114331 words of memory out of 3000000
+ 6778 multiletter control sequences out of 15000+200000
+ 41773 words of font info for 86 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
- 27i,8n,26p,13379b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/
-MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
-/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final.pdf (5 pages, 194155 bytes).
+ 27i,11n,26p,13379b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
+/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pf
+b>
+Output written on final.pdf (6 pages, 281107 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
