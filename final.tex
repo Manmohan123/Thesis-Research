@@ -223,7 +223,7 @@ We have  considered List scheduling and Longest processing time algorithms and h
 \textbf{Thoerem 1.1:} There is no online algorithm having competitive  ratio better than $\alpha^{2} $.\\
 \textbf{Proof:}  We  use adversary technique to prove that there is no online algorithm having competitive  ratio better than $\alpha^{2} $\\
  
- Let us consider an instance in which total tasks be $\lambda m$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary  increases the tasks on $j$ by $\alpha$ and decreases the other tasks by $\alpha$. So, $ C_{max}$ = $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  m - B) }{m}$. We have,
+Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an instance in which total tasks be $\lambda m$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary  increases the tasks on $j$ by $\alpha$ and decreases the other tasks by $\alpha$. So, $ C_{max}$ = $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  m - B) }{m}$. We have,
  
  \begin{equation}\nonumber
 \frac{C_{max}}{C^{*}_{max}}\leq \frac{\alpha^{2} B m }{\alpha^{2} B + \lambda m - B}=\frac{\alpha^{2}  m }{\alpha^{2}  + \frac{\lambda m}{B}  - 1}
@@ -371,7 +371,7 @@ Hence the theorem follows.   \\
 
 
 \section{Model 3: Replication in groups}
-In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  There are $k$ groups and size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1.  We propose  List Sheduling algorithm in both the phases. In phase 1 using LS we pre-assign the tasks in different groups.  In phase 2 we use online LS to schedule tasks to processors within each group.
+Figure \ref{fig:Model 3} shows the constrution of two phases in model 3.  In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  There are $k$ groups and size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1.  We propose  List Sheduling algorithm in both the phases. In phase 1 using LS we pre-assign the tasks in different groups.  In phase 2 we use online LS to schedule tasks to processors within each group.
 
 \begin{figure*}[htp]
 \centering
@@ -561,7 +561,7 @@ C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[ C_{max}^{*}+\frac{(k-1)}{m
 
 The Table \ref{tab:template} summarizes the results in term of approximation ratio given by the three models.
 
-\begin{table}[ht]
+\begin{table*}[ht]
 \centering
 \begin{tabular}{|l|c|c|c|c|c|}
 \hline
@@ -582,7 +582,7 @@ $|M_j|=|M|$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^
  \end{tabular}
 \caption{Summary Table}
 \label{tab:template}
-\end{table}
+\end{table*}
 
 
 The figure \ref{fig:graph} shows ratio- replication graphs for each of the models for different values of $ \alpha$.  We vary the value of $\alpha$ while keeping the number of machines fixed, $m=210$. For replication everywhere scenario the number of replication is full and is always equal to total number of machines.  For no replication scenario the approximation ratio is fixed for each value of $\alpha$.  For the model where replication is allowed within the group the approximation ratio decreases significantly for small replication. We observe that after a significant number of replications the ratio is not much improved further. 
@@ -595,6 +595,8 @@ The figure \ref{fig:graph} shows ratio- replication graphs for each of the model
 \label{fig:Graph}
 \end{center}
 \end {figure}
+
+
 
 
 
