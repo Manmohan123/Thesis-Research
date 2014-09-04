@@ -1,6 +1,65 @@
-@BOOK{bar,
-	    AUTHOR = "Star, R. M.",
-	    TITLE = "Foo Bar Baz",
-	    PUBLISHER = {MIT Press},
-	    ADDRESS = {Cambridge, MA},
-	    YEAR = 1989}
+@article{Guinand04,
+  author =       {Frederic Guinand and Aziz Moukrim and Eric
+                  Sanlaville},
+  title =          {Sensitivity Analysis of Tree Scheduling on Two
+                  Machines with Communication Delays},
+  journal =        PARCO,
+  year =   {2004},
+  volume =  {30},
+  pages =    {103-120},
+  keyword =   {scheduling, tree, delay model, processor ordered,
+                  tree},
+  where =          {ordo/Guinand04.pdf.gz},
+  annote =          {defines processor ordered schedule similar to convex
+                  clustered schedule of~\cite{Lepere02}}
+}
+
+
+@inproceedings{Crutchfield08,
+  OPTfullauthor ={Christopher Y. Crutchfield and Zoran Dzunic and
+                  Jeremy T. Fineman and David R. Karger and Jacob
+                  H. Scott},
+  author =         {C. Y. Crutchfield and Z. Dzunic and J. T. Fineman
+                  and D. R. Karger and J. H. Scott},
+  title =          {Improved approximations for multiprocessor
+                  scheduling under uncertainty},
+  booktitle =      {SPAA '08: Proceedings of the twentieth annual
+                  symposium on Parallelism in algorithms and
+                  architectures},
+  year =           {2008},
+  isbn =            {978-1-59593-973-9},
+  pages =            {246--255},
+  location =          {Munich, Germany},
+  doi =                  {http://doi.acm.org/10.1145/1378533.1378579},
+  publisher =           {ACM},
+  address =  {New York, NY, USA},
+  keyword =   {scheduling, online, approximation algorithm,
+                  uncertainity, failure, fault tolerance, independent
+                  tasks, chain, tree},
+  annote =         {This paper is interested in models where tasks can
+                  fail. Therefore, the tasks have to be
+                  reexecuted. They provide approximation algorithms
+                  with log ratios for teh case of independent tasks,
+                  chains and trees}
+}
+
+
+@InProceedings{Gatto07,
+  author =       {Michael Gatto and Peter Widmayer},
+  title =         {On the robustness of Graham's algorithm for online
+                  scheduling},
+  booktitle =      {Proc of WADS},
+  year =     {2007},
+  where =     {papers/GattoWidmayer-WADS2007.pdf.gz},
+  keywords =   {scheduling, approximation algorithm, robustness,
+                  sensitivity, online},
+  annote =         {In this paper, the authors investigate the problem
+                  of scheduling independant tasks on identical
+                  processor to minimize the makespan $P||Cmax$ where
+                  the processing time are barely known in
+                  advance. They investigate cases where a fixed number
+                  of job can change their processing time. Their
+                  contribution is a sensivity analysis, that is all
+                  jobs are scheduled in advance, then the real
+                  computation time are known.}
+}
