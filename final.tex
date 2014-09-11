@@ -182,21 +182,11 @@ component; formatting; style; styling;
 
 \section{Introduction}
 
-Many real world scheduling problems related to task allocation in parallel machines are uncertain in nature. This fact makes the class of problem  known as 'scheduling with uncertainty' or 'robust' scheduling an important and most studied problem in Scheduling.  Often in  scheduling models the exact value of parameters such as processing times of tasks, are not known initially,   but they have a range outside which their values cannot  lie.  This paper draws qualitative analysis of the effect of replication in data placement for uncertain scheduling with inexact processing time of a task. Thus  our research brings two area of scheduling problem together i.e. task uncertainty and data placement.  The scheduling problem related to data placement and task allocation is common in heterogeneous systems and often dealt with common approach.  The objective of our reseach  is to propose an optimization approach that takes into account  effective data placement using replication to schedule  tasks in the environment where processing time of tasks are not known exactly but they can be estimated based on some pre estimated values.
+Many real world scheduling problems related to task allocation in parallel machines are uncertain in nature. This fact makes the class of problem known as ’scheduling with uncertainty’ or ’robust’ scheduling an important and most studied problem in Scheduling. Robustness is the measure of to what extent an algorithm can cope with uncertainties in a scheduling problem. Often in scheduling problems the exact processing time of a job is not known initially at the time of planning for job- allocation to different machines, but they have a range outside which their values cannot lie. The fact gives a basis to estimate the processing times and to take job assignment decision based on these estimated values. The actual processing time of a job can vary drastically from its estimated one. So, any algorithm have to incur the cost of estimation which impact its performance negatively. A robust approach deals with uncertainty in input parameters to minimize this cost.
 
-Data placement technique can be useful in the scenario of uncertain processing times of tasks. Effective data placement using replication strategy allows better load balancing and hence reduces turnaround job time.   This paper is important in the sense that it proposes different models depending upon different scenarios and compares them based on approximation ratio and replication they allow.  Replication strategy that allows to place data in a wisely manner  offers a faster access to files required by  jobs, hence increases the job execution’s performance. Replication helps in load balancing but it have certain cost attached with it as it usually increases resource usage\cite{IEEEhowto:wang}.  The paper deals with this problem and chooses the scenario in which replication is beneficial. 
+ The objective of our research is to study the affect on performance of parallel machine scheduling when jobs are scheduled based on their estimated values of processing times, and to propose scheduling approaches that optimizes the performance in this environment. Data  placement and replication techniques can be useful in the scenario of uncertain processing times of tasks. Effective data placement using replication strategy allows better load balancing and hence reduces turnaround job time. This paper is important in the sense that it proposes different models depending upon different scenarios and compares them based on approximation ratio and replication they allow. Replication strategy that allows to place data in a wisely manner offers a faster access to files required by jobs, hence increases the job execution’s performance. Replication helps in load balancing but it have certain cost attached with it as it usually increases resource usage [?]. The paper deals with this problem and chooses the scenario in which replication is beneficial. Thus our research focus on two area of scheduling problem i.e. task uncertainty and replication using data placement. The scheduling problem related to data placement and task allocation is common in heterogeneous systems and often dealt with common approach. This paper draws qualitative analysis of the effect of replication in data placement for uncertain scheduling with inexact processing time of a task.
 
-
-There is very less literature available for scheduling with estimated processing time of a task.  Most of the literature till now focuses on job size estimation with small error.  Very less work is done which focuses on coping with less restrictive estimation for task size and which analyzes the effect of estimation on scheduling quantitatively.   Wierman and Nuyens \cite{IEEEhowto:Wierman} introduce $ \xi-SMART$ as classification to understand size based policies and draw analytical co-relation between response time and estimated job size in single server problem. \cite{IEEEhowto:Matteo} provides insight into scheduling behavior when estimation error is present and proposes FSPE+PS based policy to cope with this problem.
- 
-Size estimation based policies are widely used in practicality in the area of MapReduce and Hadoop. \cite{IEEEhowto:Wolf} \cite{IEEEhowto:Pastorelli} proposes schedulers which provides robustness in scheduling against uncertain Job Size. \cite{IEEEhowto:Canon} provides scheduling heuristics that optimizes both makespan and robustness in scheduling task graph on heterogenous system.
-
-In literature uncertainty problems are also viewed as sensitivity analysis and purturbations in processing time of a task. \cite{IEEEhowto:Gatto} derives bounds on competitive ratio of Graham’s online algorithm in scenario where processing times of jobs either increase or decrease arbitrarily due to pertured processing times of tasks.
-
-\cite{IEEEhowto:Guinand} presents sensitivity analysis for scheduling trees with communication
-delays on two identical machines.  Wagelmans give supporting evidence for the notion  that a good performance of an algorithms  is identical with a high degree of sensitivity \cite{IEEEhowto:Wagelmans}. 
-
-The remaining of the paper is organized as follows:we describe system model and notatins in section 2. Sections 3-5 describes different problem models- 1)No replications, 2)replication is done everywhere and 3)replication is done within a group. The respective sections describe derivation of comptetitave ratios for each of these models. Section 6 summarises the 3 models and based on experimental results.  
+ The remaining of the paper is organized as follows: we describe system model and notations in section 2. Sections 3-5 describes different problem models- 1)No replications, 2)replication is done everywhere and 3)replication is done within a group. The respective sections describe derivation of competitive ratios for each of these models. Section 6 summarizes the 3 models and based on experimental results.  
 
 \section{Problem Definition}
 % no \IEEEPARstart
@@ -212,28 +202,91 @@ estimated processing time for the task $i$.  We have this estimate:\\
 We consider various problem models  incorporating the above mentioned scenario of uncertain processing times of tasks with an estimate. Depending upon  a problem model the scheduling is done in two phases or just in one phase. In Phase 1, we allocate tasks to certain processors or group of processors depending upon a problem model.  Phase 1 chooses where data to be  replicated using estimated processing time $\tilde p_i $, for each of the task $i$. Phase 1 takes $\tilde{p_i}$, $m$ and $\alpha$ as input and outputs set of machines, $M_j \subseteq M $ where a task $j$ can be scheduled or is replicated. Phase 2 takes output of phase 1 as input and outputs set of task assigned to a machine $i$, $E_i \subseteq J$.   In Phase 2, we choose actual schedule with semi-clairvoyant algorithm which uses only approximate knowledge of initial processing time, and after scheduling the task the actual $p_i$ is known.  With  objective to find schedule which minimizes makespan, we investigate greedy algorithms for each of the problem models and prove their comptetitive ratios. \\
 
 We have used  Graham's List Scheduling (LS) and Largest Processing Time (LPT) algorithms to derive approximation ratios in different scenarios. The LS algorithm takes tasks one at a time and assign  it to the processor having least load at that time. LS is 2-approximation algorithm and is widely used in online scheduling problems.  The LPT sorts tasks in decreasing order of processing time and assign them one at a time in this order to the processor with the smallest current load. The LPT algorithm have worst case performance ratio as $4/3-1/(3m) $ in offline setting
-. Depending upon which among these two algorithms suits more for a problem model we have used these algorithms accordingly. 
+. Depending upon which among these two algorithms suits more for a problem model we have used these algorithms accordingly.
 
-\section{Model 1: No replication} 
-In this problem model we have considered  situation where each task is restricted to be scheduled on only one machine, i.e. $|M_j|=1$.  We have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f : J \leftarrow M$ be a function that assigns each job to exactly one machine. Let us denote $E_{i}$ as the set tasks which is assigned to a machine $i$.  The restriction that each task can be scheduled to only one machine restrict the problem constrution to phase one only. There is no replication of tasks in this model.\\
+\section{Related Work}
+We begin with the literature on scheduling problems under uncertainty. based on various models of describing uncertainty in input parameter, uncertainty problems can be approached by various methodologies including Reactive, stochastic, fuzzy and Robust approach [4]. The bounded uncertainty model assumes that an input parameter have value between a lower and upper bound and is usually dealt with robust approach or sensitivity analysis. We are more interested in robust approach to deal with uncertainty. There is very less literature available for scheduling with estimated processing time of a task. Most of the literature till now focuses on job size estimation with small error. Very less work is done which focuses on coping with less restrictive estimation for task size and which analyzes the effect of estimation on scheduling quantitatively. Wierman and Nuyens introduce  SMART as classification to understand size based policies and draw analytical co-relation between response time and estimated job size in single server problem [6]. [?] presents sensitivity analysis for scheduling trees with communication delays on two identical machines. Wagelmans give supporting evidence for the notion that a good performance of an algorithms is identical with a high degree of sensitivity [?] 
+
+To obtain robust schedule against uncertainty very
+few work had been done so far. Most of the work on
+robust scheduling uses scenarios in problem formulation
+to structure variability of uncertain parameter. Daniels
+and Kouvelis [1] used scenarios to formulate branch
+and bound based robust scheduling to cope uncertainty
+in processing time of jobs in single machine scenario.
+Davenport, Gefflot, and Bek used slack based technique
+to add extra time to cope with uncertainty [2]. Gatto
+and widmayer derives bounds on competitive ratio of
+Graham’s online algorithm in scenario where processing
+times of jobs either increase or decrease arbitrarily
+due to perturbed processing times of tasks [3]. This
+paper is close to our problem construction. Their notion
+of perturbed processing times which may increase or
+decrease arbitrarily is somewhat similar to our definition
+of estimated processing times which can increase or
+decrease to actual processing times once the jobs are
+processed. But unlike our work they deal with increment
+and decrement of job’s processing time separately. We
+have approached the problem with worst case scenario
+where some tasks may increase and some may decrease
+in same schedule.
+
+We have used pro-active approach to deal with uncertainty.
+Through this research we study effect of
+load balancing in scenario of uncertain processing time.
+We propose 3 models offering different degree of task
+replication to balance the load. Similar work is done by
+Tse [5] who used selective replication of documents in
+bi criteria problem of minimizing load and memory in
+distributed file servers.
+
+Dealing with uncertainty problems with robust approach
+is widely used in practicality in the area of
+MapReduce, Hadoop, databases and web servers. [?]
+[?] proposes schedulers which provides robustness in
+scheduling against uncertain Job Size. [?] provides
+scheduling heuristics that optimizes both makespan and
+robustness in scheduling task graph on heterogeneous
+system.
+
+\subsection{Our Contribution}
+
+We study the effect of load balancing through replication in classic problem of scheduling jobs with uncertain processing times with objective to optimize makespan. We propose 3 models based on different degree of of
+replication they allow: a)No Replication i.e. $|M_j|=1 $,b) Replication is done every where i.e.$|M_j|=|M|$ and c) Replication in groups i.e $|M_j|= m/k$  where $k$ is number of groups each having $m/k$ processors . For each of the models we propose a two phase algorithm based on Graham’s LS and LPT; and derive performance ratio for each. For $|M_j|=1 $, we prove that there is no algorithm which give better performance than $\alpha^2$. Our algorithm for the model give $\frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ approximation. For models with replications $|M_j|=|M|$ and $|M_j|= m/k$ the algorthims give performance
+ratio of $ 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ and $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}}$ respectively.
+
+\section{Model 1: No Replication} 
+
+
+In this problem model we have considered  situation where each task is restricted to be scheduled on only one machine, i.e. $|M_j|=1$.  We have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f : J \leftarrow M$ be a function that assigns each job to exactly one machine. Let us denote $E_{i}$ as the set tasks which is assigned to a machine $i$.  The restriction that each task can be scheduled to only one machine restrict the problem construction to phase one only. There is no replication of tasks in this model.\\
 \\
 
 We have  considered List scheduling and Longest processing time algorithms and have  assigned each task on machine on which they are restricted to.   Based on the estimated processing times of  tasks loaded on each machine we will derive makespan. \\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 \subsection{Lower Bound}
-\textbf{Thoerem 1.1:} There is no online algorithm having competitive  ratio better than $\alpha^{2} $.\\
-\textbf{Proof:}  We  use adversary technique to prove that there is no online algorithm having competitive  ratio better than $\alpha^{2} $\\
+
+\textbf{Thoerem 1.1:} For the model having $|M_j| = 1$, there
+is no online algorithm having competitive ratio better than $\alpha^{2} $.\\
+\textbf{Proof:} We use adversary lower bound technique to
+prove the theorem. We define a lower bound input
+instance for an unknown correct algorithm. The
+adversary maximizes the competitive ratio until it
+becomes feasible to be scheduled by any algorithm.\\
  
-Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an instance in which total tasks be $\lambda m$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary  increases the tasks on $j$ by $\alpha$ and decreases the other tasks by $\alpha$. So, $ C_{max}$ = $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  m - B) }{m}$. We have,
+Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an instance in which total tasks be $\lambda m$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary  increases the tasks on $j$ by $\alpha$ and decreases the other tasks by $\frac{1}{\alpha}$. So, $ C_{max}$ = $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  m - B) }{m}$. We have,
  
  \begin{equation}\nonumber
 \frac{C_{max}}{C^{*}_{max}}\leq \frac{\alpha^{2} B m }{\alpha^{2} B + \lambda m - B}=\frac{\alpha^{2}  m }{\alpha^{2}  + \frac{\lambda m}{B}  - 1}
  \end{equation} 
-  From above expression it is clear that smaller the value of $B$, the value of $\frac{C_{max}}{C^{*}_{max}}$ decreases.  Irrespective of the value of $\lambda$,for $B= \lambda$ the value of expression would be minimum and is equal to $\frac{\alpha^{2}  m }{\alpha^{2}  + m  - 1}$. When $m$ tends to $\infty$ the expression equals $\alpha^2$. So, any algorithm   cannot give competitive ratio better than $\alpha^2$.
+ 
+  From above expression it is clear that smaller the value of $B$, the value of $\frac{C_{max}}{C^{*}_{max}}$ decreases. So, any algorithm
+  tries to minimize $B$ to get better performance.  But for a schedule to become feasible the condition, $B \geq \lambda$ must  be satisfied. Irrespective of the value of $\lambda$, for $ B \geq \lambda $ the value of expression would be feasible minimum and would equal to   $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$. When $m$ tends to $\infty$ the expression  equals $\alpha^2$. So, any algorithm cannot give competitive ratio better than $\alpha^2$.  
+  
   
   \begin{figure}[htp]
   \centering
   \includegraphics[width= 8 cm]{fig1}
-  \caption{ Model 1  }
+  \caption{ The figure represents the model having $|M_j|= 1$ with
+  $\lambda = 3$ and $m = 6$. $A$ represents worst case scenario showing all the tasks increased to $\alpha$ times in the most loaded machine. $B$ represents   optimal scheduling scenario.  }
   \label{fig:rara}
   \end{figure}
  
@@ -241,27 +294,42 @@ Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an in
  
 \subsection{Algorithm}
 
+We introduce an algorithm, \textbf{LPT-No Choice} which
+is based on Graham's LPT algorithm. In phase 1, The
+algorithm schedules the jobs to different machines in
+offline mode based on non-increasing order of their
+estimated processing times. Just like Graham's LPT a
+job is assigned to a machine having least load at that
+time. Adhering to the construction of the model, there
+is no choice of load balancing based on replication in
+phase 2. The performance of the algorithm depends on
+how much actual processing times of jobs vary from
+estimated ones. The actual processing time of a job may
+increase or shrink significantly from its estimated value
+and is known exactly only after the job is processed by
+a machine. So, the algorithm's performance incur the
+cost of estimation.
 
+\textbf{Theorem 1.2:} The \textbf{LPT-No Choice} have competitive
+ratio of $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
 
-\textbf{Theorem 1.2:} Using LPT the competitive ratio is $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
-
-\textbf{Proof:} In this problem model we are assigning tasks to processors using LPT in offline mode using non-increasing order of estimated processing times of tasks.
-
- 
-
-
+\textbf{Proof:} The algorithm assigns the jobs to processors
+based on their estimated processing times using LPT in
+offline mode. So, the planned makespan considering estimated
+processing times of tasks, $\tilde{C}_{max}$ have following
+inequality relation with total estimated processing time,
+$\tilde{p_j}$ and estimated processing time of last task, $l$.
  
 \begin{equation}
 \tilde C_{max}\leq  \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}
 \end{equation}
 
-where $\tilde C_{max}$ is makespan considering estimated processing  times  of tasks.  Also actual processing time  $C_{max}$ must be smaller the $\alpha\tilde C_{max}$, we have \\
-
+The actual makespan of a schedule, $C_{max}$, calculatedafter actual processing times of all the jobs are known,must be smaller than $\alpha\tilde C_{max}$. Considering this we have following inequality:
 \begin{equation}
  C_{max}\leq \alpha \tilde C_{max}\leq \alpha [\frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}] 
 \end{equation} 
 
-Considering the worst case situation the processor with $\tilde C_{max}$ will see its tasks increase by $\alpha$  and the load on the  rest of the processors will by shrink  $\frac{1}{\alpha}$.  The argument behind this statement is that greater the value of ratio $\frac{C_{max}}{\sum{p_j}}$, the algorithm will give bad approximation. So increasing the load on the machine which have $C_{max} $ and decrasing the rest of the load on other processors will reach worst case scenario. So the total actual processing time is given by the  following equation.
+Considering the worst case situation the processor with $\tilde C_{max}$ will see its tasks increase by $\alpha$  and the load on the  rest of the processors will by shrink  $\frac{1}{\alpha}$.  The argument behind this statement is that greater the value of ratio $\frac{C_{max}}{\sum{p_j}}$, the algorithm will give bad approximation. So increasing the load on the machine which have $C_{max} $ and deceasing the rest of the load on other processors will reach worst case scenario. So the total actual processing time is given by the  following equation.
  \begin{equation}
  \sum {p_j} = \frac{\tilde p_j- \tilde C_{max}}{\alpha} + \alpha \tilde C_{max}
  \end{equation}
@@ -271,7 +339,7 @@ Considering the worst case situation the processor with $\tilde C_{max}$ will se
 C_{max}^{*}\geq \frac{\sum {p_j}}{m}
 \end{equation}
 
-Substituiting for  $ \sum {p_j}$, we have
+Substituting for  $ \sum {p_j}$, we have
 
  \begin{equation}\nonumber 
  m C_{max}^{*}\geq \frac{\tilde p_j- \tilde C_{max}}{\alpha} + \alpha \tilde C_{max}
@@ -289,40 +357,47 @@ By the property of LPT $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde
 \begin{equation}\nonumber 
  m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\tilde p_l\right] + {C_{max}}
  \end{equation}
+ 
+ The Graham’s LPT algorithm in normal scenario give
+ optimal performance till two jobs are assigned to machines.
+ But in the scenario of estimated processing times
+ of tasks whose value can significantly vary from actual
+ actual ones, any schedule using estimated values cannot
+ guarantee optimality for even two jobs per machine. So,
+ we consider the instance of at least two jobs per machine
+ to derive performance ratio of our algorithm. For at least
+ two jobs in machine having $\tilde{C}_(max)$, the processing time
+ (estimated) of latest job, $\tilde{p_l} $ atmost be equal to $\tilde{C}_(max)/2$. Putting this in the above equation, we have
 \begin{equation}\nonumber
-\Rightarrow m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\frac{\tilde C_{max}}{2}\right] + {C_{max}}
+ m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\frac{\tilde C_{max}}{2}\right] + {C_{max}}
+\end{equation}
+
+Using equation 3,
+\begin{equation}\nonumber
+ m C_{max}^{*}\geq \frac{m-1}{2\alpha } \left[\frac{C_{max}} {\alpha} \right]+ {C_{max}}
 \end{equation}
 \begin{equation}\nonumber
-\Rightarrow m C_{max}^{*}\geq \frac{m-1}{2\alpha } \left[\frac{C_{max}} {\alpha} \right]+ {C_{max}}
+ m C_{max}^{*}\geq \left[\frac{m-1}{2\alpha^{2} } +1\right]{C_{max}}
 \end{equation}
 \begin{equation}\nonumber
-\Rightarrow m C_{max}^{*}\geq \left[\frac{m-1}{2\alpha^{2} } +1\right]{C_{max}}
-\end{equation}
-\begin{equation}\nonumber
-\Rightarrow \frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}
+\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}
 \end{equation}
 
 
 
 \section{Model 2: replication is done everywhere}
-In this problem model we consider no restrictaion on task assignment.  In the first phase task are replicated everywhere i.e. $\forall j, |M_{j}|=|M|$.  All tasks are allowed to replicate everywhere There are $ n$ tasks which need to be  assigned to $m$ processors. In the second phase we   simplly use the  Largest Processing Time algorithm (LPT) using estimated processing times of tasks in non-increasing order as input.  \\
 
+In this problem model we consider no restriction on task assignment. The tasks are allowed to be replicated everywhere i.e. i.e. $\forall j, |M_{j}|=|M|$. We introduce \textbf{LPT-No Restriction }algorithm which is also a two phase algorithm. In the first phase no restriction is put into
+task assignment. It is assumed that each task can be replicated on any machine. In the second phase we simply use the Longest Processing Time algorithm (LPT) using estimated processing times of tasks in non-increasing order as input.\\
 
+\textbf{Lemma 2.1:} LPT-No Restriction give approximation ratio of $ {\frac{2}{\alpha^{2}}} p_l $ when there are at least two tasks in
+the machine to which the last task, $l$ is scheduled. 
 
-
-\textbf{Lemma 2.1:} $C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l $  when there are at least two tasks in the machine to which the last task, $l$ is scheduled.
-
-\textbf{Proof:} Suppose $l$ be the last task with estimated processing time $\tilde p_l$. Suppose
-there are at least two tasks in the machine in which $l$ is assigned including $l$. Let
-$C_{max}$ be the be makespan of the schedule and $C_{max}^{*}$ be the optimal makespan.\\
-
-As there is at least one task $j$ before $l$ in the machine to which $l$ is
-assigned, we have
+\textbf{Proof:} 
+As there is at least one task $j$ before $l$ in the machine to which $l$ is assigned, we have
 \begin{equation}\nonumber
 C_{max}^{*}\geq p_l + p_j
-\end{equation}
-
-
+\end{equation}	
 
 As actual processing time of a task must be greater than $\frac{1}{\alpha}$ times of its estimated value, we have
 \begin{equation}\nonumber 
@@ -371,12 +446,15 @@ Hence the theorem follows.   \\
 
 
 \section{Model 3: Replication in groups}
-Figure \ref{fig:Model 3} shows the constrution of two phases in model 3.  In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  There are $k$ groups and size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1.  We propose  List Sheduling algorithm in both the phases. In phase 1 using LS we pre-assign the tasks in different groups.  In phase 2 we use online LS to schedule tasks to processors within each group.
+Figure \ref{fig:Model 3} shows the constrution of two phases in model 3.  In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  There are $k$ groups and size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1. 
+
+ We propose an two phase algorithm, \textbf{LS-Group} which is based on Graham’s List Scheduling algorithm. In phase 1, using LS in offline mode the algorithm pre-assign the jobs in different groups. In phase 2, the algorithm chooses online LS to schedule tasks to processors within each group.
 
 \begin{figure*}[htp]
 \centering
 \includegraphics[width= 16 cm]{fig2}
-\caption{Model 3}
+\caption{Replication in groups with $m = 6$, $k = 2$. The left fig. shows tasks assignment to groups in phase 1; The right fig shows each task
+assigned to a machine within a group}
 \label{fig:Model 3}
 \end{figure*}
 
