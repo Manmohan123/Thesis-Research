@@ -1,8 +1,35 @@
 \begin{thebibliography}{1}
 
+\bibitem{citeulike:8334169}
+R.~L. Daniels and P.~Kouvelis.
+\newblock {Robust Scheduling to Hedge Against Processing Time Uncertainty in
+  Single-Stage Production}.
+\newblock {\em MANAGEMENT SCIENCE}, 41(2):363--376, Feb. 1995.
+
+\bibitem{Davenport_slack-basedtechniques}
+A.~J. Davenport, C.~Gefflot, and J.~C. Beck.
+\newblock Slack-based techniques for robust schedules.
+
 \bibitem{Gatto07}
 M.~Gatto and P.~Widmayer.
 \newblock On the robustness of graham's algorithm for online scheduling.
 \newblock In {\em Proc of WADS}, 2007.
+
+\bibitem{DBLP:journals/cce/LiI08}
+Z.~Li and M.~G. Ierapetritou.
+\newblock Process scheduling under uncertainty: Review and challenges.
+\newblock {\em Computers {\&} Chemical Engineering}, 32(4-5):715--727, 2008.
+
+\bibitem{DBLP:journals/tc/Tse12}
+S.~S.~H. Tse.
+\newblock Online bounds on balancing two independent criteria with replication
+  and reallocation.
+\newblock {\em {IEEE} Trans. Computers}, 61(11):1601--1610, 2012.
+
+\bibitem{conf/sigmetrics/WiermanN08}
+A.~Wierman and M.~Nuyens.
+\newblock Scheduling despite inexact job-size information.
+\newblock In Z.~Liu, V.~Misra, and P.~J. Shenoy, editors, {\em SIGMETRICS},
+  pages 25--36. ACM, 2008.
 
 \end{thebibliography}
