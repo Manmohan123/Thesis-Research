@@ -1,4 +1,24 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Abawajy}
+J.~Abawajy.
+\newblock Placement of file replicas in data grid environments.
+\newblock In M.~Bubak, G.~van Albada, P.~Sloot, and J.~Dongarra, editors, {\em
+  Computational Science - ICCS 2004}, volume 3038 of {\em Lecture Notes in
+  Computer Science}, pages 66--73. Springer Berlin Heidelberg, 2004.
+
+\bibitem{cj09c}
+L.-C. Canon and E.~Jeannot.
+\newblock {Evaluation and Optimization of the Robustness of DAG Schedules in
+  Heterogeneous Environments}.
+\newblock 2010.
+\newblock Accepted for publication.
+
+\bibitem{Cirne2007213}
+W.~Cirne, F.~Brasileiro, D.~Paranhos, L.~F.~W. Góes, and W.~Voorsluys.
+\newblock On the efficacy, efficiency and emergent behavior of task replication
+  in large distributed systems.
+\newblock {\em Parallel Computing}, 33(3):213 -- 234, 2007.
 
 \bibitem{citeulike:8334169}
 R.~L. Daniels and P.~Kouvelis.
@@ -20,16 +40,43 @@ Z.~Li and M.~G. Ierapetritou.
 \newblock Process scheduling under uncertainty: Review and challenges.
 \newblock {\em Computers {\&} Chemical Engineering}, 32(4-5):715--727, 2008.
 
+\bibitem{6691554}
+M.~Pastorelli, A.~Barbuzzi, D.~Carra, M.~Dell'Amico, and P.~Michiardi.
+\newblock Hfsp: Size-based scheduling for hadoop.
+\newblock In {\em Big Data, 2013 IEEE International Conference on}, pages
+  51--59, Oct 2013.
+
+\bibitem{4215379}
+R.~Rahman, K.~Barker, and R.~Alhajj.
+\newblock Study of different replica placement and maintenance strategies in
+  data grid.
+\newblock In {\em Cluster Computing and the Grid, 2007. CCGRID 2007. Seventh
+  IEEE International Symposium on}, pages 171--178, May 2007.
+
 \bibitem{DBLP:journals/tc/Tse12}
 S.~S.~H. Tse.
 \newblock Online bounds on balancing two independent criteria with replication
   and reallocation.
 \newblock {\em {IEEE} Trans. Computers}, 61(11):1601--1610, 2012.
 
+\bibitem{DBLP:journals/corr/WangJW14}
+D.~Wang, G.~Joshi, and G.~W. Wornell.
+\newblock Efficient task replication for fast response times in parallel
+  computation.
+\newblock {\em CoRR}, abs/1404.1328, 2014.
+
 \bibitem{conf/sigmetrics/WiermanN08}
 A.~Wierman and M.~Nuyens.
 \newblock Scheduling despite inexact job-size information.
 \newblock In Z.~Liu, V.~Misra, and P.~J. Shenoy, editors, {\em SIGMETRICS},
   pages 25--36. ACM, 2008.
+
+\bibitem{Wolf:2010:FSA:2023718.2023720}
+J.~Wolf, D.~Rajan, K.~Hildrum, R.~Khandekar, V.~Kumar, S.~Parekh, K.-L. Wu, and
+  A.~balmin.
+\newblock Flex: A slot allocation scheduling optimizer for mapreduce workloads.
+\newblock In {\em Proceedings of the ACM/IFIP/USENIX 11th International
+  Conference on Middleware}, Middleware '10, pages 1--20, Berlin, Heidelberg,
+  2010. Springer-Verlag.
 
 \end{thebibliography}

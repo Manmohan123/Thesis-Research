@@ -1,18 +1,13 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdftex 2014.6.10)  12 SEP 2014 03:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  13 SEP 2014 14:35
 entering extended mode
-**C:/Users/Manmohan/Documents/GitHub/research/final.bib
-(C:/Users/Manmohan/Documents/GitHub/research/final.bib
-! Undefined control sequence.
-l.14                   clustered schedule of~\cite
-                                                  {Lepere02}}
-? 
-! Emergency stop.
-l.14                   clustered schedule of~\cite
-                                                  {Lepere02}}
-End of file on the terminal!
-
-!  ==> Fatal error occurred, no output PDF file produced!
-latvian,
+**final.tex
+(C:\Users\Manmohan\Documents\GitHub\research\final.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
  lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
 german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
@@ -557,103 +552,133 @@ Underfull \hbox (badness 10000) in paragraph at lines 206--207
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 264--266
+Underfull \hbox (badness 10000) in paragraph at lines 231--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--266
+Underfull \hbox (badness 10000) in paragraph at lines 231--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
 
  []
 
 
-Underfull \hbox (badness 3449) in paragraph at lines 270--277
+Underfull \hbox (badness 3449) in paragraph at lines 237--244
 \OT1/ptm/m/n/10 in-stance for an un-known cor-rect al-go-rithm. The
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 270--277
+Underfull \hbox (badness 1365) in paragraph at lines 237--244
 \OT1/ptm/m/n/10 ad-ver-sary max-i-mizes the com-pet-i-tive ra-tio un-til it
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--277
+Underfull \hbox (badness 10000) in paragraph at lines 237--244
 
  []
 
 <fig1.png, id=18, 465.23813pt x 216.81pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 290.
+Package pdftex.def Info: fig1.png used on input line 257.
 (pdftex.def)             Requested size: 227.62204pt x 106.07571pt.
 
-Overfull \hbox (1.77827pt too wide) in paragraph at lines 290--292
+Overfull \hbox (1.77827pt too wide) in paragraph at lines 257--259
  [][] 
  []
 
 [3 <C:/Users/Manmohan/Documents/GitHub/research/fig1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--395
+Underfull \hbox (badness 10000) in paragraph at lines 360--362
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--411
+Underfull \hbox (badness 10000) in paragraph at lines 375--378
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--422
+Underfull \hbox (badness 10000) in paragraph at lines 386--389
 
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 419--422
+Underfull \hbox (badness 1527) in paragraph at lines 386--389
 \OT1/ptm/b/n/10 Proof: \OT1/ptm/m/n/10 The op-ti-mal makespan, $\OML/cmm/m/it/1
 0 C[]$ \OT1/ptm/m/n/10 must be at
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--422
+Underfull \hbox (badness 10000) in paragraph at lines 386--389
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--437
+Underfull \hbox (badness 10000) in paragraph at lines 401--404
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 446--448
+Underfull \hbox (badness 10000) in paragraph at lines 413--415
 
  []
 
 <fig2.png, id=32, 459.21562pt x 185.94469pt>
 File: fig2.png Graphic file (type png)
  <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 458.
+Package pdftex.def Info: fig2.png used on input line 425.
 (pdftex.def)             Requested size: 455.24408pt x 184.34682pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--472
+Underfull \hbox (badness 10000) in paragraph at lines 435--439
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--472
 
  []
 
@@ -662,24 +687,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 490--492
-
+Overfull \hbox (28.87964pt too wide) detected at line 490
+[] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 490--492
+Overfull \hbox (38.8176pt too wide) detected at line 494
+[] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 m[]C[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/
+10 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1)
+[][] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 [] [] [] \OT1/cmr/m/n/10 + (\OML/cmm/
+m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1) [] []
+ []
 
+
+Overfull \hbox (2.03058pt too wide) detected at line 497
+\OMS/cmsy/m/n/10 ) [] []  [] []
+ []
+
+
+Overfull \hbox (51.23167pt too wide) detected at line 503
+[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  [] [] \OT1/cmr/m/n/10 + []\OML/cmm/m/
+it/10 p[]
  []
 
 
@@ -688,96 +722,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 503--505
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 519--520
-
- []
-
-
-Overfull \hbox (28.87964pt too wide) detected at line 523
-[] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []
- []
-
-
-Overfull \hbox (38.8176pt too wide) detected at line 527
-[] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 m[]C[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/
-10 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1)
-[][] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 [] [] [] \OT1/cmr/m/n/10 + (\OML/cmm/
-m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1) [] []
- []
-
-
-Overfull \hbox (2.03058pt too wide) detected at line 530
-\OMS/cmsy/m/n/10 ) [] []  [] []
- []
-
-
-Overfull \hbox (51.23167pt too wide) detected at line 536
-[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  [] [] \OT1/cmr/m/n/10 + []\OML/cmm/m/
-it/10 p[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 536--538
-
- []
-
-
-Overfull \hbox (16.52585pt too wide) detected at line 539
+Overfull \hbox (16.52585pt too wide) detected at line 506
 []\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  [] [] \OT1/cmr/m/n/10 + []\OML/cmm/m/
 it/10 C[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 539--540
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--544
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 549--550
+Underfull \hbox (badness 10000) in paragraph at lines 516--517
 
  []
+
+
+LaTeX Warning: Reference `fig:graph' on page 6 undefined on input line 649.
 
 [6 <C:/Users/Manmohan/Documents/GitHub/research/fig2.png>]
-
-LaTeX Warning: Reference `fig:graph' on page 7 undefined on input line 704.
-
 <alpha_11.pdf, id=40, 170.6375pt x 127.47626pt>
 File: alpha_11.pdf Graphic file (type pdf)
  <use alpha_11.pdf>
-Package pdftex.def Info: alpha_11.pdf used on input line 710.
+Package pdftex.def Info: alpha_11.pdf used on input line 655.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 709--714
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 654--659
  [][] 
  []
 
 <alpha_15.pdf, id=41, 170.6375pt x 127.47626pt>
 File: alpha_15.pdf Graphic file (type pdf)
  <use alpha_15.pdf>
-Package pdftex.def Info: alpha_15.pdf used on input line 716.
+Package pdftex.def Info: alpha_15.pdf used on input line 661.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 715--720
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 660--665
  [][] 
  []
 
 <alpha_2.pdf, id=42, 170.6375pt x 127.47626pt>
 File: alpha_2.pdf Graphic file (type pdf)
  <use alpha_2.pdf>
-Package pdftex.def Info: alpha_2.pdf used on input line 722.
+Package pdftex.def Info: alpha_2.pdf used on input line 667.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 721--726
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 666--671
  [][] 
  []
 
@@ -793,8 +788,10 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7 <C:/Users/Manmohan/Documents/GitHub/research/alpha_11.pdf> <C:/Users/Manmoha
-n/Documents/GitHub/research/alpha_15.pdf
+[7] [8
+
+ <C:/Users/Manmohan/Documents/GitHub/research/alpha_11.pdf> <C:/Users/Manmohan/
+Documents/GitHub/research/alpha_15.pdf
 
 pdfTeX warning: pdflatex.exe (file C:/Users/Manmohan/Documents/GitHub/research/
 alpha_15.pdf): PDF inclusion: multiple pdfs with page group included in a singl
@@ -804,16 +801,16 @@ e page
 pdfTeX warning: pdflatex.exe (file C:/Users/Manmohan/Documents/GitHub/research/
 alpha_2.pdf): PDF inclusion: multiple pdfs with page group included in a single
  page
->] [8] (C:\Users\Manmohan\Documents\GitHub\research\final.aux)
+>] (C:\Users\Manmohan\Documents\GitHub\research\final.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4628 strings out of 493921
- 70391 string characters out of 3147273
+ 4636 strings out of 493921
+ 70507 string characters out of 3147273
  139906 words of memory out of 3000000
- 7864 multiletter control sequences out of 15000+200000
+ 7872 multiletter control sequences out of 15000+200000
  42142 words of font info for 91 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
  36i,11n,38p,13379b,452s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -839,7 +836,7 @@ TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
 mes/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final.pdf (8 pages, 314321 bytes).
+Output written on final.pdf (8 pages, 317390 bytes).
 PDF statistics:
  156 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

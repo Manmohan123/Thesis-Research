@@ -1,7 +1,10 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: final.aux
 The style file: abbrv.bst
 Database file #1: final.bib
+Warning--string name "ieeetpds" is undefined
+--line 224 of file final.bib
 A bad cross reference---entry "conf/sigmetrics/WiermanN08"
 refers to entry "conf/sigmetrics/2008", which doesn't exist
 Warning--I didn't find a database entry for "conf/sigmetrics/2008"
+Warning--empty journal in cj09c
 (There was 1 error message)
