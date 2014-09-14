@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  13 SEP 2014 14:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  14 SEP 2014 03:36
 entering extended mode
 **final.tex
 (C:\Users\Manmohan\Documents\GitHub\research\final.tex
@@ -517,8 +517,14 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 163.
+
+Underfull \hbox (badness 1389) in paragraph at lines 171--173
+[]\OT1/ptm/b/it/9 Keywords\OT1/ptm/b/n/9 -Parallel Sys-tem; Un-cer-tainty; Ro-b
+ust-ness;
+ []
+
 LaTeX Font Info:    Try loading font information for U+msa on input line 197.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 197.
@@ -530,252 +536,138 @@ Underfull \hbox (badness 10000) in paragraph at lines 197--199
 
  []
 
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
 
-Underfull \hbox (badness 2027) in paragraph at lines 206--207
-\OT1/ptm/m/n/10 With ob-jec-tive to find sched-ule which min-i-mizes
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 206--207
-
- []
-
-[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
-
-
-]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 231--233
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--233
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
-
- []
-
-
-Underfull \hbox (badness 3449) in paragraph at lines 237--244
+Underfull \hbox (badness 3449) in paragraph at lines 235--242
 \OT1/ptm/m/n/10 in-stance for an un-known cor-rect al-go-rithm. The
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 237--244
+Underfull \hbox (badness 1365) in paragraph at lines 235--242
 \OT1/ptm/m/n/10 ad-ver-sary max-i-mizes the com-pet-i-tive ra-tio un-til it
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--244
+Underfull \hbox (badness 10000) in paragraph at lines 235--242
 
  []
 
 <fig1.png, id=18, 465.23813pt x 216.81pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 257.
+Package pdftex.def Info: fig1.png used on input line 255.
 (pdftex.def)             Requested size: 227.62204pt x 106.07571pt.
 
-Overfull \hbox (1.77827pt too wide) in paragraph at lines 257--259
+Overfull \hbox (1.77827pt too wide) in paragraph at lines 255--257
  [][] 
  []
 
 [3 <C:/Users/Manmohan/Documents/GitHub/research/fig1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--362
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 375--378
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 386--389
-
- []
-
-
-Underfull \hbox (badness 1527) in paragraph at lines 386--389
-\OT1/ptm/b/n/10 Proof: \OT1/ptm/m/n/10 The op-ti-mal makespan, $\OML/cmm/m/it/1
-0 C[]$ \OT1/ptm/m/n/10 must be at
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 386--389
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 393--394
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--404
+Underfull \hbox (badness 10000) in paragraph at lines 379--380
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
+Underfull \hbox (badness 10000) in paragraph at lines 400--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--415
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
 
  []
 
-<fig2.png, id=32, 459.21562pt x 185.94469pt>
-File: fig2.png Graphic file (type png)
- <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 425.
-(pdftex.def)             Requested size: 455.24408pt x 184.34682pt.
+<fig2.pdf, id=32, 612.2875pt x 247.92625pt>
+File: fig2.pdf Graphic file (type pdf)
+ <use fig2.pdf>
+Package pdftex.def Info: fig2.pdf used on input line 410.
+(pdftex.def)             Requested size: 455.24408pt x 184.33643pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--439
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--459
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--459
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--472
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 473--474
-
+Overfull \hbox (13.3242pt too wide) detected at line 456
+[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 486--487
+Underfull \hbox (badness 10000) in paragraph at lines 489--490
 
  []
 
-
-Overfull \hbox (28.87964pt too wide) detected at line 490
-[] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []
- []
-
-
-Overfull \hbox (38.8176pt too wide) detected at line 494
-[] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 m[]C[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/
-10 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1)
-[][] \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 [] [] [] \OT1/cmr/m/n/10 + (\OML/cmm/
-m/it/10 k \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1) [] []
- []
-
-
-Overfull \hbox (2.03058pt too wide) detected at line 497
-\OMS/cmsy/m/n/10 ) [] []  [] []
- []
-
-
-Overfull \hbox (51.23167pt too wide) detected at line 503
-[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  [] [] \OT1/cmr/m/n/10 + []\OML/cmm/m/
-it/10 p[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 503--505
-
- []
-
-
-Overfull \hbox (16.52585pt too wide) detected at line 506
-[]\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  [] [] \OT1/cmr/m/n/10 + []\OML/cmm/m/
-it/10 C[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 516--517
-
- []
-
-
-LaTeX Warning: Reference `fig:graph' on page 6 undefined on input line 649.
-
-[6 <C:/Users/Manmohan/Documents/GitHub/research/fig2.png>]
-<alpha_11.pdf, id=40, 170.6375pt x 127.47626pt>
+<alpha_11.pdf, id=36, 170.6375pt x 127.47626pt>
 File: alpha_11.pdf Graphic file (type pdf)
  <use alpha_11.pdf>
-Package pdftex.def Info: alpha_11.pdf used on input line 655.
+Package pdftex.def Info: alpha_11.pdf used on input line 628.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 654--659
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 627--632
  [][] 
  []
 
-<alpha_15.pdf, id=41, 170.6375pt x 127.47626pt>
+<alpha_15.pdf, id=37, 170.6375pt x 127.47626pt>
 File: alpha_15.pdf Graphic file (type pdf)
  <use alpha_15.pdf>
-Package pdftex.def Info: alpha_15.pdf used on input line 661.
+Package pdftex.def Info: alpha_15.pdf used on input line 634.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 660--665
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 633--638
  [][] 
  []
 
-<alpha_2.pdf, id=42, 170.6375pt x 127.47626pt>
+<alpha_2.pdf, id=38, 170.6375pt x 127.47626pt>
 File: alpha_2.pdf Graphic file (type pdf)
  <use alpha_2.pdf>
-Package pdftex.def Info: alpha_2.pdf used on input line 667.
+Package pdftex.def Info: alpha_2.pdf used on input line 640.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 666--671
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 639--644
  [][] 
  []
 
+[6 <C:/Users/Manmohan/Documents/GitHub/research/fig2.pdf>]
 (C:\Users\Manmohan\Documents\GitHub\research\final.bbl)
 
 ** Conference Paper **
@@ -801,44 +693,41 @@ e page
 pdfTeX warning: pdflatex.exe (file C:/Users/Manmohan/Documents/GitHub/research/
 alpha_2.pdf): PDF inclusion: multiple pdfs with page group included in a single
  page
->] (C:\Users\Manmohan\Documents\GitHub\research\final.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+>] (C:\Users\Manmohan\Documents\GitHub\research\final.aux) ) 
 Here is how much of TeX's memory you used:
- 4636 strings out of 493921
- 70507 string characters out of 3147273
- 139906 words of memory out of 3000000
- 7872 multiletter control sequences out of 15000+200000
+ 4635 strings out of 493921
+ 70496 string characters out of 3147273
+ 140906 words of memory out of 3000000
+ 7871 multiletter control sequences out of 15000+200000
  42142 words of font info for 91 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
  36i,11n,38p,13379b,452s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
-mes/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final.pdf (8 pages, 317390 bytes).
+{C:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
+utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on final.pdf (8 pages, 318245 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
+ 155 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
