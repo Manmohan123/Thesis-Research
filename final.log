@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  14 SEP 2014 03:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  18 SEP 2014 12:28
 entering extended mode
 **final.tex
 (C:\Users\Manmohan\Documents\GitHub\research\final.tex
@@ -572,17 +572,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 235--242
 
  []
 
-<fig1.png, id=18, 465.23813pt x 216.81pt>
-File: fig1.png Graphic file (type png)
- <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 255.
-(pdftex.def)             Requested size: 227.62204pt x 106.07571pt.
+<fig.pdf, id=18, 501.33296pt x 287.65466pt>
+File: fig.pdf Graphic file (type pdf)
+ <use fig.pdf>
+Package pdftex.def Info: fig.pdf used on input line 255.
+(pdftex.def)             Requested size: 227.62204pt x 130.60216pt.
 
 Overfull \hbox (1.77827pt too wide) in paragraph at lines 255--257
  [][] 
  []
 
-[3 <C:/Users/Manmohan/Documents/GitHub/research/fig1.png>]
+[3 <C:/Users/Manmohan/Documents/GitHub/research/fig.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
@@ -612,7 +612,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 406--407
 
  []
 
-<fig2.pdf, id=32, 612.2875pt x 247.92625pt>
+<fig2.pdf, id=60, 612.2875pt x 247.92625pt>
 File: fig2.pdf Graphic file (type pdf)
  <use fig2.pdf>
 Package pdftex.def Info: fig2.pdf used on input line 410.
@@ -637,7 +637,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 489--490
 
  []
 
-<alpha_11.pdf, id=36, 170.6375pt x 127.47626pt>
+<alpha_11.pdf, id=64, 170.6375pt x 127.47626pt>
 File: alpha_11.pdf Graphic file (type pdf)
  <use alpha_11.pdf>
 Package pdftex.def Info: alpha_11.pdf used on input line 628.
@@ -647,7 +647,7 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 627--632
  [][] 
  []
 
-<alpha_15.pdf, id=37, 170.6375pt x 127.47626pt>
+<alpha_15.pdf, id=65, 170.6375pt x 127.47626pt>
 File: alpha_15.pdf Graphic file (type pdf)
  <use alpha_15.pdf>
 Package pdftex.def Info: alpha_15.pdf used on input line 634.
@@ -657,7 +657,7 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 633--638
  [][] 
  []
 
-<alpha_2.pdf, id=38, 170.6375pt x 127.47626pt>
+<alpha_2.pdf, id=66, 170.6375pt x 127.47626pt>
 File: alpha_2.pdf Graphic file (type pdf)
  <use alpha_2.pdf>
 Package pdftex.def Info: alpha_2.pdf used on input line 640.
@@ -668,7 +668,7 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 639--644
  []
 
 [6 <C:/Users/Manmohan/Documents/GitHub/research/fig2.pdf>]
-(C:\Users\Manmohan\Documents\GitHub\research\final.bbl)
+(C:\Users\Manmohan\Documents\GitHub\research\final.bbl [7])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -680,10 +680,8 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7] [8
-
- <C:/Users/Manmohan/Documents/GitHub/research/alpha_11.pdf> <C:/Users/Manmohan/
-Documents/GitHub/research/alpha_15.pdf
+[8 <C:/Users/Manmohan/Documents/GitHub/research/alpha_11.pdf> <C:/Users/Manmoha
+n/Documents/GitHub/research/alpha_15.pdf
 
 pdfTeX warning: pdflatex.exe (file C:/Users/Manmohan/Documents/GitHub/research/
 alpha_15.pdf): PDF inclusion: multiple pdfs with page group included in a singl
@@ -696,8 +694,8 @@ alpha_2.pdf): PDF inclusion: multiple pdfs with page group included in a single
 >] (C:\Users\Manmohan\Documents\GitHub\research\final.aux) ) 
 Here is how much of TeX's memory you used:
  4635 strings out of 493921
- 70496 string characters out of 3147273
- 140906 words of memory out of 3000000
+ 70491 string characters out of 3147273
+ 141906 words of memory out of 3000000
  7871 multiletter control sequences out of 15000+200000
  42142 words of font info for 91 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
@@ -725,9 +723,9 @@ ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
 utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final.pdf (8 pages, 318245 bytes).
+Output written on final.pdf (8 pages, 328479 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
+ 176 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

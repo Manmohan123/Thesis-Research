@@ -252,7 +252,7 @@ Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an in
   
   \begin{figure}[htp]
   \centering
-  \includegraphics[width= 8 cm]{fig1}
+  \includegraphics[width= 8 cm]{fig}
   \caption{ The figure represents the model having $|M_j|= 1$ with
   $\lambda = 3$ and $m = 6$. $A$ represents worst case scenario showing all the tasks increased to $\alpha$ times in the most loaded machine. $B$ represents   optimal scheduling scenario.  }
   \label{fig:rara}
@@ -291,7 +291,7 @@ $\tilde{p_j}$ and estimated processing time of last task, $l$.
 \tilde C_{max}\leq  \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}
 \end{equation}
 
-The actual makespan of a schedule, $C_{max}$, calculatedafter actual processing times of all the jobs are known,must be smaller than $\alpha\tilde C_{max}$. Considering this we have following inequality:
+The actual makespan of a schedule, $C_{max}$, calculated after actual processing times of all the jobs are known,must be smaller than $\alpha\tilde C_{max}$. Considering this we have following inequality:
 \begin{equation}
  C_{max}\leq \alpha \tilde C_{max}\leq \alpha [\frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}] 
 \end{equation} 
@@ -401,9 +401,9 @@ As $C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l $, We have
 Hence the theorem follows.   \\                            
 
 \section{Model 3: Replication in groups}
-Figure \ref{fig:Model 3} shows the constrution of two phases in model 3.  In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  There are $k$ groups and size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1. 
+Figure \ref{fig:Model 3} shows the construction of two phases in model 3.  In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ jobs.  There are $k$ groups and size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation in a group such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$.  In phase 2  each task is scheduled to a particular processor within the group it was allocated in phase 1. 
 
- We propose an two phase algorithm, \textbf{LS-Group} which is based on Graham’s List Scheduling algorithm. In phase 1, using LS in offline mode the algorithm pre-assign the jobs in different groups. In phase 2, the algorithm chooses online LS to schedule tasks to processors within each group.\\
+ We propose an two phase algorithm, \textbf{LS-Group} which is based on Graham's List Scheduling algorithm. In phase 1, using LS in offline mode the algorithm pre-assign the jobs in different groups. In phase 2, the algorithm chooses online LS to schedule tasks to processors within each group.\\
 
 \begin{figure*}[htp]
 \centering
