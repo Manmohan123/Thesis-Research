@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  29 SEP 2014 15:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  1 OCT 2014 20:24
 entering extended mode
 **final.tex
 (C:\Users\Manmohan\Documents\GitHub\research\final.tex
@@ -486,18 +486,18 @@ Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 \c@subtable=\count110
 )
 (C:\Users\Manmohan\Documents\GitHub\research\final.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 139.
-LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -516,23 +516,23 @@ LaTeX Font Info:    ... okay on input line 139.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 163.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 143.
 
-Underfull \hbox (badness 1389) in paragraph at lines 171--173
+Underfull \hbox (badness 1389) in paragraph at lines 151--153
 []\OT1/ptm/b/it/9 Keywords\OT1/ptm/b/n/9 -Parallel Sys-tem; Un-cer-tainty; Ro-b
 ust-ness;
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 197.
+LaTeX Font Info:    Try loading font information for U+msa on input line 177.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 197.
+LaTeX Font Info:    Try loading font information for U+msb on input line 177.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 197--199
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
@@ -540,7 +540,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 197--199
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
@@ -548,122 +548,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 201--202
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
 
-Underfull \hbox (badness 3449) in paragraph at lines 235--242
+Underfull \hbox (badness 3449) in paragraph at lines 214--221
 \OT1/ptm/m/n/10 in-stance for an un-known cor-rect al-go-rithm. The
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 235--242
+Underfull \hbox (badness 1365) in paragraph at lines 214--221
 \OT1/ptm/m/n/10 ad-ver-sary max-i-mizes the com-pet-i-tive ra-tio un-til it
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--242
+Underfull \hbox (badness 10000) in paragraph at lines 214--221
 
  []
 
 <fig.pdf, id=18, 501.33296pt x 287.65466pt>
 File: fig.pdf Graphic file (type pdf)
  <use fig.pdf>
-Package pdftex.def Info: fig.pdf used on input line 255.
+Package pdftex.def Info: fig.pdf used on input line 234.
 (pdftex.def)             Requested size: 284.52756pt x 163.25818pt.
 
-Overfull \hbox (58.68379pt too wide) in paragraph at lines 255--257
+Overfull \hbox (58.68379pt too wide) in paragraph at lines 234--236
  [][] 
  []
 
 [3 <C:/Users/Manmohan/Documents/GitHub/research/fig.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 352--354
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
+Underfull \hbox (badness 10000) in paragraph at lines 330--331
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--379
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--401
+Underfull \hbox (badness 10000) in paragraph at lines 353--355
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--406
+Underfull \hbox (badness 2903) in paragraph at lines 361--362
+[]\OT1/ptm/m/n/10 We pro-pose a two-phase al-go-rithm, \OT1/ptm/b/n/10 LS-Group
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
 <model3.pdf, id=60, 510.15594pt x 156.49466pt>
 File: model3.pdf Graphic file (type pdf)
  <use model3.pdf>
-Package pdftex.def Info: model3.pdf used on input line 409.
+Package pdftex.def Info: model3.pdf used on input line 365.
 (pdftex.def)             Requested size: 455.24408pt x 139.65707pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
 
  []
 
 
-Overfull \hbox (13.3242pt too wide) detected at line 455
+Overfull \hbox (13.3242pt too wide) detected at line 411
 []\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
 <alpha_11.pdf, id=64, 170.6375pt x 127.47626pt>
 File: alpha_11.pdf Graphic file (type pdf)
  <use alpha_11.pdf>
-Package pdftex.def Info: alpha_11.pdf used on input line 616.
+Package pdftex.def Info: alpha_11.pdf used on input line 568.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 615--620
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 567--572
  [][] 
  []
 
 <alpha_15.pdf, id=65, 170.6375pt x 127.47626pt>
 File: alpha_15.pdf Graphic file (type pdf)
  <use alpha_15.pdf>
-Package pdftex.def Info: alpha_15.pdf used on input line 622.
+Package pdftex.def Info: alpha_15.pdf used on input line 574.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 621--626
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 573--578
  [][] 
  []
 
 <alpha_2.pdf, id=66, 170.6375pt x 127.47626pt>
 File: alpha_2.pdf Graphic file (type pdf)
  <use alpha_2.pdf>
-Package pdftex.def Info: alpha_2.pdf used on input line 628.
+Package pdftex.def Info: alpha_2.pdf used on input line 580.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 627--632
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 579--584
  [][] 
  []
 
@@ -725,7 +731,7 @@ ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
 utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final.pdf (8 pages, 335797 bytes).
+Output written on final.pdf (8 pages, 336384 bytes).
 PDF statistics:
  186 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
