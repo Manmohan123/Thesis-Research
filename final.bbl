@@ -35,6 +35,11 @@ M.~Gatto and P.~Widmayer.
 \newblock On the robustness of graham's algorithm for online scheduling.
 \newblock In {\em Proc of WADS}, 2007.
 
+\bibitem{Graham69boundson}
+R.~L. Graham.
+\newblock Bounds on multiprocessing timing anomalies.
+\newblock {\em SIAM JOURNAL ON APPLIED MATHEMATICS}, 17(2):416--429, 1969.
+
 \bibitem{DBLP:journals/cce/LiI08}
 Z.~Li and M.~G. Ierapetritou.
 \newblock Process scheduling under uncertainty: Review and challenges.
