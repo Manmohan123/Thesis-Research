@@ -92,7 +92,7 @@ We have used  Graham's List Scheduling (LS) and Largest Processing Time (LPT) al
 
 \section{Related Work}
 We begin with the literature on scheduling problems under uncertainty. Based on various models of describing uncertainty in input parameter, uncertainty problems can be approached by various methodologies including Reactive, stochastic, fuzzy and Robust approach~\cite{DBLP:journals/cce/LiI08}. The bounded uncertainty model assumes that an input parameter have value between a lower and upper bound and is usually dealt with robust approach or sensitivity analysis. We are more interested in robust approach to deal with uncertainty. There is very less literature available for scheduling with estimated processing time of a task. Most of the literature till now focuses on job size estimation with small error. Very less work is done which focuses on coping with less restrictive estimation for task size and which analyzes the effect of estimation on scheduling quantitatively. Wierman and Nuyens~\cite{conf/sigmetrics/WiermanN08} introduce  SMART as classification to understand size based policies and draw analytical co-relation between response time and estimated job size in single server problem. Dealing with uncertainty problems with robust approach
-is widely used in practicality in the area of MapReduce, Hadoop, databases and web servers. HSFS and FLEX  schedulers are proposed which provides robustness in scheduling against uncertain Job Size ~\cite{Wolf:2010:FSA:2023718.2023720}  \cite{6691554}. Cannon and Jeannot ~\cite{cj09c} provides scheduling heuristics that optimizes both makespan and robustness in scheduling task graph on heterogeneous system.
+is widely used in practicality in the area of MapReduce~\cite{Kavulya:2010:ATP:1844765.1845224}~\cite{Verma:2011:AAR:1998582.1998637}, Hadoop~\cite{Wolf:2010:FSA:2023718.2023720}~\cite{White:2009:HDG:1717298}, databases~\cite{Lipton199518} and web servers~\cite{Cardellini99dynamicload}. HSFS and FLEX  schedulers are proposed which provides robustness in scheduling against uncertain Job Size ~\cite{Wolf:2010:FSA:2023718.2023720}  \cite{6691554}. Cannon and Jeannot ~\cite{cj09c} provides scheduling heuristics that optimizes both makespan and robustness in scheduling task graph on heterogeneous system.
 
  Most of the work on robust scheduling uses scenarios in problem formulation to structure variability of uncertain parameter. Daniels and Kouvelis~\cite{citeulike:8334169} used scenarios to formulate branch and bound based robust scheduling to cope uncertainty in processing time of jobs in single machine. Davenport, Gefflot, and Bek used slack based technique to add extra time to cope with uncertainty~\cite{Davenport_slack-basedtechniques}. Gatto and Widmayer derives bounds on competitive ratio of Graham’s online algorithm in scenario where processing times of jobs either increase or decrease arbitrarily due to perturbations~\cite{Gatto07}.  Their notion of perturbed processing times is similar to our definition of estimated processing times which can increase or decrease to actual processing times once the jobs are processed. But unlike our work they considered increment and decrement of job processing times as different problem scenario. We have approached the problem with worst case scenario where some tasks may increase and some may decrease in the same schedule.
   
@@ -112,14 +112,12 @@ In this problem model we have considered  situation where each task is restricte
 \subsection{Lower Bound}
 
 \begin{theorem}
-For the model having $|M_j| = 1$, there
-is no online algorithm having competitive ratio better than  $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
+For the model having $|M_j| = 1$, there is no online algorithm having competitive ratio better than  $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
 \end{theorem} 
 \begin{proof}
-We use adversary lower bound technique to prove the theorem. We define a lower bound input instance for an unknown correct algorithm. The adversary maximizes the competitive ratio until it becomes feasible to be scheduled by any algorithm.\\
+We use adversary lower bound technique to prove the theorem. We define a lower bound input instance for an unknown correct algorithm. The adversary maximizes the competitive ratio until it becomes feasible to be scheduled by any algorithm.
  
-Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an instance in which total tasks be $\lambda m$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary  increases the tasks on $j$ by $\alpha$ and decreases the other tasks by $\frac{1}{\alpha}$. So, $ C_{max}$ = $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  m - B) }{m}$. We have,
- 
+Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an instance in which total tasks be $\lambda m$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary  increases the tasks on $j$ by $\alpha$ and decreases the other tasks by $\frac{1}{\alpha}$. So, $ C_{max}$ = $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  m - B) }{m}$. We have,  
  \begin{equation}\nonumber
 \frac{C_{max}}{C^{*}_{max}}\leq \frac{\alpha^{2} B m }{\alpha^{2} B + \lambda m - B}=\frac{\alpha^{2}  m }{\alpha^{2}  + \frac{\lambda m}{B}  - 1}
  \end{equation} 
@@ -136,9 +134,10 @@ Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an in
   $\lambda = 3$ and $m = 6$. $A$ represents worst case scenario showing all the tasks increased to $\alpha$ times in the most loaded machine. $B$ represents   optimal scheduling scenario.  }
   \label{fig:rara}
   \end{figure}
- 
- 
- 
+  \begin{corollary}
+  When $m\rightarrow \infty$ there is no online algorithm having competitive ratio better than $\alpha^{2}$.
+  \end{corollary}
+  
 \subsection{Algorithm}
 
 We introduce an algorithm, \textbf{LPT-No Choice} which is based on Graham's LPT algorithm. In phase 1, The algorithm schedules the jobs to different machines in offline mode based on non-increasing order of their estimated processing times. Just like Graham's LPT a
@@ -146,7 +145,7 @@ job is assigned to a machine having least load at that time. Adhering to the con
 increase or shrink significantly from its estimated value and is known exactly only after the job is processed by a machine. So, the algorithm's performance incur the cost of estimation.
 
 \begin{theorem}
-The \textbf{LPT-No Choice} have competitive ratio of $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
+The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
 \end{theorem} 
 
 \begin{proof}
@@ -206,11 +205,11 @@ Using equation 3,
 
 \section{Model 2: replication is done everywhere}
 
-In this problem model we consider no restriction on task assignment. The tasks are allowed to be replicated everywhere i.e. i.e. $\forall j, |M_{j}|=|M|$. We introduce \textbf{LPT-No Restriction }algorithm which is also a two phase algorithm. In the first phase no restriction is put into
+In this model, we consider putting no restriction on tasks assignment. The tasks are allowed to be replicated everywhere i.e. $\forall j, |M_{j}|=|M|$. We introduce \textbf{LPT-No Restriction }algorithm which is also a two phase algorithm. In the first phase no restriction is put into
 task assignment. It is assumed that each task can be replicated on any machine. In the second phase we simply use the Longest Processing Time algorithm (LPT) using estimated processing times of tasks in non-increasing order as input.
 
 \begin{lemma}
- LPT-No Restriction has a makespan of at least $ {\frac{2}{\alpha^{2}}} p_l $ when there are at least two tasks on the machine to which the last task $l$ is scheduled. 
+ \textbf{LPT-No Restriction} has a makespan of at least $ {\frac{2}{\alpha^{2}}} p_l $ when there are at least two tasks on the machine to which the last task $l$ is scheduled. 
 \end{lemma}
 \begin{proof}
 As there is at least one task $j$ before $l$ in the machine to which $l$ is assigned, we have
@@ -229,9 +228,14 @@ As $j$ is scheduled before $l$ using LPT on estimated values of processing times
  \end{equation}
 \begin{equation}
  C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l  \end{equation}
-\end{proof}
 
+Also by Graham's LS property optimal makespan must be at least equal to last task i.e. $C_{max}^{*} geq  p_l$ regardless of the value of $\alpha$.  So, following inequality holds always true for $C_{max}^{*}$
+\begin{equation}
+C_{max}^{*} \geq max[{\frac{2}{\alpha^{2}}} p_l, p_l] 
+ \end{equation}
+ \end{proof}
 
+Clearly, for $\alpha^2 geq 2$,   $p_l$ is greater than ${\frac{2}{\alpha^{2}}}$.  So,  $C_{max}^{*} geq  p_l$ better describe makespan. 
 
 \begin{theorem}
 \textbf{LPT-No Restriction} has a competitive  ratio of  $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$
@@ -256,14 +260,20 @@ Using (6) and (7), we have
 \frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}\left(\frac{p_l}{C_{max}^{*}}\right)
 \end{equation}
 
-As $C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l $, We have 
+for $\alpha^2 leq 2$, $C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l $, We have 
 \begin{equation}\nonumber
 \frac{C_{max}}{C_{max}^{*}} \leq 1 + \left(\frac{m-1}{m}\right)\frac{\alpha^{2}}{2}
 \end{equation}
-Hence the theorem follows. 
+
+for $\alpha^2 > 2$, the value of $C_{max}^{*} $  at least be $p_l$. In this scenario the algorithm has following approximation
+\begin{equation}\nonumber
+\frac{C_{max}}{C_{max}^{*}} \leq 2- \frac{1}{m}
+\end{equation}
 \end{proof}  
 
-The Graham's List Scheduling algorithm always have approximation ratio of $2-\frac{1}{m}$. The \textbf{LPT- No Restriction} have better guarantees than LS for $\alpha^2\leq 2$. So for $\alpha^2 \geq 2$ LS algorithm                     
+for $\alpha^2 > 2$, the algorithm behaves like simple List Scheduling as LPT based algorithm  has no benefit scheduling tasks based on estimated processing times which can vary drastically from actual ones because of large value of $\alpha$. 
+
+
 
 \section{Model 3: Replication in groups}
 Figure \ref{fig:Model 3} shows the construction of two phases in model 3.  In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ tasks.  There are $k$ groups $G1$,$G2$...$Gk$.   Size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$. So, this model allows each task to replicate $ m/k $ times within the group it is assigned to.
@@ -273,7 +283,7 @@ Figure \ref{fig:Model 3} shows the construction of two phases in model 3.  In th
 \begin{figure*}[htp] 
 \centering
 \includegraphics[width= 16 cm]{model3.pdf}
-\caption{Replication in groups with $m = 6$, $k = 2$. The left fig. shows tasks assignment to groups in phase 1; The right fig shows each task
+\caption{Replication in groups with $m = 6$, $k = 2$. The left figure shows tasks assignment to groups in phase 1; The right figure shows each task
 assigned to a machine within a group}
 \label{fig:Model 3}
 \end{figure*}
@@ -353,16 +363,12 @@ C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[ C_{max}^{*}+\frac{(k-1)}{m
 \frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}} \end{equation}
  
 \end{proof}
-  
-
 
 \begin{corollary}
  When the number of groups is $2$ the approximation ratio is $ 1+ \frac{2}{1+\alpha^{2}} (\alpha^2-\frac{1}{m})  $ 
 \end{corollary}
 
  \textbf{LS-Group} uses LS algorithm in its both phases. A LPT based algorithm could have better guarantee, but for no replication scenario i.e. when number of groups $k=m$, \textbf{LS-Group} algorithm have approximation ratio almost same as \textbf{LPT-No choice} when number of machines $m$ is not very small and value of $\alpha$ is within practical range. This concludes that the algorithm have guarantee almost same as a LPT based algorithm would have for most of the practical scenario.
-
-
 
 \section{Summary}
  Table~\ref{tab:template} summarizes the results of the three algorithms in terms of approximation ratio. Based on
@@ -381,7 +387,7 @@ $|M_j|=1$ & $\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-
 
 \hline
 $|M_j|=|M|$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ [Th. 2.1]  \\
-
+ & $2-\frac{1}{m}$ [Graham's LS]   \\
  \hline
  
  $|M_j|= m/k $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}}$ [Th. 3.1]  \\
@@ -431,14 +437,6 @@ There are some open problems which can be explored as further research work. For
  In this research our focus was to study the effect of replication for minimizing makespan in scheduling under uncertainty. We did not look in the problem through memory point of view. Replication facilitates load balancing and allows better response time by the processors and  but it is having memory cost attached with it. So, one direction to think about the problem would be solving bi criteria problem of optimizing load as well as memory. 
  
   Algorithms that replicate task without making groups of processors could give better guarantees as there would be no restriction on the processors where a job can be replicated. To reduce memory cost non-constant or selective replication can be done: replicating big tasks only could reduce the cost of  replication. 
-
-
-
-
-
-
-
-
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
@@ -505,9 +503,6 @@ There are some open problems which can be explored as further research work. For
 
 % \bibitem{IEEEhowto:Guinand}
 % Frédéric Guinand, Aziz Moukrim and Eric Sanlaville, \emph{Sensitivity Analysis of Tree Scheduling on Two Machines with Communication Delays}
-
-
-
 
 % \end{thebibliography}
 

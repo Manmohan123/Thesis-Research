@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  5 OCT 2014 04:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.12)  5 OCT 2014 16:37
 entering extended mode
 **final.tex
 (C:\Users\Manmohan\Documents\GitHub\research\final.tex
@@ -563,67 +563,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 83--84
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-** ATTENTION: \proof is deprecated (line 118). Use \IEEEproof instead.
-
-Underfull \hbox (badness 1655) in paragraph at lines 119--120
-\OT1/ptm/m/n/10 to prove the the-o-rem. We de-fine a lower bound
- []
-
-
-Underfull \hbox (badness 1365) in paragraph at lines 119--120
-\OT1/ptm/m/n/10 ad-ver-sary max-i-mizes the com-pet-i-tive ra-tio un-til it
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
-
- []
-
+** ATTENTION: \proof is deprecated (line 117). Use \IEEEproof instead.
 <model1.pdf, id=18, 372.24069pt x 269.08528pt>
 File: model1.pdf Graphic file (type pdf)
  <use model1.pdf>
-Package pdftex.def Info: model1.pdf used on input line 134.
+Package pdftex.def Info: model1.pdf used on input line 132.
 (pdftex.def)             Requested size: 227.62204pt x 164.54416pt.
 
-Overfull \hbox (1.77827pt too wide) in paragraph at lines 134--136
+Overfull \hbox (1.77827pt too wide) in paragraph at lines 132--134
  [][] 
  []
 
 [3 <C:/Users/Manmohan/Documents/GitHub/research/model1.pdf>]
-** ATTENTION: \proof is deprecated (line 152). Use \IEEEproof instead.
+** ATTENTION: \proof is deprecated (line 151). Use \IEEEproof instead.
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
-** ATTENTION: \proof is deprecated (line 215). Use \IEEEproof instead.
+** ATTENTION: \proof is deprecated (line 214). Use \IEEEproof instead.
 [4]
-** ATTENTION: \proof is deprecated (line 240). Use \IEEEproof instead.
+** ATTENTION: \proof is deprecated (line 244). Use \IEEEproof instead.
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
 
  []
 
 
-Underfull \hbox (badness 2903) in paragraph at lines 271--272
+Underfull \hbox (badness 2903) in paragraph at lines 281--282
 []\OT1/ptm/m/n/10 We pro-pose a two-phase al-go-rithm, \OT1/ptm/b/n/10 LS-Group
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
 
  []
 
 <model3.pdf, id=60, 510.15594pt x 156.49466pt>
 File: model3.pdf Graphic file (type pdf)
  <use model3.pdf>
-Package pdftex.def Info: model3.pdf used on input line 275.
+Package pdftex.def Info: model3.pdf used on input line 285.
 (pdftex.def)             Requested size: 455.24408pt x 139.65707pt.
 
-** ATTENTION: \proof is deprecated (line 284). Use \IEEEproof instead.
+** ATTENTION: \proof is deprecated (line 294). Use \IEEEproof instead.
 [5]
-Overfull \hbox (13.3242pt too wide) detected at line 324
+Overfull \hbox (13.3242pt too wide) detected at line 334
 []\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10  []
  []
 
@@ -631,34 +616,46 @@ Overfull \hbox (13.3242pt too wide) detected at line 324
 <alpha_11.pdf, id=77, 170.6375pt x 127.47626pt>
 File: alpha_11.pdf Graphic file (type pdf)
  <use alpha_11.pdf>
-Package pdftex.def Info: alpha_11.pdf used on input line 403.
-(pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
-
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 402--407
- [][] 
- []
-
-<alpha_15.pdf, id=78, 170.6375pt x 127.47626pt>
-File: alpha_15.pdf Graphic file (type pdf)
- <use alpha_15.pdf>
-Package pdftex.def Info: alpha_15.pdf used on input line 409.
+Package pdftex.def Info: alpha_11.pdf used on input line 409.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 408--413
  [][] 
  []
 
-<alpha_2.pdf, id=79, 170.6375pt x 127.47626pt>
-File: alpha_2.pdf Graphic file (type pdf)
- <use alpha_2.pdf>
-Package pdftex.def Info: alpha_2.pdf used on input line 415.
+<alpha_15.pdf, id=78, 170.6375pt x 127.47626pt>
+File: alpha_15.pdf Graphic file (type pdf)
+ <use alpha_15.pdf>
+Package pdftex.def Info: alpha_15.pdf used on input line 415.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 414--419
  [][] 
  []
 
-(C:\Users\Manmohan\Documents\GitHub\research\final.bbl [7])
+<alpha_2.pdf, id=79, 170.6375pt x 127.47626pt>
+File: alpha_2.pdf Graphic file (type pdf)
+ <use alpha_2.pdf>
+Package pdftex.def Info: alpha_2.pdf used on input line 421.
+(pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 420--425
+ [][] 
+ []
+
+(C:\Users\Manmohan\Documents\GitHub\research\final.bbl [7 <C:/Users/Manmohan/Do
+cuments/GitHub/research/alpha_11.pdf> <C:/Users/Manmohan/Documents/GitHub/resea
+rch/alpha_15.pdf
+
+pdfTeX warning: pdflatex.exe (file C:/Users/Manmohan/Documents/GitHub/research/
+alpha_15.pdf): PDF inclusion: multiple pdfs with page group included in a singl
+e page
+> <C:/Users/Manmohan/Documents/GitHub/research/alpha_2.pdf
+
+pdfTeX warning: pdflatex.exe (file C:/Users/Manmohan/Documents/GitHub/research/
+alpha_2.pdf): PDF inclusion: multiple pdfs with page group included in a single
+ page
+>])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -670,50 +667,39 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8 <C:/Users/Manmohan/Documents/GitHub/research/alpha_11.pdf> <C:/Users/Manmoha
-n/Documents/GitHub/research/alpha_15.pdf
-
-pdfTeX warning: pdflatex.exe (file C:/Users/Manmohan/Documents/GitHub/research/
-alpha_15.pdf): PDF inclusion: multiple pdfs with page group included in a singl
-e page
-> <C:/Users/Manmohan/Documents/GitHub/research/alpha_2.pdf
-
-pdfTeX warning: pdflatex.exe (file C:/Users/Manmohan/Documents/GitHub/research/
-alpha_2.pdf): PDF inclusion: multiple pdfs with page group included in a single
- page
->] (C:\Users\Manmohan\Documents\GitHub\research\final.aux) ) 
+[8] (C:\Users\Manmohan\Documents\GitHub\research\final.aux) ) 
 Here is how much of TeX's memory you used:
- 4718 strings out of 493921
- 71501 string characters out of 3147273
+ 4723 strings out of 493921
+ 71630 string characters out of 3147273
  140906 words of memory out of 3000000
- 7950 multiletter control sequences out of 15000+200000
+ 7955 multiletter control sequences out of 15000+200000
  43238 words of font info for 92 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
  36i,11n,38p,13656b,452s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
-utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final.pdf (8 pages, 340365 bytes).
+{C:/Program Files/
+MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
+/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on final.pdf (8 pages, 344361 bytes).
 PDF statistics:
  186 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

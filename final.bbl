@@ -14,6 +14,11 @@ L.-C. Canon and E.~Jeannot.
 \newblock 2010.
 \newblock Accepted for publication.
 
+\bibitem{Cardellini99dynamicload}
+V.~Cardellini, R.~I, M.~Colajanni, and P.~S. Yu.
+\newblock Dynamic load balancing on web-server systems.
+\newblock {\em IEEE Internet Computing}, 3:28--39, 1999.
+
 \bibitem{Cirne2007213}
 W.~Cirne, F.~Brasileiro, D.~Paranhos, L.~F.~W. Góes, and W.~Voorsluys.
 \newblock On the efficacy, efficiency and emergent behavior of task replication
@@ -40,10 +45,22 @@ R.~L. Graham.
 \newblock Bounds on multiprocessing timing anomalies.
 \newblock {\em SIAM JOURNAL ON APPLIED MATHEMATICS}, 17(2):416--429, 1969.
 
+\bibitem{Kavulya:2010:ATP:1844765.1845224}
+S.~Kavulya, J.~Tan, R.~Gandhi, and P.~Narasimhan.
+\newblock An analysis of traces from a production mapreduce cluster.
+\newblock In {\em Proceedings of the 2010 10th IEEE/ACM International
+  Conference on Cluster, Cloud and Grid Computing}, CCGRID '10, pages 94--103,
+  Washington, DC, USA, 2010. IEEE Computer Society.
+
 \bibitem{DBLP:journals/cce/LiI08}
 Z.~Li and M.~G. Ierapetritou.
 \newblock Process scheduling under uncertainty: Review and challenges.
 \newblock {\em Computers {\&} Chemical Engineering}, 32(4-5):715--727, 2008.
+
+\bibitem{Lipton199518}
+R.~Lipton and J.~Naughton.
+\newblock Query size estimation by adaptive sampling.
+\newblock {\em Journal of Computer and System Sciences}, 51(1):18 -- 25, 1995.
 
 \bibitem{6691554}
 M.~Pastorelli, A.~Barbuzzi, D.~Carra, M.~Dell'Amico, and P.~Michiardi.
@@ -64,11 +81,23 @@ S.~S.~H. Tse.
   and reallocation.
 \newblock {\em {IEEE} Trans. Computers}, 61(11):1601--1610, 2012.
 
+\bibitem{Verma:2011:AAR:1998582.1998637}
+A.~Verma, L.~Cherkasova, and R.~H. Campbell.
+\newblock Aria: Automatic resource inference and allocation for mapreduce
+  environments.
+\newblock In {\em Proceedings of the 8th ACM International Conference on
+  Autonomic Computing}, ICAC '11, pages 235--244, New York, NY, USA, 2011. ACM.
+
 \bibitem{DBLP:journals/corr/WangJW14}
 D.~Wang, G.~Joshi, and G.~W. Wornell.
 \newblock Efficient task replication for fast response times in parallel
   computation.
 \newblock {\em CoRR}, abs/1404.1328, 2014.
+
+\bibitem{White:2009:HDG:1717298}
+T.~White.
+\newblock {\em Hadoop: The Definitive Guide}.
+\newblock O'Reilly Media, Inc., 1st edition, 2009.
 
 \bibitem{conf/sigmetrics/WiermanN08}
 A.~Wierman and M.~Nuyens.
