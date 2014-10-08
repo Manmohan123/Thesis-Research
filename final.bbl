@@ -35,6 +35,13 @@ R.~L. Daniels and P.~Kouvelis.
 A.~J. Davenport, C.~Gefflot, and J.~C. Beck.
 \newblock Slack-based techniques for robust schedules.
 
+\bibitem{Erlebacher14-ICS}
+G.~Erlebacher, E.~Saule, N.~Flyer, and E.~Bollig.
+\newblock Acceleration of derivative calculations with application to radial
+  basis function - finite-differences on the {I}ntel {MIC} architecture.
+\newblock In {\em Proc. of International Conference on Supercomputing (ICS)},
+  2014.
+
 \bibitem{Gatto07}
 M.~Gatto and P.~Widmayer.
 \newblock On the robustness of graham's algorithm for online scheduling.
@@ -112,5 +119,12 @@ J.~Wolf, D.~Rajan, K.~Hildrum, R.~Khandekar, V.~Kumar, S.~Parekh, K.-L. Wu, and
 \newblock In {\em Proceedings of the ACM/IFIP/USENIX 11th International
   Conference on Middleware}, Middleware '10, pages 1--20, Berlin, Heidelberg,
   2010. Springer-Verlag.
+
+\bibitem{You14-ICPP}
+Y.~You, D.~A. Bader, and M.~M. Dehnavi.
+\newblock Designing a heuristic cross-architecture combination for
+  breadth-first search.
+\newblock In {\em Proc. of the 43rd International Conference on Parallel
+  Processing}, 2014.
 
 \end{thebibliography}
