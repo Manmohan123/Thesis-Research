@@ -40,7 +40,7 @@
 
 \begin{document}
 
-\title{Replication of Data Placement for Uncertain Scheduling}
+\title{Replicated Data Placement for Uncertain Scheduling}
 
 
 \author{\IEEEauthorblockN{Manmohan Chaubey, Erik Saule }
@@ -54,8 +54,31 @@
 
 
 \begin{abstract}
-In this paper we investigate the job scheduling problems in parallel systems with uncertain processing times of jobs. The actual processing times of jobs are not known but for each job there is an estimated range beyond which its value cannot lie. We construct the problem in 3 models each allowing different degree of replication of jobs: a) No Replication b) Replication everywhere and  c) Replication in groups, to study the effect of load balancing through job replication in scenario of estimated processing times.  For each the 3 models we propose an algorithm and derive its competitive ratio. We compare performance of  proposed algorithms and draw conclusion that even small replication drastically improve the performance. 
+  Scheduling problems is a common theoretical tool to analyze the
+  performance of distributed computing systems, such as their load
+  balance. How to distribute the input data to be able to execute a
+  set of tasks in the minimum amount of time can be modeled as a
+  scheduling problem. Often these models assume that the computation
+  time required for each task is known accurately. However in many
+  practical case, only approximate values are available at the time of
+  scheduling.
 
+  In this paper, we investigate how replicating the data required by
+  the tasks can help coping with the inaccuracies of the processing
+  times. In particular, we investigate the problem of scheduling
+  independent tasks to optimize the makespan on a parallel system
+  where the processing times of tasks are only known up to a
+  multiplicative factor. The problem is decomposed in two phases: a
+  first offline phase where the data of tasks are placed and a second
+  online phase where the tasks are actually scheduled.
+
+  For this problem we investigate three different strategies, each
+  allowing a different degree of replication of jobs: a) No
+  Replication b) Replication everywhere and c) Replication in
+  groups. We propose approximation algorithms and theoretical lower
+  bound on achievable approximation ratios.  This allows us to study
+  the trade-off between the number of replication and the guarantee on
+  the makespan.
 \end{abstract}
 
 \begin{IEEEkeywords}
