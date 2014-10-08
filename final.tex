@@ -140,24 +140,33 @@ models. Section 6 summarizes the 3 models and based on experimental
 results.
 
 \section{Problem Definition}
-% no \IEEEPARstart
-We have set $J$ of $n$ jobs which need to be scheduled to set $M$ of
-$m$ machines such that makespan, $C_{max}$ is minimized.
-$C_{max}^{*}$ denotes optimal makespan of a schedule $S$.  We are
-considering the problems where the scheduler do not know the
-processing time of a task exactly before it completes, but we have
-some estimation of the processing time of a task before it is assigned
-to a processor. We know that the actual processing time of a task $i$
-is between $\frac{1}{\alpha}$and $\alpha$ times of its estimated
-processing time. $p_i$ denotes the actual processing time and $\tilde
-{p_i}$ denotes
-estimated processing time for the task $i$.  We have this estimate:\\
+Let $J$ be a set of $n$ jobs which need to be scheduled onto a set $M$
+of $m$ machines. We will use interchangeably the terms machines and
+processors. Also we will use interchangeably the terms jobs and
+tasks. We are considering the problems where the scheduler does not
+know the processing time $p_i$ of task $i$ exactly before the task
+completes.  But the scheduler has access to some estimation of the
+processing time $\tilde{p_i}$ of task $i$ before making any scheduling
+decisions. We assume that the actual processing time $p_i$ of a task
+$i$ is within a multiplicative factor $\alpha$ of the estimated
+processing time $\tilde{p_i}$. $\alpha$ is a quantity known to the
+scheduler. In other words the scheduler knows that:
  \begin{equation} 
 \frac{1}{\alpha}\leq \frac{p_{i}}{\tilde{p}_{i}}\leq \alpha
-\end{equation}\\
+\end{equation}
 
-[Note:give justification ]
+Assuming that the processing time of the tasks is known to be in an
+interval is reasonable in many application scenarios. One could derive
+bounds experimentally using machine learning techniques: for
+instance~\cite{You14-ICPP} used support vector machines to predict the time it
+will take to run graph traversal algorithms. Also models of runtime of
+algorithms can be derived analytically:
+in~\cite{Erlebacher14-ICS} the authors provide bounds for the
+performance of various sparse linear algebra operations using only the
+size of the matrices and vector involved.
 
+The problem is to optimize the makespan, $C_{max}$. $C_{max}^{*}$
+denotes optimal makespan of a schedule $S$.
 
 We consider various problem models incorporating the above mentioned
 scenario of uncertain processing times of tasks with an
