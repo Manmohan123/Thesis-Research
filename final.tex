@@ -151,9 +151,10 @@ decisions. We assume that the actual processing time $p_i$ of a task
 $i$ is within a multiplicative factor $\alpha$ of the estimated
 processing time $\tilde{p_i}$. $\alpha$ is a quantity known to the
 scheduler. In other words the scheduler knows that:
- \begin{equation} 
+ \begin{equation}\label{eq1}
 \frac{1}{\alpha}\leq \frac{p_{i}}{\tilde{p}_{i}}\leq \alpha
 \end{equation}
+
 
 Assuming that the processing time of the tasks is known to be in an
 interval is reasonable in many application scenarios. One could derive
@@ -326,17 +327,17 @@ The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\al
 
 \begin{proof}
 The algorithm assigns the jobs to processors based on their estimated processing times using LPT in offline mode. So, the planned makespan considering estimated processing times of tasks, $\tilde{C}_{max}$ have following inequality relation with total estimated processing time, $\tilde{p_j}$ and estimated processing time of last task, $l$. 
-\begin{equation}
+\begin{equation}\label{eq2}
 \tilde C_{max}\leq  \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}
 \end{equation}
 
 The actual makespan of a schedule, $C_{max}$, calculated after actual processing times of all the jobs are known,must be smaller than $\alpha\tilde C_{max}$. Considering this we have following inequality:
-\begin{equation}
+\begin{equation}\label{eq3}
  C_{max}\leq \alpha \tilde C_{max}\leq \alpha [\frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}] 
 \end{equation} 
 
 Considering the worst case situation the processor with $\tilde C_{max}$ will see its tasks increase by $\alpha$  and the load on the  rest of the processors will by shrink  $\frac{1}{\alpha}$.  The argument behind this statement is that greater the value of ratio $\frac{C_{max}}{\sum{p_j}}$, the algorithm will give bad approximation. So increasing the load on the machine which have $C_{max} $ and deceasing the rest of the load on other processors will reach worst case scenario. So the total actual processing time is given by the  following equation.
- \begin{equation}
+ \begin{equation}\label{eq4}
  \sum {p_j} = \frac{\tilde p_j- \tilde C_{max}}{\alpha} + \alpha \tilde C_{max}
  \end{equation}
  
@@ -384,7 +385,7 @@ Using equation 3,
 In this model, we consider putting no restriction on tasks assignment. The tasks are allowed to be replicated everywhere i.e. $\forall j, |M_{j}|=|M|$. We introduce \textbf{LPT-No Restriction }algorithm which is also a two phase algorithm. In the first phase no restriction is put into
 task assignment. It is assumed that each task can be replicated on any machine. In the second phase we simply use the Longest Processing Time algorithm (LPT) using estimated processing times of tasks in non-increasing order as input.
 
-\begin{lemma}
+\begin{lemma}\label{No Restriction}
  \textbf{LPT-No Restriction} has a makespan of at least $ {\frac{2}{\alpha^{2}}} p_l $ when there are at least two tasks on the machine to which the last task $l$ is scheduled. 
 \end{lemma}
 \begin{proof}
@@ -402,24 +403,18 @@ As $j$ is scheduled before $l$ using LPT on estimated values of processing times
 \begin{equation}\nonumber
  C_{max}^{*} \geq \frac{2}{\alpha}\tilde p_l
  \end{equation}
-\begin{equation}
+\begin{equation}{\nonumber}
  C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l  \end{equation}
 
-Also by Graham's LS property optimal makespan must be at least equal to last task i.e. $C_{max}^{*} geq  p_l$ regardless of the value of $\alpha$.  So, following inequality holds always true for $C_{max}^{*}$
-\begin{equation}
-C_{max}^{*} \geq max[{\frac{2}{\alpha^{2}}} p_l, p_l] 
- \end{equation}
  \end{proof}
-
-Clearly, for $\alpha^2 geq 2$,   $p_l$ is greater than ${\frac{2}{\alpha^{2}}}$.  So,  $C_{max}^{*} geq  p_l$ better describe makespan. 
 
 \begin{theorem}
 \textbf{LPT-No Restriction} has a competitive  ratio of  $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$
 \end{theorem} 
 
 \begin{proof}
-The optimal makespan, $C_{max}^{*}$ must be at least equal to the average load on the $m$ machines. We have\\
-\begin{equation}
+The optimal makespan, $C_{max}^{*}$ must be at least equal to the average load on the $m$ machines. We have
+\begin{equation}\label{eq7}
 C_{max}^{*}\geq\frac{\sum p_j}{m}
 \end{equation}
 
@@ -427,27 +422,23 @@ By the property of LPT the load on each machine $i$ is greater than the load on 
 \begin{equation}\nonumber 
 mC_{max} \leq  \sum {p_j} + (m-1)p_l
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq8}
 C_{max} \leq  \frac{\sum {p_j}}{m} + \frac{(m-1)}{m}p_l
 \end{equation}
 
-Using (6) and (7), we have
+Using \ref{eq7} and \ref{eq8}, we have
 \begin{equation}\nonumber
 \frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}\left(\frac{p_l}{C_{max}^{*}}\right)
 \end{equation}
 
-for $\alpha^2 leq 2$, $C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l $, We have 
+Using Lemma \ref{No Restriction}, we have 
 \begin{equation}\nonumber
 \frac{C_{max}}{C_{max}^{*}} \leq 1 + \left(\frac{m-1}{m}\right)\frac{\alpha^{2}}{2}
 \end{equation}
 
-for $\alpha^2 > 2$, the value of $C_{max}^{*} $  at least be $p_l$. In this scenario the algorithm has following approximation
-\begin{equation}\nonumber
-\frac{C_{max}}{C_{max}^{*}} \leq 2- \frac{1}{m}
-\end{equation}
 \end{proof}  
 
-for $\alpha^2 > 2$, the algorithm behaves like simple List Scheduling as LPT based algorithm  has no benefit scheduling tasks based on estimated processing times which can vary drastically from actual ones because of large value of $\alpha$. 
+Graham's List Scheduling algorithm always has approximation of $2-\frac{1}{m}$. For $\alpha^2 < 2$, the \textbf{LPT- No Restriction} algorithm has better approximation than LS algorithm. For $\alpha^2 > 2$ the LS algorithm has better guarantee because $2p_l/\alpha^2$ becomes smaller $p_l$. As \textbf{LPT-No Restriction} is a variant of LS algorithm the optimal makespan must be at least $p_l$. So  $C_{max}^{*}\geq max[2p_l/\alpha^2,p_l]$ holds always true and hence the algorithm has approximation ratio of $max[1 + ((m-1)/2m)\alpha^{2},2-1/m ]$.   
 
 
 
@@ -475,6 +466,8 @@ Adding for all values of $l$, We have
 \begin{equation}{\nonumber}
 |(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}}- \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}| \leq (k-1) {max_{i \in T}}{\tilde p_{i}}
 \end{equation}
+
+\textbf{Case 1:} When $(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}} > \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}$.
 \begin{equation}{\nonumber}
  \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}} \geq (k-1)[\sum_{i \in G1 }^{}{\tilde p_{i}}- {max_{i \in T}}{\tilde p_{i}}]
 \end{equation}
@@ -483,12 +476,12 @@ As the actual processing time of tasks  can vary within a factor $\alpha$ and $\
 \begin{equation}{\nonumber}
  \alpha\sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}} \geq (k-1)[\frac{1}{\alpha}\sum_{i \in G1 }^{}{{p_{i}}}- \alpha {max_{i \in T}}{{p_{i}}}]
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq9}
 \sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}} \geq (k-1)[\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in T}}{{p_{i}}}]
 \end{equation}
 
 In phase 2, We are applying LS on online mode. We assume that $C_{max}$ comes from $G1$. Using LS property we can write,
-\begin{equation}
+\begin{equation}\label{eq10}
  C_{max} \leq \frac{\sum_{i \in G1 }^{}{{p_{i}}}}{m/k} + {\frac{m/k-1}{m/k}} p_{max}
 \end{equation}
 
@@ -500,11 +493,11 @@ C_{max}^{*} \geq  \frac{\sum_{i \in T }^{}{{p_{i}}}}{m}
 \end{equation}
 
 $\sum_{i \in T }{{p_{i}}}$ can be written as sum of load on $G1$ and load on rest of groups.
-\begin{equation}
-{\nonumber} C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ \sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}}}{m}
+\begin{equation}\label{eq11}
+ C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ \sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}}}{m}
 \end{equation}
 
-from (11), we derive
+from \ref{eq9}, we derive
 \begin{equation}{\nonumber}
  C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ (k-1)\left[\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in T}}{{p_{i}}}\right]}{m}
 \end{equation}
@@ -514,11 +507,11 @@ from (11), we derive
 \begin{equation}{\nonumber}
  + (k-1)\sum_{i \in G1 }^{}{{p_{i}}} 
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq12}
 \frac{\alpha^{2}}{\alpha^{2}+k-1}\left[m C_{max}^{*}+(k-1) {max_{i \in T}}{{p_{i}}}\right] \geq \sum_{i \in G1 }^{}{{p_{i}}}  
 \end{equation}
 
-Using (12) and (13), We have
+Using \ref{eq10} and \ref{eq12}, We have
 \begin{equation}{\nonumber}
 C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[ C_{max}^{*}+\frac{(k-1)}{m} {max_{i \in T}}{{p_{i}}}\right]
 \end{equation}
@@ -532,11 +525,33 @@ C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[ C_{max}^{*}+\frac{(k-1)}{m
   \end{equation}
  \begin{equation}{\nonumber}
    + {\frac{m-k}{m}} C_{max}^{*} 
-   \end{equation} 
+   \end{equation}    
  
- So we have approximation ratio,
+ So, for Case 1 the algorithm has approximation ratio,
  \begin{equation}{\nonumber}
-\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}} \end{equation}
+\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}} \end{equation}\\
+
+\textbf{Case 2:} When $(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}} \leq \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}$. \\
+
+As processing times of tasks  can change within a factor $\alpha$ and $\frac{1}{\alpha}$ of their estimated values, the expression for case 2 can be written as 
+\begin{equation}{\nonumber}
+\sum_{l=2}^{k}\sum_{i \in Gl }^{}{ p_{i}} \geq \frac{1}{\alpha^2} (k-1)\sum_{i \in G1 }^{}{ p_{i}}
+\end{equation}
+
+Putting this value in equation \ref{eq11}, we have
+\begin{equation}\label{eq13}
+ C_{max}^{*} \geq \frac{\alpha^2+k-1}{m\alpha^2}\sum_{i \in G1 }^{}{ p_{i}}
+\end{equation}
+Using \ref{eq10} and \ref{eq13}, and as $C_{max}^{*} \geq p_{max}$, we have
+\begin{equation}{\nonumber}
+ C_{max} \leq \frac{k\alpha^2}{\alpha^2+k-1}C_{max}^{*}+\frac{m-k}{m}C_{max}^{*}
+\end{equation}
+
+So, for case 2 the algorithm has approximation ratio of $\frac{k\alpha^2}{\alpha^2+k-1}+\frac{m-k}{m}$.\\
+Clearly, the algorithm has worst approximation for case 1.  So, the algorithm has approximation ratio of $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}}$
+
+
+
  
 \end{proof}
 
