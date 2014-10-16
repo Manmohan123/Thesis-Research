@@ -514,26 +514,38 @@ Using equation~\ref{eq3},
 \end{equation}
 \end{proof} 
 
-\section{Model 2: replication is done everywhere}\label{sec5}
+\section{Strategy 2: replicate data everywhere}\label{sec5}
 
-In this model, we consider putting no restriction on tasks assignment. The tasks are allowed to be replicated everywhere i.e. $\forall j, |M_{j}|=|M|$. We introduce \textbf{LPT-No Restriction }algorithm which is also a two phase algorithm. In the first phase no restriction is put into
-task assignment. It is assumed that each task can be replicated on any machine. In the second phase we simply use the Longest Processing Time algorithm (LPT) using estimated processing times of tasks in non-increasing order as input.
+In this model, we consider putting no restriction on tasks
+assignment. The tasks are allowed to be replicated everywhere
+i.e. $\forall j, |M_{j}|=|M|$. We introduce \textbf{LPT-No Restriction
+}algorithm which is also a two phase algorithm. In the first phase no
+restriction is put into task assignment. It is assumed that each task
+can be replicated on any machine. In the second phase we simply use
+the Longest Processing Time algorithm (LPT) using estimated processing
+times of tasks in non-increasing order as input.
 
 \begin{lemma}\label{No Restriction}
- \textbf{LPT-No Restriction} has a makespan of at least $ {\frac{2}{\alpha^{2}}} p_l $ when there are at least two tasks on the machine to which the last task $l$ is scheduled. 
+  \textbf{LPT-No Restriction} has a makespan of at least $
+  {\frac{2}{\alpha^{2}}} p_l $ when there are at least two tasks on
+  the machine to which the last task $l$ is scheduled.
 \end{lemma}
 \begin{proof}
-As there is at least one task $j$ before $l$ in the machine to which $l$ is assigned, we have
+  As there is at least one task $j$ before $l$ in the machine to which
+  $l$ is assigned, we have
 \begin{equation}\nonumber
 C_{max}^{*}\geq p_l + p_j
 \end{equation}	
 
-As actual processing time of a task must be greater than $\frac{1}{\alpha}$ times of its estimated value, we have
+As actual processing time of a task must be greater than
+$\frac{1}{\alpha}$ times of its estimated value, we have
 \begin{equation}\nonumber 
 C_{max}^{*} \geq \frac{1}{\alpha}\tilde p_l +  \frac{1}{\alpha} \tilde p_j 
 \end{equation}
 
-As $j$ is scheduled before $l$ using LPT on estimated values of processing times,  $\tilde p_j\geq   \tilde p_l$ holds true for tasks $l$ and $j$.  Using this, we have
+As $j$ is scheduled before $l$ using LPT on estimated values of
+processing times, $\tilde p_j\geq \tilde p_l$ holds true for tasks $l$
+and $j$.  Using this, we have
 \begin{equation}\nonumber
  C_{max}^{*} \geq \frac{2}{\alpha}\tilde p_l
  \end{equation}
@@ -543,7 +555,9 @@ As $j$ is scheduled before $l$ using LPT on estimated values of processing times
  \end{proof}
 
 \begin{theorem}
-\textbf{LPT-No Restriction} has a competitive  ratio of  $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$
+  \textbf{LPT-No Restriction} has a competitive ratio of
+  $\frac{C_{max}}{C_{max}^{*}} \leq 1 +
+  (\frac{m-1}{m})\frac{\alpha^{2}}{2}$
 \end{theorem} 
 
 \begin{proof}
@@ -552,8 +566,12 @@ The optimal makespan, $C_{max}^{*}$ must be at least equal to the average load o
 C_{max}^{*}\geq\frac{\sum p_j}{m}
 \end{equation}
 
-By the property of LPT the load on each machine $i$ is greater than the load on the machine which reach $C_{max}$ before the last task $l$ is scheduled. So for each machine $i$, $C_{max} \leq  \sum_{j \in E_i}^{}{p_j} + p_l$ holds true.  Summing for all the machines we have
-\begin{equation}\nonumber 
+By the property of LPT the load on each machine $i$ is greater than
+the load on the machine which reach $C_{max}$ before the last task $l$
+is scheduled. So for each machine $i$, $C_{max} \leq \sum_{j \in
+  E_i}^{}{p_j} + p_l$ holds true.  Summing for all the machines we
+have
+\begin{equation}\nonumber
 mC_{max} \leq  \sum {p_j} + (m-1)p_l
 \end{equation}
 \begin{equation}\label{eq8}
@@ -572,7 +590,15 @@ Using Lemma \ref{No Restriction}, we have
 
 \end{proof}  
 
-Graham's List Scheduling algorithm always has approximation of $2-\frac{1}{m}$. For $\alpha^2 < 2$, the \textbf{LPT- No Restriction} algorithm has better approximation than LS algorithm. For $\alpha^2 > 2$ the LS algorithm has better guarantee because $2p_l/\alpha^2$ becomes smaller $p_l$. As \textbf{LPT-No Restriction} is a variant of LS algorithm the optimal makespan must be at least $p_l$. So  $C_{max}^{*}\geq max[2p_l/\alpha^2,p_l]$ holds always true and hence the algorithm has approximation ratio of $max[1 + ((m-1)/2m)\alpha^{2},2-1/m ]$.   
+Graham's List Scheduling algorithm always has approximation of
+$2-\frac{1}{m}$. For $\alpha^2 < 2$, the \textbf{LPT- No Restriction}
+algorithm has better approximation than LS algorithm. For $\alpha^2 >
+2$ the LS algorithm has better guarantee because $2p_l/\alpha^2$
+becomes smaller $p_l$. As \textbf{LPT-No Restriction} is a variant of
+LS algorithm the optimal makespan must be at least $p_l$. So
+$C_{max}^{*}\geq max[2p_l/\alpha^2,p_l]$ holds always true and hence
+the algorithm has approximation ratio of $max[1 +
+((m-1)/2m)\alpha^{2},2-1/m ]$.
 
 
 
