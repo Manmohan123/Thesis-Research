@@ -336,45 +336,81 @@ give performance ratio of $ 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$
 and $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}}
 \right]+ {\frac{m-k}{m}}$ respectively.
 
-\section{Model 1: No Replication}\label{sec4} 
+\section{Strategy 1: No Replication}\label{sec4}
 
 
-In this problem model we have considered situation where each task is
-restricted to be scheduled on only one machine, i.e. $|M_j|=1$.  We
-have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f :
-J \leftarrow M$ be a function that assigns each job to exactly one
-machine. Let us denote $E_{i}$ as the set tasks which is assigned to a
-machine $i$.  The restriction that each task can be scheduled to only
-one machine restrict the problem construction to phase one only. There
-is no replication of tasks in this model.
+This section model considers the situation where the data of each task
+is restricted to be on only one machine, i.e. $\forall j, |M_j|=1$.
+We have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f
+: J \mapsto M$ be a function that assigns each job to exactly one
+machine. The restriction that the data of each task is deployed on a
+single machine puts all the decision in phase 1: for each task,
+there is only one machine is can be scheduled in phase 2.
 
 \subsection{Lower Bound}
 
+\todo{See how to fix numbering to remove section numbers.}
 \begin{theorem}
-For the model having $|M_j| = 1$, there is no online algorithm having competitive ratio better than  $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
-\end{theorem} 
+\label{th:model1-lb}
+  When $|M_j| = 1$, there is no online algorithm having competitive
+  ratio better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
+\end{theorem}
+ 
 \begin{proof}
-We use adversary lower bound technique to prove the theorem. We define a lower bound input instance for an unknown correct algorithm. The adversary maximizes the competitive ratio until it becomes feasible to be scheduled by any algorithm.
+  We use the adversary technique to prove the lower bound of this
+  theorem. An adversary discloses the input instance piece by
+  piece. He analyzes the choices made by the algorithm to change the
+  part of the instance that has not been disclosed yet. That way it
+  can build and instance that maximizes the competitive ratio of the
+  algorithm.
  
-Figure \ref{fig:rara} shows the scenario where $|M_j|=1$.  Let us consider an instance in which total tasks be $\lambda m$ with $\tilde{p_i}=1$. After scheduling let the most loaded machine $j$ have $B$ tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary  increases the tasks on $j$ by $\alpha$ and decreases the other tasks by $\frac{1}{\alpha}$. So, $ C_{max}$ = $\alpha B$ and ${C^{*}_{max}}\geq \frac{\alpha B + \frac{1}{\alpha }  (\lambda  m - B) }{m}$. We have,  
+  Let us consider an instance with $\lambda m$ tasks of equal estimated processing time
+  $\forall i, \tilde{p_i} = 1$. After phase 1, let $j$ be the the most loaded
+  processor which has $B$ tasks. Obviously, $B \geq \lambda$. In phase
+  2 the adversary increases the processing time of the tasks on
+  processor $j$ by a factor of $\alpha$ and changes the processing
+  time of the other tasks by a factor of $\frac{1}{\alpha}$. So, $
+  C_{max}$ = $\alpha B$ and ${C^{*}_{max}} \geq \frac{\alpha B +
+    \frac{1}{\alpha } (\lambda m - B) }{m}$.  Figure \ref{fig:rara}
+  depicts the online solution and the offline optimal. We have,
  \begin{equation}\nonumber
-\frac{C_{max}}{C^{*}_{max}}\leq \frac{\alpha^{2} B m }{\alpha^{2} B + \lambda m - B}=\frac{\alpha^{2}  m }{\alpha^{2}  + \frac{\lambda m}{B}  - 1}
- \end{equation} 
+   \frac{C_{max}}{C^{*}_{max}}
+   \leq \frac{\alpha^{2} B m }{\alpha^{2} B + \lambda m - B}
+   =\frac{\alpha^{2}  m }{\alpha^{2}  + \frac{\lambda m}{B}  - 1}
+ \end{equation}
+
+ \todo{This proof is incorrect, we need the other inequality! We need
+   a $C_{max}^* \leq something$ so that we will have $Cmax/Cmax* \geq
+   somethingelse$. This should be easy to fix. Is taking the ceil of
+   the expression of $Cmax$ enough?}
  
-  From above expression it is clear that smaller the value of $B$, the value of $\frac{C_{max}}{C^{*}_{max}}$ decreases. So, any algorithm
-  tries to minimize $B$ to get better performance.  But for a schedule to become feasible the condition, $B \geq \lambda$ must  be satisfied. Irrespective of the value of $\lambda$, for $ B \geq \lambda $ the value of expression would be feasible minimum and would equal to   $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
-\end{proof}    
-  
-  
+ From above expression it is clear that smaller the value of $B$, the
+ smaller value of $\frac{C_{max}}{C^{*}_{max}}$. So, any algorithm
+ should minimize $B$ to achieve  better performance.  For a schedule
+ to be feasible the condition $B \geq \lambda$ must be
+ satisfied. Irrespective of the value of $\lambda$, for $B =
+ \lambda$ the value of $\frac{C_{max}}{C^{*}_{max}}$ is minimum and is
+ equal to $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
+
   \begin{figure}[htp]
   \centering
   \includegraphics[width= 8 cm]{model1.pdf}
-  \caption{ The figure represents the model having $|M_j|= 1$ with
-  $\lambda = 3$ and $m = 6$. $A$ represents worst case scenario showing all the tasks increased to $\alpha$ times in the most loaded machine. $B$ represents   optimal scheduling scenario.  }
+  \caption{Instance constructed by the adversary in the proof of
+    theorem~\ref{th:model1-lb} with $\lambda = 3$ and $m = 6$. In the
+    online solution, the adversary increased by a factor of $\alpha$
+    the processing time of the task of the most loaded machine. If
+    that information was available beforehand, an optimal offline
+    algorithm could have distributed these longer tasks to other
+    processors.  \todo{add "time" and "machine" as axis
+      labels. Increase font size. Replace A and B by "online solution"
+      and "Offline Optimal"}}
   \label{fig:rara}
   \end{figure}
+\end{proof}    
+  
+  
   \begin{corollary}
-  When $m\rightarrow \infty$ there is no online algorithm having competitive ratio better than $\alpha^{2}$.
+  When $m$ goes to $\infty$ there is no online algorithm having competitive ratio better than $\alpha^{2}$.
   \end{corollary}
   
 \subsection{Algorithm}
