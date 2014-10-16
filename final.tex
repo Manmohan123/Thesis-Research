@@ -415,26 +415,50 @@ there is only one machine is can be scheduled in phase 2.
   
 \subsection{Algorithm}
 
-We introduce an algorithm, \textbf{LPT-No Choice} which is based on Graham's LPT algorithm. In phase 1, The algorithm schedules the jobs to different machines in offline mode based on non-increasing order of their estimated processing times. Just like Graham's LPT a
-job is assigned to a machine having least load at that time. Adhering to the construction of the model, there is no choice of load balancing based on replication in phase 2. The performance of the algorithm depends on how much actual processing times of jobs vary from estimated ones. The actual processing time of a job may
-increase or shrink significantly from its estimated value and is known exactly only after the job is processed by a machine. So, the algorithm's performance incur the cost of estimation.
+We introduce an algorithm, \textbf{LPT-No Choice} which is based on
+Graham's LPT algorithm. In phase 1, The algorithm schedules the jobs
+to different machines in offline mode based on non-increasing order of
+their estimated processing times. Just like Graham's LPT a job is
+assigned to a machine having least load at that time. Adhering to the
+construction of the model, there is no choice of load balancing based
+on replication in phase 2. The performance of the algorithm depends on
+how much actual processing times of jobs vary from estimated ones. The
+actual processing time of a job may increase or shrink significantly
+from its estimated value and is known exactly only after the job is
+processed by a machine. So, the algorithm's performance incur the cost
+of estimation.
 
 \begin{theorem}
 The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
 \end{theorem} 
 
 \begin{proof}
-The algorithm assigns the jobs to processors based on their estimated processing times using LPT in offline mode. So, the planned makespan considering estimated processing times of tasks, $\tilde{C}_{max}$ have following inequality relation with total estimated processing time, $\tilde{p_j}$ and estimated processing time of last task, $l$. 
+  The algorithm assigns the jobs to processors based on their
+  estimated processing times using LPT in offline mode. So, the
+  planned makespan considering estimated processing times of tasks,
+  $\tilde{C}_{max}$ have following inequality relation with total
+  estimated processing time, $\tilde{p_j}$ and estimated processing
+  time of last task, $l$.
 \begin{equation}\label{eq2}
 \tilde C_{max}\leq  \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}
 \end{equation}
 
-The actual makespan of a schedule, $C_{max}$, calculated after actual processing times of all the jobs are known,must be smaller than $\alpha\tilde C_{max}$. Considering this we have following inequality:
+The actual makespan of a schedule, $C_{max}$, calculated after actual
+processing times of all the jobs are known,must be smaller than
+$\alpha\tilde C_{max}$. Considering this we have following inequality:
 \begin{equation}\label{eq3}
- C_{max}\leq \alpha \tilde C_{max}\leq \alpha [\frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}] 
+  C_{max}\leq \alpha \tilde C_{max}\leq \alpha [\frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}] 
 \end{equation} 
 
-Considering the worst case situation the processor with $\tilde C_{max}$ will see its tasks increase by $\alpha$  and the load on the  rest of the processors will by shrink  $\frac{1}{\alpha}$.  The argument behind this statement is that greater the value of ratio $\frac{C_{max}}{\sum{p_j}}$, the algorithm will give bad approximation. So increasing the load on the machine which have $C_{max} $ and deceasing the rest of the load on other processors will reach worst case scenario. So the total actual processing time is given by the  following equation.
+Considering the worst case situation the processor with $\tilde
+C_{max}$ will see its tasks increase by $\alpha$ and the load on the
+rest of the processors will by shrink $\frac{1}{\alpha}$.  The
+argument behind this statement is that greater the value of ratio
+$\frac{C_{max}}{\sum{p_j}}$, the algorithm will give bad
+approximation. So increasing the load on the machine which have
+$C_{max} $ and deceasing the rest of the load on other processors will
+reach worst case scenario. So the total actual processing time is
+given by the following equation.
  \begin{equation}\label{eq4}
  \sum {p_j} = \frac{\tilde p_j- \tilde C_{max}}{\alpha} + \alpha \tilde C_{max}
  \end{equation}
@@ -455,13 +479,21 @@ Substituting for  $ \sum {p_j}$, we have
  m C_{max}^{*}\geq \frac{m-1}{\alpha m} [\sum \tilde p_j-\tilde p_l] + {C_{max}}
  \end{equation}
 
-By the property of LPT $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde p_l)$, putting this we have,\\
+ By the property of LPT $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde p_l)$, putting this we have,\\
 \begin{equation}\nonumber 
- m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\tilde p_l\right] + {C_{max}}
+  m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\tilde p_l\right] + {C_{max}}
  \end{equation}
  
- The Graham’s LPT algorithm in normal scenario give optimal performance till two jobs are assigned to machines. But in the scenario of estimated processing times of tasks whose value can significantly vary from actual
- actual ones, any schedule using estimated values cannot guarantee optimality for even two jobs per machine. So, we consider the instance of at least two jobs per machine to derive performance ratio of our algorithm. For at least two jobs in machine having $\tilde{C}_(max)$, the processing time (estimated) of latest job, $\tilde{p_l} $ at most be equal to $\tilde{C}_(max)/2$. Putting this in the above equation, we have
+ The Graham’s LPT algorithm in normal scenario give optimal
+ performance till two jobs are assigned to machines. But in the
+ scenario of estimated processing times of tasks whose value can
+ significantly vary from actual actual ones, any schedule using
+ estimated values cannot guarantee optimality for even two jobs per
+ machine. So, we consider the instance of at least two jobs per
+ machine to derive performance ratio of our algorithm. For at least
+ two jobs in machine having $\tilde{C}_(max)$, the processing time
+ (estimated) of latest job, $\tilde{p_l} $ at most be equal to
+ $\tilde{C}_(max)/2$. Putting this in the above equation, we have
 \begin{equation}\nonumber
  m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\frac{\tilde C_{max}}{2}\right] + {C_{max}}
 \end{equation}
