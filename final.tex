@@ -13,11 +13,19 @@
 \usepackage{subcaption}
 \usepackage{amsthm}
 
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[colorlinks=true,urlcolor=OliveGreen,citecolor=Blue]{hyperref}
+
+\usepackage{soul}
+\usepackage{xspace}
+
  
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 
+\newcommand{\todo}[1]{{\color{red}\textbf{\hl{#1}}\xspace}}
 
 %\graphicspath{{C:\Users\Manmohan\Documents\GitHub\research}}
 
@@ -54,10 +62,10 @@
 
 
 \begin{abstract}
-  Scheduling problems is a common theoretical tool to analyze the
-  performance of distributed computing systems, such as their load
+  Scheduling theory is a common tool to analyze the
+  performance of parallel and distributed computing systems, such as their load
   balance. How to distribute the input data to be able to execute a
-  set of tasks in the minimum amount of time can be modeled as a
+  set of tasks in a minimum amount of time can be modeled as a
   scheduling problem. Often these models assume that the computation
   time required for each task is known accurately. However in many
   practical case, only approximate values are available at the time of
@@ -69,7 +77,7 @@
   independent tasks to optimize the makespan on a parallel system
   where the processing times of tasks are only known up to a
   multiplicative factor. The problem is decomposed in two phases: a
-  first offline phase where the data of tasks are placed and a second
+  first offline phase where the data of the tasks are placed and a second
   online phase where the tasks are actually scheduled.
 
   For this problem we investigate three different strategies, each
@@ -91,6 +99,31 @@ Scheduling; Uncertainty; Robustness; Replication; Approximation Algorithms; Para
 
 \section{Introduction}
 
+\todo{the introduction should be structure as follow.}
+
+\todo{one paragraph on scheduling as a tool for analyzing and
+  optimizing parallel and distributed systems.Mention that in
+  scheduling often processing time are known. But in practice not so
+  much. Give a few references on the difficulty of predicting runtimes
+  in job scheduler.}
+
+\todo{we need a paragraph on data placement. essentially: uncertainty
+  would not be a problem if the schedules could be dynamically
+  changed. But in practice, the task has to run somewhere because its
+  input data is there. For instance Hadoop, dooc+laf; but essentially
+  in any parallel code. Even if some middleware support executing the
+  task everywhere it is pays an overhead for transfering data.}
+
+\todo{one approach for the problem is to build robust schedule. define
+  robust schedule and give few quick pointers. What is better is to be
+  able to arrange the schedule at runtime. What we investigate: using
+  data replication to give room to the scheduler to move tasks
+  around. Can it help?}
+
+\todo{In paragraph that gives document organization. In section foo,
+  we present this. In section bar we present that. This is where
+  contribution should be presented. no need to give formula.}
+
 Many real world scheduling problems related to task allocation in
 parallel machines are uncertain in nature. This fact makes the class
 of problem known as 'scheduling with uncertainty' or 'robust'
@@ -106,6 +139,7 @@ actual processing time of a job can vary drastically from its
 estimated one. So, any algorithm have to incur the cost of estimation
 which impacts its performance negatively. A robust approach deals with
 uncertainty in input parameters to minimize this cost.
+
 
 The objective of our research is to study the affect on performance of
 parallel machine scheduling when jobs are scheduled based on their
@@ -132,8 +166,13 @@ replication in data placement for uncertain scheduling with inexact
 processing time of a task.
 
 The remaining of the paper is organized as follows: we describe system
-model and notations in section~\ref{sec2}. Related works are touched in section~\ref{sec3}.  Sections~\ref{sec4}-~\ref{sec6} describes the 3 different strategies- a)No replications, b)replication is done everywhere and c)replication is done within a group. The respective sections describe derivation of competitive ratios for each of these
-strategies. Section~\ref{sec7} summarizes the results of 3 models based on experimental results.
+model and notations in section~\ref{sec2}. Related works are touched
+in section~\ref{sec3}.  Sections~\ref{sec4}-~\ref{sec6} describes the
+3 different strategies- a)No replications, b)replication is done
+everywhere and c)replication is done within a group. \todo{expand per
+  section}. The respective sections describe derivation of competitive
+ratios for each of these strategies. Section~\ref{sec7} summarizes the
+results of 3 models based on experimental results.
 
 \section{Problem Definition}\label{sec2}
 Let $J$ be a set of $n$ jobs which need to be scheduled onto a set $M$
@@ -148,67 +187,80 @@ $i$ is within a multiplicative factor $\alpha$ of the estimated
 processing time $\tilde{p_i}$. $\alpha$ is a quantity known to the
 scheduler. In other words the scheduler knows that:
  \begin{equation}\label{eq1}
-\frac{1}{\alpha}\leq \frac{p_{i}}{\tilde{p}_{i}}\leq \alpha
+\frac{\tilde{p}_{i}}{\alpha}\leq p_{i}\leq \alpha \tilde{p}_{i}
 \end{equation}
 
 
 Assuming that the processing time of the tasks is known to be in an
 interval is reasonable in many application scenarios. One could derive
 bounds experimentally using machine learning techniques: for
-instance~\cite{You14-ICPP} used support vector machines to predict the time it
-will take to run graph traversal algorithms. Also models of runtime of
-algorithms can be derived analytically:
+instance~\cite{You14-ICPP} used Support Vector Machines to predict the time it
+will take to run graph traversal algorithms. Models of runtime of
+algorithms can also be derived analytically:
 in~\cite{Erlebacher14-ICS} the authors provide bounds for the
 performance of various sparse linear algebra operations using only the
 size of the matrices and vector involved.
 
-The problem is to optimize the makespan, $C_{max}$. $C_{max}^{*}$
-denotes optimal makespan of a schedule $S$.
+The problem is to optimize the makespan, $C_{max}$. \todo{Define
+  makespan formally. Probably better if we push that at the end of the
+  section.} $C_{max}^{*}$ denotes optimal makespan of a schedule $S$.
 
-We consider various problem models incorporating the above mentioned
-scenario of uncertain processing times of tasks with an
-estimate. Depending upon a problem model the scheduling is done in two
-phases or just in one phase. In Phase 1, we allocate tasks to certain
-processors or group of processors depending upon a problem model.
-Phase 1 chooses where data to be replicated using estimated processing
-time $\tilde p_i $, for each of the task $i$. Phase 1 takes
-$\tilde{p_i}$, $m$ and $\alpha$ as input and outputs set of machines,
-$M_j \subseteq M $ where a task $j$ can be scheduled or is
-replicated. Phase 2 takes output of phase 1 as input and outputs set
-of task assigned to a machine $i$, $E_i \subseteq J$.  In Phase 2, we
-choose actual schedule with semi-clairvoyant algorithm which uses only
-approximate knowledge of initial processing time, and after scheduling
-the task the actual $p_i$ is known.  With objective to find schedule
-which minimizes makespan, we investigate greedy algorithms for each of
-the problem models and prove their competitive ratios.
+\todo{Write it so that the problem is defined in two phases, what ever
+  the strategy. the strategy we follow does not change the problem.}
+Depending upon a problem model the scheduling is done in two phases or
+just in one phase. In Phase 1, we allocate tasks to certain processors
+or group of processors depending upon a problem model.  Phase 1
+chooses where data to be replicated using estimated processing time
+$\tilde p_i $, for each of the task $i$. Phase 1 takes $\tilde{p_i}$,
+$m$ and $\alpha$ as input and outputs set of machines, $M_j \subseteq
+M $ where a task $j$ can be scheduled or is replicated.
 
-We have used Graham's List Scheduling (LS)~\cite{Graham66} and Largest Processing Time
-(LPT) algorithms~\cite{Graham69boundson} to derive approximation
+Phase 2 takes output of phase 1 as input and \todo{write it such that
+  it maps a task to a machine respecting the data allocation of phase
+  1. give formal writing. Then define $E_i.$} outputs set of task
+assigned to a machine $i$, $E_i \subseteq J$.  In Phase 2, we choose
+\todo{avoid using we when describing problems.} actual schedule with
+semi-clairvoyant algorithm which uses only approximate knowledge of
+initial processing time, and after scheduling the task the actual
+$p_i$ is known.  With objective to find schedule which minimizes
+makespan, we investigate greedy algorithms for each of the problem
+models and prove their competitive ratios. \todo{what we investigate
+  has nothing to do here. This is a problem definition.}
+
+
+\section{Related Work}\label{sec3}
+
+\todo{First with $\alpha=1$ this is the classical scheduling
+  problem.}\todo{NP-Hardness. cite garey johnson.} We have used
+Graham's List Scheduling (LS)~\cite{Graham66} and Largest Processing
+Time (LPT) algorithms~\cite{Graham69boundson} to derive approximation
 ratios in different scenarios. The LS algorithm takes tasks one at a
 time and assign it to the processor having least load at that time. LS
 is 2-approximation algorithm and is widely used in online scheduling
-problems.  The LPT sorts tasks in decreasing order of processing time
-and assign them one at a time in this order to the processor with the
-smallest current load. The LPT algorithm have worst case performance
-ratio as $4/3-1/(3m) $ in offline setting . Depending upon which among
-these two algorithms suits more for a problem model we have used these
-algorithms accordingly.
+problems. LPT sorts tasks in decreasing order of processing time and
+assign them one at a time in this order to the processor with the
+smallest current load. The LPT algorithm has worst case performance
+ratio as $\frac{4}{3}-\frac{1}{3m} $ in an offline setting. Depending
+upon which among these two algorithms suits more for a problem model
+we have used these algorithms accordingly. \todo{PTAS from hochbaum shmoys}
 
-\section{Related Work}\label{sec3}
-We begin with the literature on scheduling problems under
-uncertainty. Based on various models of describing uncertainty in
-input parameter, uncertainty problems can be approached by various
-methodologies including Reactive, stochastic, fuzzy and Robust
+
+
+Based on various models of describing uncertainty in input parameter,
+uncertainty problems can be approached by various methodologies
+including Reactive, stochastic, fuzzy and Robust
 approach~\cite{DBLP:journals/cce/LiI08}. The bounded uncertainty model
 assumes that an input parameter have value between a lower and upper
 bound and is usually dealt with robust approach or sensitivity
-analysis. We are more interested in robust approach to deal with
-uncertainty. There is very less literature available for scheduling
-with estimated processing time of a task. Most of the literature till
-now focuses on job size estimation with small error. Very less work is
-done which focuses on coping with less restrictive estimation for task
-size and which analyzes the effect of estimation on scheduling
-quantitatively. Wierman and Nuyens~\cite{conf/sigmetrics/WiermanN08}
+analysis\todo{cite}. We are more interested in robust approach to deal
+with uncertainty. \todo{Cut all that: ``There is very less literature
+  available for scheduling with estimated processing time of a
+  task. Most of the literature till now focuses on job size estimation
+  with small error. Very less work is done which focuses on coping
+  with less restrictive estimation for task size and which analyzes
+  the effect of estimation on scheduling quantitatively''. Be factual,
+  this paper takes that approach and shows that or applies it to
+  that.} Wierman and Nuyens~\cite{conf/sigmetrics/WiermanN08}
 introduce SMART as classification to understand size based policies
 and draw analytical co-relation between response time and estimated
 job size in single server problem. Dealing with uncertainty problems
@@ -221,10 +273,13 @@ proposed which provides robustness in scheduling against uncertain Job
 Size ~\cite{Wolf:2010:FSA:2023718.2023720} \cite{6691554}. Cannon and
 Jeannot ~\cite{cj09c} provides scheduling heuristics that optimizes
 both makespan and robustness in scheduling task graph on heterogeneous
-system.
+system. \todo{This is not the contribution of this paper. It is mostly
+  trying to understand what is the correct metric for measuring the
+  robustness of a schedule. }
 
 Most of the work on robust scheduling uses scenarios in problem
-formulation to structure variability of uncertain parameter. Daniels
+formulation to structure variability of uncertain
+parameter. \todo{What does a scenario means in this context.} Daniels
 and Kouvelis~\cite{citeulike:8334169} used scenarios to formulate
 branch and bound based robust scheduling to cope uncertainty in
 processing time of jobs in single machine. Davenport, Gefflot, and Bek
@@ -241,14 +296,15 @@ scenario. We have approached the problem with worst case scenario
 where some tasks may increase and some may decrease in the same
 schedule.
   
-We have used pro-active approach to deal with uncertainty. Through
-this research we study effect of load balancing in scenario of
-uncertain processing times. Based on different task assignment
-criteria we propose 3 models for our problem definition, offering
-different degree of task replication for load balancing. Data
-placement and replication methodologies are highly used in distributed
-systems including peer-to-peer and Grid systems to achieve effective
-data management and improve
+\todo{This is related works, this is not about what we do.} We have
+used pro-active approach to deal with uncertainty. Through this
+research we study effect of load balancing in scenario of uncertain
+processing times. Based on different task assignment criteria we
+propose 3 models for our problem definition, offering different degree
+of task replication for load balancing. Data placement and replication
+methodologies are highly used in distributed systems including
+peer-to-peer and Grid systems to achieve effective data management and
+improve
 performance~\cite{Cirne2007213}\cite{Abawajy}\cite{4215379}. Our
 notion of using replication is to increase data availability thereby
 enhancing system reliability against uncertainties. With focus on
@@ -261,6 +317,8 @@ minimizing load and memory in distributed file servers.
 
 
 \subsection{Our Contribution}
+
+\todo{Why do we have contribution here?}
 
 We study the effect of load balancing through replication in classic
 problem of scheduling jobs with uncertain processing times with

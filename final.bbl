@@ -47,6 +47,11 @@ M.~Gatto and P.~Widmayer.
 \newblock On the robustness of graham's algorithm for online scheduling.
 \newblock In {\em Proc of WADS}, 2007.
 
+\bibitem{Graham66}
+R.~L. Graham.
+\newblock Bounds for certain multiprocessing anomalies.
+\newblock {\em Bell System Technical Journal}, 45:1563--1581, 1966.
+
 \bibitem{Graham69boundson}
 R.~L. Graham.
 \newblock Bounds on multiprocessing timing anomalies.
