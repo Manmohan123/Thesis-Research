@@ -446,7 +446,7 @@ The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\al
 \end{equation}
 
 The actual makespan of a schedule, $C_{max}$, obtained using the
-actual processing times of all the jobs, must be smaller than $\alpha
+actual processing times of all the jobs, must be smaller than $C_{max} \leq \alpha
 \tilde C_{max}$ (thanks to Equation~\ref{eq1}). We
 have following inequality:
 \begin{equation}\label{eq3}
@@ -479,34 +479,35 @@ Substituting for  $ \sum {p_j}$, we have
  m C_{max}^{*}\geq \frac{\sum \tilde{p_j} - \left( \frac{\sum{\tilde{p_j} + (m-1) \tilde{p_l} }}{m} \right )} {\alpha} + {C_{max}}
 \end{equation}
 \begin{equation}\nonumber
- m C_{max}^{*}\geq \frac{m-1}{\alpha m} [\sum \tilde p_j-\tilde p_l] + {C_{max}}
+ m C_{max}^{*}\geq \frac{m-1}{\alpha m} \left( \sum \tilde p_j - \tilde{p_l} \right) + {C_{max}}
  \end{equation}
 
- By the property of LPT $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde p_l)$, putting this we have,\\
+ By the property of LPT, $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde p_l)$, we have,
 \begin{equation}\nonumber 
-  m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\tilde p_l\right] + {C_{max}}
+  m C_{max}^{*}\geq \frac{m-1}{\alpha } \left( \tilde{C_{max}} - \tilde{ p_l} \right) + {C_{max}}
  \end{equation}
  
- Graham’s LPT algorithm in normal scenario give optimal
- performance till two jobs are assigned to machines. But in the
- scenario of estimated processing times of tasks whose value can
- significantly vary from actual actual ones, any schedule using
- estimated values cannot guarantee optimality for even two jobs per
- machine. So, we consider the instance of at least two jobs per
- machine to derive performance ratio of our algorithm. For at least
- two jobs in machine having $\tilde{C}_(max)$, the processing time
- (estimated) of latest job, $\tilde{p_l} $ at most be equal to
- $\tilde{C}_(max)/2$. Putting this in the above equation, we have
+ All instances where there is only one task per processor is always
+ optimal. Therefore, we can restrict our analysis without loss of
+ generality to instances with at least two jobs per processor. (Notice
+ that in the original proof of Graham's LPT~\cite{Graham69boundson},
+ an argument is made that all instances with two tasks per machine are
+ optimal. However, the argument does not port in our case where only
+ estimated processing times are known.) For at least two jobs on the
+ processing that reaches having $\tilde{C}_{max}$, the (estimated)
+ processing time of last job is smaller than half the estimated
+ makespan, $\tilde{p_l} \leq \frac{\tilde{C}_{max}}{2}$. Substituting
+ this expression in the in the above equation, we have
 \begin{equation}\nonumber
- m C_{max}^{*}\geq \frac{m-1}{\alpha } \left[\tilde C_{max}-\frac{\tilde C_{max}}{2}\right] + {C_{max}}
+ m C_{max}^{*}\geq \frac{m-1}{\alpha } \left( \tilde C_{max}-\frac{\tilde C_{max}}{2} \right ) + {C_{max}}
 \end{equation}
 
-Using equation 3,
+Using equation~\ref{eq3},
 \begin{equation}\nonumber
- m C_{max}^{*}\geq \frac{m-1}{2\alpha } \left[\frac{C_{max}} {\alpha} \right]+ {C_{max}}
+ m C_{max}^{*}\geq \frac{m-1}{2\alpha } \frac{C_{max}} {\alpha} + {C_{max}}
 \end{equation}
 \begin{equation}\nonumber
- m C_{max}^{*}\geq \left[\frac{m-1}{2\alpha^{2} } +1\right]{C_{max}}
+ m C_{max}^{*}\geq \left( \frac{m-1}{2\alpha^{2} } +1\right){C_{max}}
 \end{equation}
 \begin{equation}\nonumber
 \frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}
