@@ -114,7 +114,7 @@ Scheduling; Uncertainty; Robustness; Replication; Approximation Algorithms; Para
   changed. But in practice, the task has to run somewhere because its
   input data is there. For instance Hadoop, dooc+laf; but essentially
   in any parallel code. Even if some middleware support executing the
-  task everywhere it is pays an overhead for transfering data.}
+  task everywhere it pays an overhead for transferring data.}
 
 \todo{one approach for the problem is to build robust schedule. define
   robust schedule and give few quick pointers. What is better is to be
@@ -242,12 +242,7 @@ approach~\cite{DBLP:journals/cce/LiI08}. The bounded uncertainty model
 assumes that an input parameter have value between a lower and upper
 bound and is usually dealt with robust approach or sensitivity
 analysis\todo{cite}. We are more interested in robust approach to deal
-with uncertainty. \todo{Cut all that: ``There is very less literature
-  available for scheduling with estimated processing time of a
-  task. Most of the literature till now focuses on job size estimation
-  with small error. Very less work is done which focuses on coping
-  with less restrictive estimation for task size and which analyzes
-  the effect of estimation on scheduling quantitatively''. Be factual,
+with uncertainty. \todo{ Be factual,
   this paper takes that approach and shows that or applies it to
   that.} Wierman and Nuyens~\cite{conf/sigmetrics/WiermanN08}
 introduce SMART as classification to understand size based policies
@@ -267,9 +262,7 @@ system. \todo{This is not the contribution of this paper. It is mostly
   robustness of a schedule. }
 
 Most of the work on robust scheduling uses scenarios in problem
-formulation to structure variability of uncertain
-parameter. \todo{What does a scenario means in this context.} Daniels
-and Kouvelis~\cite{citeulike:8334169} used scenarios to formulate
+formulation to structure variability of uncertain parameter. \todo{What does a scenario means in this context.} Daniels and Kouvelis~\cite{citeulike:8334169} used scenarios to formulate
 branch and bound based robust scheduling to cope uncertainty in
 processing time of jobs in single machine. Davenport, Gefflot, and Bek
 used slack based technique to add extra time to cope with
@@ -390,9 +383,7 @@ there is only one machine is can be scheduled in phase 2.
     the processing time of the task of the most loaded machine. If
     that information was available beforehand, an optimal offline
     algorithm could have distributed these longer tasks to other
-    processors.  \todo{add "time" and "machine" as axis
-      labels. Increase font size. Replace A and B by "online solution"
-      and "Offline Optimal"}}
+    processors.}
   \label{fig:rara}
   \end{figure}
 \end{proof}    
