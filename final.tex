@@ -12,6 +12,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{amsthm}
+ 
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[colorlinks=true,urlcolor=OliveGreen,citecolor=Blue]{hyperref}
@@ -347,18 +349,18 @@ there is only one machine is can be scheduled in phase 2.
   algorithm.
  
   Let us consider an instance with $\lambda m$ tasks of equal estimated processing time
-  $\forall i, \tilde{p_i} = 1$. After phase 1, let $j$ be the the most loaded
+  $\forall j, \tilde{p_j} = 1$. After phase 1, let $i$ be the the most loaded
   processor which has $B$ tasks. Obviously, $B \geq \lambda$. In phase
   2 the adversary increases the processing time of the tasks on
-  processor $j$ by a factor of $\alpha$ and changes the processing
+  processor $i$ by a factor of $\alpha$ and changes the processing
   time of the other tasks by a factor of $\frac{1}{\alpha}$. So, $
-  C_{max}$ = $\alpha B$ and ${C^{*}_{max}} \geq \frac{\alpha B +
-    \frac{1}{\alpha } (\lambda m - B) }{m}$.  Figure \ref{fig:rara}
+  C_{max}$ = $\alpha B$ and ${C^{*}_{max}} \leq \frac{1}{\alpha }\left(\frac{
+     (\lambda m - B) }{m-1}-\ceil{\frac{B}{m}}\right)+ \alpha\ceil{\frac{B}{m}} $.  Figure \ref{fig:rara}
   depicts the online solution and the offline optimal. We have,
  \begin{equation}\nonumber
    \frac{C_{max}}{C^{*}_{max}}
-   \leq \frac{\alpha^{2} B m }{\alpha^{2} B + \lambda m - B}
-   =\frac{\alpha^{2}  m }{\alpha^{2}  + \frac{\lambda m}{B}  - 1}
+   \geq \frac{\alpha^{2} B  }{\frac{
+        (\lambda m - B) }{m-1}-\ceil{\frac{B}{m}}+\alpha^2\ceil{\frac{B}{m}}}
  \end{equation}
 
  \todo{This proof is incorrect, we need the other inequality! We need
@@ -367,12 +369,12 @@ there is only one machine is can be scheduled in phase 2.
    the expression of $Cmax$ enough?}
  
  From above expression it is clear that smaller the value of $B$, the
- smaller value of $\frac{C_{max}}{C^{*}_{max}}$. So, any algorithm
+  value of the expression decreases. So, any algorithm
  should minimize $B$ to achieve  better performance.  For a schedule
  to be feasible the condition $B \geq \lambda$ must be
  satisfied. Irrespective of the value of $\lambda$, for $B =
  \lambda$ the value of $\frac{C_{max}}{C^{*}_{max}}$ is minimum and is
- equal to $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
+ equal to $\frac{\alpha^{2} \lambda  }{\lambda+(\alpha^2-1)\ceil{\frac{\lambda}{m}}}$.  
 
   \begin{figure}[htp]
   \centering
