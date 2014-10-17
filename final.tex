@@ -107,7 +107,7 @@ Scheduling; Uncertainty; Robustness; Replication; Approximation Algorithms; Para
   much. Give a few references on the difficulty of predicting runtimes
   in job scheduler.}
   
-  In parallel and distributed computing tasks are processed simultaneously on different machines to minimize time to complete the processing of all the tasks.   The scheduling for the set of tasks on a given set of machines are usually determined with a goal to optimize certain parameter, such as makespan.  The Scheduling study is also used to provide insight into the performance of parallel and distributed computing systems, such as their load balance.  The problem of distributing the input data to execute a set of tasks in a minimum amount of time can be formulated as a scheduling problem.  Often these scheduling problems are modeled based on the assumption that the computation time required for each task is known accurately; while, in a more practical scenario, only approximate values for the computation times of the tasks can be determined at the time of scheduling.
+  In parallel and distributed computing, tasks are processed simultaneously on different machines to minimize time to complete the processing of all the tasks.   The scheduling for the set of tasks on a given set of machines are usually determined with a goal to optimize certain parameter, such as makespan.  The Scheduling study is also used to provide insight into the performance of parallel and distributed computing systems, such as their load balance.  The problem of distributing the input data to execute a set of tasks in a minimum amount of time can be formulated as a scheduling problem.  Often these scheduling problems are modeled based on the assumption that the computation time required for each task is known accurately; while, in a more practical scenario, only approximate values for the computation times of the tasks can be determined at the time of scheduling.
 
 \todo{we need a paragraph on data placement. essentially: uncertainty
   would not be a problem if the schedules could be dynamically
@@ -205,29 +205,16 @@ size of the matrices and vector involved.
 
 The problem is to optimize the makespan, $C_{max}$. \todo{Define
   makespan formally. Probably better if we push that at the end of the
-  section.} $C_{max}^{*}$ denotes optimal makespan of a schedule $S$.
+  section.} Makespan is the load on machine which processes the latest task. $C_{max}^{*}$ denotes optimal makespan of a schedule $S$.
 
 \todo{Write it so that the problem is defined in two phases, what ever
   the strategy. the strategy we follow does not change the problem.}
-Depending upon a problem model the scheduling is done in two phases or
-just in one phase. In Phase 1, we allocate tasks to certain processors
-or group of processors depending upon a problem model.  Phase 1
-chooses where data to be replicated using estimated processing time
-$\tilde p_i $, for each of the task $i$. Phase 1 takes $\tilde{p_i}$,
-$m$ and $\alpha$ as input and outputs set of machines, $M_j \subseteq
-M $ where a task $j$ can be scheduled or is replicated.
+The scheduling for the problem is defined in two phases.  Phase 1 chooses where data to be replicated using estimated processing time $\tilde p_j $, for each of the task $j$. The phase takes $\tilde{p_j}$, $m$ and $\alpha$ as input and outputs set of machines, $M_j \subseteq M $ where a task $j$ can be scheduled.
 
-Phase 2 takes output of phase 1 as input and \todo{write it such that
-  it maps a task to a machine respecting the data allocation of phase
-  1. give formal writing. Then define $E_i.$} outputs set of task
-assigned to a machine $i$, $E_i \subseteq J$.  In Phase 2, we choose
-\todo{avoid using we when describing problems.} actual schedule with
-semi-clairvoyant algorithm which uses only approximate knowledge of
-initial processing time, and after scheduling the task the actual
-$p_i$ is known.  With objective to find schedule which minimizes
+Phase 2 takes output of phase 1 as its input and maps a task $j$ to a machine within the set of machines $M_j$ to which $j$ was allocated in phase 1.  For each  machine $i$ phase 2 outputs a set of tasks $E_i \subseteq J$ assigned to the machine $i$.  The Phase chooses actual schedule with semi-clairvoyant algorithm which uses only approximate knowledge of initial processing time, and after scheduling the task the actual $p_i$ is known.  With objective to find schedule which minimizes
 makespan, we investigate greedy algorithms for each of the problem
 models and prove their competitive ratios. \todo{what we investigate
-  has nothing to do here. This is a problem definition.}
+has nothing to do here. This is a problem definition.}
 
 
 \section{Related Work}\label{sec3}
