@@ -605,129 +605,167 @@ of $2-\frac{1}{m}$. For $\alpha^2 < 2$, the \textbf{LPT-No
 Scheduling. For $\alpha^2 > 2$ List Scheduling has better guarantee
 than the one expressed in Theorem~\ref{th:strategy2}. Since
 \textbf{LPT-No Restriction} is a variant of List Scheduling,
-the algorithm has a competitive ratio of $min (1 +
+the algorithm has a competitive ratio of $\min (1 +
 \frac{m-1}{2m}\alpha^{2}, 2-\frac{1}{m})$.
 
 
 
-\section{Model 3: Replication in groups}\label{sec6}
-Figure \ref{fig:Model 3} shows the construction of two phases in model 3.  In this model the first phase is in offline mode and each task is pre-assigned to a particular  group of processors. In the second phase the tasks are scheduled  within the group they are assigned to in first phase.   We have a set $J$ of $ n$ tasks.  There are $k$ groups $G1$,$G2$...$Gk$.   Size of each group is equal and have $m/k$ processors within each group.  We have considered task allocation such that each task can be assigned to only one group, i.e. $\forall j$, $|M_j|= m/k$. So, this model allows each task to replicate $ m/k $ times within the group it is assigned to.
+\section{Strategy 3: Replication in groups}\label{sec6}
 
- We propose a two-phase algorithm, \textbf{LS-Group} which is based on Graham's List Scheduling algorithm. In phase 1, using LS in offline mode the algorithm pre-assign the jobs to different groups of machines. In phase 2 each task is scheduled to a particular processor within the group it was allocated in phase 1. In phase 2, the algorithm use online LS to schedule tasks to processors within each group.\\
+Figure \ref{fig:Model 3} shows the construction of two phases in model
+3.  In this model the first phase is in offline mode and each task is
+pre-assigned to a particular group of processors. In the second phase
+the tasks are scheduled within the group they are assigned to in first
+phase.  We have a set $J$ of $ n$ tasks.  There are $k$ groups
+$G1$,$G2$...$Gk$.  Size of each group is equal and have $m/k$
+processors within each group.  We have considered task allocation such
+that each task can be assigned to only one group, i.e. $\forall j$,
+$|M_j|= m/k$. So, this model allows each task to replicate $ m/k $
+times within the group it is assigned to.
+
+We propose a two-phase algorithm, \textbf{LS-Group} which is based on
+Graham's List Scheduling algorithm. In phase 1, using LS in offline
+mode the algorithm pre-assign the jobs to different groups of
+machines. In phase 2 each task is scheduled to a particular processor
+within the group it was allocated in phase 1. In phase 2, the
+algorithm use online LS to schedule tasks to processors within each
+group.
 
 \begin{figure*}[htp] 
 \centering
 \includegraphics[width= 16 cm]{model3.pdf}
-\caption{Replication in groups with $m = 6$, $k = 2$. The left figure shows tasks assignment to groups in phase 1; The right figure shows each task
-assigned to a machine within a group}
+\caption{Replication in groups with $m = 6$, $k = 2$. The left figure
+  shows tasks assignment to groups in phase 1; The right figure shows
+  each task assigned to a machine within a group}
 \label{fig:Model 3}
 \end{figure*}
 
 \begin{theorem}
-When the number of groups is $k$ the approximation ratio of \textbf{LS-Group } is $  \frac{k\alpha^{2}}{\alpha^{2}+k-1}[1+ {\frac{k-1}{m}} ]+ {\frac{m-k}{m}}   $ 
+  When the number of groups is $k$ the approximation ratio of
+  \textbf{LS-Group } is $ \frac{k\alpha^{2}}{\alpha^{2}+k-1}[1+
+  {\frac{k-1}{m}} ]+ {\frac{m-k}{m}}$
 \end{theorem}
 \begin{proof} 
-Let us consider  that $ C_{max}$ comes from group $G1$.  As in phase 1 tasks are allocated to different groups using offline List Scheduling algorithm and taking the estimated processing times of tasks, the load difference between any two groups cannot be greater than the estimated value of largest task ${max_{i \in T}}{\tilde p_{i}}$.  So, for any group $Gl \neq G1$, We have
-\begin{equation}{\nonumber}
-|\sum_{i \in G1 }^{}{\tilde p_{i}}- \sum_{i \in Gl }^{}{\tilde p_{i}}| \leq {max_{i \in T}}{\tilde p_{i}}\end{equation}  \hspace*{15pt}   for all, $l = 2,3,...,k$ \\ 
-Adding for all values of $l$, We have 
-\begin{equation}{\nonumber}
-|(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}}- \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}| \leq (k-1) {max_{i \in T}}{\tilde p_{i}}
-\end{equation}
-
-\textbf{Case 1:} When $(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}} > \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}$.
-\begin{equation}{\nonumber}
- \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}} \geq (k-1)[\sum_{i \in G1 }^{}{\tilde p_{i}}- {max_{i \in T}}{\tilde p_{i}}]
-\end{equation}
-
-As the actual processing time of tasks  can vary within a factor $\alpha$ and $\frac{1}{\alpha}$ of their estimated processing time, the following inequality holds
-\begin{equation}{\nonumber}
- \alpha\sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}} \geq (k-1)[\frac{1}{\alpha}\sum_{i \in G1 }^{}{{p_{i}}}- \alpha {max_{i \in T}}{{p_{i}}}]
-\end{equation}
-\begin{equation}\label{eq9}
-\sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}} \geq (k-1)[\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in T}}{{p_{i}}}]
-\end{equation}
-
-In phase 2, We are applying LS on online mode. We assume that $C_{max}$ comes from $G1$. Using LS property we can write,
-\begin{equation}\label{eq10}
- C_{max} \leq \frac{\sum_{i \in G1 }^{}{{p_{i}}}}{m/k} + {\frac{m/k-1}{m/k}} p_{max}
-\end{equation}
-
-Where $p_{max}$ is actual processing time of largest task in $G1$. 
-
-Also, $C_{max}^{*}$ must be greater than the average of the  loads on   the machines. $\sum_{i \in T }{{p_{i}}}$ represents sum of processing times all the tasks.
-\begin{equation}{\nonumber}
-C_{max}^{*} \geq  \frac{\sum_{i \in T }^{}{{p_{i}}}}{m}
-\end{equation}
-
-$\sum_{i \in T }{{p_{i}}}$ can be written as sum of load on $G1$ and load on rest of groups.
-\begin{equation}\label{eq11}
- C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ \sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}}}{m}
-\end{equation}
-
-from \ref{eq9}, we derive
-\begin{equation}{\nonumber}
- C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ (k-1)\left(\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in T}}{{p_{i}}}\right)}{m}
-\end{equation}
-\begin{equation}{\nonumber}
- m\alpha^{2}C_{max}^{*} + \alpha^{2} (k-1){max_{i \in T}}{{p_{i}}} \geq  \alpha^{2}\sum_{i \in G1 }^{}{{p_{i}}}  
-\end{equation}
-\begin{equation}{\nonumber}
- + (k-1)\sum_{i \in G1 }^{}{{p_{i}}} 
-\end{equation}
-\begin{equation}\label{eq12}
-\frac{\alpha^{2}}{\alpha^{2}+k-1}\left(m C_{max}^{*}+(k-1) {max_{i \in T}}{{p_{i}}}\right) \geq \sum_{i \in G1 }^{}{{p_{i}}}  
-\end{equation}
-
-Using \ref{eq10} and \ref{eq12}, We have
-\begin{equation}{\nonumber}
-C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+\frac{(k-1)}{m} {max_{i \in T}}{{p_{i}}}\right)
-\end{equation}
-\begin{equation}{\nonumber}
- + {\frac{m/k-1}{m/k}} p_{max} 
-\end{equation}
-
- As $C_{max}^{*}\geq {{max_{i \in T}}{p_{i}}}\geq p_{max}$, we have
-\begin{equation}{\nonumber}
- C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+ {\frac{k-1}{m}}{C_{max}^{*}}\right)
+  Let us consider that $ C_{max}$ comes from group $G1$.  As in phase
+  1 tasks are allocated to different groups using offline List
+  Scheduling algorithm and taking the estimated processing times of
+  tasks, the load difference between any two groups cannot be greater
+  than the estimated value of largest task ${max_{i \in T}}{\tilde
+    p_{i}}$.  So, for any group $Gl \neq G1$, We have
+  \begin{equation}{\nonumber}
+    |\sum_{i \in G1 }^{}{\tilde p_{i}}- \sum_{i \in Gl }^{}{\tilde p_{i}}| \leq {max_{i \in T}}{\tilde p_{i}}\end{equation}  \hspace*{15pt}   for all, $l = 2,3,...,k$ \\ 
+  Adding for all values of $l$, We have 
+  \begin{equation}{\nonumber}
+    |(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}}- \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}| \leq (k-1) {max_{i \in T}}{\tilde p_{i}}
   \end{equation}
- \begin{equation}{\nonumber}
-   + {\frac{m-k}{m}} C_{max}^{*} 
-   \end{equation}    
- 
- So, for Case 1 the algorithm has approximation ratio,
- \begin{equation}{\nonumber}
-\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}} \end{equation}\\
 
-\textbf{Case 2:} When $(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}} \leq \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}$. \\
+  \textbf{Case 1:} When $(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}} >
+  \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}$.
+  \begin{equation}{\nonumber}
+    \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}} \geq (k-1)[\sum_{i \in G1 }^{}{\tilde p_{i}}- {max_{i \in T}}{\tilde p_{i}}]
+  \end{equation}
 
-As processing times of tasks  can change within a factor $\alpha$ and $\frac{1}{\alpha}$ of their estimated values, the expression for case 2 can be written as 
-\begin{equation}{\nonumber}
-\sum_{l=2}^{k}\sum_{i \in Gl }^{}{ p_{i}} \geq \frac{1}{\alpha^2} (k-1)\sum_{i \in G1 }^{}{ p_{i}}
-\end{equation}
+  As the actual processing time of tasks can vary within a factor
+  $\alpha$ and $\frac{1}{\alpha}$ of their estimated processing time,
+  the following inequality holds
+  \begin{equation}{\nonumber}
+    \alpha\sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}} \geq (k-1)[\frac{1}{\alpha}\sum_{i \in G1 }^{}{{p_{i}}}- \alpha {max_{i \in T}}{{p_{i}}}]
+  \end{equation}
+  \begin{equation}\label{eq9}
+    \sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}} \geq (k-1)[\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in T}}{{p_{i}}}]
+  \end{equation}
 
-Putting this value in equation \ref{eq11}, we have
-\begin{equation}\label{eq13}
- C_{max}^{*} \geq \frac{\alpha^2+k-1}{m\alpha^2}\sum_{i \in G1 }^{}{ p_{i}}
-\end{equation}
-Using \ref{eq10} and \ref{eq13}, and as $C_{max}^{*} \geq p_{max}$, we have
-\begin{equation}{\nonumber}
- C_{max} \leq \frac{k\alpha^2}{\alpha^2+k-1}C_{max}^{*}+\frac{m-k}{m}C_{max}^{*}
-\end{equation}
+  In phase 2, We are applying LS on online mode. We assume that
+  $C_{max}$ comes from $G1$. Using LS property we can write,
+  \begin{equation}\label{eq10}
+    C_{max} \leq \frac{\sum_{i \in G1 }^{}{{p_{i}}}}{m/k} + {\frac{m/k-1}{m/k}} p_{max}
+  \end{equation}
 
-So, for case 2 the algorithm has approximation ratio of $\frac{k\alpha^2}{\alpha^2+k-1}+\frac{m-k}{m}$.\\
-Clearly, the algorithm has worst approximation for case 1.  So, the algorithm has approximation ratio of $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}}$
+  Where $p_{max}$ is actual processing time of largest task in $G1$.
 
+  Also, $C_{max}^{*}$ must be greater than the average of the loads on
+  the machines. $\sum_{i \in T }{{p_{i}}}$ represents sum of
+  processing times all the tasks.
+  \begin{equation}{\nonumber}
+    C_{max}^{*} \geq  \frac{\sum_{i \in T }^{}{{p_{i}}}}{m}
+  \end{equation}
 
+  $\sum_{i \in T }{{p_{i}}}$ can be written as sum of load on $G1$ and
+  load on rest of groups.
+  \begin{equation}\label{eq11}
+    C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ \sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}}}{m}
+  \end{equation}
 
- 
+  from \ref{eq9}, we derive
+  \begin{equation}{\nonumber}
+    C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ (k-1)\left(\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in T}}{{p_{i}}}\right)}{m}
+  \end{equation}
+  \begin{equation}{\nonumber}
+    m\alpha^{2}C_{max}^{*} + \alpha^{2} (k-1){max_{i \in T}}{{p_{i}}} \geq  \alpha^{2}\sum_{i \in G1 }^{}{{p_{i}}}  
+  \end{equation}
+  \begin{equation}{\nonumber}
+    + (k-1)\sum_{i \in G1 }^{}{{p_{i}}} 
+  \end{equation}
+  \begin{equation}\label{eq12}
+    \frac{\alpha^{2}}{\alpha^{2}+k-1}\left(m C_{max}^{*}+(k-1) {max_{i \in T}}{{p_{i}}}\right) \geq \sum_{i \in G1 }^{}{{p_{i}}}  
+  \end{equation}
+  
+  Using \ref{eq10} and \ref{eq12}, We have
+  \begin{equation}{\nonumber}
+    C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+\frac{(k-1)}{m} {max_{i \in T}}{{p_{i}}}\right)
+  \end{equation}
+  \begin{equation}{\nonumber}
+    + {\frac{m/k-1}{m/k}} p_{max} 
+  \end{equation}
+  
+  As $C_{max}^{*}\geq {{max_{i \in T}}{p_{i}}}\geq p_{max}$, we have
+  \begin{equation}{\nonumber}
+    C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+ {\frac{k-1}{m}}{C_{max}^{*}}\right)
+  \end{equation}
+  \begin{equation}{\nonumber}
+    + {\frac{m-k}{m}} C_{max}^{*} 
+  \end{equation}    
+  
+  So, for Case 1 the algorithm has approximation ratio,
+  \begin{equation}{\nonumber}
+    \frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}} \end{equation}\\
+  
+  \textbf{Case 2:} When $(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}} \leq \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}$. \\
+  
+  As processing times of tasks  can change within a factor $\alpha$ and $\frac{1}{\alpha}$ of their estimated values, the expression for case 2 can be written as 
+  \begin{equation}{\nonumber}
+    \sum_{l=2}^{k}\sum_{i \in Gl }^{}{ p_{i}} \geq \frac{1}{\alpha^2} (k-1)\sum_{i \in G1 }^{}{ p_{i}}
+  \end{equation}
+  
+  Putting this value in equation \ref{eq11}, we have
+  \begin{equation}\label{eq13}
+    C_{max}^{*} \geq \frac{\alpha^2+k-1}{m\alpha^2}\sum_{i \in G1 }^{}{ p_{i}}
+  \end{equation}
+  Using \ref{eq10} and \ref{eq13}, and as $C_{max}^{*} \geq p_{max}$, we have
+  \begin{equation}{\nonumber}
+    C_{max} \leq \frac{k\alpha^2}{\alpha^2+k-1}C_{max}^{*}+\frac{m-k}{m}C_{max}^{*}
+  \end{equation}
+  
+  So, for case 2 the algorithm has approximation ratio of $\frac{k\alpha^2}{\alpha^2+k-1}+\frac{m-k}{m}$.\\
+  Clearly, the algorithm has worst approximation for case 1.  So, the
+  algorithm has approximation ratio of $\frac{C_{max}}{C_{max}^{*}}
+  \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}}
+  \right]+ {\frac{m-k}{m}}$
 \end{proof}
 
 \begin{corollary}
- When the number of groups is $2$ the approximation ratio is $ 1+ \frac{2}{1+\alpha^{2}} (\alpha^2-\frac{1}{m})  $ 
+  When the number of groups is $2$ the approximation ratio is $ 1+
+  \frac{2}{1+\alpha^{2}} (\alpha^2-\frac{1}{m})$.
 \end{corollary}
 
- \textbf{LS-Group} uses the LS algorithm in both its phases. A LPT-based algorithm may have better guarantee. But for no replication scenario i.e. when number of groups $k=m$, the \textbf{LS-Group} algorithm has an approximation ratio almost equal to \textbf{LPT-No choice's} when the number of machines $m$ is large and the value of $\alpha$ is within practical range. This concludes that the algorithm has a guarantee almost equal to the one of LPT-based algorithm would have for most of the practical scenario.
+\textbf{LS-Group} uses the LS algorithm in both its phases. A
+LPT-based algorithm may have better guarantee. But for no replication
+scenario i.e. when number of groups $k=m$, the \textbf{LS-Group}
+algorithm has an approximation ratio almost equal to \textbf{LPT-No
+  choice's} when the number of machines $m$ is large and the value of
+$\alpha$ is within practical range. This concludes that the algorithm
+has a guarantee almost equal to the one of LPT-based algorithm would
+have for most of the practical scenario.
 
 \section{Summary}\label{sec7}
  Table~\ref{tab:template} summarizes the results of the three algorithms in terms of approximation ratio. Based on
