@@ -431,6 +431,7 @@ known. The following theorem states the theoretical guarantee of the
 algorithm.
 
 \begin{theorem}
+\label{th:strat1-ub}
 The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
 \end{theorem} 
 
@@ -641,6 +642,7 @@ allocated in phase 1 using the online List Scheduling algorithm.
 \end{figure*}
 
 \begin{theorem}
+  \label{th:strategy3}
   With $k$ groups, the competitive ratio of
   \textbf{LS-Group } is $ \frac{k\alpha^{2}}{\alpha^{2}+k-1} (1+
   {\frac{k-1}{m}} ) + \frac{m-k}{m}$
@@ -750,10 +752,10 @@ allocated in phase 1 using the online List Scheduling algorithm.
   \left( 1+ {\frac{k-1}{m}} \right) + {\frac{m-k}{m}}$.
 \end{proof}
 
-\begin{corollary}
-  When there are $2$  groups, the competitive ratio is $ 1+
-  \frac{2}{1+\alpha^{2}} (\alpha^2-\frac{1}{m})$.
-\end{corollary}
+% \begin{corollary}
+%   When there are $2$  groups, the competitive ratio is $ 1+
+%   \frac{2}{1+\alpha^{2}} (\alpha^2-\frac{1}{m})$.
+% \end{corollary}
 
 \textbf{LS-Group} uses List Scheduling in both its phases. A LPT-based
 algorithm may have better guarantee. But withou performing any
@@ -786,20 +788,20 @@ competitive ratio of $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+
     \hline
     Replication & Approximation ratio  \\
     \hline
-    $|M_j|=1$ & $\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ [Th. 1.2]  \\
-    & No approximation better than $\alpha^2$ [Th. 1.1]   \\
+    $|M_j|=1$ & $\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ (Theorem~\ref{th:strat1-ub})  \\
+    & No approximation better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$ (Theorem~\ref{th:model1-lb})   \\
     
     \hline
-    $|M_j|=|M|$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ [Th. 2.1]  \\
-    & $2-\frac{1}{m}$ [Graham's LS]   \\
+    $|M_j|=|M|$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ (Theorem~\ref{th:strategy2})  \\
+    & $\frac{C_{max}}{C_{max}^{*}} \leq 2-\frac{1}{m}$ \cite{Graham66}   \\
     \hline
     
-    $|M_j|= m/k $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}}$ [Th. 3.1]  \\
-    & $\frac{C_{max}}{C_{max}^{*}} \leq  1+ \frac{2}{1+\alpha^{2}} \left(\alpha^2-\frac{1}{m}\right)$ when $k=2$ [Col. 3.1]   \\
+    $|M_j|= m/k $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1} \left(1+ {\frac{k-1}{m}} \right)+ {\frac{m-k}{m}}$ (Theorem~\ref{th:strategy3})  \\
+%    & $\frac{C_{max}}{C_{max}^{*}} \leq  1+ \frac{2}{1+\alpha^{2}} \left(\alpha^2-\frac{1}{m}\right)$ when $k=2$ [Col. 3.1]   \\
     
     \hline
   \end{tabular}
-  \caption{Summary Table}
+  \caption{Summary of the guarantees of the designed algorithms.}
   \label{tab:template}
 \end{table*}
 
