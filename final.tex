@@ -106,6 +106,8 @@ Scheduling; Uncertainty; Robustness; Replication; Approximation Algorithms; Para
   scheduling often processing time are known. But in practice not so
   much. Give a few references on the difficulty of predicting runtimes
   in job scheduler.}
+  
+  In parallel and distributed computing tasks are processed simultaneously on different machines to minimize time to complete the processing of all the tasks.   The scheduling for the set of tasks on a given set of machines are usually determined with a goal to optimize certain parameter, such as makespan.  The Scheduling study is also used to provide insight into the performance of parallel and distributed computing systems, such as their load balance.  The problem of distributing the input data to execute a set of tasks in a minimum amount of time can be formulated as a scheduling problem.  Often these scheduling problems are modeled based on the assumption that the computation time required for each task is known accurately; while, in a more practical scenario, only approximate values for the computation times of the tasks can be determined at the time of scheduling.
 
 \todo{we need a paragraph on data placement. essentially: uncertainty
   would not be a problem if the schedules could be dynamically
@@ -529,7 +531,7 @@ the processor become available with when the actual processing time of
 the task scheduled onto it elapse.
 
 \begin{lemma}\label{No Restriction}
-  \textbf{LPT-No Restriction} has a makespan of at least $
+  \textbf{LPT-No Restriction} has a optimal makespan of at least $
   {\frac{2}{\alpha^{2}}} p_l $ when there are at least two tasks on
   the machine where the task $l$ that reaches $C_{max}$ is scheduled.
 \end{lemma}
@@ -540,7 +542,7 @@ the task scheduled onto it elapse.
     cmax*. We should check this carefully. In particular how did we
     get the first equation on cmax*.}
 
-  Since there is at least one task $j$ before $l$ in the machine to which
+  Since there is at least one task say $j$ before $l$ in the machine to which
   $l$ is assigned, we have
   \begin{equation}\nonumber
     C_{max}^{*}\geq p_l + p_j
