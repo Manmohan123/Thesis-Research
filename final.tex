@@ -154,7 +154,7 @@ The idea we are pursuing in this paper is to replicate the input data
 of the tasks onto multiple machines. This way, when the actual
 processing times of the tasks are too different from their
 estimations, the system will have some room to adapt at runtime. This
-is certainly feasible in practice has many system have more memory
+is certainly feasible in practice as many system have more memory
 than the computation use. For instance, most Hadoop system replicates
 the data for the purpose of tolerating hardware
 faults~\cite{White:2009:HDG:1717298}. And it has been shown that
@@ -185,15 +185,15 @@ Let $J$ be a set of $n$ jobs which need to be scheduled onto a set $M$
 of $m$ machines. We will use interchangeably the terms machines and
 processors. Also we will use interchangeably the terms jobs and
 tasks. We are considering the problems where the scheduler does not
-know the processing time $p_i$ of task $i$ exactly before the task
+know the processing time $p_j$ of task $j$ exactly before the task
 completes.  But the scheduler has access to some estimation of the
-processing time $\tilde{p_i}$ of task $i$ before making any scheduling
-decisions. We assume that the actual processing time $p_i$ of a task
-$i$ is within a multiplicative factor $\alpha$ of the estimated
-processing time $\tilde{p_i}$. $\alpha$ is a quantity known to the
+processing time $\tilde{p_j}$ of task $j$ before making any scheduling
+decisions. We assume that the actual processing time $p_j$ of a task
+$j$ is within a multiplicative factor $\alpha$ of the estimated
+processing time $\tilde{p_j}$. $\alpha$ is a quantity known to the
 scheduler. In other words the scheduler knows that:
  \begin{equation}\label{eq1}
-\frac{\tilde{p}_{i}}{\alpha}\leq p_{i}\leq \alpha \tilde{p}_{i}
+\frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}
 \end{equation}
 
 Assuming that the processing time of the tasks is known to be in an
