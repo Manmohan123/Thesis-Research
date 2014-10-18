@@ -366,27 +366,38 @@ there is only one machine is can be scheduled in phase 2.
   2 the adversary increases the processing time of the tasks on
   processor $i$ by a factor of $\alpha$ and changes the processing
   time of the other tasks by a factor of $\frac{1}{\alpha}$. So, $
-  C_{max}$ = $\alpha B$ and ${C^{*}_{max}} \leq \frac{1}{\alpha }\left(\frac{
-     (\lambda m - B) }{m-1}-\ceil{\frac{B}{m}}\right)+ \alpha\ceil{\frac{B}{m}} $.  Figure \ref{fig:rara}
+  C_{max}$ = $\alpha B$ and ${C^{*}_{max}} \leq \frac{1}{\alpha }\ceil
+  {\frac{\lambda m - B }{m}}+ \alpha\ceil{\frac{B}{m}} $.  Figure \ref{fig:rara}
   depicts the online solution and the offline optimal. We have,
  \begin{equation}\nonumber
    \frac{C_{max}}{C^{*}_{max}}
-   \geq \frac{\alpha^{2} B  }{\frac{
-        (\lambda m - B) }{m-1}-\ceil{\frac{B}{m}}+\alpha^2\ceil{\frac{B}{m}}}
+   \geq \frac{\alpha^{2} B  }{\ceil{\frac{
+        \lambda m - B }{m}}+\alpha^2\ceil{\frac{B}{m}}}
  \end{equation}
 
  \todo{This proof is incorrect, we need the other inequality! We need
    a $C_{max}^* \leq something$ so that we will have $Cmax/Cmax* \geq
    somethingelse$. This should be easy to fix. Is taking the ceil of
    the expression of $Cmax$ enough?}
+   
+   Since $\frac{ \lambda m - B }{m} +1 \geq\ceil{\frac{ \lambda m - B }{m}}$ and $\frac{B}{m}+1\geq\ceil{\frac{B}{m}}$, we have
+   \begin{equation}\nonumber
+      \frac{C_{max}}{C^{*}_{max}}
+      \geq \frac{\alpha^{2} B  }{\frac{
+           \lambda m - B }{m}+1+\alpha^2\frac{B}{m}+\alpha^{2}}
+    \end{equation}
  
  From above expression it is clear that smaller the value of $B$, the
   value of the expression decreases. So, any algorithm
  should minimize $B$ to achieve  better performance.  For a schedule
  to be feasible the condition $B \geq \lambda$ must be
- satisfied. Irrespective of the value of $\lambda$, for $B =
- \lambda$ the value of $\frac{C_{max}}{C^{*}_{max}}$ is minimum and is
- equal to $\frac{\alpha^{2} \lambda  }{\lambda+(\alpha^2-1)\ceil{\frac{\lambda}{m}}}$.  
+ satisfied.For $B = \lambda$ the value of $\frac{C_{max}}{C^{*}_{max}}$ is minimum and is
+ equal to $\frac{\alpha^{2} m \lambda  }{\lambda(\alpha^{2}+m-1)+ m(\alpha^{2}+1)}$. When $\lambda$ tends to $\infty$, we have
+ \begin{equation}\nonumber
+       \frac{C_{max}}{C^{*}_{max}}
+       \geq \frac{\alpha^{2}m  }{\alpha^{2}+m-1}
+     \end{equation}
+ 
 
   \begin{figure}[htp]
   \centering
