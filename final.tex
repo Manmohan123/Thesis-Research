@@ -12,7 +12,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{amsthm}
- 
+\usepackage{aliascnt}
+
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
 \usepackage[usenames,dvipsnames]{color}
@@ -23,7 +24,7 @@
 
  
 
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 
@@ -47,6 +48,17 @@
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
+
+\makeatletter
+\renewcommand*{\thetable}{\arabic{table}}
+\renewcommand*{\thefigure}{\arabic{figure}}
+\let\c@algocf\@undefined
+\newaliascnt{algocf}{figure}
+\let\c@table\@undefined
+\newaliascnt{table}{figure}
+\let\c@table\c@figure
+
+\makeatother
 
 \begin{document}
 
@@ -333,7 +345,7 @@ there is only one machine is can be scheduled in phase 2.
 
 \subsection{Lower Bound}
 
-\todo{See how to fix numbering to remove section numbers.}
+
 \begin{theorem}
 \label{th:model1-lb}
   When $|M_j| = 1$, there is no online algorithm having competitive
