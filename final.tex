@@ -793,31 +793,52 @@ $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( 1+ {\frac{k-1}{m}} \right) +
     & No approximation better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$ (Th.~\ref{th:model1-lb})   \\
     
     \hline
-    $|M_j|=|M|$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ (Th.~\ref{th:strategy2})  \\
+    $|M_j|=m$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ (Th.~\ref{th:strategy2})  \\
     & $\frac{C_{max}}{C_{max}^{*}} \leq 2-\frac{1}{m}$ \cite{Graham66}   \\
     \hline
     
-    $|M_j|= m/k $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1} \left(1+ {\frac{k-1}{m}} \right)+ {\frac{m-k}{m}}$ (Th.~\ref{th:strategy3})  \\
+    $|M_j|= \frac{m}{k} $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1} \left(1+ {\frac{k-1}{m}} \right)+ {\frac{m-k}{m}}$ (Th.~\ref{th:strategy3})  \\
 %    & $\frac{C_{max}}{C_{max}^{*}} \leq  1+ \frac{2}{1+\alpha^{2}} \left(\alpha^2-\frac{1}{m}\right)$ when $k=2$ [Col. 3.1]   \\
     
     \hline
   \end{tabular}
-  \caption{Summary of the contribution of this paper. Three proposed algorithms have guaranteed performance. One lower bound has been established.}
+  \caption{Summary of the contribution of this paper.
+    Three proposed algorithms have guaranteed performance.
+    One lower bound on approximability has been established.}
   \label{tab:template}
 \end{table}
 
 
-To better understand the relation between these different results we
-show in figure \ref{fig:Graph} how the expression of the guarantees
-translate to actual values in a ratio- replication space.  We picked 3
-values of $\alpha$ while keeping the number of machines fixed
-$m=210$. For replication everywhere scenario the number of replication
-is full and is always equal to total number of machines.  For no
-replication scenario the approximation ratio is fixed for each value
-of $\alpha$.  For the model where replication is allowed within the
-group the approximation ratio decreases significantly with few
-replications. We observe that after a significant number of
-replications the ratio does not improve much further.
+Of course, there is an inherent tradeoff between replicating data and
+obtaining good values for the makespan. To better understand the
+tradeoff we show in Figure~\ref{fig:Graph} how the expressions of the
+guarantees (or impossibility) translate to actual values in a
+approximation ratio / replication space.  We picked 3 values of
+$\alpha$ while keeping the number of machines fixed $m=210$. 
+
+When $\alpha=1.1$, there is {\bf LS-Groups} provides little
+improvement over {\bf LPT-No Choice}. However there is a significant
+gap between the guarantee of {\bf LPT-No Choice} and the lower bound
+on possible approximation. When $\alpha$ is small, there is a
+significant improvement in using {\bf LPT-No Restriction} over using
+simply {\bf LS-Groups} with only 1 group.
+
+When $\alpha$ increases to $1.5$, there is no more differences in the
+guarantees of {\bf LS-Groups} with 1 group and {\bf LPT-No
+  Restriction}. Also {\bf LS-Groups} provides many intermediate
+solution between deploying the data on a single machine and deploying
+them everywhere.
+
+When $\alpha=2$, the range of the approximation ratios increase and
+the value of the lower bound increases. Now {\bf LS-Groups} is able to
+get a better approximation using less than $50$ replications than is
+possible by deploying data on a single machine. Also, the
+approximation ratio quickly improves from more than $7.5$ with the
+data being replicated on $1$ machine to a ratio of less than $6$ with
+only replicating the data on $3$ machines.
+
+Overall, when $\alpha$ is large, only few replication improve the
+performance significantly.
 
 
 \begin {figure}
