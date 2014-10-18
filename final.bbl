@@ -1,0 +1,174 @@
+\begin{thebibliography}{10}
+
+\bibitem{Abawajy}
+J.~Abawajy.
+\newblock Placement of file replicas in data grid environments.
+\newblock In M.~Bubak, G.~van Albada, P.~Sloot, and J.~Dongarra, editors, {\em
+  Computational Science - ICCS 2004}, volume 3038 of {\em Lecture Notes in
+  Computer Science}, pages 66--73. 2004.
+
+\bibitem{cj09c}
+L.-C. Canon and E.~Jeannot.
+\newblock Evaluation and optimization of the robustness of dag schedules in
+  heterogeneous environments.
+\newblock {\em IEEE Transactions on Parallel and Distributed Systems},
+  21(4):532--546, 2010.
+
+\bibitem{Cardellini99dynamicload}
+V.~Cardellini, R.~I, M.~Colajanni, and P.~S. Yu.
+\newblock Dynamic load balancing on web-server systems.
+\newblock {\em IEEE Internet Computing}, 3:28--39, 1999.
+
+\bibitem{Cirne2007213}
+W.~Cirne, F.~Brasileiro, D.~Paranhos, L.~F.~W. Góes, and W.~Voorsluys.
+\newblock On the efficacy, efficiency and emergent behavior of task replication
+  in large distributed systems.
+\newblock {\em Parallel Computing}, 33(3):213 -- 234, 2007.
+
+\bibitem{citeulike:8334169}
+R.~L. Daniels and P.~Kouvelis.
+\newblock {Robust Scheduling to Hedge Against Processing Time Uncertainty in
+  Single-Stage Production}.
+\newblock {\em Management Science}, 41(2):363--376, Feb. 1995.
+
+\bibitem{Davenport_slack-basedtechniques}
+A.~J. Davenport, C.~Gefflot, and J.~C. Beck.
+\newblock Slack-based techniques for robust schedules.
+\newblock {\em Proceedings of the Sixth European Conference on Planning (ECP)},
+  2001.
+
+\bibitem{Erlebacher14-ICS}
+G.~Erlebacher, E.~Saule, N.~Flyer, and E.~Bollig.
+\newblock Acceleration of derivative calculations with application to radial
+  basis function - finite-differences on the {I}ntel {MIC} architecture.
+\newblock In {\em Proc. of International Conference on Supercomputing (ICS)},
+  2014.
+
+\bibitem{GareyJohnson79}
+M.~R. Garey and D.~S. Johnson.
+\newblock {\em Computers and Intractability}.
+\newblock Freeman, San Francisco, 1979.
+
+\bibitem{Gatto07}
+M.~Gatto and P.~Widmayer.
+\newblock On the robustness of graham's algorithm for online scheduling.
+\newblock In {\em Proc of WADS}, 2007.
+
+\bibitem{Graham66}
+R.~L. Graham.
+\newblock Bounds for certain multiprocessing anomalies.
+\newblock {\em Bell System Technical Journal}, 45:1563--1581, 1966.
+
+\bibitem{Graham69boundson}
+R.~L. Graham.
+\newblock Bounds on multiprocessing timing anomalies.
+\newblock {\em SIAM Journal On Applied Mathematics}, 17(2):416--429, 1969.
+
+\bibitem{Hoch87}
+D.~S. Hochbaum and D.~B. Shmoys.
+\newblock Using dual approximation algorithms for scheduling problems:
+  Practical and theoretical results.
+\newblock {\em Journal of ACM}, 34:144--162, 1987.
+
+\bibitem{Kavulya:2010:ATP:1844765.1845224}
+S.~Kavulya, J.~Tan, R.~Gandhi, and P.~Narasimhan.
+\newblock An analysis of traces from a production {M}ap{R}educe cluster.
+\newblock In {\em Proceedings of the 2010 10th IEEE/ACM International
+  Conference on Cluster, Cloud and Grid Computing}, CCGRID '10, pages 94--103,
+  2010.
+
+\bibitem{DBLP:journals/cce/LiI08}
+Z.~Li and M.~G. Ierapetritou.
+\newblock Process scheduling under uncertainty: Review and challenges.
+\newblock {\em Computers {\&} Chemical Engineering}, 32(4-5):715--727, 2008.
+
+\bibitem{Lipton199518}
+R.~Lipton and J.~Naughton.
+\newblock Query size estimation by adaptive sampling.
+\newblock {\em Journal of Computer and System Sciences}, 51(1):18 -- 25, 1995.
+
+\bibitem{Luong2008}
+D.~Luong, J.~Deogun, and S.~Goddard.
+\newblock Feedback scheduling of real-time divisible loads in clusters.
+\newblock {\em SIGBED Rev.}, 5(2):2:1--2:4, July 2008.
+
+\bibitem{6691554}
+M.~Pastorelli, A.~Barbuzzi, D.~Carra, M.~Dell'Amico, and P.~Michiardi.
+\newblock Hfsp: Size-based scheduling for hadoop.
+\newblock In {\em Big Data, 2013 IEEE International Conference on}, pages
+  51--59, Oct 2013.
+
+\bibitem{4215379}
+R.~Rahman, K.~Barker, and R.~Alhajj.
+\newblock Study of different replica placement and maintenance strategies in
+  data grid.
+\newblock In {\em Cluster Computing and the Grid CCGRID}, pages 171--178, 2007.
+
+\bibitem{DBLP:journals/tc/Tse12}
+S.~S.~H. Tse.
+\newblock Online bounds on balancing two independent criteria with replication
+  and reallocation.
+\newblock {\em {IEEE} Trans. Computers}, 61(11):1601--1610, 2012.
+
+\bibitem{Verma:2011:AAR:1998582.1998637}
+A.~Verma, L.~Cherkasova, and R.~H. Campbell.
+\newblock {ARIA}: Automatic resource inference and allocation for {M}ap{R}educe
+  environments.
+\newblock In {\em Proceedings of the 8th ACM International Conference on
+  Autonomic Computing}, ICAC '11, pages 235--244, New York, NY, USA, 2011. ACM.
+
+\bibitem{DBLP:journals/corr/WangJW14}
+D.~Wang, G.~Joshi, and G.~W. Wornell.
+\newblock Efficient task replication for fast response times in parallel
+  computation.
+\newblock In {\em proc. of SIGMETRICS}, 2014.
+
+\bibitem{White:2009:HDG:1717298}
+T.~White.
+\newblock {\em Hadoop: The Definitive Guide}.
+\newblock O'Reilly Media, Inc., 1st edition, 2009.
+
+\bibitem{conf/sigmetrics/WiermanN08}
+A.~Wierman and M.~Nuyens.
+\newblock Scheduling despite inexact job-size information.
+\newblock In {\em Proc. of SIGMETRICS}, pages 25--36, 2008.
+
+\bibitem{Wilhelm2008}
+R.~Wilhelm, J.~Engblom, A.~Ermedahl, N.~Holsti, S.~Thesing, D.~Whalley,
+  G.~Bernat, C.~Ferdinand, R.~Heckmann, T.~Mitra, F.~Mueller, I.~Puaut,
+  P.~Puschner, J.~Staschulat, and P.~Stenstr\"{o}m.
+\newblock The worst-case execution-time problem - overview of methods and
+  survey of tools.
+\newblock {\em ACM Trans. Embed. Comput. Syst.}, 7(3):36:1--36:53, May 2008.
+
+\bibitem{Wolf:2010:FSA:2023718.2023720}
+J.~Wolf, D.~Rajan, K.~Hildrum, R.~Khandekar, V.~Kumar, S.~Parekh, K.-L. Wu, and
+  A.~balmin.
+\newblock {FLEX}: A slot allocation scheduling optimizer for {M}ap{R}educe
+  workloads.
+\newblock In {\em Proceedings of the ACM/IFIP/USENIX 11th International
+  Conference on Middleware}, Middleware '10, pages 1--20, 2010.
+
+\bibitem{You14-ICPP}
+Y.~You, D.~A. Bader, and M.~M. Dehnavi.
+\newblock Designing a heuristic cross-architecture combination for
+  breadth-first search.
+\newblock In {\em Proc. of the 43rd International Conference on Parallel
+  Processing}, 2014.
+
+\bibitem{Zhou12-P2S2}
+Z.~Zhou, E.~Saule, H.~M. Aktulga, C.~Yang, E.~G. Ng, P.~Maris, J.~P. Vary, and
+  {\"{U}}.~V. {\c{C}}ataly{\"{u}}rek.
+\newblock An out-of-core dataflow middleware to reduce the cost of large scale
+  iterative solvers.
+\newblock In {\em 2012 International Conference on Parallel Processing (ICPP)
+  Workshops, Fifth International Workshop on Parallel Programming Models and
+  Systems Software for High-End Computing (P2S2)}, Sept. 2012.
+
+\bibitem{Zhou12-Cluster}
+Z.~Zhou, E.~Saule, H.~M. Aktulga, C.~Yang, E.~G. Ng, P.~Maris, J.~P. Vary, and
+  {\"{U}}.~V. {\c{C}}ataly{\"{u}}rek.
+\newblock An out-of-core eigensolver on {SSD}-equipped clusters.
+\newblock In {\em Proc. of IEEE Cluster}, Sept. 2012.
+
+\end{thebibliography}
