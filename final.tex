@@ -234,16 +234,16 @@ actual processing times).
 
 When $\alpha = 1$, the problem is exactly the classical independent
 task scheduling problem on identical machines, which is known to be
-NP-Hard~\cite{GareyJohnson79}. We have used Graham's List Scheduling
+NP-Hard~\cite{GareyJohnson79}. We use Graham's List Scheduling
 (LS)~\cite{Graham66} and Largest Processing Time (LPT)
 algorithms~\cite{Graham69boundson} to derive approximation ratios in
 different scenarios. The LS algorithm takes tasks one at a time and
-assign it to the processor having least load at that time. LS is
+assigns them to the processor having the least load at that time. LS is a
 2-approximation algorithm and is widely used in online scheduling
-problems. LPT sorts tasks in decreasing order of processing time and
-assign them one at a time in this order to the processor with the
-smallest current load. The LPT algorithm has worst case performance
-ratio as $\frac{4}{3}-\frac{1}{3m}$ in an offline setting. One can
+problems. LPT sorts the tasks in a non-increasing order of processing time and
+assigns them one at a time in this order to the processor with the
+smallest current load. The LPT algorithm has a worst case performance
+ratio of $\frac{4}{3}-\frac{1}{3m}$ in the offline setting. One can
 even obtain an arbitrarily good approximation algorithm by increasing
 its runtime for this problem with a dual approximation
 algorithm~\cite{Hoch87}.
@@ -255,7 +255,7 @@ fuzzy and robust approach~\cite{DBLP:journals/cce/LiI08}. We are using
 the bounded uncertainty model which assumes that an input parameter
 have value between a lower and upper bound.  Wierman and
 Nuyens~\cite{conf/sigmetrics/WiermanN08} introduce SMART, a
-classification to understand size-based policies and draw analytical
+classification to understand size-based policies and draw analytic
 co-relation between response time and estimated job size in single
 server problem. Robust approaches to deal with uncertainty are widely
 used on MapReduce
