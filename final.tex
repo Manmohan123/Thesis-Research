@@ -182,13 +182,20 @@ replication in data placement for uncertain scheduling with inexact
 processing time of a task.
 
 The remaining of the paper is organized as follows: we describe system
-model and notations in section~\ref{sec2}. Related works are touched
-in section~\ref{sec3}.  Sections~\ref{sec4}-~\ref{sec6} describes the
-3 different strategies- a)No replications, b)replication is done
-everywhere and c)replication is done within a group. \todo{expand per
-  section}. The respective sections describe derivation of competitive
-ratios for each of these strategies. Section~\ref{sec7} summarizes the
-results of 3 models based on experimental results.
+model and notations in Section~\ref{sec2}. Related works are presented
+in Section~\ref{sec3}.  Section~\ref{sec4} investigates what can be
+done if the tasks can only be deployed on a single machine, we
+provided a guaranteed algorithm and provide a lower bound on the best
+guarantee that one can achieve in this case. Section~\ref{sec5} takes
+the reverse case and investigate what can be achieved if the data are
+replicated everywhere, leaving the maximum flexibility at runtime. We
+investigate one algorithm in this case and analyze its performance
+guarantee. Section~\ref{sec6} investigates grouping processors
+together and replicating data in these groups as an intermediate
+between the previous two strategies and provide a guaranteed algorithm
+in that case. Section~\ref{sec7} summarizes the results of we derived
+in each case and study the tradeoff between performance guarantee and
+data replication.
 
 \section{Problem Definition}\label{sec2}
 Let $J$ be a set of $n$ jobs which need to be scheduled onto a set $M$
