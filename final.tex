@@ -302,8 +302,7 @@ is restricted to be on only one machine, i.e. $\forall j, |M_j|=1$.
 We have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f
 : J \mapsto M$ be a function that assigns each job to exactly one
 machine. The restriction that the data of each task is deployed on a
-single machine puts all the decision in phase 1: for each task,
-there is only one machine is can be scheduled in phase 2.
+single machine puts all the decision in phase 1: for each task, only one machine can be scheduled in phase 2.
 
 \subsection{Lower Bound}
 
@@ -317,9 +316,9 @@ there is only one machine is can be scheduled in phase 2.
 \begin{proof}
   We use the adversary technique to prove the lower bound of this
   theorem. An adversary discloses the input instance piece by
-  piece. He analyzes the choices made by the algorithm to change the
+  piece. It analyzes the choices made by the algorithm to change the
   part of the instance that has not been disclosed yet. That way it
-  can build and instance that maximizes the competitive ratio of the
+  can build an instance that maximizes the competitive ratio of the
   algorithm.
  
   Let us consider an instance with $\lambda m$ tasks of equal
@@ -369,8 +368,8 @@ there is only one machine is can be scheduled in phase 2.
   \includegraphics[width= 8 cm]{model1.pdf}
   \caption{Instance constructed by the adversary in the proof of
     theorem~\ref{th:model1-lb} with $\lambda = 3$ and $m = 6$. In the
-    online solution, the adversary increased by a factor of $\alpha$
-    the processing time of the task of the most loaded machine. If
+    online solution, the adversary increases 
+    the processing time of a task of the most loaded machine by a factor of $\alpha$. If
     that information was available beforehand, an optimal offline
     algorithm could have distributed these longer tasks to other
     processors.}
@@ -390,7 +389,7 @@ algorithm distribute the data of the tasks to the processor using
 their estimated processing times according to Graham's LPT
 algorithm~\cite{Graham69boundson}: The tasks are sorted in non-increasing
 order of their processing time and are greedily scheduled on the
-processor that minimizes the sum of the $\tilde{p_i}$ of the tasks
+processor that minimizes the sum of the $\tilde{p_j}$ of the tasks
 allocated on that processor. Since there is no replication, there is
 no decision to take in phase 2.
 
@@ -465,10 +464,10 @@ Substituting for  $ \sum {p_j}$, we have
  an argument is made that all instances with two tasks per machine are
  optimal. However, the argument does not port in our case where only
  estimated processing times are known.) For at least two jobs on the
- processing that reaches having $\tilde{C}_{max}$, the (estimated)
+ processor that reaches $\tilde{C}_{max}$, the (estimated)
  processing time of last job is smaller than half the estimated
  makespan, $\tilde{p_l} \leq \frac{\tilde{C}_{max}}{2}$. Substituting
- this expression in the in the above equation, we have
+ this expression in the above equation, we have
 \begin{equation}\nonumber
  m C_{max}^{*}\geq \frac{m-1}{\alpha } \left( \tilde C_{max}-\frac{\tilde C_{max}}{2} \right ) + {C_{max}}
 \end{equation}
