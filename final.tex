@@ -615,13 +615,13 @@ allocated in phase 1 using the online List Scheduling algorithm.
   group $G1$. $C_{max}^{*}$ must be greater than the average of the
   loads on the machines.
   \begin{equation}{\nonumber}
-    C_{max}^{*} \geq  \frac{\sum_{i \in J}^{}{{p_{i}}}}{m}
+    C_{max}^{*} \geq  \frac{\sum_{j \in J}^{}{{p_{j}}}}{m}
   \end{equation}
 
-  $\sum_{i \in T }{{p_{i}}}$ can be written as sum of load on $G1$ and
+  $\sum_{j \in J }{{p_{j}}}$ can be written as sum of load on $G1$ and
   load on rest of groups.
   \begin{equation}\label{eq11}
-    C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ \sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}}}{m}
+    C_{max}^{*} \geq  \frac{\sum_{j \in G1 }^{}{{p_{j}}}+ \sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}}}{m}
   \end{equation}
 
   As in phase 1 tasks are allocated to different groups using List
@@ -630,76 +630,76 @@ allocated in phase 1 using the online List Scheduling algorithm.
   than the estimated value of largest task ${max_{i \in J}}{\tilde
     p_{i}}$.  So, for any group $Gl \neq G1$, We have
   \begin{equation}{\nonumber}
-\forall l \in \{2, 3, \dots ,k\}, |\sum_{i \in G1 }^{}{\tilde p_{i}}- \sum_{i \in Gl }^{}{\tilde p_{i}}| \leq {max_{i \in T}}{\tilde p_{i}}
+\forall l \in \{2, 3, \dots ,k\}, |\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{j \in Gl }^{}{\tilde p_{j}}| \leq {max_{i \in J}}{\tilde p_{j}}
   \end{equation}  
   Adding for all values of $l$ leads to
   \begin{equation}{\nonumber}
-    |(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}}- \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}| \leq (k-1) {max_{i \in J}}{\tilde p_{i}}
+    |(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}| \leq (k-1) {max_{j \in J}}{\tilde p_{j}}
   \end{equation}
 
-  \textbf{Case 1:} If $(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}} >
-  \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}$.
+  \textbf{Case 1:} If $(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}} >
+  \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}$.
   \begin{equation}{\nonumber}
-    \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}} \geq (k-1) \left( \sum_{i \in G1 }^{}{\tilde p_{i}}- {max_{i \in J}}{\tilde p_{i}} \right)
+    \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}} \geq (k-1) \left( \sum_{j \in G1 }^{}{\tilde p_{j}}- {max_{j \in J}}{\tilde p_{j}} \right)
   \end{equation}
 
   As the actual processing time of the tasks can vary within a factor
   $\alpha$ and $\frac{1}{\alpha}$ of their estimated processing time,
   the following inequality holds
   \begin{equation}{\nonumber}
-    \alpha\sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}} \geq (k-1) \left( \frac{1}{\alpha}\sum_{i \in G1 }^{}{{p_{i}}}- \alpha {max_{i \in J}}{{p_{i}}} \right)
+    \alpha\sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}} \geq (k-1) \left( \frac{1}{\alpha}\sum_{j \in G1 }^{}{{p_{j}}}- \alpha {max_{j \in J}}{{p_{j}}} \right)
   \end{equation}
   \begin{equation}\label{eq9}
-    \sum_{l=2}^{k}\sum_{i \in Gl }^{}{{p_{i}}} \geq (k-1) \left(\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in J}}{{p_{i}}} \right)
+    \sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}} \geq (k-1) \left(\frac{1}{\alpha^{2}}\sum_{j \in G1 }^{}{{p_{j}}}-  {max_{j \in J}}{{p_{j}}} \right)
   \end{equation}
 
   Phase 2 applies List Scheduling in the online mode. We assumed that
   $C_{max}$ comes from $G1$. Using the guarantees of List Scheduling
   we can write,
   \begin{equation}\label{eq10}
-    C_{max} \leq \frac{\sum_{i \in G1 }^{}{{p_{i}}}}{m/k} + {\frac{m/k-1}{m/k}} p_{max}
+    C_{max} \leq \frac{\sum_{j \in G1 }^{}{{p_{j}}}}{m/k} + {\frac{m/k-1}{m/k}} p_{max}
   \end{equation}
   where $p_{max}$ is actual processing time of longest task in $G1$.
 
   From Equation~\ref{eq9} and~\ref{eq11}, we derive
   \begin{equation}{\nonumber}
-    C_{max}^{*} \geq  \frac{\sum_{i \in G1 }^{}{{p_{i}}}+ (k-1)\left(\frac{1}{\alpha^{2}}\sum_{i \in G1 }^{}{{p_{i}}}-  {max_{i \in J}}{{p_{i}}}\right)}{m}
+    C_{max}^{*} \geq  \frac{\sum_{j \in G1 }^{}{{p_{j}}}+ (k-1)\left(\frac{1}{\alpha^{2}}\sum_{j \in G1 }^{}{{p_{j}}}-  {max_{j \in J}}{{p_{j}}}\right)}{m}
   \end{equation}
   \begin{equation}{\nonumber}
-    \alpha^{2} (mC_{max}^{*} + (k-1){max_{i \in J}}{{p_{i}}}) \geq  (\alpha^{2} + k-1) \sum_{i \in G1 }^{}{{p_{i}}}  
+    \alpha^{2} (mC_{max}^{*} + (k-1){max_{j \in J}}{{p_{j}}}) \geq  (\alpha^{2} + k-1) \sum_{j \in G1 }^{}{{p_{j}}}  
   \end{equation}
   \begin{equation}\label{eq12}
-    \frac{\alpha^{2}}{\alpha^{2}+k-1}\left(m C_{max}^{*}+(k-1) {max_{i \in J}}{{p_{i}}}\right) \geq \sum_{i \in G1 }^{}{{p_{i}}}  
+    \frac{\alpha^{2}}{\alpha^{2}+k-1}\left(m C_{max}^{*}+(k-1) {max_{j \in J}}{{p_{j}}}\right) \geq \sum_{j \in G1 }^{}{{p_{j}}}  
   \end{equation}
   
   Using \ref{eq10} and \ref{eq12}, We have
   \begin{align}{\nonumber}
-    C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+\frac{k-1}{m} {max_{i \in J}}{{p_{i}}}\right)\\
+    C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+\frac{k-1}{m} {max_{j \in J}}{{p_{j}}}\right)\\
     + {\frac{m/k-1}{m/k}} p_{max} \nonumber
   \end{align}
   
-  As $C_{max}^{*}\geq {{max_{i \in J}}{p_{i}}}\geq p_{max}$, we have
+  As $C_{max}^{*}\geq {{max_{j \in J}}{p_{j}}}\geq p_{max}$, we have
   \begin{align}{\nonumber}
     C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+ {\frac{k-1}{m}}{C_{max}^{*}}\right)\\
     + {\frac{m-k}{m}} C_{max}^{*} \nonumber
   \end{align}    
   
-  So, in Case 1 the algorithm a competitive ratio of,
+  So, in Case 1 the algorithm has a competitive ratio of,
   \begin{equation}{\nonumber}
     \frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( 1+ {\frac{k-1}{m}} \right) + {\frac{m-k}{m}} \end{equation}\\
   
-  \textbf{Case 2:} If $(k-1)\sum_{i \in G1 }^{}{\tilde p_{i}} \leq \sum_{l=2}^{k}\sum_{i \in Gl }^{}{\tilde p_{i}}$. \\
+  \textbf{Case 2:} If $(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}} \leq \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}$. \\
   
   Since the processing times of the tasks can vary within a factor
   $\alpha$ and $\frac{1}{\alpha}$ of their estimated values, the
   expression for case 2 can be written as
   \begin{equation}{\nonumber}
-    \sum_{l=2}^{k}\sum_{i \in Gl }^{}{ p_{i}} \geq \frac{1}{\alpha^2} (k-1)\sum_{i \in G1 }^{}{ p_{i}}
+    \sum_{l=2}^{k}\sum_{j \in Gl }^{}{ p_{j}} \geq \frac{1}{\alpha^2} (k-1)\sum_{j \in G1 }^{}{ p_{j}}
   \end{equation}
   
   Putting this value in Equation~\ref{eq11}, we have
   \begin{equation}\label{eq13}
-    C_{max}^{*} \geq \frac{\alpha^2+k-1}{m\alpha^2}\sum_{i \in G1 }^{}{ p_{i}}
+    C_{max}^{*} \geq \frac{\alpha^2+k-1}{m\alpha^2}\sum_{j \in G1 }^{}{ p_{j}}
   \end{equation}
   Using Equations~\ref{eq10} and~\ref{eq13}, and as $C_{max}^{*} \geq p_{max}$, we have
   \begin{equation}{\nonumber}
