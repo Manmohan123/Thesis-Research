@@ -119,7 +119,7 @@ machines. Studying the balance of the load of the various component of
 the system is often key in understanding the performance one obtains
 in practice. A system typically schedules the set of tasks with the
 goal of optimizing the load balance (or makespan) of the system or
-other metrics. A key information these system use to plan the
+some other metric. A key information these system use to plan the
 execution is the time tasks will take to be processed. However, this
 information is typically not precisely known in practice: because the
 user can only make a wild guess on the runtime of her
@@ -128,7 +128,7 @@ case~\cite{Wilhelm2008}, or because underlying models of a particular
 algorithm can only predict runtime within a given
 range~\cite{Erlebacher14-ICS}. Whichever the reason is, not knowing
 accurately the processing time can significantly impact the
-performance of the machine.
+performance obtained from the machine.
 
 Though, the uncertainty in processing time is only a real problem if
 the task is pinned to a particular computing unit. If the task could
@@ -154,23 +154,25 @@ The idea we are pursuing in this paper is to replicate the input data
 of the tasks onto multiple machines. This way, when the actual
 processing times of the tasks are too different from their
 estimations, the system will have some room to adapt at runtime. This
-is certainly feasible in practice as many system have more memory
-than the computation use. For instance, most Hadoop system replicates
-the data for the purpose of tolerating hardware
+is certainly feasible in practice as many system have more memory than
+the computation use. For instance, most Hadoop system replicates the
+data for the purpose of tolerating hardware
 faults~\cite{White:2009:HDG:1717298}. And it has been shown that
 launching the same task multiple times can help cope with hardware
 differences~\cite{DBLP:journals/corr/WangJW14} but increases resource
-usage. In this paper, we answer the question ``can data replication
-help cope with the uncertainty of processing time?'' And the answer is
-that it can.
+usage. The cost of replicating the data might be amortized in many
+applications where the application will iterated over the data
+multiple times (such as in an iterative solver). In this paper, we
+answer the question ``can data replication help cope with the
+uncertainty of processing time?''  And the answer is that it can.
 
 The remaining of the paper is organized as follows: we describe system
 model and notations in Section~\ref{sec2}. Related works are presented
 in Section~\ref{sec3}.  Section~\ref{sec4} investigates what can be
 done if the tasks can only be deployed on a single machine, we
-provided a guaranteed algorithm and provide a lower bound on the best
+provide a guaranteed algorithm and provide a lower bound on the best
 guarantee that one can achieve in this case. Section~\ref{sec5} takes
-the reverse case and investigate what can be achieved if the data are
+the reverse case and investigates what can be achieved if the data are
 replicated everywhere, leaving the maximum flexibility at runtime. We
 investigate one algorithm in this case and analyze its performance
 guarantee. Section~\ref{sec6} investigates grouping processors
