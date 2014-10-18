@@ -867,33 +867,35 @@ performance significantly.
 
 \section{Conclusion and Future Work}\label{sec8}
 
-We study the effect on performance of parallel machine scheduling when
-jobs are scheduled based on their estimated values of processing
-times.  We define 3 different models which uses different replication
-schemes.  We propose an approximation algorithm per model and compare
-their performance. We observed that even for small amount of
-replications ( i.e for small group size), the guarantee of algorithm
-improves drastically. So, allowing a job to be replicated over large
-number of machines (large group size) might be unnecessary.
+We studied the effect on uncertainty in the processing time of tasks
+on scheduling for parallel and distributed machines. In particular, we
+investigated how allowing tasks to execute on different machines can
+help dealing with not knowing the processing time of tasks
+accurately. We investigated three different replication strategies,
+provided approximation algorithm in each case and a lower bound on the
+best achievable approximation in one of the case. The various
+strategies allow to trade the number of replication for a better
+guarantee. In particular, we obtained a better guarantee with few
+replication than can be achieved by putting the data of a task on only
+one machine. We observed that even a small amount of replications can
+improve the guarantee significantly. Therefore, we concluded that
+deploying the data on multiple machines can be an effective way of
+dealing with processing time uncertainties.
 
-There are some open problems which can be explored as further research
-work. For models allowing more than one replica of a job, there is
-scope of introducing algorithms having better lower bounds.
+There are some open problems which can be explored further. Better
+lower bounds might help understanding the problem better: clearly when
+$\alpha$ is low, the problem is no different than the offline problem,
+and when it is large, the problem converges to the non-clairvoyant
+online problem. Having a clearer idea of where the boundary is will
+certainly prove useful in understanding how much can be gained using
+data replication. Also, while replicating data using groups of
+processor proved effective, more general replication policies can
+certainly lead to better guarantees.
 
-In this research our focus was to study the effect of replication for
-minimizing makespan in scheduling under uncertainty. We did not look
-in the problem through memory point of view. Replication facilitates
-load balancing and allows better response time by the processors and
-but it is having memory cost attached with it. So, one direction to
-think about the problem would be solving bi criteria problem of
-optimizing load as well as memory.
- 
-Algorithms that replicate task without making groups of processors
-could give better guarantees as there would be no restriction on the
-processors where a job can be replicated. To reduce memory cost
-non-constant or selective replication can be done: replicating big
-tasks only could reduce the cost of replication.
-
+Though, we assumed that every tasks were replicated the same amount of
+time. A more realistic model would introduce a cost of replicating a
+task (either global or per machine). This would allow to replicate
+only some critical tasks and limit memory usage.
 
 \bibliographystyle{abbrv}
 \bibliography{final} 
