@@ -723,11 +723,11 @@ allocated in phase 1 using the online List Scheduling algorithm.
     \sum_{l=2}^{k}\sum_{i \in Gl }^{}{ p_{i}} \geq \frac{1}{\alpha^2} (k-1)\sum_{i \in G1 }^{}{ p_{i}}
   \end{equation}
   
-  Putting this value in equation \ref{eq11}, we have
+  Putting this value in Equation~\ref{eq11}, we have
   \begin{equation}\label{eq13}
     C_{max}^{*} \geq \frac{\alpha^2+k-1}{m\alpha^2}\sum_{i \in G1 }^{}{ p_{i}}
   \end{equation}
-  Using \ref{eq10} and \ref{eq13}, and as $C_{max}^{*} \geq p_{max}$, we have
+  Using Equations~\ref{eq10} and~\ref{eq13}, and as $C_{max}^{*} \geq p_{max}$, we have
   \begin{equation}{\nonumber}
     C_{max} \leq \frac{k\alpha^2}{\alpha^2+k-1}C_{max}^{*}+\frac{m-k}{m}C_{max}^{*}
   \end{equation}
@@ -747,7 +747,7 @@ allocated in phase 1 using the online List Scheduling algorithm.
 % \end{corollary}
 
 \textbf{LS-Group} uses List Scheduling in both its phases. A LPT-based
-algorithm may have better guarantee. But withou performing any
+algorithm may have better guarantee. But without performing any
 replication, {\em i.e.} when $k=m$, the \textbf{LS-Group} algorithm
 has a competitive ratio almost equal to \textbf{LPT-No choice}'s when
 the number of machines $m$ is large and the value of $\alpha$ is
@@ -755,44 +755,45 @@ within practical range. This indicates an LPT-based algorithm for
 strategy 3 would likely not have a much more interesting guarantee.
 
 \section{Summary}\label{sec7}
-Table~\ref{tab:template} summarizes the results of the three
-algorithms in terms of approximation ratio. Based on adversary
-technique, Theorem 1.1 \todo{hardocded} states that there is no
-algorithm which can give performance better than $\alpha^2$ for the
-model where no replication is allowed.  LPT-No Choice is
-$\frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ approximation in this
-model. For the second model having $|M_j| = |M|$ (replication
-everywhere), LPT-No Restriction has a competitive ratio of $1 +
-(\frac{m-1}{m})\frac{\alpha^{2}}{2}$.  The third model having $|M_j| =
-m/k$, allows replication within a group of $m/k$ machines to which a
-task is assigned in phase 1. For this model, LS-Group algorithm has a
-competitive ratio of $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+
-  {\frac{k-1}{m}} \right]+ {\frac{m-k}{m}}$.
+Table~\ref{tab:template} summarizes the results of this paper in term
+of approximation theory. Based on adversary technique,
+Theorem~\ref{th:model1-lb} states that there is no algorithm which can
+give performance better than $\alpha^2$ for the model where no
+replication is allowed. {\bf LPT-No Choice} is a
+$\frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$-approximation that uses that
+strategy. For the second strategy that replicates the data of all
+tasks everywhere ( $|M_j| = |M|$), {\bf LPT-No Restriction} achieves a
+competitive ratio of $1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$.  The
+third strategy uses replication within $k$ groups of size $m/k$ ({\em
+  i.e.}, $|M_j| = m/k$). Using this strategy, the {\bf LS-Group}
+algorithm has a competitive ratio of
+$\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( 1+ {\frac{k-1}{m}} \right) +
+{\frac{m-k}{m}}$.
 
 
 
-\begin{table*}[ht]
+\begin{table}[ht]
   \centering
   \begin{tabular}{|l|c|c|c|c|c|}
     \hline
     Replication & Approximation ratio  \\
     \hline
-    $|M_j|=1$ & $\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ (Theorem~\ref{th:strat1-ub})  \\
-    & No approximation better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$ (Theorem~\ref{th:model1-lb})   \\
+    $|M_j|=1$ & $\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ (Th.~\ref{th:strat1-ub})  \\
+    & No approximation better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$ (Th.~\ref{th:model1-lb})   \\
     
     \hline
-    $|M_j|=|M|$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ (Theorem~\ref{th:strategy2})  \\
+    $|M_j|=|M|$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ (Th.~\ref{th:strategy2})  \\
     & $\frac{C_{max}}{C_{max}^{*}} \leq 2-\frac{1}{m}$ \cite{Graham66}   \\
     \hline
     
-    $|M_j|= m/k $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1} \left(1+ {\frac{k-1}{m}} \right)+ {\frac{m-k}{m}}$ (Theorem~\ref{th:strategy3})  \\
+    $|M_j|= m/k $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1} \left(1+ {\frac{k-1}{m}} \right)+ {\frac{m-k}{m}}$ (Th.~\ref{th:strategy3})  \\
 %    & $\frac{C_{max}}{C_{max}^{*}} \leq  1+ \frac{2}{1+\alpha^{2}} \left(\alpha^2-\frac{1}{m}\right)$ when $k=2$ [Col. 3.1]   \\
     
     \hline
   \end{tabular}
-  \caption{Summary of the guarantees of the designed algorithms.}
+  \caption{Summary of the contribution of this paper. Three proposed algorithms have guaranteed performance. One lower bound has been established.}
   \label{tab:template}
-\end{table*}
+\end{table}
 
 
 To better understand the relation between these different results we
@@ -828,8 +829,7 @@ replications the ratio does not improve much further.
     \label{fig:3}
   \end{subfigure} %
 
-  
-  \caption{Ratio-Replication graph with m=210 and value of $\alpha$ as 1.1, 1.5 and 2}
+  \caption{Ratio-Replication graph with $m=210$ and $\alpha \in \{1.1, 1.5, 2\}$.}
   \label{fig:Graph}
 \end{figure}
 
