@@ -395,8 +395,8 @@ allocated on that processor. Since there is no replication, there is
 no decision to take in phase 2.
 
 The performance of the algorithm depends mostly on how much the actual
-processing times of the tasks differ from their estimation and on the
-existence of a better arrangement would the actual processing time be
+processing times of the tasks differ from their estimation. It also depends on the
+existence of a better arrangement if the actual processing times were
 known. The following theorem states the theoretical guarantee of the
 algorithm.
 
@@ -780,7 +780,7 @@ guarantees (or impossibility) translate to actual values in a
 approximation ratio / replication space.  We picked 3 values of
 $\alpha$ while keeping the number of machines fixed $m=210$. 
 
-When $\alpha=1.1$, the {\bf LS-Group} provides little
+When $\alpha=1.1$, even with multiple groups {\bf LS-Group} provides little
 improvement over {\bf LPT-No Choice}. However there is a significant
 gap between the guarantee of {\bf LPT-No Choice} and the lower bound
 on possible approximation. When $\alpha$ is small, there is a
