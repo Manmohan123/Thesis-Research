@@ -297,7 +297,7 @@ service and minimize the memory occupation.
 \section{Strategy 1: No Replication}\label{sec4}
 
 
-This section model considers the situation where the data of each task
+This section considers the situation where the data of each task
 is restricted to be on only one machine, i.e. $\forall j, |M_j|=1$.
 We have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f
 : J \mapsto M$ be a function that assigns each job to exactly one
@@ -324,7 +324,7 @@ there is only one machine is can be scheduled in phase 2.
  
   Let us consider an instance with $\lambda m$ tasks of equal
   estimated processing time $\forall j, \tilde{p_j} = 1$. After phase
-  1, let $i$ be the the most loaded processor which has $B$
+  1, let $i$ be the most loaded processor which has $B$
   tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary
   increases the processing time of the tasks on processor $i$ by a
   factor of $\alpha$ and changes the processing time of the other
