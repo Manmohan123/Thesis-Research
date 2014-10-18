@@ -162,7 +162,7 @@ launching the same task multiple times can help cope with hardware
 differences~\cite{DBLP:journals/corr/WangJW14} but increases resource
 usage. The cost of replicating the data might be amortized in many
 applications where the application will iterated over the data
-multiple times (such as in an iterative solver). In this paper, we
+multiple times ({\em e.g.}, in an iterative solver~\cite{Zhou12-P2S2,Zhou12-Cluster}). In this paper, we
 answer the question ``can data replication help cope with the
 uncertainty of processing time?''  And the answer is that it can.
 
@@ -186,7 +186,7 @@ replication.
 Let $J$ be a set of $n$ jobs which need to be scheduled onto a set $M$
 of $m$ machines. We will use interchangeably the terms machines and
 processors. Also we will use interchangeably the terms jobs and
-tasks. We are considering the problems where the scheduler does not
+tasks. We are considering the problem where the scheduler does not
 know the processing time $p_j$ of task $j$ exactly before the task
 completes.  But the scheduler has access to some estimation of the
 processing time $\tilde{p_j}$ of task $j$ before making any scheduling
@@ -206,19 +206,19 @@ will take to run graph traversal algorithms. Models of runtime of
 algorithms can also be derived analytically:
 in~\cite{Erlebacher14-ICS} the authors provide bounds for the
 performance of various sparse linear algebra operations using only the
-size of the matrices and vector involved.
+size of the matrices and vectors involved.
 
 
 The scheduling for the problem is performed in two phases. Phase 1
-chooses where data to be replicated using estimated processing time
+chooses where data are replicated using the estimated processing time
 $\tilde p_j $, for each of the task $j$. The phase takes
-$\tilde{p_j}$, $m$ and $\alpha$ as input and outputs set of machines,
-$M_j \subseteq M $ where a task $j$ can be scheduled. This phase is
+$\tilde{p_j}$, $m$ and $\alpha$ as inputs and outputs sets of machines,
+$M_j \subseteq M $ where each task $j$ can be scheduled. This phase is
 purely offline and corresponds to the operations performed to prepare
 the execution of the application.
 
-Phase 2 takes the output of phase 1 as its input and maps a task $j$
-to a machine within the set of machines $M_j$. For each machine $i$
+Phase 2 takes the output of phase 1 as its input and maps each task $j$
+to a machine within the set of machines $M_j$. For each machine $i$,
 let $E_i \subseteq J$ be the set of tasks assigned to machine
 $i$. This phase chooses the actual schedule following an an online
 semi-clairvoyant process. Only the approximate processing time is
@@ -227,9 +227,9 @@ to become idle, to place the next one. Therefore, can dynamically
 schedule the tasks and the actual processing time of the tasks are
 known once they complete.
 
-The problem is to optimize the makespan, $C_{max}$ which is the
+The problem is to optimize the makespan, $C_{max} = \max_i \sum_{j \in E_i} p_j$ which is the
 completion time of the last task of the system. $C_{max}^{*}$ denotes
-the optimal makespan of an instance of the problem (knows the
+the optimal makespan of an instance of the problem (knowing the
 actual processing times).
 
 \section{Related Work}\label{sec3}
