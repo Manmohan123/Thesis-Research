@@ -130,64 +130,39 @@ range~\cite{Erlebacher14-ICS}. Whichever the reason is, not knowing
 accurately the processing time can significantly impact the
 performance of the machine.
 
+Though, the uncertainty in processing time is only a real problem if
+the task is pinned to a particular computing unit. If the task could
+be moved as the system sees fit without incurring an extra cost, the
+problem would be vastly alleviated. The problem is that in practice,
+the task has to run on a particular machine because the input data for
+this task are only available on this machine. This is the case in most
+parallel and distributed systems and it is particularly true in
+out-of-core computing systems. For instance in out-of-core sparse
+linear algebra, executing a task where the data are not locally
+available would have a prohibitive
+overhead~\cite{Zhou12-Cluster,Zhou12-P2S2}.
 
-\todo{we need a paragraph on data placement. essentially: uncertainty
-  would not be a problem if the schedules could be dynamically
-  changed. But in practice, the task has to run somewhere because its
-  input data is there. For instance Hadoop, dooc+laf; but essentially
-  in any parallel code. Even if some middleware support executing the
-  task everywhere it pays an overhead for transferring data.}
+One approach for dealing with the uncertainty of processing time is to
+build a robust schedule~\cite{cj09c,Gatto07,
+  Davenport_slack-basedtechniques}, that is, building a schedule that
+can naturally cope with variations in the processing times. These
+techniques often use sensitivity analysis to determine the robustness
+of the schedule. However, a better approach would be to be able to
+dynamically change the schedule. 
 
-\todo{one approach for the problem is to build robust schedule. define
-  robust schedule and give few quick pointers. What is better is to be
-  able to arrange the schedule at runtime. What we investigate: using
-  data replication to give room to the scheduler to move tasks
-  around. Can it help?}
-
-\todo{In paragraph that gives document organization. In section foo,
-  we present this. In section bar we present that. This is where
-  contribution should be presented. no need to give formula.}
-
-Many real world scheduling problems related to task allocation in
-parallel machines are uncertain in nature. This fact makes the class
-of problem known as 'scheduling with uncertainty' or 'robust'
-scheduling an important and most studied problem in
-Scheduling. Robustness is the measure of to what extent an algorithm
-can cope with uncertainties in a scheduling problem. Often in
-scheduling problems the exact processing time of a job is not known
-initially at the time of planning for job- allocation to different
-machines, but they have a range outside which their values cannot
-lie. The fact gives a basis to estimate the processing times and to
-take job assignment decision based on these estimated values. The
-actual processing time of a job can vary drastically from its
-estimated one. So, any algorithm have to incur the cost of estimation
-which impacts its performance negatively. A robust approach deals with
-uncertainty in input parameters to minimize this cost.
-
-
-The objective of our research is to study the affect on performance of
-parallel machine scheduling when jobs are scheduled based on their
-estimated values of processing times, and to propose scheduling
-approaches that optimizes the performance in this environment. Data
-placement and replication techniques can be useful in the scenario of
-uncertain processing times of tasks. Effective data placement using
-replication strategy allows better load balancing and hence reduces
-turnaround job time. This paper is important in the sense that it
-proposes different models depending upon different scenarios and
-compares them based on approximation ratio and replication they
-allow. Replication strategy that allows to place data in a wisely
-manner offers a faster access to files required by jobs, hence
-increases the job execution's performance. Replication helps in load
-balancing but it have cost attached with it as it usually increases
-resource usage~\cite{DBLP:journals/corr/WangJW14}. The paper deals
-with this problem and chooses the scenario in which replication is
-beneficial. Thus our research focus on two area of scheduling problem
-i.e. task uncertainty and replication using data placement. The
-scheduling problem related to data placement and task allocation is
-common in heterogeneous systems and often dealt with common
-approach. This paper draws qualitative analysis of the effect of
-replication in data placement for uncertain scheduling with inexact
-processing time of a task.
+The idea we are pursuing in this paper is to replicate the input data
+of the tasks onto multiple machines. This way, when the actual
+processing times of the tasks are too different from their
+estimations, the system will have some room to adapt at runtime. This
+is certainly feasible in practice has many system have more memory
+than the computation use. For instance, most Hadoop system replicates
+the data for the purpose of tolerating hardware
+faults~\cite{White:2009:HDG:1717298}. And it has been shown that
+launching the same task multiple times can help cope with hardware
+differences~\cite{DBLP:journals/corr/WangJW14} but increases resource
+usage. In this paper, we answer the question ``can data replication
+help cope with the uncertainty of processing time?'' And the answer is
+that it can.
 
 The remaining of the paper is organized as follows: we describe system
 model and notations in Section~\ref{sec2}. Related works are presented
@@ -248,83 +223,67 @@ has nothing to do here. This is a problem definition.}
 
 \section{Related Work}\label{sec3}
 
-\todo{First with $\alpha=1$ this is the classical scheduling
-  problem.}\todo{NP-Hardness. cite garey johnson.} We have used
-Graham's List Scheduling (LS)~\cite{Graham66} and Largest Processing
-Time (LPT) algorithms~\cite{Graham69boundson} to derive approximation
-ratios in different scenarios. The LS algorithm takes tasks one at a
-time and assign it to the processor having least load at that time. LS
-is 2-approximation algorithm and is widely used in online scheduling
+When $\alpha = 1$, the problem is exactly the classical independent
+task scheduling problem on identical machines, which is known to be
+NP-Hard~\cite{GareyJohnson79}. We have used Graham's List Scheduling
+(LS)~\cite{Graham66} and Largest Processing Time (LPT)
+algorithms~\cite{Graham69boundson} to derive approximation ratios in
+different scenarios. The LS algorithm takes tasks one at a time and
+assign it to the processor having least load at that time. LS is
+2-approximation algorithm and is widely used in online scheduling
 problems. LPT sorts tasks in decreasing order of processing time and
 assign them one at a time in this order to the processor with the
 smallest current load. The LPT algorithm has worst case performance
-ratio as $\frac{4}{3}-\frac{1}{3m} $ in an offline setting. Depending
-upon which among these two algorithms suits more for a problem model
-we have used these algorithms accordingly. \todo{PTAS from hochbaum shmoys}
+ratio as $\frac{4}{3}-\frac{1}{3m}$ in an offline setting. One can
+even obtain an arbitrarily good approximation algorithm by increasing
+its runtime for this problem with a dual approximation
+algorithm~\cite{Hoch87}.
 
 
-
-Based on various models of describing uncertainty in input parameter,
-uncertainty problems can be approached by various methodologies
-including Reactive, stochastic, fuzzy and Robust
-approach~\cite{DBLP:journals/cce/LiI08}. The bounded uncertainty model
-assumes that an input parameter have value between a lower and upper
-bound and is usually dealt with robust approach or sensitivity
-analysis\todo{cite}. We are more interested in robust approach to deal
-with uncertainty. \todo{ Be factual,
-  this paper takes that approach and shows that or applies it to
-  that.} Wierman and Nuyens~\cite{conf/sigmetrics/WiermanN08}
-introduce SMART as classification to understand size based policies
-and draw analytical co-relation between response time and estimated
-job size in single server problem. Dealing with uncertainty problems
-with robust approach is widely used in practicality in the area of
-MapReduce~\cite{Kavulya:2010:ATP:1844765.1845224}~\cite{Verma:2011:AAR:1998582.1998637},
+Based on various models for describing the uncertain input parameter,
+various methodologies can be used including reactive, stochastic,
+fuzzy and robust approach~\cite{DBLP:journals/cce/LiI08}. We are using
+the bounded uncertainty model which assumes that an input parameter
+have value between a lower and upper bound.  Wierman and
+Nuyens~\cite{conf/sigmetrics/WiermanN08} introduce SMART, a
+classification to understand size-based policies and draw analytical
+co-relation between response time and estimated job size in single
+server problem. Robust approaches to deal with uncertainty are widely
+used on MapReduce
+systems~\cite{Kavulya:2010:ATP:1844765.1845224}~\cite{Verma:2011:AAR:1998582.1998637},
+in
 Hadoop~\cite{Wolf:2010:FSA:2023718.2023720}~\cite{White:2009:HDG:1717298},
-databases~\cite{Lipton199518} and web
-servers~\cite{Cardellini99dynamicload}. HSFS and FLEX schedulers are
-proposed which provides robustness in scheduling against uncertain Job
-Size ~\cite{Wolf:2010:FSA:2023718.2023720} \cite{6691554}. Cannon and
-Jeannot ~\cite{cj09c} provides scheduling heuristics that optimizes
-both makespan and robustness in scheduling task graph on heterogeneous
-system. \todo{This is not the contribution of this paper. It is mostly
-  trying to understand what is the correct metric for measuring the
-  robustness of a schedule. }
+on databases~\cite{Lipton199518} and on web
+servers~\cite{Cardellini99dynamicload}. The HSFS and FLEX schedulers
+provide robustness in scheduling against uncertain Job
+Size~\cite{Wolf:2010:FSA:2023718.2023720,6691554}. Cannon and
+Jeannot~\cite{cj09c} analyzed the correlation between various metrics
+used to measure robustness and provide scheduling heuristics that
+optimizes both makespan and robustness for scheduling task graph on
+heterogeneous system.
 
-Most of the work on robust scheduling uses scenarios in problem
-formulation to structure variability of uncertain parameter. \todo{What does a scenario means in this context.} Daniels and Kouvelis~\cite{citeulike:8334169} used scenarios to formulate
-branch and bound based robust scheduling to cope uncertainty in
-processing time of jobs in single machine. Davenport, Gefflot, and Bek
-used slack based technique to add extra time to cope with
+Most of the work on robust scheduling uses scenarios to structure
+variability of uncertain parameter. Daniels and
+Kouvelis~\cite{citeulike:8334169} used them to optimize the flow-time
+using a single machine. Davenport, Gefflot, and Bek analyzed slack
+based technique (adding extra idle time) to cope with
 uncertainty~\cite{Davenport_slack-basedtechniques}. Gatto and Widmayer
 derives bounds on competitive ratio of Graham’s online algorithm in
 scenario where processing times of jobs either increase or decrease
-arbitrarily due to perturbations~\cite{Gatto07}.  Their notion of
-perturbed processing times is similar to our definition of estimated
-processing times which can increase or decrease to actual processing
-times once the jobs are processed. But unlike our work they considered
-increment and decrement of job processing times as different problem
-scenario. We have approached the problem with worst case scenario
-where some tasks may increase and some may decrease in the same
-schedule.
+arbitrarily due to perturbations~\cite{Gatto07}.  These works
+considered augmenting or decreasing of job processing times as
+different problem scenario that need to be optimized. We 
+approach the problem using worst case analysis where some tasks may
+increase and some may decrease within the same schedule.
   
-\todo{This is related works, this is not about what we do.} We have
-used pro-active approach to deal with uncertainty. Through this
-research we study effect of load balancing in scenario of uncertain
-processing times. Based on different task assignment criteria we
-propose 3 models for our problem definition, offering different degree
-of task replication for load balancing. Data placement and replication
-methodologies are highly used in distributed systems including
-peer-to-peer and Grid systems to achieve effective data management and
-improve
-performance~\cite{Cirne2007213}\cite{Abawajy}\cite{4215379}. Our
-notion of using replication is to increase data availability thereby
-enhancing system reliability against uncertainties. With focus on
-studying replication affect on performance of a schedule under
-uncertainty, we have not considered cost of replication in terms of
-memory utilization. Our work considers an ideal case where storage is
-sufficient.  Similar work is done by Tse~\cite{DBLP:journals/tc/Tse12}
-who used selective replication of documents in bi criteria problem of
-minimizing load and memory in distributed file servers.
+Data placement and replication methodologies are highly used in
+distributed systems including peer-to-peer and Grid systems to achieve
+effective data management and improve
+performance~\cite{Cirne2007213}\cite{Abawajy}\cite{4215379}. Tse~\cite{DBLP:journals/tc/Tse12}
+used selective replication of documents to increase the available
+bandwidth to serve files using web servers and study the problem
+through bi-criteria optimization techniques to maximize the quality of
+service and minimize the memory occupation.
 
 \section{Strategy 1: No Replication}\label{sec4}
 
