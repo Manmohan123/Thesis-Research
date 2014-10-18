@@ -512,7 +512,7 @@ the processor become available with when the actual processing time of
 the task scheduled onto it elapse.
 
 \begin{lemma}\label{No Restriction}
-  \textbf{LPT-No Restriction} has a optimal makespan of at least $  {\frac{2}{\alpha^{2}}} p_l $ when there are more tasks than number of machines.
+  \textbf{LPT-No Restriction} has a optimal makespan of at least $  {\frac{2}{\alpha^{2}}} p_l $ when there are more tasks than number of machines in the schedule with $l$ as last task.
 \end{lemma}
 \begin{proof}
   \todo{This lemma is very strange. Does it say something on cmax or
@@ -521,20 +521,18 @@ the task scheduled onto it elapse.
     cmax*. We should check this carefully. In particular how did we
     get the first equation on cmax*.}
 
- Since number of tasks is greater than number of machines,  atleast one machine gets two tasks $c$ and $d$. $C_{max}^{*}$ must be greater than sum of these tasks.
+ Since number of tasks is greater than number of machines,  atleast one machine gets two tasks $c$ and $d$ assigned before last task $l$ in the schedule, such that $\tilde p_c \geq \tilde p_l$ and $\tilde p_d \geq \tilde p_l$. $C_{max}^{*}$ must be greater than sum of these two tasks.
    \begin{equation}\nonumber
     C_{max}^{*}\geq p_c + p_d
   \end{equation}	
 
   As the actual processing time of a task must be greater than  $\frac{1}{\alpha}$ times of its estimated value, we have $p_c \geq \frac{1}{\alpha}\tilde{p_c}$ and $p_d \geq \frac{1}{\alpha}\tilde{p_d}$. Using this
   \begin{equation}\nonumber 
-    C_{max}^{*} \geq \frac{1}{\alpha}\tilde p_c +  \frac{1}{\alpha} \tilde p_d 
+    C_{max}^{*} \geq \frac{1}{\alpha}\tilde p_c +  \frac{1}{\alpha} \tilde p_d \geq \frac{2}{\alpha}\tilde p_l
   \end{equation}
-
-  Let $c$ is scheduled before $d$ using LPT on the estimated processing times. So, $\tilde p_c\geq \tilde p_d$ holds true for tasks $c$ and $d$.
-  Using this, we have
+Also, $\tilde p_l \geq \frac{1}{\alpha} p_l$
   \begin{equation}\nonumber
-    C_{max}^{*} \geq \frac{2}{\alpha}\tilde p_d \geq {\frac{2}{\alpha^{2}}} p_d 
+    C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l 
   \end{equation}
 \end{proof}
 
@@ -570,7 +568,7 @@ the task scheduled onto it elapse.
     \frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}\left(\frac{p_l}{C_{max}^{*}}\right)
   \end{equation}
   
-  As $l$ is last task in the schedule there would be at least a task assigned before it to the same machine.   Using Lemma~\ref{No Restriction}, we have 
+  Using Lemma~\ref{No Restriction}, we have 
   \begin{equation}\nonumber
     \frac{C_{max}}{C_{max}^{*}} \leq 1 + \left(\frac{m-1}{m}\right)\frac{\alpha^{2}}{2}
   \end{equation}
