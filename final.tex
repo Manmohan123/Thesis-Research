@@ -227,15 +227,19 @@ to become idle, to place the next one. Therefore, can dynamically
 schedule the tasks and the actual processing time of the tasks are
 known once they complete.
 
-The problem is to optimize the makespan, $C_{max} = \max_i \sum_{j \in E_i} p_j$ which is the
-completion time of the last task of the system. $C_{max}^{*}$ denotes
-the optimal makespan of an instance of the problem (knowing the
-actual processing times).
+The problem is to optimize the makespan, $C_{max} = \max_i \sum_{j \in
+  E_i} p_j$ which is the completion time of the last task of the
+system. $C_{max}^{*}$ denotes the optimal makespan of an instance of
+the problem (knowing the actual processing times). An offline algorithm is
+said to be a $\rho$-approximation algorithm (or to have an
+approximation ratio of $\rho$) if it guarantees for all the instances
+that $C_{max} \leq \rho C_{max}^*$. When the problem is online, we are
+talking about competitive ratios.
 
 \section{Related Work}\label{sec3}
 
 When $\alpha = 1$, the problem is exactly the classical independent
-task scheduling problem on identical machines, which is known to be
+tasks scheduling problem on identical machines, which is known to be
 NP-Hard~\cite{GareyJohnson79}. We use Graham's List Scheduling
 (LS)~\cite{Graham66} and Largest Processing Time (LPT)
 algorithms~\cite{Graham69boundson} to derive approximation ratios in
@@ -244,10 +248,10 @@ assigns them to the processor having the least load at that time. LS is a
 2-approximation algorithm and is widely used in online scheduling
 problems. LPT sorts the tasks in a non-increasing order of processing time and
 assigns them one at a time in this order to the processor with the
-smallest current load. The LPT algorithm has a worst case performance
+smallest current load. The LPT algorithm has a worst case approximation
 ratio of $\frac{4}{3}-\frac{1}{3m}$ in the offline setting. One can
-even obtain an arbitrarily good approximation algorithm by increasing
-its runtime for this problem with a dual approximation
+even obtain an arbitrarily good approximation algorithm for this problem by increasing
+its complexity with a dual approximation
 algorithm~\cite{Hoch87}.
 
 
@@ -266,15 +270,15 @@ in
 Hadoop~\cite{Wolf:2010:FSA:2023718.2023720}~\cite{White:2009:HDG:1717298},
 on databases~\cite{Lipton199518} and on web
 servers~\cite{Cardellini99dynamicload}. The HSFS and FLEX schedulers
-provide robustness in scheduling against uncertain Job
-Size~\cite{Wolf:2010:FSA:2023718.2023720,6691554}. Cannon and
+provide robustness in scheduling against uncertain job
+size~\cite{Wolf:2010:FSA:2023718.2023720,6691554}. Cannon and
 Jeannot~\cite{cj09c} analyzed the correlation between various metrics
-used to measure robustness and provide scheduling heuristics that
+used to measure robustness and provided scheduling heuristics that
 optimizes both makespan and robustness for scheduling task graph on
 heterogeneous system.
 
-Most of the work on robust scheduling uses scenarios to structure
-variability of uncertain parameter. Daniels and
+Most of the work on robust scheduling use scenarios to structure
+the variability of uncertain parameters. Daniels and
 Kouvelis~\cite{citeulike:8334169} used them to optimize the flow-time
 using a single machine. Davenport, Gefflot, and Bek analyzed slack
 based technique (adding extra idle time) to cope with
