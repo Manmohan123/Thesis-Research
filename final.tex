@@ -732,7 +732,7 @@ strategy 3 would likely not have a much more interesting guarantee.
 Table~\ref{tab:template} summarizes the results of this paper in term
 of approximation theory. Based on adversary technique,
 Theorem~\ref{th:model1-lb} states that there is no algorithm which can
-give performance better than $\alpha^2$ for the model where no
+give performance better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$ for the model where no
 replication is allowed. {\bf LPT-No Choice} is a
 $\frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$-approximation that uses that
 strategy. For the second strategy that replicates the data of all
@@ -772,28 +772,28 @@ $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( 1+ {\frac{k-1}{m}} \right) +
 \end{table}
 
 
-Of course, there is an inherent tradeoff between replicating data and
+Of course, there is an inherent trade off between replicating data and
 obtaining good values for the makespan. To better understand the
 tradeoff we show in Figure~\ref{fig:Graph} how the expressions of the
 guarantees (or impossibility) translate to actual values in a
 approximation ratio / replication space.  We picked 3 values of
 $\alpha$ while keeping the number of machines fixed $m=210$. 
 
-When $\alpha=1.1$, there is {\bf LS-Groups} provides little
+When $\alpha=1.1$, the {\bf LS-Group} provides little
 improvement over {\bf LPT-No Choice}. However there is a significant
 gap between the guarantee of {\bf LPT-No Choice} and the lower bound
 on possible approximation. When $\alpha$ is small, there is a
 significant improvement in using {\bf LPT-No Restriction} over using
-simply {\bf LS-Groups} with only 1 group.
+simply {\bf LS-Group} with only 1 group.
 
 When $\alpha$ increases to $1.5$, there is no more differences in the
-guarantees of {\bf LS-Groups} with 1 group and {\bf LPT-No
-  Restriction}. Also {\bf LS-Groups} provides many intermediate
+guarantees of {\bf LS-Group} with 1 group and {\bf LPT-No
+  Restriction}. Also {\bf LS-Group} provides many intermediate
 solution between deploying the data on a single machine and deploying
 them everywhere.
 
 When $\alpha=2$, the range of the approximation ratios increase and
-the value of the lower bound increases. Now {\bf LS-Groups} is able to
+the value of the lower bound increases. Now {\bf LS-Group} is able to
 get a better approximation using less than $50$ replications than is
 possible by deploying data on a single machine. Also, the
 approximation ratio quickly improves from more than $7.5$ with the
@@ -839,7 +839,7 @@ provided approximation algorithm in each case and a lower bound on the
 best achievable approximation in one of the case. The various
 strategies allow to trade the number of replication for a better
 guarantee. In particular, we obtained a better guarantee with few
-replication than can be achieved by putting the data of a task on only
+replication that can be achieved by putting the data of a task on only
 one machine. We observed that even a small amount of replications can
 improve the guarantee significantly. Therefore, we concluded that
 deploying the data on multiple machines can be an effective way of
