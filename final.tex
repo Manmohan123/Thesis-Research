@@ -193,9 +193,9 @@ investigate one algorithm in this case and analyze its performance
 guarantee. Section~\ref{sec6} investigates grouping processors
 together and replicating data in these groups as an intermediate
 between the previous two strategies and provide a guaranteed algorithm
-in that case. Section~\ref{sec7} summarizes the results of we derived
-in each case and study the tradeoff between performance guarantee and
-data replication.
+in that case. Section~\ref{sec7} summarizes the various results we
+derived and study the tradeoff between performance guarantee and data
+replication.
 
 \section{Problem Definition}\label{sec2}
 Let $J$ be a set of $n$ jobs which need to be scheduled onto a set $M$
@@ -317,27 +317,6 @@ memory utilization. Our work considers an ideal case where storage is
 sufficient.  Similar work is done by Tse~\cite{DBLP:journals/tc/Tse12}
 who used selective replication of documents in bi criteria problem of
 minimizing load and memory in distributed file servers.
-
-
-\subsection{Our Contribution}
-
-\todo{Why do we have contribution here?}
-
-We study the effect of load balancing through replication in classic
-problem of scheduling jobs with uncertain processing times with
-objective to optimize makespan. We propose 3 models based on different
-degree of of replication they allow: a)No Replication i.e. $|M_j|=1
-$,b) Replication is done every where i.e.$|M_j|=|M|$ and c)
-Replication in groups i.e $|M_j|= m/k$ where $k$ is number of groups
-each having $m/k$ processors . For each of the models we propose a two
-phase algorithm based on Graham's LS and LPT; and derive performance
-ratio for each. For $|M_j|=1 $, we prove that there is no algorithm
-which give better performance than $\alpha^2$. Our algorithm for the
-model give $\frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ approximation. For
-models with replications $|M_j|=|M|$ and $|M_j|= m/k$ the algorithms
-give performance ratio of $ 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$
-and $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left[1+ {\frac{k-1}{m}}
-\right]+ {\frac{m-k}{m}}$ respectively.
 
 \section{Strategy 1: No Replication}\label{sec4}
 
