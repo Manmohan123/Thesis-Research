@@ -196,7 +196,6 @@ scheduler. In other words the scheduler knows that:
 \frac{\tilde{p}_{i}}{\alpha}\leq p_{i}\leq \alpha \tilde{p}_{i}
 \end{equation}
 
-
 Assuming that the processing time of the tasks is known to be in an
 interval is reasonable in many application scenarios. One could derive
 bounds experimentally using machine learning techniques: for
@@ -207,19 +206,28 @@ in~\cite{Erlebacher14-ICS} the authors provide bounds for the
 performance of various sparse linear algebra operations using only the
 size of the matrices and vector involved.
 
-The problem is to optimize the makespan, $C_{max}$. \todo{Define
-  makespan formally. Probably better if we push that at the end of the
-  section.} Makespan is the load on machine which processes the latest task. $C_{max}^{*}$ denotes optimal makespan of a schedule $S$.
 
-\todo{Write it so that the problem is defined in two phases, what ever
-  the strategy. the strategy we follow does not change the problem.}
-The scheduling for the problem is defined in two phases.  Phase 1 chooses where data to be replicated using estimated processing time $\tilde p_j $, for each of the task $j$. The phase takes $\tilde{p_j}$, $m$ and $\alpha$ as input and outputs set of machines, $M_j \subseteq M $ where a task $j$ can be scheduled.
+The scheduling for the problem is performed in two phases. Phase 1
+chooses where data to be replicated using estimated processing time
+$\tilde p_j $, for each of the task $j$. The phase takes
+$\tilde{p_j}$, $m$ and $\alpha$ as input and outputs set of machines,
+$M_j \subseteq M $ where a task $j$ can be scheduled. This phase is
+purely offline and corresponds to the operations performed to prepare
+the execution of the application.
 
-Phase 2 takes output of phase 1 as its input and maps a task $j$ to a machine within the set of machines $M_j$ to which $j$ was allocated in phase 1.  For each  machine $i$ phase 2 outputs a set of tasks $E_i \subseteq J$ assigned to the machine $i$.  The Phase chooses actual schedule with semi-clairvoyant algorithm which uses only approximate knowledge of initial processing time, and after scheduling the task the actual $p_i$ is known.  With objective to find schedule which minimizes
-makespan, we investigate greedy algorithms for each of the problem
-models and prove their competitive ratios. \todo{what we investigate
-has nothing to do here. This is a problem definition.}
+Phase 2 takes the output of phase 1 as its input and maps a task $j$
+to a machine within the set of machines $M_j$. For each machine $i$
+let $E_i \subseteq J$ be the set of tasks assigned to machine
+$i$. This phase chooses the actual schedule following an an online
+semi-clairvoyant process. Only the approximate processing time is
+known when a task is placed, but the scheduler can wait for a machine
+to become idle, to place the next one. Therefore, can dynamically
+schedule the tasks and the actual processing time of the tasks are
+known once they complete.
 
+The problem is to optimize the makespan, $C_{max}$ which is the
+completion time of the last task of the system. $C_{max}^{*}$ denotes
+optimal makespan of a schedule $S$.
 
 \section{Related Work}\label{sec3}
 
