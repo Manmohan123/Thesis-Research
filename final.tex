@@ -113,14 +113,6 @@ Scheduling; Uncertainty; Robustness; Replication; Approximation Algorithms; Para
 
 \section{Introduction}
 
-\todo{the introduction should be structure as follow.}
-
-\todo{one paragraph on scheduling as a tool for analyzing and
-  optimizing parallel and distributed systems.Mention that in
-  scheduling often processing time are known. But in practice not so
-  much. Give a few references on the difficulty of predicting runtimes
-  in job scheduler.}
-  
 Parallel and distributed computing systems are often modeled using
 tasks that are processed simultaneously on different
 machines. Studying the balance of the load of the various component of
@@ -129,10 +121,15 @@ in practice. A system typically schedules the set of tasks with the
 goal of optimizing the load balance (or makespan) of the system or
 other metrics. A key information these system use to plan the
 execution is the time tasks will take to be processed. However, this
-information is typically not precisely known in practice: the user can
-only make a wild guess~\cite{Luong2008}, prediction is hard in the
-general case~\cite{Wilhelm2008}, or underlying models of a particular
-algorithm can only predict a given range~\cite{Erlebacher14-ICS}. 
+information is typically not precisely known in practice: because the
+user can only make a wild guess on the runtime of her
+task~\cite{Luong2008}, because prediction is hard in the general
+case~\cite{Wilhelm2008}, or because underlying models of a particular
+algorithm can only predict runtime within a given
+range~\cite{Erlebacher14-ICS}. Whichever the reason is, not knowing
+accurately the processing time can significantly impact the
+performance of the machine.
+
 
 \todo{we need a paragraph on data placement. essentially: uncertainty
   would not be a problem if the schedules could be dynamically
