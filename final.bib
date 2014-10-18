@@ -65,23 +65,21 @@
 }
 
 @article{citeulike:8334169,
-    abstract = {{Schedulers confronted with significant processing time uncertainty often discover that a schedule which is optimal with respect to a deterministic or stochastic scheduling model yields quite poor performance when evaluated relative to the actual processing times. In these environments, the notion of schedule robustness, i.e., determining the schedule with the best worst-case performance compared to the corresponding optimal solution over all potential realizations of job processing times, is a more appropriate guide to schedule selection. In this paper, we formalize the robust scheduling concept for scheduling situations with uncertain or variable processing times. To illustrate the development of solution approaches for a robust scheduling problem, we consider a single-machine environment where the performance criterion of interest is the total flow time over all jobs. We define two measures of schedule robustness, formulate the robust scheduling problem, establish its complexity, describe properties of the optimal schedule, and present exact and heuristic solution procedures. Extensive computational results are reported to demonstrate the efficiency and effectiveness of the proposed solution procedures.}},
-    author = {Daniels, Richard L. and Kouvelis, Panagiotis},
-    citeulike-article-id = {8334169},
-    citeulike-linkout-0 = {http://dx.doi.org/10.1287/mnsc.41.2.363},
-    citeulike-linkout-1 = {http://mansci.journal.informs.org/cgi/content/abstract/41/2/363},
-    day = {1},
-    doi = {10.1287/mnsc.41.2.363},
-    journal = {MANAGEMENT SCIENCE},
-    month = feb,
-    number = {2},
-    pages = {363--376},
-    posted-at = {2010-11-30 18:22:37},
-    priority = {2},
-    title = {{Robust Scheduling to Hedge Against Processing Time Uncertainty in Single-Stage Production}},
-    url = {http://dx.doi.org/10.1287/mnsc.41.2.363},
-    volume = {41},
-    year = {1995}
+  author =	 {Daniels, Richard L. and Kouvelis, Panagiotis},
+  doi ={http://dx.doi.org/10.1287/mnsc.41.2.363},
+  day =		 {1},
+  doi =		 {10.1287/mnsc.41.2.363},
+  journal =	 {Management Science},
+  month =	 feb,
+  number =	 {2},
+  pages =	 {363--376},
+  posted-at =	 {2010-11-30 18:22:37},
+  priority =	 {2},
+  title =	 {{Robust Scheduling to Hedge Against Processing Time
+                  Uncertainty in Single-Stage Production}},
+  url =		 {http://dx.doi.org/10.1287/mnsc.41.2.363},
+  volume =	 {41},
+  year =	 {1995}
 }
 
 
@@ -130,18 +128,16 @@
   added-at = {2008-06-16T00:00:00.000+0200},
   author = {Wierman, Adam and Nuyens, Misja},
   biburl = {http://www.bibsonomy.org/bibtex/2eb2fd85415b392096945a6dd84155467/dblp},
-  booktitle = {SIGMETRICS},
+  booktitle = {Proc. of SIGMETRICS},
   OPTcrossref = {conf/sigmetrics/2008},
   date = {2008-06-16},
   description = {dblp},
-  editor = {Liu, Zhen and Misra, Vishal and Shenoy, Prashant J.},
   ee = {http://doi.acm.org/10.1145/1375457.1375461},
   interhash = {1c66ec468b8be93f75b92c57b61054e1},
   intrahash = {eb2fd85415b392096945a6dd84155467},
   isbn = {978-1-60558-005-0},
   keywords = {dblp},
   pages = {25-36},
-  publisher = {ACM},
   timestamp = {2008-06-16T00:00:00.000+0200},
   title = {Scheduling despite inexact job-size information.},
   url = {http://dblp.uni-trier.de/db/conf/sigmetrics/sigmetrics2008.html#WiermanN08},
@@ -157,7 +153,6 @@ editor={Bubak, Marian and van Albada, GeertDick and Sloot, PeterM.A. and Dongarr
 doi={10.1007/978-3-540-24688-6_11},
 title={Placement of File Replicas in Data Grid Environments},
 url={http://dx.doi.org/10.1007/978-3-540-24688-6_11},
-publisher={Springer Berlin Heidelberg},
 author={Abawajy, J.H.},
 pages={66-73},
 language={English}
@@ -165,10 +160,9 @@ language={English}
 
 @INPROCEEDINGS{4215379, 
 author={Rahman, R.M. and Barker, K. and Alhajj, R.}, 
-booktitle={Cluster Computing and the Grid, 2007. CCGRID 2007. Seventh IEEE International Symposium on}, 
+booktitle={Cluster Computing and the Grid CCGRID}, 
 title={Study of Different Replica Placement and Maintenance Strategies in Data Grid}, 
 year={2007}, 
-month={May}, 
 pages={171-178}, 
 keywords={grid computing;data access performance;data grid;dynamic maintenance algorithm;multiobjective model;network latency;replica maintenance strategies;replica placement problem;Bandwidth;Computer networks;Computer science;Degradation;Delay;Grid computing;Heuristic algorithms;Mathematical model;Measurement;Resource management}, 
 doi={10.1109/CCGRID.2007.111},}
@@ -191,23 +185,18 @@ keywords = "Task replication ",
 abstract = "Large distributed systems challenge traditional schedulers, as it is often hard to determine a priori how long each task will take to complete on each resource, information that is input for such schedulers. Task replication has been applied in a variety of scenarios as a way to circumvent this problem. Task replication consists of dispatching multiple replicas of a task and using the result from the first replica to finish. Replication schedulers (i.e. schedulers that employ task replication) are able to achieve good performance even in the absence of information on tasks and resources. They are also of smaller complexity than traditional schedulers, making them better suitable for large distributed systems. On the other hand, replication schedulers waste cycles with the replicas that are not the first to finish. Moreover, this extra consumption of resources raises severe concerns about the system-wide performance of a distributed system with multiple, competing replication schedulers. This paper presents a comprehensive study of task replication, comparing replication schedulers against traditional information-based schedulers, and establishing their efficacy (the performance delivered to the application), efficiency (the amount of resources wasted), and emergent behavior (the system-wide behavior of a system with multiple replication schedulers). We also introduce a simple access control strategy that can be implemented locally by each resource and greatly improves overall performance of a system on which multiple replication schedulers compete for resources. "
 }
 
-@article{DBLP:journals/corr/WangJW14,
+@inproceedings{DBLP:journals/corr/WangJW14,
   author    = {Da Wang and
                Gauri Joshi and
                Gregory W. Wornell},
   title     = {Efficient Task Replication for Fast Response Times in Parallel Computation},
-  journal   = {CoRR},
+  booktitle   = {proc. of SIGMETRICS},
   year      = {2014},
-  volume    = {abs/1404.1328},
-  url       = {http://arxiv.org/abs/1404.1328},
-  timestamp = {Sat, 13 Sep 2014 20:14:42 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/WangJW14},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @inproceedings{Wolf:2010:FSA:2023718.2023720,
  author = {Wolf, Joel and Rajan, Deepak and Hildrum, Kirsten and Khandekar, Rohit and Kumar, Vibhore and Parekh, Sujay and Wu, Kun-Lung and balmin, Andrey},
- title = {FLEX: A Slot Allocation Scheduling Optimizer for MapReduce Workloads},
+ title = {{FLEX}: A Slot Allocation Scheduling Optimizer for {M}ap{R}educe Workloads},
  booktitle = {Proceedings of the ACM/IFIP/USENIX 11th International Conference on Middleware},
  series = {Middleware '10},
  year = {2010},
@@ -217,8 +206,6 @@ abstract = "Large distributed systems challenge traditional schedulers, as it is
  numpages = {20},
  url = {http://dl.acm.org/citation.cfm?id=2023718.2023720},
  acmid = {2023720},
- publisher = {Springer-Verlag},
- address = {Berlin, Heidelberg},
  keywords = {MapReduce, allocation, optimization, scheduling},
 } 
 
@@ -251,7 +238,7 @@ doi={10.1109/BigData.2013.6691554},}
 @ARTICLE{Graham69boundson,
     author = {R. L. Graham},
     title = {Bounds on Multiprocessing Timing Anomalies},
-    journal = {SIAM JOURNAL ON APPLIED MATHEMATICS},
+    journal = {SIAM Journal On Applied Mathematics},
     year = {1969},
     volume = {17},
     number = {2},
@@ -310,7 +297,7 @@ abstract = "We present an adaptive, random sampling algorithm for estimating the
 }
 @inproceedings{Verma:2011:AAR:1998582.1998637,
  author = {Verma, Abhishek and Cherkasova, Ludmila and Campbell, Roy H.},
- title = {ARIA: Automatic Resource Inference and Allocation for Mapreduce Environments},
+ title = {{ARIA}: Automatic Resource Inference and Allocation for {M}ap{R}educe Environments},
  booktitle = {Proceedings of the 8th ACM International Conference on Autonomic Computing},
  series = {ICAC '11},
  year = {2011},
@@ -327,7 +314,7 @@ abstract = "We present an adaptive, random sampling algorithm for estimating the
 }
 @inproceedings{Kavulya:2010:ATP:1844765.1845224,
  author = {Kavulya, Soila and Tan, Jiaqi and Gandhi, Rajeev and Narasimhan, Priya},
- title = {An Analysis of Traces from a Production MapReduce Cluster},
+ title = {An Analysis of Traces from a Production {M}ap{R}educe Cluster},
  booktitle = {Proceedings of the 2010 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing},
  series = {CCGRID '10},
  year = {2010},
@@ -336,9 +323,6 @@ abstract = "We present an adaptive, random sampling algorithm for estimating the
  numpages = {10},
  url = {http://dx.doi.org/10.1109/CCGRID.2010.112},
  doi = {10.1109/CCGRID.2010.112},
- acmid = {1845224},
- publisher = {IEEE Computer Society},
- address = {Washington, DC, USA},
  keywords = {MapReduce, Workload characterization, Distributed systems},
 } 
 
@@ -407,7 +391,7 @@ abstract = "We present an adaptive, random sampling algorithm for estimating the
                   and Mueller, Frank and Puaut, Isabelle and Puschner,
                   Peter and Staschulat, Jan and Stenstr\"{o}m, Per},
   title =	 {The Worst-case Execution-time
-                  Problem\&Mdash;Overview of Methods and Survey of
+                  Problem - Overview of Methods and Survey of
                   Tools},
   journal =	 {ACM Trans. Embed. Comput. Syst.},
   issue_date =	 {April 2008},
@@ -427,25 +411,58 @@ abstract = "We present an adaptive, random sampling algorithm for estimating the
   keywords =	 {Hard real time, worst-case execution times},
 } 
 
-
-@article{doi:10.1137/0217033,
-author = {Hochbaum, D. and Shmoys, D.},
-title = {A Polynomial Approximation Scheme for Scheduling on Uniform Processors: Using the Dual Approximation Approach},
-journal = {SIAM Journal on Computing},
-volume = {17},
-number = {3},
-pages = {539-551},
-year = {1988},
-doi = {10.1137/0217033},
-
-URL = { 
-        http://dx.doi.org/10.1137/0217033
-    
-},
-eprint = { 
-        http://dx.doi.org/10.1137/0217033
-    
+@InProceedings{Zhou12-Cluster,
+  author =	 {Zheng Zhou and Erik Saule and Hasan Metin Aktulga
+                  and Chao Yang and Esmond G. Ng and Pieter Maris and
+                  James P. Vary and {\"{U}}mit V. {\c{C}}ataly{\"{u}}rek},
+  title =	 {An Out-of-core Eigensolver on {SSD}-equipped Clusters},
+  booktitle =	 {Proc. of IEEE Cluster},
+  year =	 {2012},
+  month =	 sep,
+  url =		 baseurl:esaule:publis#{cluster12-ZSAYNMVC.pdf},
+  type =	 {conference}
 }
 
+
+@InProceedings{Zhou12-P2S2,
+  author =	 {Zheng Zhou and Erik Saule and Hasan Metin Aktulga
+                  and Chao Yang and Esmond G. Ng and Pieter Maris and
+                  James P. Vary and {\"{U}}mit V. {\c{C}}ataly{\"{u}}rek},
+  title =	 {An Out-Of-Core Dataflow Middleware to Reduce the
+                  Cost of Large Scale Iterative Solvers},
+  booktitle =	 {2012 International Conference on Parallel Processing
+                  (ICPP) Workshops, Fifth International Workshop on
+                  Parallel Programming Models and Systems Software for
+                  High-End Computing (P2S2)},
+  year =	 {2012},
+  month =	 sep,
+  note =	 {},
+  type =	 {workshop},
+  url =		 baseurl:esaule:publis#{P2S2-12-ZSAYNMVC.pdf}
 }
 
+
+
+@Book{GareyJohnson79,
+  author =	 "Michael R. Garey and David S. Johnson",
+  publisher =	 "Freeman, San Francisco",
+  title =	 "Computers and Intractability",
+  year =	 "1979",
+  keywords =	 {complexity, scheduling, partitioning, sets}
+}
+
+
+@Article{Hoch87,
+  author =	 {Dorit S. Hochbaum and David B. Shmoys},
+  title =	 {Using Dual Approximation Algorithms for Scheduling
+                  Problems: Practical and Theoretical Results},
+  journal =	 {Journal of ACM},
+  year =	 {1987},
+  volume =	 {34},
+  pages =	 {144-162},
+  keywords =	 {scheduling, approximation algorithm, dual
+                  approximation, homogeneous processors, independent
+                  tasks, makespan, approximation scheme},
+  annote =	 {PTAS pour $P\mid\mid\cmax$},
+  where =	 {ordo/Hochbaum87.pdf.gz}
+}
