@@ -121,20 +121,18 @@ Scheduling; Uncertainty; Robustness; Replication; Approximation Algorithms; Para
   much. Give a few references on the difficulty of predicting runtimes
   in job scheduler.}
   
-In parallel and distributed computing, tasks are processed
-simultaneously on different machines to minimize time to complete the
-processing of all the tasks.  The scheduling for the set of tasks on a
-given set of machines are usually determined with a goal to optimize
-certain parameter, such as makespan.  The Scheduling study is also
-used to provide insight into the performance of parallel and
-distributed computing systems, such as their load balance.  The
-problem of distributing the input data to execute a set of tasks in a
-minimum amount of time can be formulated as a scheduling problem.
-Often these scheduling problems are modeled based on the assumption
-that the computation time required for each task is known accurately;
-while, in a more practical scenario, only approximate values for the
-computation times of the tasks can be determined at the time of
-scheduling.
+Parallel and distributed computing systems are often modeled using
+tasks that are processed simultaneously on different
+machines. Studying the balance of the load of the various component of
+the system is often key in understanding the performance one obtains
+in practice. A system typically schedules the set of tasks with the
+goal of optimizing the load balance (or makespan) of the system or
+other metrics. A key information these system use to plan the
+execution is the time tasks will take to be processed. However, this
+information is typically not precisely known in practice: the user can
+only make a wild guess~\cite{Luong2008}, prediction is hard in the
+general case~\cite{Wilhelm2008}, or underlying models of a particular
+algorithm can only predict a given range~\cite{Erlebacher14-ICS}. 
 
 \todo{we need a paragraph on data placement. essentially: uncertainty
   would not be a problem if the schedules could be dynamically
