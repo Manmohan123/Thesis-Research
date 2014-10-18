@@ -9,10 +9,10 @@ J.~Abawajy.
 
 \bibitem{cj09c}
 L.-C. Canon and E.~Jeannot.
-\newblock {Evaluation and Optimization of the Robustness of DAG Schedules in
-  Heterogeneous Environments}.
-\newblock 2010.
-\newblock Accepted for publication.
+\newblock Evaluation and optimization of the robustness of dag schedules in
+  heterogeneous environments.
+\newblock {\em IEEE Transactions on Parallel and Distributed Systems},
+  21(4):532--546, 2010.
 
 \bibitem{Cardellini99dynamicload}
 V.~Cardellini, R.~I, M.~Colajanni, and P.~S. Yu.
@@ -34,6 +34,8 @@ R.~L. Daniels and P.~Kouvelis.
 \bibitem{Davenport_slack-basedtechniques}
 A.~J. Davenport, C.~Gefflot, and J.~C. Beck.
 \newblock Slack-based techniques for robust schedules.
+\newblock {\em Proceedings of the Sixth European Conference on Planning (ECP)},
+  2001.
 
 \bibitem{Erlebacher14-ICS}
 G.~Erlebacher, E.~Saule, N.~Flyer, and E.~Bollig.
