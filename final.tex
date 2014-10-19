@@ -391,14 +391,14 @@ scheduled on one machine in phase 2.
   
 \subsection{Algorithm}
 
-We present the algorithm \textbf{LPT-No Choice}. In phase 1, the
-algorithm distribute the data of the tasks to the processor using
-their estimated processing times according to Graham's LPT
-algorithm~\cite{Graham69boundson}: The tasks are sorted in non-increasing
+We present the algorithm \textbf{LPT-No Choice}. In phase~1, the
+algorithm distributes the data of the tasks to the processor using
+their estimated processing times according to 
+LPT~\cite{Graham69boundson}: The tasks are sorted in non-increasing
 order of their processing time and are greedily scheduled on the
 processor that minimizes the sum of $\tilde{p_j}$ of the tasks
-allocated on that processor. Since there is no replication, there is
-no decision to take in phase 2.
+already allocated on that processor. Since there is no replication, there is
+no decision to take in phase~2.
 
 The performance of the algorithm depends mostly on how much the actual
 processing times of the tasks differ from their estimation. It also depends on the
@@ -413,7 +413,7 @@ The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\al
 
 \begin{proof}
   The algorithm assigns the jobs to processors based on their
-  estimated processing times using LPT in Phase 1. So, the
+  estimated processing times using LPT in phase~1. So, the
   planned makespan considering the estimated processing times of tasks,
   $\tilde{C}_{max}$ have the following relation with the total
   estimated processing time, $\tilde{p_j}$ and estimated processing
@@ -430,10 +430,10 @@ have following inequality:
   C_{max}\leq \alpha \tilde C_{max}\leq \alpha \left ( \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m} \right )
 \end{equation} 
 
-The worst case situation is when the task of the processor where the
+The worst case situation is when the tasks of the processor where the
 sum of estimated processing time is $\tilde C_{max}$ sees the actual
-processing time of its task being $\alpha$ times larger than their
-estimate; meanwhile the processing time of the task on the rest of the
+processing time of its tasks being $\alpha$ times larger than their
+estimate; meanwhile the processing time of the tasks on the rest of the
 processors is $\frac{1}{\alpha}$ times their estimation. The argument
 behind this statement is that greater the value of ratio
 $\frac{C_{max}}{\sum{p_j}}$, the worse the algorithm approximation
@@ -443,7 +443,7 @@ given by the following equation.
  \sum {p_j} = \frac{\sum \tilde{p_j}- \tilde{C_{max}}}{\alpha} + \alpha \tilde C_{max}
  \end{equation}
  
- Also the actual optimal makespan have following constraint
+ Also the actual optimal makespan has the following constraint
  \begin{equation}\nonumber 
 C_{max}^{*}\geq \frac{\sum {p_j}}{m}
 \end{equation}
@@ -464,7 +464,7 @@ Substituting for  $ \sum {p_j}$, we have
   m C_{max}^{*}\geq \frac{m-1}{\alpha } \left( \tilde{C_{max}} - \tilde{ p_l} \right) + {C_{max}}
  \end{equation}
  
- All instances where there is only one task per processor is always
+ All the instances where there is only one task per processor are always
  optimal. Therefore, we can restrict our analysis without loss of
  generality to instances with at least two jobs per processor. (Notice
  that in the original proof of Graham's LPT~\cite{Graham69boundson},
