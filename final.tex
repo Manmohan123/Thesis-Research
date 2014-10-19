@@ -501,9 +501,9 @@ the Longest Processing Time algorithm (LPT) in an online fashion using
 the estimated processing time of the task. That is to say, the tasks
 are sorted in non-increasing order of their estimated processing
 time. Then the task are greedily allocated on the first
-processor that becomes available. Note that this is done in phase 2,
-the processor become available with when the actual processing time of
-the task scheduled onto it elapse.
+processor that becomes available. Note that this is done in phase~2,
+the processor become available when the actual processing time of
+the task scheduled onto it elapses.
 
 \begin{lemma}\label{No Restriction}
   Let $l$ be the task that reaches $C_{max}$ in the solution
@@ -513,7 +513,7 @@ the task scheduled onto it elapse.
 \end{lemma}
 \begin{proof}
   Since there are at least two tasks on the machine that executes $l$
-  in \textbf{LPT-No Restriction}, there are at least $m+1$ tasks $i$
+  in \textbf{LPT-No Restriction}, there are at least $m+1$ tasks $j$
   such that $\tilde{p_j} \geq \tilde{p_l}$. Therefore in any solution
   at least one machine gets two tasks $c$ and $d$, such that $\tilde
   p_c \geq \tilde p_l$ and $\tilde p_d \geq \tilde p_l$. $C_{max}^{*}$
@@ -522,7 +522,10 @@ the task scheduled onto it elapse.
     C_{max}^{*}\geq p_c + p_d
   \end{equation}	
 
-  As the actual processing time of a task must be greater than  $\frac{1}{\alpha}$ times of its estimated value, we have $p_c \geq \frac{1}{\alpha}\tilde{p_c}$ and $p_d \geq \frac{1}{\alpha}\tilde{p_d}$. Using this
+  As the actual processing time of a task must be greater than
+  $\frac{1}{\alpha}$ times of its estimated value, we have $p_c \geq
+  \frac{1}{\alpha}\tilde{p_c}$ and $p_d \geq
+  \frac{1}{\alpha}\tilde{p_d}$. Using this
   \begin{equation}\nonumber 
     C_{max}^{*} \geq \frac{1}{\alpha}\tilde p_c +  \frac{1}{\alpha} \tilde p_d \geq \frac{2}{\alpha}\tilde p_l
   \end{equation}
@@ -548,7 +551,7 @@ Since, $\tilde p_l \geq \frac{1}{\alpha} p_l$, we have
 
   By the property of LPT (actually, it is a property of List
   Scheduling which LPT is a refinement of) the load on each machine
-  $i$ is greater than the load on the machine which reach $C_{max}$
+  $i$ is greater than the load on the machine which reaches $C_{max}$
   before the last task $l$ is scheduled. So for each machine $i$,
   $C_{max} \leq \sum_{j \in E_i}^{}{p_j} + p_l$ holds true.  Summing
   for all the machines we have
@@ -559,7 +562,7 @@ Since, $\tilde p_l \geq \frac{1}{\alpha} p_l$, we have
     C_{max} \leq  \frac{\sum {p_j}}{m} + \frac{(m-1)}{m}p_l
   \end{equation}
   
-  Using~\ref{eq7} and~\ref{eq8}, we have
+  Using Equations~\ref{eq7} and~\ref{eq8}, we have
   \begin{equation}\nonumber
     \frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}\left(\frac{p_l}{C_{max}^{*}}\right)
   \end{equation}
