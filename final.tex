@@ -785,27 +785,27 @@ $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( 1+ {\frac{k-1}{m}} \right) +
 Of course, there is an inherent tradeoff between replicating data and
 obtaining good values for the makespan. To better understand the
 tradeoff we show in Figure~\ref{fig:Graph} how the expressions of the
-guarantees (or impossibility) translate to actual values in a
+guarantees (or impossibility) translate to actual values in an
 approximation ratio / replication space.  We picked 3 values of
-$\alpha$ while keeping the number of machines fixed $m=210$. 
+$\alpha$ while keeping the number of machines fixed to $m=210$. 
 
 When $\alpha=1.1$, even with multiple groups {\bf LS-Group} provides little
-improvement over {\bf LPT-No Choice}. However there is a significant
+improvement over {\bf LPT-No Choice} in term of makespan guarantee. However there is a significant
 gap between the guarantee of {\bf LPT-No Choice} and the lower bound
 on possible approximation. When $\alpha$ is small, there is a
 significant improvement in using {\bf LPT-No Restriction} over using
-simply {\bf LS-Group} with only 1 group.
+ {\bf LS-Group} with only 1 group.
 
 When $\alpha$ increases to $1.5$, there is no more differences in the
 guarantees of {\bf LS-Group} with 1 group and {\bf LPT-No
-  Restriction}. Also {\bf LS-Group} provides many intermediate
-solution between deploying the data on a single machine and deploying
+  Restriction}. Also {\bf LS-Group} provides many interesting intermediate
+solutions between deploying the data on a single machine and deploying
 them everywhere.
 
-When $\alpha=2$, the range of the approximation ratios increase and
+When $\alpha=2$, the range of the approximation ratios widens and
 the value of the lower bound increases. Now {\bf LS-Group} is able to
-get a better approximation using less than $50$ replications than is
-possible by deploying data on a single machine. Also, the
+get a better approximation using less than $50$ replications than 
+can be guaranteed by deploying data on a single machine. Also, the
 approximation ratio quickly improves from more than $7.5$ with the
 data being replicated on $1$ machine to a ratio of less than $6$ with
 only replicating the data on $3$ machines.
