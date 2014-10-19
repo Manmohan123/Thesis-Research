@@ -594,9 +594,9 @@ $\frac{m}{k}$ processors within each group. For the sake of
 simplicity, we assume that we will only use values of $k$ such that
 $k$ divides $m$. In the first phase, the data of each task is
 replicated on all the processors of one of the $k$ groups,
-i.e. $\forall j, |M_j|= \frac{m}{k}$. In the second phase the tasks
+{\em i.e.}, $\forall j, |M_j|= \frac{m}{k}$. In the second phase the tasks
 are scheduled within the group they are assigned to in first phase.
-Figure \ref{fig:Model 3} shows the construction of two phases.
+Figure~\ref{fig:Model 3} shows the construction of the two phases.
 
 We propose the \textbf{LS-Group} algorithm which is based on Graham's
 List Scheduling algorithm. In phase 1, we use List Scheduling to
@@ -609,8 +609,8 @@ allocated in phase 1 using the online List Scheduling algorithm.
 \includegraphics[width=\linewidth]{model3.pdf}
 \caption{An example of replication in groups with $m = 6$, $k = 2$. In
   phase 1, the data of the tasks are assigned to one of the
-  groups. Phase 2 schedules each task assigned to a machine within its
-  group.}
+  groups. Phase 2 schedules each task to a machine within the group it was 
+  assigned.}
 \label{fig:Model 3}
 \end{figure*}
 
@@ -640,11 +640,11 @@ allocated in phase 1 using the online List Scheduling algorithm.
   than the estimated value of largest task ${max_{j \in J}}{\tilde
     p_{j}}$.  So, for any group $Gl \neq G1$, We have
   \begin{equation}{\nonumber}
-\forall l \in \{2, 3, \dots ,k\}, |\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{j \in Gl }^{}{\tilde p_{j}}| \leq {max_{j \in J}}{\tilde p_{j}}
+\forall l \in \{2, 3, \dots ,k\}, \left |\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{j \in Gl }^{}{\tilde p_{j}} \right | \leq {max_{j \in J}}{\tilde p_{j}}
   \end{equation}  
   Adding for all values of $l$ leads to
   \begin{equation}{\nonumber}
-    |(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}| \leq (k-1) {max_{j \in J}}{\tilde p_{j}}
+    \left | (k-1)\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}} \right | \leq (k-1) {max_{j \in J}}{\tilde p_{j}}
   \end{equation}
 
   \textbf{Case 1:} If $(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}} >
@@ -733,7 +733,7 @@ allocated in phase 1 using the online List Scheduling algorithm.
 \textbf{LS-Group} uses List Scheduling in both its phases. A LPT-based
 algorithm may have better guarantee. But without performing any
 replication, {\em i.e.} when $k=m$, the \textbf{LS-Group} algorithm
-has a competitive ratio almost equal to \textbf{LPT-No choice}'s when
+has a competitive ratio almost equals to \textbf{LPT-No choice}'s when
 the number of machines $m$ is large and the value of $\alpha$ is
 within practical range. This indicates an LPT-based algorithm for
 strategy 3 would likely not have a much more interesting guarantee.
