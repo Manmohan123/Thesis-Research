@@ -1,0 +1,86 @@
+\bodychapter{ Introduction}\label{sec4}
+\label{Intro}
+
+This chapter provides the foundations for the principle objective of this dissertation,
+which is to investigate the effect of task replication on scheduling under uncertainty of processing times.  The subject matter of this thesis falls in the intersection of several areas of current research interest.  These includes: (1)  Scheduling under uncertainty, (2) Data placement and Replication strategies to improve performance of a schedule, and (3) Bi-objective optimization for simultaneously optimizing makespan as well as memory consumption
+
+
+\bodysection{Motivation}
+In real world scheduling problems often the parameters such as processing time of a task is not known exactly in advance.The goal of an scheduling algorithm is to generate robust schedule against uncertainty. Dealing with uncertainty is difficult as in real world problems a task can be processed on particular computing systems, other wise a task could be moved as system sees it fit without incurring extra cost and the problem would be vastly alleviated. But in practice a task has to run on particular machine especially in " out of core" computing applications which involve very large data sets. For example, solving systems of linear equations and computing eigenvalues – where matrices involved are very large. When the data sets are too large to fit in the main memory of a computer, it must be stored on any external memory source such as disks. Disk storage is significantly cheaper than main memory storage. However, accessing data from a disk is relatively slower than accessing the main memory. So, a scheduling algorithm in " out of core" execution places data to main memory of different systems such that data access from disk or any external storage is reduced. That means a task is pinned to a particular computing unit. So handling uncertainty in out of core execution is having added overhead. Hence, developing a scheduling strategy which can guarantee performance under uncertainty of processing times of the tasks with restriction that a task can be scheduled to particular set of machines motivates this research.
+
+Scheduling tasks on distributed memory is prevalent in Hadoop. Hadoop-MapReduce constitute a powerful Computation Model for processing large data sets on distributed clusters~\cite{DBLP:journals/corr/abs-1207-0780} . Hadoop uses Hadoop Distributed File System (HDFS) to store large amount of data across multiple machines. MapReduce provides a framework for processing the data across multiple machines. Task execution time in such a large scale is not a precise time but naturally contains uncertainties in terms of node failure and tasks failure. To provide robustness against uncertainty Hadoop uses data replication across multiple nodes. A good memory aware replication strategy balances the load across multiple machines and can provide reliability against uncertainty. One of the main goal of a Hadoop system is to maintain node locality which means running data on the node that contains it~\cite{Zaharia:EECS-2009-55}. Therefore, a data intensive scheduling incorporating data location  and choosing popular data sets to replicate would be beneficial~\cite{Guo:2012:IDL:2310096.2310222}; and serves to provide motivation for this research.
+
+\bodysection{Scheduling} 
+
+ Parallel and distributed computing systems are often modeled using
+ tasks that are processed simultaneously on different
+ machines. Studying the balance of the load of the various component of
+ the system is often key in understanding the performance one obtains
+ in practice. A system typically schedules the set of tasks with the
+ goal of optimizing the load balance (or makespan) of the system or
+ some other metric. A key information these system use to plan the
+ execution is the time tasks will take to be processed. However, this
+ information is typically not precisely known in practice: because the
+ user can only make a wild guess on the runtime of her
+ task~\cite{Luong2008}, because prediction is hard in the general
+ case~\cite{Wilhelm2008}, or because underlying models of a particular
+ algorithm can only predict runtime within a given
+ range~\cite{Erlebacher14-ICS}. Whichever the reason is, not knowing
+ accurately the processing time can significantly impact the
+ performance obtained from the machine.
+ 
+ For instance in out-of-core sparse
+ linear algebra, executing a task where the data are not locally
+ available would have a prohibitive
+ overhead~\cite{Zhou12-Cluster,Zhou12-P2S2}.
+ 
+ One approach for dealing with the uncertainty of processing time is to
+ build a robust schedule~\cite{cj09c,Gatto07,
+   Davenport_slack-basedtechniques}, that is, building a schedule that
+ can naturally cope with variations in the processing times. These
+ techniques often use sensitivity analysis to determine the robustness
+ of the schedule. However, a better approach would be to be able to
+ dynamically change the schedule. 
+ 
+ The thesis pursues the idea of replicating the input data
+ of the tasks onto multiple machines. This way, when the actual
+ processing times of the tasks are too different from their
+ estimations, the system will have some room to adapt at runtime. This
+ is certainly feasible in practice as many system have more memory than
+ the computation use. For instance, most Hadoop system replicates the
+ data for the purpose of tolerating hardware
+ faults~\cite{White:2009:HDG:1717298}. And it has been shown that
+ launching the same task multiple times can help cope with hardware
+ differences~\cite{DBLP:journals/corr/WangJW14} but increases resource
+ usage. The cost of replicating the data might be amortized in many
+ applications where the application will iterated over the data
+ multiple times ({\em e.g.}, in an iterative solver~\cite{Zhou12-P2S2,Zhou12-Cluster}). This research 
+ answer the question ``can data replication help cope with the
+ uncertainty of processing time?''  And the answer is that it can.
+ 
+ \bodysection{Research Contribution }
+  This thesis proposes strategies and presents algorithms to cope with uncertainty in processing times of the tasks. The research provides three  replication strategies and studies the tradeoff between the number of replication and the guarantee on the makespan. The strategy \textbf{No Replication} investigates what can be
+   done if the tasks can only be deployed on a single machine, we
+   provide a guaranteed algorithm and provide a lower bound on the best
+   guarantee that one can achieve in this case. The strategy \textbf{Replicate data everywhere} takes
+   the reverse case and investigates what can be achieved if the data are
+   replicated everywhere, leaving the maximum flexibility at runtime. We
+   investigate one algorithm in this case and analyze its performance
+   guarantee. The strategy \textbf{Replication in groups} investigates grouping processors
+   together and replicating data in these groups as an intermediate
+   between the previous two strategies and provide a guaranteed algorithm
+   in that case.
+
+To alleviate the cost of replication in terms of memory consumption the thesis  presents two memory-aware algorithms to optimize the makespan as well as the memory consumption. The proposed algorithms divides the tasks into two sets: memory intensive tasks and processing time intensive tasks and schedule differently to minimize both the objectives.    
+   
+ 
+ \bodysection{Thesis Outline}
+ 
+ The remaining of this thesis is organized as follows: we describe system
+ model and notations in Chapter~\ref{ch2}. Related works are presented
+ in Chapter~\ref{ch3}. Chapter~\ref{ch4} investigates the effect of replication  on processing time uncertainty through three strategies which offer different degree of replication of the tasks. The chapter summarizes the various results derived for each strategy and studies the tradeoff between performance guarantee and data replication. Chapter~\ref{ch5} investigates bi-objective problem of minimizing the makespan as well as the memory usage and proposes two memory-aware algorithms which simultaneously optimizes both the objectives. Chapter~\ref{ch6} concludes the thesis with remarks and raises few challenging questions which could be future research topics. 
+ %Section~\ref{sec7} summarizes the various results we
+ %derived and study the tradeoff between performance guarantee and data replication.
+ 
+
+ 

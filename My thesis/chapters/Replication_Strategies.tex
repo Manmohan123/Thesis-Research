@@ -1,0 +1,516 @@
+\bodychapter{Replicated Data Placement Strategies}\label{ch4}
+\label{Intro}
+This chapter provides three strategies,  each offering different degree of replication to study the tradeoff between the number of replication and the guarantee on the makespan.  The strategy \textbf{No Replication} restricts that each task can be scheduled to only one machine and  allows no replication of the tasks.  The strategy \textbf{Replicate data everywhere} replicates data everywhere and studies what can be achieved in doing so. The strategy \textbf{Replication in groups} replicates data in group of  processors and  act an intermediate strategy  between the previous two strategies. 
+
+\bodysection{Strategy 1: No Replication}
+
+This section considers the situation where the data of each task is
+restricted to be on only one machine, {\em i.e.}, $\forall j, |M_j|=1$.  We
+have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f :
+J \mapsto M$ be a function that assigns each job to exactly one
+machine. The restriction that the data of each task is deployed on a
+single machine puts all the decision in phase 1: each task can only be
+scheduled on one machine in phase 2.
+
+\begin{theorem}
+\label{th:model1-lb}
+  When $|M_j| = 1$, there is no online algorithm having competitive
+  ratio better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
+\end{theorem}
+ 
+\begin{proof}
+  We use the adversary technique to prove the lower bound of this
+  theorem. An adversary discloses the input instance piece by
+  piece. It analyzes the choices made by the algorithm to change the
+  part of the instance that has not been disclosed yet. That way it
+  can build an instance that maximizes the competitive ratio of the
+  algorithm.
+ 
+  Let us consider an instance with $\lambda m$ tasks of equal
+  estimated processing time $\forall j, \tilde{p_j} = 1$. After phase
+  1, let $i$ be the most loaded processor which has $B$
+  tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary
+  increases the processing time of the tasks on processor $i$ by a
+  factor of $\alpha$ and changes the processing time of the other
+  tasks by a factor of $\frac{1}{\alpha}$. So, $ C_{max}$ = $\alpha
+  B$. ${C^{*}_{max}}$ will be no worse than any feasible solution. In
+  particular, the solution that distributes equally the jobs of size
+  $\alpha$ and the jobs of size $\frac{1}{\alpha}$. Therefore
+  ${C^{*}_{max}} \leq \frac{1}{\alpha }\ceil {\frac{\lambda m - B
+    }{m}}+ \alpha\ceil{\frac{B}{m}} $.  Figure~\ref{fig:rara} depicts
+  the online solution and the offline optimal. We have,
+ \begin{equation}\nonumber
+   \frac{C_{max}}{C^{*}_{max}}
+   \geq \frac{\alpha^{2} B  }{\ceil{\frac{
+        \lambda m - B }{m}}+\alpha^2\ceil{\frac{B}{m}}}
+ \end{equation}
+   
+ Since $\frac{ \lambda m - B }{m} +1 \geq\ceil{\frac{ \lambda m - B
+   }{m}}$ and $\frac{B}{m}+1\geq\ceil{\frac{B}{m}}$, we have
+ \begin{equation}\nonumber
+   \frac{C_{max}}{C^{*}_{max}}
+   \geq \frac{\alpha^{2} B  }{\frac{
+       \lambda m - B }{m}+1+\alpha^2\frac{B}{m}+\alpha^{2}}
+ \end{equation}
+ 
+ From above expression it is clear that the smaller the value of $B$, the more the
+ value of the expression decreases. So, any algorithm should minimize
+ $B$ to achieve better performance.  For a schedule to be feasible the
+ condition $B \geq \lambda$ must be satisfied. For $B = \lambda$ the
+ value of $\frac{C_{max}}{C^{*}_{max}}$ is minimum and is equal to
+ $\frac{\alpha^{2} m \lambda }{\lambda(\alpha^{2}+m-1)+
+   m(\alpha^{2}+1)}$. The adversary can maximize the ratio of the
+ algorithm by arbitrarily increasing $\lambda$. When $\lambda$ tends
+ to $\infty$, we have
+ \begin{equation}\nonumber
+       \frac{C_{max}}{C^{*}_{max}}
+       \geq \frac{\alpha^{2}m  }{\alpha^{2}+m-1}
+     \end{equation}
+ 
+
+  \begin{figure}[htp]
+  \centering
+  \includegraphics[width= 12 cm]{model1.pdf}
+  \caption{Instance constructed by the adversary in the proof of
+    theorem~\ref{th:model1-lb} with $\lambda = 3$ and $m = 6$. In the
+    online solution, the adversary increases 
+    the processing time of a task of the most loaded machine by a factor of $\alpha$. If
+    that information was available beforehand, an optimal offline
+    algorithm could have distributed these longer tasks to other
+    processors.}
+  \label{fig:rara}
+  \end{figure}
+\end{proof}    
+  
+  
+  \begin{corollary}
+  When $m$ goes to $\infty$ there is no online algorithm having competitive ratio better than $\alpha^{2}$.
+  \end{corollary}
+  
+\bodysubsection{Algorithm}
+
+We present the algorithm \textbf{LPT-No Choice}. In phase 1, the
+algorithm distribute the data of the tasks to the processor using
+their estimated processing times according to Graham's LPT
+algorithm~\cite{Graham69boundson}: The tasks are sorted in non-increasing
+order of their processing time and are greedily scheduled on the
+processor that minimizes the sum of $\tilde{p_j}$ of the tasks
+allocated on that processor. Since there is no replication, there is
+no decision to take in phase 2.
+
+The performance of the algorithm depends mostly on how much the actual
+processing times of the tasks differ from their estimation. It also depends on the
+existence of a better arrangement if the actual processing times were
+known. The following theorem states the theoretical guarantee of the
+algorithm.
+
+\begin{theorem}
+\label{th:strat1-ub}
+The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$.
+\end{theorem} 
+
+\begin{proof}
+  The algorithm assigns the jobs to processors based on their
+  estimated processing times using LPT in Phase 1. So, the
+  planned makespan considering the estimated processing times of tasks,
+  $\tilde{C}_{max}$ have the following relation with the total
+  estimated processing time, $\tilde{p_j}$ and estimated processing
+  time of the task  $l$ that reaches $\tilde{C}_{max}$.
+\begin{equation}\label{eq2}
+\tilde C_{max}\leq  \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}
+\end{equation}
+
+The actual makespan of a schedule, $C_{max}$, obtained using the
+actual processing times of all the jobs, must be smaller than $C_{max} \leq \alpha
+\tilde C_{max}$ (thanks to Equation~\ref{eq1}). We
+have following inequality:
+\begin{equation}\label{eq3}
+  C_{max}\leq \alpha \tilde C_{max}\leq \alpha \left ( \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m} \right )
+\end{equation} 
+
+The worst case situation is when the task of the processor where the
+sum of estimated processing time is $\tilde C_{max}$ sees the actual
+processing time of its task being $\alpha$ times larger than their
+estimate; meanwhile the processing time of the task on the rest of the
+processors is $\frac{1}{\alpha}$ times their estimation. The argument
+behind this statement is that greater the value of ratio
+$\frac{C_{max}}{\sum{p_j}}$, the worse the algorithm approximation
+ratio will be. So the total actual processing time is
+given by the following equation.
+ \begin{equation}\label{eq4}
+ \sum {p_j} = \frac{\sum \tilde{p_j}- \tilde{C_{max}}}{\alpha} + \alpha \tilde C_{max}
+ \end{equation}
+ 
+ Also the actual optimal makespan have following constraint
+ \begin{equation}\nonumber 
+C_{max}^{*}\geq \frac{\sum {p_j}}{m}
+\end{equation}
+
+Substituting for  $ \sum {p_j}$, we have
+ \begin{equation}\nonumber 
+ m C_{max}^{*}\geq \frac{\sum \tilde{p_j}- \tilde{C_{max}}}{\alpha} + \alpha \tilde C_{max}
+ \end{equation} 
+\begin{equation}\nonumber 
+ m C_{max}^{*}\geq \frac{\sum \tilde{p_j} - \left( \frac{\sum{\tilde{p_j} + (m-1) \tilde{p_l} }}{m} \right )} {\alpha} + {C_{max}}
+\end{equation}
+\begin{equation}\nonumber
+ m C_{max}^{*}\geq \frac{m-1}{\alpha m} \left( \sum \tilde p_j - \tilde{p_l} \right) + {C_{max}}
+ \end{equation}
+
+ By the property of LPT, $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde p_l)$, we have,
+\begin{equation}\nonumber 
+  m C_{max}^{*}\geq \frac{m-1}{\alpha } \left( \tilde{C_{max}} - \tilde{ p_l} \right) + {C_{max}}
+ \end{equation}
+ 
+ All instances where there is only one task per processor is always
+ optimal. Therefore, we can restrict our analysis without loss of
+ generality to instances with at least two jobs per processor. (Notice
+ that in the original proof of Graham's LPT~\cite{Graham69boundson},
+ an argument is made that all instances with two tasks per machine are
+ optimal. However, the argument does not port in our case where only
+ estimated processing times are known.) For at least two jobs on the
+ processor that reaches $\tilde{C}_{max}$, the (estimated)
+ processing time of last job is smaller than half the estimated
+ makespan, $\tilde{p_l} \leq \frac{\tilde{C}_{max}}{2}$. Substituting
+ this expression in the above equation, we have
+\begin{equation}\nonumber
+ m C_{max}^{*}\geq \frac{m-1}{\alpha } \left( \tilde C_{max}-\frac{\tilde C_{max}}{2} \right ) + {C_{max}}
+\end{equation}
+
+Using equation~\ref{eq3},
+\begin{equation}\nonumber
+ m C_{max}^{*}\geq \frac{m-1}{2\alpha } \frac{C_{max}} {\alpha} + {C_{max}}
+\end{equation}
+\begin{equation}\nonumber
+ m C_{max}^{*}\geq \left( \frac{m-1}{2\alpha^{2} } +1\right){C_{max}}
+\end{equation}
+\begin{equation}\nonumber
+\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}
+\end{equation}
+\end{proof} 
+
+\bodysection{Strategy 2: Replicate data everywhere}
+With this strategy, we put no restriction on phase 2. The tasks are
+replicated everywhere i.e. $\forall j, |M_{j}|=|M|$. We introduce the
+\textbf{LPT-No Restriction} which replicates the data of all the tasks
+on each machine in the first phase. In the second phase we simply use
+the Longest Processing Time algorithm (LPT) in an online fashion using
+the estimated processing time of the task. That is to say, the tasks
+are sorted in non-increasing order of their estimated processing
+time. Then the task are greedily allocated on the first
+processor that becomes available. Note that this is done in phase 2,
+the processor become available with when the actual processing time of
+the task scheduled onto it elapse.
+
+\begin{lemma}\label{No Restriction}
+  Let $l$ be the task that reaches $C_{max}$ in the solution
+  constructed by \textbf{LPT-No Restriction}. If there are at least two
+  tasks on the machine that executes $l$ in \textbf{LPT-No Restriction}, then 
+  $C_{max}^* \geq {\frac{2}{\alpha^{2}}} p_l$.
+\end{lemma}
+\begin{proof}
+  Since there are at least two tasks on the machine that executes $l$
+  in \textbf{LPT-No Restriction}, there are at least $m+1$ tasks $i$
+  such that $\tilde{p_j} \geq \tilde{p_l}$. Therefore in any solution
+  at least one machine gets two tasks $c$ and $d$, such that $\tilde
+  p_c \geq \tilde p_l$ and $\tilde p_d \geq \tilde p_l$. $C_{max}^{*}$
+  must be greater than sum of the processing time of these two tasks.
+   \begin{equation}\nonumber
+    C_{max}^{*}\geq p_c + p_d
+  \end{equation}	
+
+  As the actual processing time of a task must be greater than  $\frac{1}{\alpha}$ times of its estimated value, we have $p_c \geq \frac{1}{\alpha}\tilde{p_c}$ and $p_d \geq \frac{1}{\alpha}\tilde{p_d}$. Using this
+  \begin{equation}\nonumber 
+    C_{max}^{*} \geq \frac{1}{\alpha}\tilde p_c +  \frac{1}{\alpha} \tilde p_d \geq \frac{2}{\alpha}\tilde p_l
+  \end{equation}
+Since, $\tilde p_l \geq \frac{1}{\alpha} p_l$, we have
+  \begin{equation}\nonumber
+    C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l 
+  \end{equation}
+\end{proof}
+
+\begin{theorem}
+  \label{th:strategy2}
+  \textbf{LPT-No Restriction} has a competitive ratio of
+  $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})
+  \frac{\alpha^{2}}{2}$
+\end{theorem} 
+
+\begin{proof}
+  The optimal makespan, $C_{max}^{*}$ must be at least equal to the
+  average load on the $m$ machines. We have
+  \begin{equation}\label{eq7}
+    C_{max}^{*}\geq\frac{\sum p_j}{m}
+  \end{equation}
+
+  By the property of LPT (actually, it is a property of List
+  Scheduling which LPT is a refinement of) the load on each machine
+  $i$ is greater than the load on the machine which reach $C_{max}$
+  before the last task $l$ is scheduled. So for each machine $i$,
+  $C_{max} \leq \sum_{j \in E_i}^{}{p_j} + p_l$ holds true.  Summing
+  for all the machines we have
+  \begin{equation}\nonumber
+    mC_{max} \leq  \sum {p_j} + (m-1)p_l
+  \end{equation}
+  \begin{equation}\label{eq8}
+    C_{max} \leq  \frac{\sum {p_j}}{m} + \frac{(m-1)}{m}p_l
+  \end{equation}
+  
+  Using~\ref{eq7} and~\ref{eq8}, we have
+  \begin{equation}\nonumber
+    \frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}\left(\frac{p_l}{C_{max}^{*}}\right)
+  \end{equation}
+  
+  Using Lemma~\ref{No Restriction}, we have 
+  \begin{equation}\nonumber
+    \frac{C_{max}}{C_{max}^{*}} \leq 1 + \left(\frac{m-1}{m}\right)\frac{\alpha^{2}}{2}
+  \end{equation}
+
+\end{proof}  
+
+Graham's List Scheduling algorithm always has a competitive ratio
+of $2-\frac{1}{m}$. For $\alpha^2 < 2$, the \textbf{LPT-No
+  Restriction} algorithm has better approximation than List
+Scheduling. For $\alpha^2 > 2$ List Scheduling has better guarantee
+than the one expressed in Theorem~\ref{th:strategy2}. Since
+\textbf{LPT-No Restriction} is a variant of List Scheduling,
+the algorithm has a competitive ratio of $\min (1 +
+\frac{m-1}{2m}\alpha^{2}, 2-\frac{1}{m})$.
+\bodysection{Strategy 3: Replication in groups}
+This strategy partitions the processors into $k$ groups
+ $G1$,$G2$...$Gk$. The size of each group is equal and have
+ $\frac{m}{k}$ processors within each group. For the sake of
+ simplicity, we assume that we will only use values of $k$ such that
+ $k$ divides $m$. In the first phase, the data of each task is
+ replicated on all the processors of one of the $k$ groups,
+ i.e. $\forall j, |M_j|= \frac{m}{k}$. In the second phase the tasks
+ are scheduled within the group they are assigned to in first phase.
+ Figure \ref{fig:Model 3} shows the construction of two phases.
+ 
+ We propose the \textbf{LS-Group} algorithm which is based on Graham's
+ List Scheduling algorithm. In phase 1, we use List Scheduling to
+ distribute the tasks to the $k$ groups of processors. In phase 2 each
+ task is scheduled to a particular processor within the group it was
+ allocated in phase 1 using the online List Scheduling algorithm.
+ 
+ \begin{figure*}[htp] 
+ \centering
+ \includegraphics[width=\linewidth]{model3.pdf}
+ \caption{An example of replication in groups with $m = 6$, $k = 2$. In
+   phase 1, the data of the tasks are assigned to one of the
+   groups. Phase 2 schedules each task assigned to a machine within its
+   group.}
+ \label{fig:Model 3}
+ \end{figure*}
+ 
+ \begin{theorem}
+   \label{th:strategy3}
+   With $k$ groups, the competitive ratio of
+   \textbf{LS-Group } is $ \frac{k\alpha^{2}}{\alpha^{2}+k-1} (1+
+   {\frac{k-1}{m}} ) + \frac{m-k}{m}$
+ \end{theorem}
+ \begin{proof} 
+   We assume without loss of generality that $ C_{max}$ comes from
+   group $G1$. $C_{max}^{*}$ must be greater than the average of the
+   loads on the machines.
+   \begin{equation}{\nonumber}
+     C_{max}^{*} \geq  \frac{\sum_{j \in J}^{}{{p_{j}}}}{m}
+   \end{equation}
+ 
+   $\sum_{j \in J }{{p_{j}}}$ can be written as sum of load on $G1$ and
+   load on rest of groups.
+   \begin{equation}\label{eq11}
+     C_{max}^{*} \geq  \frac{\sum_{j \in G1 }^{}{{p_{j}}}+ \sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}}}{m}
+   \end{equation}
+ 
+   As in phase 1 tasks are allocated to different groups using List
+   Scheduling with the estimated processing times of the tasks, the
+   (estimated) load difference between any two groups cannot be greater
+   than the estimated value of largest task ${max_{j \in J}}{\tilde
+     p_{j}}$.  So, for any group $Gl \neq G1$, We have
+   \begin{equation}{\nonumber}
+ \forall l \in \{2, 3, \dots ,k\}, |\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{j \in Gl }^{}{\tilde p_{j}}| \leq {max_{j \in J}}{\tilde p_{j}}
+   \end{equation}  
+   Adding for all values of $l$ leads to
+   \begin{equation}{\nonumber}
+     |(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}| \leq (k-1) {max_{j \in J}}{\tilde p_{j}}
+   \end{equation}
+ 
+   \textbf{Case 1:} If $(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}} >
+   \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}$.
+   \begin{equation}{\nonumber}
+     \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}} \geq (k-1) \left( \sum_{j \in G1 }^{}{\tilde p_{j}}- {max_{j \in J}}{\tilde p_{j}} \right)
+   \end{equation}
+ 
+   As the actual processing time of the tasks can vary within a factor
+   $\alpha$ and $\frac{1}{\alpha}$ of their estimated processing time,
+   the following inequality holds
+   \begin{equation}{\nonumber}
+     \alpha\sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}} \geq (k-1) \left( \frac{1}{\alpha}\sum_{j \in G1 }^{}{{p_{j}}}- \alpha {max_{j \in J}}{{p_{j}}} \right)
+   \end{equation}
+   \begin{equation}\label{eq9}
+     \sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}} \geq (k-1) \left(\frac{1}{\alpha^{2}}\sum_{j \in G1 }^{}{{p_{j}}}-  {max_{j \in J}}{{p_{j}}} \right)
+   \end{equation}
+ 
+   Phase 2 applies List Scheduling in the online mode. We assumed that
+   $C_{max}$ comes from $G1$. Using the guarantees of List Scheduling
+   we can write,
+   \begin{equation}\label{eq10}
+     C_{max} \leq \frac{\sum_{j \in G1 }^{}{{p_{j}}}}{m/k} + {\frac{m/k-1}{m/k}} p_{max}
+   \end{equation}
+   where $p_{max}$ is actual processing time of longest task in $G1$.
+ 
+   From Equation~\ref{eq9} and~\ref{eq11}, we derive
+   \begin{equation}{\nonumber}
+     C_{max}^{*} \geq  \frac{\sum_{j \in G1 }^{}{{p_{j}}}+ (k-1)\left(\frac{1}{\alpha^{2}}\sum_{j \in G1 }^{}{{p_{j}}}-  {max_{j \in J}}{{p_{j}}}\right)}{m}
+   \end{equation}
+   \begin{equation}{\nonumber}
+     \alpha^{2} (mC_{max}^{*} + (k-1){max_{j \in J}}{{p_{j}}}) \geq  (\alpha^{2} + k-1) \sum_{j \in G1 }^{}{{p_{j}}}  
+   \end{equation}
+   \begin{equation}\label{eq12}
+     \frac{\alpha^{2}}{\alpha^{2}+k-1}\left(m C_{max}^{*}+(k-1) {max_{j \in J}}{{p_{j}}}\right) \geq \sum_{j \in G1 }^{}{{p_{j}}}  
+   \end{equation}
+   
+   Using \ref{eq10} and \ref{eq12}, We have
+   \begin{align}{\nonumber}
+     C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+\frac{k-1}{m} {max_{j \in J}}{{p_{j}}}\right)\\
+     + {\frac{m/k-1}{m/k}} p_{max} \nonumber
+   \end{align}
+   
+   As $C_{max}^{*}\geq {{max_{j \in J}}{p_{j}}}\geq p_{max}$, we have
+   \begin{align}{\nonumber}
+     C_{max} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( C_{max}^{*}+ {\frac{k-1}{m}}{C_{max}^{*}}\right)\\
+     + {\frac{m-k}{m}} C_{max}^{*} \nonumber
+   \end{align}    
+   
+   So, in Case 1 the algorithm has a competitive ratio of,
+   \begin{equation}{\nonumber}
+     \frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( 1+ {\frac{k-1}{m}} \right) + {\frac{m-k}{m}} \end{equation}\\
+   
+   \textbf{Case 2:} If $(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}} \leq \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}$. \\
+   
+   Since the processing times of the tasks can vary within a factor
+   $\alpha$ and $\frac{1}{\alpha}$ of their estimated values, the
+   expression for case 2 can be written as
+   \begin{equation}{\nonumber}
+     \sum_{l=2}^{k}\sum_{j \in Gl }^{}{ p_{j}} \geq \frac{1}{\alpha^2} (k-1)\sum_{j \in G1 }^{}{ p_{j}}
+   \end{equation}
+   
+   Putting this value in Equation~\ref{eq11}, we have
+   \begin{equation}\label{eq13}
+     C_{max}^{*} \geq \frac{\alpha^2+k-1}{m\alpha^2}\sum_{j \in G1 }^{}{ p_{j}}
+   \end{equation}
+   Using Equations~\ref{eq10} and~\ref{eq13}, and as $C_{max}^{*} \geq p_{max}$, we have
+   \begin{equation}{\nonumber}
+     C_{max} \leq \frac{k\alpha^2}{\alpha^2+k-1}C_{max}^{*}+\frac{m-k}{m}C_{max}^{*}
+   \end{equation}
+   
+   So, in case 2 the algorithm has a competitive ratio of
+   $\frac{k\alpha^2}{\alpha^2+k-1}+\frac{m-k}{m}$.
+ 
+   Clearly, the algorithm has a worst competitive ratio in case 1.  So,
+   the algorithm has a competitive approximation ratio of
+   $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}
+   \left( 1+ {\frac{k-1}{m}} \right) + {\frac{m-k}{m}}$.
+ \end{proof}
+ 
+ % \begin{corollary}
+ %   When there are $2$  groups, the competitive ratio is $ 1+
+ %   \frac{2}{1+\alpha^{2}} (\alpha^2-\frac{1}{m})$.
+ % \end{corollary}
+ 
+ \textbf{LS-Group} uses List Scheduling in both its phases. A LPT-based
+ algorithm may have better guarantee. But without performing any
+ replication, {\em i.e.} when $k=m$, the \textbf{LS-Group} algorithm
+ has a competitive ratio almost equal to \textbf{LPT-No choice}'s when
+ the number of machines $m$ is large and the value of $\alpha$ is
+ within practical range. This indicates an LPT-based algorithm for
+ strategy 3 would likely not have a much more interesting guarantee.
+ \bodysection{Summary}
+  Table~\ref{tab:template} summarizes the results of this chapter in term
+  of approximation theory. Based on adversary technique,
+  Theorem~\ref{th:model1-lb} states that there is no algorithm which can
+  give performance better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$ for the model where no
+  replication is allowed. {\bf LPT-No Choice} is a
+  $\frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$-approximation that uses that
+  strategy. For the second strategy that replicates the data of all
+  tasks everywhere ( $|M_j| = |M|$), {\bf LPT-No Restriction} achieves a
+  competitive ratio of $1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$.  The
+  third strategy uses replication within $k$ groups of size $m/k$ ({\em
+    i.e.}, $|M_j| = m/k$). Using this strategy, the {\bf LS-Group}
+  algorithm has a competitive ratio of
+  $\frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( 1+ {\frac{k-1}{m}} \right) +
+  {\frac{m-k}{m}}$.\\
+  
+  
+  
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|c|c|c|c|c|}
+      \hline
+      Replication & Approximation ratio  \\
+      \hline
+      $|M_j|=1$ & $\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ (Th.~\ref{th:strat1-ub})  \\
+      & No approximation better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$ (Th.~\ref{th:model1-lb})   \\
+      
+      \hline
+      $|M_j|=m$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$ (Th.~\ref{th:strategy2})  \\
+      & $\frac{C_{max}}{C_{max}^{*}} \leq 2-\frac{1}{m}$ \cite{Graham66}   \\
+      \hline
+      
+      $|M_j|= \frac{m}{k} $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1} \left(1+ {\frac{k-1}{m}} \right)+ {\frac{m-k}{m}}$ (Th.~\ref{th:strategy3})  \\
+  %    & $\frac{C_{max}}{C_{max}^{*}} \leq  1+ \frac{2}{1+\alpha^{2}} \left(\alpha^2-\frac{1}{m}\right)$ when $k=2$ [Col. 3.1]   \\
+      
+      \hline
+    \end{tabular}
+    \caption{Summary of the contribution of this chapter.
+      Three proposed algorithms have guaranteed performance.
+      One lower bound on approximability has been established.}
+    \label{tab:template}
+  \end{table}
+  
+  
+  Of course, there is an inherent tradeoff between replicating data and   obtaining good values for the makespan. To better understand the   tradeoff we show in Figure~\ref{fig:Graph} how the expressions of the   guarantees (or impossibility)translate to actual values in a  approximation ratio / replication space.  We picked 3 values of   $\alpha$ while keeping the number of machines fixed $m=210$. 
+  
+  When $\alpha=1.1$, even with multiple groups {\bf LS-Group} provides little improvement over {\bf LPT-No Choice}. However there is a significant  gap between the guarantee of {\bf LPT-No Choice} and the lower bound  on possible approximation. When $\alpha$ is small, there is a  significant improvement in using {\bf LPT-No Restriction} over using  simply {\bf LS-Group} with only 1 group.
+  
+  When $\alpha$ increases to $1.5$, there is no more differences in the  guarantees of {\bf LS-Group} with 1 group and {\bf LPT-No
+    Restriction}. Also {\bf LS-Group} provides many intermediate  solution between deploying the data on a single machine and deploying
+  them everywhere.
+  
+  When $\alpha=2$, the range of the approximation ratios increase and
+  the value of the lower bound increases. Now {\bf LS-Group} is able to
+  get a better approximation using less than $50$ replications than is
+  possible by deploying data on a single machine. Also, the
+  approximation ratio quickly improves from more than $7.5$ with the
+  data being replicated on $1$ machine to a ratio of less than $6$ with
+  only replicating the data on $3$ machines.
+  
+  Overall, when $\alpha$ is large, only few replication improve the
+  performance significantly.
+  
+  
+  \begin {figure}
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+      \includegraphics[width=\textwidth]{alpha_11.pdf}
+      \caption{$m=210$, $\alpha=1.1$}
+      \label{fig:1}
+    \end {subfigure} %
+    
+    \begin{subfigure}[b]{0.5\textwidth}
+      \includegraphics[width=\textwidth]{alpha_15.pdf}
+      \caption{$m=210$, $\alpha=1.5$}
+      \label{fig:2}
+    \end {subfigure} %
+    
+    \begin{subfigure}[b]{0.5\textwidth}
+      \includegraphics[width=\textwidth]{alpha_2.pdf}
+      \caption{$m=210$, $\alpha=2$}
+      \label{fig:3}
+    \end{subfigure} %
+  
+    \caption{Ratio-Replication graph with $m=210$ and $\alpha \in \{1.1, 1.5, 2\}$.}
+    \label{fig:Graph}
+  \end{figure}
+

@@ -1,0 +1,120 @@
+\bodychapter{Related Work}\label{ch3}
+\label{Intro}
+This chapter provides the literature review on related research areas such as uncertainty in scheduling, data placement and replication. For better understanding the core concept of this thesis research proofs of some classical scheduling algorithms is presented along with a brief introduction in the context they appear while literature review.
+
+\bodysection{Classical Scheduling problem}
+
+ When $\alpha = 1$, the problem is exactly the classical independent
+ tasks scheduling problem on identical machines, which is known to be
+ NP-Hard~\cite{GareyJohnson79}. We use Graham's List Scheduling
+ (LS)~\cite{Graham66} and Largest Processing Time (LPT)
+ algorithms~\cite{Graham69boundson} to derive approximation ratios in
+ different scenarios. The LS algorithm takes tasks one at a time and
+ assigns them to the processor having the least load at that time. LS is a
+ 2-approximation algorithm and is widely used in online scheduling
+ problems. LPT sorts the tasks in a non-increasing order of processing time and
+ assigns them one at a time in this order to the processor with the
+ smallest current load. The LPT algorithm has a worst case approximation
+ ratio of $\frac{4}{3}-\frac{1}{3m}$ in the offline setting. One can
+ even obtain an arbitrarily good approximation algorithm for this problem by increasing
+ its complexity with a dual approximation
+ algorithm~\cite{Hoch87}. 
+ 
+ We begin with by recalling the formal proofs of the guarantees of LS and LPT algorithms:
+ \begin{property}~\citet{Graham66} List Scheduling has an approximation ratio of $2-\frac{1}{m}$.
+ \end{property}
+ \begin{proof}
+ Let $l$ be the last task in the system which is processed on machine $r$ and it starts on $r$ at time $t$. Clearly, the makespan $C_{max}$ of the schedule is $t+p_l$. As in LS a new task is scheduled on the least loaded machine at that time, for each machine $i$, we have $t\leq \sum\limits
+ _{j \in E_i}p_j$. Adding this for all the machines including  $r$, we get $m t\leq \sum\limits_{i\in M-\{r\}}\sum\limits_{j \in E_i}p_j +\sum\limits_{j \in E_r}p_j - p_l\Rightarrow t\leq (\sum\limits_{j}p_j - p_l)/ m $. Hence, $C_{max}\leq \frac{\sum_{j}p_j + (m-1)p_l}{m}$.
+  
+ The optimal makespan of a schedule $C^*_{max}$ must be greater or equal to the average load over all the $m$ machines, $C^*_{max}\geq \frac{\sum_{j}p_j}{m}$. Also, $C^*_{max}$ cannot be smaller than any task in the system, hence $C^*_{max}\geq Max p_j \geq p_l$.  Therefore,  $C_{max} \leq C^*_{max}+C^*_{max}(m-1)/m $. Hence, $C_{max}/C^*_{max} \leq 2-1/m$.
+  \end{proof}
+  
+   \begin{property}~\citet{Graham69boundson} The LPT algorithm has an approximation ratio of $\frac{4}{3}-\frac{1}{3m}$.
+   \end{property}
+   \begin{proof}
+   LPT always generates an optimal schedule if no machine has more than 2 tasks. So to derive an approximation ratio we can assume that there are at least 3 tasks in a machine.
+   As LPT assigns tasks to machines in non-increasing order of their processing times, the last task $l$ is the smallest task in the machine. Since there are at least 3 tasks in a machine $C^*_{max}\geq 3 p_l$.
+   Also, $C^*_{max} \geq \frac{\sum_{j}p_j}{m}$ and $C_{max}\leq \frac{\sum_{j}p_j + (m-1)p_l}{m} $ as shown in previous proof. Therefore,  $C_{max} \leq C^*_{max}+C^*_{max}(m-1)/3m $.  Hence, $C_{max}/C^*_{max} \leq 4/3-1/3m$. 
+   \end{proof}
+ 
+ \bodysection{Uncertainty and Robustness}
+ Based on various models for describing the uncertain input parameter,
+ various methodologies can be used including reactive, stochastic,
+ fuzzy and robust approach~\cite{DBLP:journals/cce/LiI08}. We are using
+ the bounded uncertainty model which assumes that an input parameter
+ have value between a lower and upper bound.  Wierman and
+ Nuyens~\cite{conf/sigmetrics/WiermanN08} introduce SMART, a
+ classification to understand size-based policies and draw analytic
+ co-relation between response time and estimated job size in single
+ server problem. Robust approaches to deal with uncertainty are widely
+ used on MapReduce
+ systems~\cite{Kavulya:2010:ATP:1844765.1845224}~\cite{Verma:2011:AAR:1998582.1998637},
+ in
+ Hadoop~\cite{Wolf:2010:FSA:2023718.2023720}~\cite{White:2009:HDG:1717298},
+ on databases~\cite{Lipton199518} and on web
+ servers~\cite{Cardellini99dynamicload}. The HSFS and FLEX schedulers
+ provide robustness in scheduling against uncertain job
+ size~\cite{Wolf:2010:FSA:2023718.2023720,6691554}. Cannon and
+ Jeannot~\cite{cj09c} analyzed the correlation between various metrics
+ used to measure robustness and provided scheduling heuristics that
+ optimizes both makespan and robustness for scheduling task graph on
+ heterogeneous system.
+ 
+ Most of the work on robust scheduling use scenarios to structure
+ the variability of uncertain parameters. Daniels and
+ Kouvelis~\cite{citeulike:8334169} used them to optimize the flow-time
+ using a single machine. Davenport, Gefflot, and Bek analyzed slack
+ based technique (adding extra idle time) to cope with
+ uncertainty~\cite{Davenport_slack-basedtechniques}. Gatto and Widmayer
+ derives bounds on competitive ratio of Graham’s online algorithm in
+ scenario where processing times of jobs either increase or decrease
+ arbitrarily due to perturbations~\cite{Gatto07}.  These works
+ considered augmenting or decreasing of job processing times as
+ different problem scenario that need to be optimized. We 
+ approach the problem using worst case analysis where some tasks may
+ increase and some may decrease within the same schedule.
+   \bodysection{Data placement and Replication}
+ Data placement and replication methodologies are highly used in
+ distributed systems including peer-to-peer and Grid systems to achieve
+ effective data management and improve
+ performance~\cite{Cirne2007213}\cite{Abawajy}\cite{4215379}. Tse~\cite{DBLP:journals/tc/Tse12}
+ used selective replication of documents to increase the available
+ bandwidth to serve files using web servers and study the problem
+ through bi-criteria optimization techniques to maximize the quality of
+ service and minimize the memory occupation. Our approach for bi- criteria optimization of makespan and memory consumption is based on the $ SBO_{\triangle}$ Algorithm proposed by Saule, Dutot and Mounie~\cite{10.1109/IPDPS.2008.4536292}. The algorithm uses  $\rho_1$ and $\rho_2$ approximated independent schedules on makespan and memory consumption respectively, and it computes a $((1+\triangle)\rho_1 , (1+\frac{1}{\triangle})\rho_2 )$- approximated schedule with $\triangle$ as a parameter of the algorithm.
+ \begin{property}\citet{10.1109/IPDPS.2008.4536292}
+ The $SBO_\triangle$ Algorithm generates a $ (1+\triangle)  \rho_1$-approximated schedule on makespan.
+ \end{property}         
+ \begin{proof}
+The algorithm schedules a task $j$ according to a $\pi_2$ schedule generated by the $\rho_2$-approximated algorithm on memory if it satisfies  this condition: $\frac{{p_j}}{{C}^{\pi_1}_{max}} \leq \triangle \frac{s_j}{M^{\pi_2}_{max}}$.  Where ${C}^{\pi_1}_{max}$ is the makespan obtained using a $\pi_1$ schedule generated by the  $\rho_1$-approximated algorithm on makespan, and ${M}^{\pi_1}_{max}$ is the memory consumption of the most occupied machine obtained using $\pi_2$.  If this condition is not satisfied the task is scheduled according $\pi_1$.
+ Let $k$ be the machine reaching makespan $C_{max}$ of the schedule generated by the $SBO_\triangle$ algorithm. Let  $S_1$ be the set of tasks scheduled according $\pi_1$ and $S_2$ be the set of tasks scheduled according $\pi_2$ schedule.  $C_{max}$ can be decomposed as the sum of the processing times of the tasks in set $S_1$ and $S_2$ scheduled on machine $k$.
+                        \begin{equation}\nonumber
+                  C_{max}= \sum_{j \in S_1 \cap E_k}^{}p_j+\sum_{j \in S_2 \cap E_k}^{}p_j 
+                        \end{equation}                   
+ Since $C^{\pi_1}_{max} \geq \sum\limits
+                        _{j \in S_1 \cap E_k}^{}p_j$ and $\sum\limits
+                        _{j \in S_2\cap E_k}\triangle {{C}^{\pi_1}_{max}} \frac{s_j}{M^{\pi_2}_{max}}\geq \sum\limits
+                        _{j \in S_2\cap E_k}{p}_j $ by definition of $S_2$, we have
+        \begin{equation}\nonumber
+    C_{max}\leq C^{\pi_1}_{max}+\sum_{j \in S_2\cap E_k}^{}\triangle {{C}^{\pi_1}_{max}} \frac{s_j}{M^{\pi_2}_{max}}
+                               \end{equation}        
+      Since $\sum\limits_{j \in S2\cap E_k} \frac{s_j}{M^{\pi_2}_{max}}\leq 1$, we have
+ \begin{equation}\nonumber                       C_{max}\leq(1+\triangle){C}^{\pi_1}_{max}                \end{equation}
+Since ${C}^{\pi_1}_{max} \leq \rho_1 {C}^{*}_{max}$, the algorithm has an approximation ratio of $ (1+\triangle)  \rho_1$ on the makespan.
+\end{proof}
+\begin{property}\citet{10.1109/IPDPS.2008.4536292}
+  The $SBO_\triangle$ Algorithm generates a $ (1+\frac{1}{\triangle})  \rho_2$-approximated schedule on memory.
+  \end{property}         
+   \begin{proof}
+   Let $k $ be the machine with most memory consumption.  Similar to the previous proof, $M_{max}$ can be written as the sum of memory usage of the tasks in sets $S_1$ and $S_2$ scheduled on machine $k$, $\sum\limits
+   _{j \in S_1 \cap E_k}^{}s_j+\sum\limits_{j \in s_2 \cap E_k}^{}p_j $. Since,  $\sum\limits
+      _{j \in S_2 \cap E_k}^{}s_j\leq {M}^{\pi_1}_{max}$ and by definition of $ S_1$, $\sum\limits
+            _{j \in S_1 \cap E_k}^{}s_j\leq \frac{{M}^{\pi_1}_{max}}{\triangle C^{\pi_2}_{max}}\sum\limits _{j \in S_2\cap E_k} p_j \leq  \frac{{M}^{\pi_1}_{max}}{\triangle }$, we have
+           \begin{equation}\nonumber                     M_{max}\leq(1+\frac{1}{\triangle}){M}^{\pi_1}_{max}                         \end{equation}
+       Since ${M}^{\pi_1}_{max} \leq \rho_2 {M}^{*}_{max}$, the algorithm has an approximation ratio of $ (1+\frac{1}{\triangle})  \rho_2$ on memory.
+                               \end{proof}
+                           
+                           
+  
+ 

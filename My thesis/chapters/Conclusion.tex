@@ -1,0 +1,22 @@
+\bodychapter{Conclusion and future work}\label{ch6}
+
+\label{Intro}
+
+This thesis studies the effect on uncertainty in the processing time of tasks on scheduling for parallel and distributed machines. In particular, it investigates how allowing tasks to execute on different machines can help dealing with not knowing the processing time of tasks accurately. The thesis proposes three replication strategies, provides approximation algorithm in each case and a lower bound on the best achievable approximation in one of the case. Further to limit memory consumption the thesis presents two memory-aware bi-objective algorithms, one of which chooses only critical tasks to replicate and limits memory consumption.
+
+The various strategies allow to trade the number of replication for a better guarantee. The results of these strategies show that a better guarantee can be achieved with fewer replication than that can be achieved by putting the data of a task on only one machine and even a small amount of replications can improve the guarantee significantly. These observations concludes that deploying the data on multiple machines can be an effective way of dealing with processing time uncertainties.
+
+The bi-objective algorithms proposed in this thesis, schedule the memory intensive tasks and the processing time intensive tasks differently and optimizes both the objectives. One of the algorithms, chooses processing time intensive tasks to replicate and achieves better guarantee for higher values of $\alpha$.
+
+There are some open problems which can be explored further. Better lower bounds might help understanding the problem better: clearly when $\alpha$ is low, the problem is no different than the offline problem,and when it is large, the problem converges to the non-clairvoyant online problem. Having a clearer idea of where the boundary is will certainly prove useful in understanding how much can be gained using data replication. Also, while replicating data using groups of processor proved effective, more general replication policies can certainly lead to better guarantees.
+
+\newpage
+
+
+\bibliographystyle{abbrv}
+
+\bibliography{final}
+
+
+\end{document}
+

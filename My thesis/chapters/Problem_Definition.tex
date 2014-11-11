@@ -1,0 +1,68 @@
+\bodychapter{Problem Definition}\label{ch2}
+\label{Intro}
+
+ Let $J$ be a set of $n$ jobs which need to be scheduled onto a set $M$
+ of $m$ machines.  We will use interchangeably the terms machines and
+ processors. Also we will use interchangeably the terms jobs and
+ tasks. Each task $j$ occupies $s_j$ space in memory.  We are considering the problem where the scheduler does not
+ know the processing time $p_j$ of task $j$ exactly before the task
+ completes.  But the scheduler has access to some estimation of the
+ processing time $\tilde{p_j}$ of task $j$ before making any scheduling
+ decisions. We assume that the actual processing time $p_j$ of a task
+ $j$ is within a multiplicative factor $\alpha$ of the estimated
+ processing time $\tilde{p_j}$. $\alpha$ is a quantity known to the
+ scheduler. In other words the scheduler knows that:
+  \begin{equation}\label{eq1}
+ \frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}
+ \end{equation}
+ 
+ Assuming that the processing time of the tasks is known to be in an
+ interval is reasonable in many application scenarios. One could derive
+ bounds experimentally using machine learning techniques: for
+ instance~\cite{You14-ICPP} used Support Vector Machines to predict the time it
+ will take to run graph traversal algorithms. Models of runtime of
+ algorithms can also be derived analytically:
+ in~\cite{Erlebacher14-ICS} the authors provide bounds for the
+ performance of various sparse linear algebra operations using only the
+ size of the matrices and vectors involved.
+ 
+ 
+ The scheduling for the problem is performed in two phases. Phase 1
+ chooses where data are replicated using the estimated processing time
+ $\tilde p_j $, for each of the task $j$. The phase takes
+ $\tilde{p_j}$, $m$ and $\alpha$ as inputs and outputs sets of machines,
+ $M_j \subseteq M $ where each task $j$ can be scheduled. This phase is
+ purely offline and corresponds to the operations performed to prepare
+ the execution of the application.
+ 
+ Phase 2 takes the output of phase 1 as its input and maps each task $j$
+ to a machine within the set of machines $M_j$. For each machine $i$,
+ let $E_i \subseteq J$ be the set of tasks assigned to machine
+ $i$. This phase chooses the actual schedule following an an online
+ semi-clairvoyant process. Only the approximate processing time is
+ known when a task is placed, but the scheduler can wait for a machine
+ to become idle, to place the next one. Therefore, can dynamically
+ schedule the tasks and the actual processing time of the tasks are
+ known once they complete.
+ 
+ 
+ 
+ The  parallel system scheduling can be modeled into different objective functions with different parameters to optimize. A makespan minimization problem has objective to minimize completion time of last task of the system. Memory is another parameter for objective function. A memory aware scheduling aims at minimizing total memory consumption $\sum_{j}^{}s_j$ or memory consumption of most occupied machine $max_i\sum_{j\in E_i}^{}s_i$. Replication improves processing of tasks but increases memory consumption in the system. So, objective function attached with replication can be where to replicate tasks and which tasks to replicate so that performance can improve without violating any memory constraint or with bi-objective to minimize memory also along with improving processing time of the tasks.
+ 
+ 
+ In Chapter 4, the problem is to optimize the makespan, $C_{max} = \max_i \sum_{j \in
+    E_i} p_j$ which is the completion time of the last task of the
+  system. $C_{max}^{*}$ denotes the optimal makespan of an instance of
+  the problem (knowing the actual processing times). The memory objective is constrained by allowing different degree of replication by choosing where (on which set of machines) a task to be replicated. An offline algorithm is
+  said to be a $\rho$-approximation algorithm (or to have an
+  approximation ratio of $\rho$) if it guarantees for all the instances
+  that $C_{max} \leq \rho C_{max}^*$. When the problem is online, we are
+  talking about competitive ratios.
+  
+  In Chapter 5, we tackle the bi-objective problem of simultaneously minimizing makespan $C_{max}$ as well as memory usage, $M_{max}= \max_i \sum_{j \in E_i} s_j$ which denotes the maximum memory usage of a machine. As a task occupies fixed amount of memory but its processing time is uncertain, both objectives are asymmetrical.  $M^*_{max}$ denotes optimal maximum memory consumption of a machine. An algorithm generates a schedule which is $\rho^C$-approximated  on makespan and $\rho^M$-approximated on memory.
+  
+  There are two ways to deal with multi objective optimization~\cite{tkindtbillaut-book}~\cite{DRST09}:\\
+  1. Epsilon-constraint method: This approach optimizes the primary objective  setting the other objective within some constraint . 
+  We use this approach in chapter 4 to optimize makespan setting the memory objective by allowing different degree of replication of the tasks.\\
+  2. Zenith approximation: This approach optimizes both the objective at the same time. 
+  We use this approach to optimize both makespan and memory usage in chapter 5.

@@ -1,0 +1,89 @@
+\bodychapter{Strategy 2: Replicate data everywhere}\label{sec4}
+\label{Intro}
+
+With this strategy, we put no restriction on phase 2. The tasks are
+replicated everywhere i.e. $\forall j, |M_{j}|=|M|$. We introduce the
+\textbf{LPT-No Restriction} which replicates the data of all the tasks
+on each machine in the first phase. In the second phase we simply use
+the Longest Processing Time algorithm (LPT) in an online fashion using
+the estimated processing time of the task. That is to say, the tasks
+are sorted in non-increasing order of their estimated processing
+time. Then the task are greedily allocated on the first
+processor that becomes available. Note that this is done in phase 2,
+the processor become available with when the actual processing time of
+the task scheduled onto it elapse.
+
+\begin{lemma}\label{No Restriction}
+  Let $l$ be the task that reaches $C_{max}$ in the solution
+  constructed by \textbf{LPT-No Restriction}. If there are at least two
+  tasks on the machine that executes $l$ in \textbf{LPT-No Restriction}, then 
+  $C_{max}^* \geq {\frac{2}{\alpha^{2}}} p_l$.
+\end{lemma}
+\begin{proof}
+  Since there are at least two tasks on the machine that executes $l$
+  in \textbf{LPT-No Restriction}, there are at least $m+1$ tasks $i$
+  such that $\tilde{p_j} \geq \tilde{p_l}$. Therefore in any solution
+  at least one machine gets two tasks $c$ and $d$, such that $\tilde
+  p_c \geq \tilde p_l$ and $\tilde p_d \geq \tilde p_l$. $C_{max}^{*}$
+  must be greater than sum of the processing time of these two tasks.
+   \begin{equation}\nonumber
+    C_{max}^{*}\geq p_c + p_d
+  \end{equation}	
+
+  As the actual processing time of a task must be greater than  $\frac{1}{\alpha}$ times of its estimated value, we have $p_c \geq \frac{1}{\alpha}\tilde{p_c}$ and $p_d \geq \frac{1}{\alpha}\tilde{p_d}$. Using this
+  \begin{equation}\nonumber 
+    C_{max}^{*} \geq \frac{1}{\alpha}\tilde p_c +  \frac{1}{\alpha} \tilde p_d \geq \frac{2}{\alpha}\tilde p_l
+  \end{equation}
+Since, $\tilde p_l \geq \frac{1}{\alpha} p_l$, we have
+  \begin{equation}\nonumber
+    C_{max}^{*} \geq {\frac{2}{\alpha^{2}}} p_l 
+  \end{equation}
+\end{proof}
+
+\begin{theorem}
+  \label{th:strategy2}
+  \textbf{LPT-No Restriction} has a competitive ratio of
+  $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})
+  \frac{\alpha^{2}}{2}$
+\end{theorem} 
+
+\begin{proof}
+  The optimal makespan, $C_{max}^{*}$ must be at least equal to the
+  average load on the $m$ machines. We have
+  \begin{equation}\label{eq7}
+    C_{max}^{*}\geq\frac{\sum p_j}{m}
+  \end{equation}
+
+  By the property of LPT (actually, it is a property of List
+  Scheduling which LPT is a refinement of) the load on each machine
+  $i$ is greater than the load on the machine which reach $C_{max}$
+  before the last task $l$ is scheduled. So for each machine $i$,
+  $C_{max} \leq \sum_{j \in E_i}^{}{p_j} + p_l$ holds true.  Summing
+  for all the machines we have
+  \begin{equation}\nonumber
+    mC_{max} \leq  \sum {p_j} + (m-1)p_l
+  \end{equation}
+  \begin{equation}\label{eq8}
+    C_{max} \leq  \frac{\sum {p_j}}{m} + \frac{(m-1)}{m}p_l
+  \end{equation}
+  
+  Using~\ref{eq7} and~\ref{eq8}, we have
+  \begin{equation}\nonumber
+    \frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}\left(\frac{p_l}{C_{max}^{*}}\right)
+  \end{equation}
+  
+  Using Lemma~\ref{No Restriction}, we have 
+  \begin{equation}\nonumber
+    \frac{C_{max}}{C_{max}^{*}} \leq 1 + \left(\frac{m-1}{m}\right)\frac{\alpha^{2}}{2}
+  \end{equation}
+
+\end{proof}  
+
+Graham's List Scheduling algorithm always has a competitive ratio
+of $2-\frac{1}{m}$. For $\alpha^2 < 2$, the \textbf{LPT-No
+  Restriction} algorithm has better approximation than List
+Scheduling. For $\alpha^2 > 2$ List Scheduling has better guarantee
+than the one expressed in Theorem~\ref{th:strategy2}. Since
+\textbf{LPT-No Restriction} is a variant of List Scheduling,
+the algorithm has a competitive ratio of $\min (1 +
+\frac{m-1}{2m}\alpha^{2}, 2-\frac{1}{m})$.
