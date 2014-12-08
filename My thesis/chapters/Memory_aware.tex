@@ -12,7 +12,7 @@
  The problem is to schedule a set $J$ of $n$ tasks on $m$ machines such that both makespan $C_{max}$ as well as memory usage $M_{max}$ is optimized.  
   Let $\pi_1$ be the schedule  which minimizes makespan and $\pi_2$ be the memory-aware schedule. $\tilde{C}^{\pi_1}_{max}$ and $\tilde{C}^{*}_{max}$ are makespan and optimal makespan when all the tasks are scheduled according to $\pi_1$. Similarly, $M^{\pi_2}_{max}$ is  memory consumption of the most  occupied machine and $M^*_{max}$ is its optimal value. The strategy is to divide tasks into two sets $S_1$ and $S_2$ such that set $S_1$ contains the processing time intensive tasks and set $S_2$ contains the memory intensive tasks, and schedule them differently and in such a way that it optimizes both the objectives. 
   
-  We propose two algorithms $SABO_\triangle$ (stands for static asymmetric bi-objective) and $ABO_\triangle$ (stands for asymmetric bi-objective), which are based on $SBO_\triangle$ algorithm. $SBO_\triangle$~\citet{10.1109/IPDPS.2008.4536292} is bi-objective algorithm for minimizing makespan and memory usage for independent tasks by combining results of two symmetric schedules each dedicated to a single objective.
+  We propose two algorithms $SABO_\triangle$ (stands for static asymmetric bi-objective) and $ABO_\triangle$ (stands for asymmetric bi-objective), which are based on $SBO_\triangle$ algorithm. $SBO_\triangle$~\cite{10.1109/IPDPS.2008.4536292} is bi-objective algorithm for minimizing makespan and memory usage for independent tasks by combining results of two symmetric schedules each dedicated to a single objective.
   
    \bodysection{The $SABO_\triangle$ Algorithm}
                   
@@ -217,7 +217,7 @@
         $(1+\triangle)\alpha^2 \rho_1$ (Th.~\ref{th:chapter5-2a})& $(1+\frac{1}{\triangle})\rho_2$ (Th.~\ref{th:chapter5-2b})   \\
         \hline
                 $ABO_\triangle$&
-                $(2-\frac{1}{m}+\triangle\alpha^2 \rho_1$ (Th.~\ref{th:chapter5-la})& $(2-\frac{1}{m}+\triangle\alpha^2 \rho_1)$ (Th.~\ref{th:chapter5-lb})   \\
+                $(2-\frac{1}{m}+\triangle\alpha^2 \rho_1)$ (Th.~\ref{th:chapter5-la})& $(1+\frac{m}{\triangle})\rho_2$ (Th.~\ref{th:chapter5-lb})   \\
         
         
         
@@ -254,10 +254,11 @@
       \label{fig:ch5-3}
     \end{figure}\
     
- To better understand the tradeoff between memory consumption and makespan Figure~\ref{fig:ch5-3} shows memory-makespan graph for the two algorithms. The graph shows that for higher values for $\alpha$ the  algorithm $ABO_\triangle$ have better tradeoff between memory-makespan than that of  $SABO_\triangle$. for $\alpha\rho_1\geq 2$,  $ABO_\triangle$ always have better guarantee on makespan than $SABO_\triangle$. So, a schedule more centric to optimize makespan should follow $ABO_\triangle$ algorithm. And a memory centric schedule should follow $SABO_\triangle$ as the algorithm always has better guarantee on memory.
- 
- The bold lines shows impossibilities in the tradeoff between makespan and memory and means that no algorithm can guarantee better tradeoff than this. \cite{10.1109/IPDPS.2008.4536292} discusses about these impossibilities in context of $SBO_\triangle$ algorithm.
- 
+ To better understand the tradeoff between memory consumption and makespan Figure~\ref{fig:ch5-3} shows memory-makespan guarantees for the two algorithms.  The bold lines shows impossibilities in the tradeoff between makespan and memory and means that no algorithm can guarantee better tradeoff than this. \cite{10.1109/IPDPS.2008.4536292} discusses about these impossibilities in context of $SBO_\triangle$ algorithm.
+
+The graph shows that for higher values for $\alpha$ the  algorithm $ABO_\triangle$ have better tradeoff between memory-makespan than that of  $SABO_\triangle$. For $\alpha\rho_1\geq 2$,  $ABO_\triangle$ always have better guarantee on makespan than $SABO_\triangle$. So, a schedule more centric to optimize makespan should follow $ABO_\triangle$ algorithm. And a memory centric schedule should follow $SABO_\triangle$ as the algorithm always has better guarantee on memory. 
+
+As a system designer, one always want to pick the algorithm and parameters that is best tradeoff between makespan and memory consumption.  Depending on the guarantee, one should either pick $ABO_\triangle$ or  $SABO_\triangle$  for scheduling tasks.  For instance, if you want to guarantee a makespan  less than 3 as in the case depicted in Figure~\ref{fig:ch5-3.2}, you should use  $ABO_\triangle$. However if you  want a better guarantee on memory, you should always use  $SABO_\triangle$ for task scheduling.
   
               
                
