@@ -65,7 +65,7 @@
 \title{Replicated Data Placement for Uncertain Scheduling}
 
 
-\author{\IEEEauthorblockN{Manmohan Chaubey, Erik Saule }
+\author{\IEEEauthorblockN{Manmohan Chaubey and Erik Saule }
 \IEEEauthorblockA{Department of Computer Science\\
  University of North Carolina at Charlotte\\
  Charlotte, USA\\
@@ -89,7 +89,7 @@
   the tasks can help coping with the inaccuracies of the processing
   times. In particular, we investigate the problem of scheduling
   independent tasks to optimize the makespan on a parallel system
-  where the processing times of tasks are only known up to a
+  where the processing times of the tasks are only known up to a
   multiplicative factor. The problem is decomposed in two phases: a
   first offline phase where the data of the tasks are placed and a second
   online phase where the tasks are actually scheduled.
@@ -119,7 +119,7 @@ machines. Studying the balance of the load of the various component of
 the system is often key in understanding the performance one obtains
 in practice. A system typically schedules the set of tasks with the
 goal of optimizing the load balance (or makespan) of the system or
-some other metric. A key information these system use to plan the
+some other metric. A key information these systems use to plan the
 execution is the time tasks will take to be processed. However, this
 information is typically not precisely known in practice: because the
 user can only make a wild guess on the runtime of her
@@ -130,11 +130,11 @@ range~\cite{Erlebacher14-ICS}. Whichever the reason is, not knowing
 accurately the processing time can significantly impact the
 performance obtained from the machine.
 
-Though, the uncertainty in processing time is only a real problem if
-the task is pinned to a particular computing unit. If the task could
+Though, the uncertainty of processing times is only a real problem if
+the tasks are pinned to particular computing units. If a task could
 be moved as the system sees fit without incurring an extra cost, the
-problem would be vastly alleviated. The problem is that in practice,
-the task has to run on a particular machine because the input data for
+problem would be vastly alleviated. The problem is that, in practice,
+a task has to run on a particular machine because the input data for
 this task are only available on this machine. This is the case in most
 parallel and distributed systems and it is particularly true in
 out-of-core computing systems. For instance in out-of-core sparse
@@ -142,7 +142,7 @@ linear algebra, executing a task where the data are not locally
 available would have a prohibitive
 overhead~\cite{Zhou12-Cluster,Zhou12-P2S2}.
 
-One approach for dealing with the uncertainty of processing time is to
+One approach for dealing with the uncertainty of processing times is to
 build a robust schedule~\cite{cj09c,Gatto07,
   Davenport_slack-basedtechniques}, that is, building a schedule that
 can naturally cope with variations in the processing times. These
@@ -161,7 +161,7 @@ faults~\cite{White:2009:HDG:1717298}. And it has been shown that
 launching the same task multiple times can help cope with hardware
 differences~\cite{DBLP:journals/corr/WangJW14} but increases resource
 usage. The cost of replicating the data might be amortized in many
-applications where the application will iterated over the data
+applications where the application will iterate over the data
 multiple times ({\em e.g.}, in an iterative solver~\cite{Zhou12-P2S2,Zhou12-Cluster}). In this paper, we
 answer the question ``can data replication help cope with the
 uncertainty of processing time?''  And the answer is that it can. (The technical contribution of this paper are summarized in Table~\ref{tab:template}.)
