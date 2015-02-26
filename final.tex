@@ -654,7 +654,7 @@ allocated in phase 1 using the online List Scheduling algorithm.
   \end{equation}
 
   As the actual processing time of the tasks can vary within a factor
-  $\alpha$ and $\frac{1}{\alpha}$ of their estimated processing time,
+  $\alpha$ and $\frac{1}{\alpha}$ of their estimated processing times,
   the following inequality holds
   \begin{equation}{\nonumber}
     \alpha\sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}} \geq (k-1) \left( \frac{1}{\alpha}\sum_{j \in G1 }^{}{{p_{j}}}- \alpha {max_{j \in J}}{{p_{j}}} \right)
@@ -694,7 +694,7 @@ allocated in phase 1 using the online List Scheduling algorithm.
     + {\frac{m-k}{m}} C_{max}^{*} \nonumber
   \end{align}    
   
-  So, in Case 1 the algorithm has a competitive ratio of,
+  So, in case 1 the algorithm has a competitive ratio of,
   \begin{equation}{\nonumber}
     \frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1}\left( 1+ {\frac{k-1}{m}} \right) + {\frac{m-k}{m}} \end{equation}\\
   
@@ -739,8 +739,8 @@ within practical range. This indicates an LPT-based algorithm for
 strategy 3 would likely not have a much more interesting guarantee.
 
 \section{Summary}\label{sec7}
-Table~\ref{tab:template} summarizes the results of this paper in term
-of approximation theory. Based on adversary technique,
+Table~\ref{tab:template} summarizes the results of this paper in terms
+of approximation ratios. Based on adversary technique,
 Theorem~\ref{th:model1-lb} states that there is no algorithm which can
 give performance better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$ for the model where no
 replication is allowed. {\bf LPT-No Choice} is a
@@ -790,7 +790,7 @@ approximation ratio / replication space.  We picked 3 values of
 $\alpha$ while keeping the number of machines fixed to $m=210$. 
 
 When $\alpha=1.1$, even with multiple groups {\bf LS-Group} provides little
-improvement over {\bf LPT-No Choice} in term of makespan guarantee. However there is a significant
+improvement over {\bf LPT-No Choice} in terms of makespan guarantee. However there is a significant
 gap between the guarantee of {\bf LPT-No Choice} and the lower bound
 on possible approximation. When $\alpha$ is small, there is a
 significant improvement in using {\bf LPT-No Restriction} over using
