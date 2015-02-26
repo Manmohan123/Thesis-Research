@@ -187,12 +187,12 @@ Let $J$ be a set of $n$ tasks which need to be scheduled onto a set $M$
 of $m$ machines. Notice that scheduling theory commonly use interchangeably the terms ``machines'' and
 ``processors'' and the terms ``jobs'' and
 ``tasks''. We are considering the problem where the scheduler does not
-know the processing time $p_j$ of task $j$ exactly before the task
+know the processing time $p_j$ of task $j$ precisely before the task
 completes.  But the scheduler has access to some estimation of the
 processing time $\tilde{p_j}$ of task $j$ before making any scheduling
 decisions. We assume that the actual processing time $p_j$ of a task
 $j$ is within a multiplicative factor $\alpha$ of the estimated
-processing time $\tilde{p_j}$. (An inaccuracy of the throughput of the system leads to a multiplicative factor and that any interval of confidence of a runtime can be transformed into a value and a multiplicative error.) $\alpha$ is a quantity known to the
+processing time $\tilde{p_j}$. (An inaccuracy of the throughput of the system leads to a multiplicative error and any interval of confidence of a runtime can be transformed into a value and a multiplicative error.) $\alpha$ is a quantity known to the
 scheduler. In other words the scheduler knows that:
  \begin{equation}\label{eq1}
 \frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}
@@ -209,7 +209,7 @@ performance of various sparse linear algebra operations using only the
 size of the matrices and vectors involved.
 
 
-The scheduling for the problem is performed in two phases. Phase 1
+Scheduling for this problem is performed in two phases. Phase 1
 chooses where data are replicated using the estimated processing time
 $\tilde p_j $, for each of the task $j$. The phase takes
 $\tilde{p_j}$, $m$ and $\alpha$ as inputs and outputs sets of machines,
@@ -220,10 +220,10 @@ the execution of the application.
 Phase 2 takes the output of phase 1 as its input and maps each task $j$
 to a machine within the set of machines $M_j$. For each machine $i$,
 let $E_i \subseteq J$ be the set of tasks assigned to machine
-$i$. This phase chooses the actual schedule following an an online
+$i$. This phase chooses the actual schedule following an online
 semi-clairvoyant process. Only the approximate processing time is
 known when a task is placed, but the scheduler can wait for a machine
-to become idle, to place the next one. Therefore, can dynamically
+to become idle, to place the next one. Therefore, it can dynamically
 schedule the tasks and the actual processing time of the tasks are
 known once they complete.
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.8.22)  26 FEB 2015 12:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.8.22)  26 FEB 2015 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,8 +528,7 @@ Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
 \c@theorem=\count111
 \c@corollary=\count112
-
-No file final.aux.
+ (./final.aux)
 \openout1 = `final.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
@@ -544,6 +543,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
+
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count113
@@ -610,69 +610,6 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
 
-
-LaTeX Warning: Citation `Luong2008' on page 1 undefined on input line 126.
-
-
-LaTeX Warning: Citation `Wilhelm2008' on page 1 undefined on input line 127.
-
-
-LaTeX Warning: Citation `Erlebacher14-ICS' on page 1 undefined on input line 12
-9.
-
-
-LaTeX Warning: Citation `Zhou12-Cluster' on page 1 undefined on input line 143.
-
-
-
-LaTeX Warning: Citation `Zhou12-P2S2' on page 1 undefined on input line 143.
-
-
-LaTeX Warning: Citation `cj09c' on page 1 undefined on input line 147.
-
-
-LaTeX Warning: Citation `Gatto07' on page 1 undefined on input line 147.
-
-
-LaTeX Warning: Citation `Davenport_slack-basedtechniques' on page 1 undefined o
-n input line 147.
-
-
-LaTeX Warning: Citation `White:2009:HDG:1717298' on page 1 undefined on input l
-ine 160.
-
-
-LaTeX Warning: Citation `DBLP:journals/corr/WangJW14' on page 1 undefined on in
-put line 162.
-
-
-LaTeX Warning: Citation `Zhou12-P2S2' on page 1 undefined on input line 165.
-
-
-LaTeX Warning: Citation `Zhou12-Cluster' on page 1 undefined on input line 165.
-
-
-
-LaTeX Warning: Reference `tab:template' on page 1 undefined on input line 167.
-
-
-LaTeX Warning: Reference `sec2' on page 1 undefined on input line 170.
-
-
-LaTeX Warning: Reference `sec3' on page 1 undefined on input line 171.
-
-
-LaTeX Warning: Reference `sec4' on page 1 undefined on input line 171.
-
-
-LaTeX Warning: Reference `sec5' on page 1 undefined on input line 174.
-
-
-LaTeX Warning: Reference `sec6' on page 1 undefined on input line 178.
-
-
-LaTeX Warning: Reference `sec7' on page 1 undefined on input line 181.
-
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -686,98 +623,8 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 186.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-
-LaTeX Warning: Citation `You14-ICPP' on page 2 undefined on input line 204.
-
-
-LaTeX Warning: Citation `Erlebacher14-ICS' on page 2 undefined on input line 20
-7.
-
-
-LaTeX Warning: Citation `GareyJohnson79' on page 2 undefined on input line 243.
-
-
-
-LaTeX Warning: Citation `Graham66' on page 2 undefined on input line 244.
-
-
-LaTeX Warning: Citation `Graham69boundson' on page 2 undefined on input line 24
-5.
-
-
-LaTeX Warning: Citation `Hoch87' on page 2 undefined on input line 255.
-
-
-LaTeX Warning: Citation `DBLP:journals/cce/LiI08' on page 2 undefined on input 
-line 260.
-
-
-LaTeX Warning: Citation `conf/sigmetrics/WiermanN08' on page 2 undefined on inp
-ut line 263.
-
-
-LaTeX Warning: Citation `Kavulya:2010:ATP:1844765.1845224' on page 2 undefined 
-on input line 268.
-
-
-LaTeX Warning: Citation `Verma:2011:AAR:1998582.1998637' on page 2 undefined on
- input line 268.
-
-
-LaTeX Warning: Citation `Wolf:2010:FSA:2023718.2023720' on page 2 undefined on 
-input line 270.
-
-
-LaTeX Warning: Citation `White:2009:HDG:1717298' on page 2 undefined on input l
-ine 270.
-
-
-LaTeX Warning: Citation `Lipton199518' on page 2 undefined on input line 271.
-
-
-LaTeX Warning: Citation `Cardellini99dynamicload' on page 2 undefined on input 
-line 272.
-
-
-LaTeX Warning: Citation `Wolf:2010:FSA:2023718.2023720' on page 2 undefined on 
-input line 274.
-
-
-LaTeX Warning: Citation `6691554' on page 2 undefined on input line 274.
-
-
-LaTeX Warning: Citation `cj09c' on page 2 undefined on input line 275.
-
-[2]
-
-LaTeX Warning: Citation `citeulike:8334169' on page 3 undefined on input line 2
-82.
-
-
-LaTeX Warning: Citation `Davenport_slack-basedtechniques' on page 3 undefined o
-n input line 285.
-
-
-LaTeX Warning: Citation `Gatto07' on page 3 undefined on input line 288.
-
-
-LaTeX Warning: Citation `Cirne2007213' on page 3 undefined on input line 297.
-
-
-LaTeX Warning: Citation `Abawajy' on page 3 undefined on input line 297.
-
-
-LaTeX Warning: Citation `4215379' on page 3 undefined on input line 297.
-
-
-LaTeX Warning: Citation `DBLP:journals/tc/Tse12' on page 3 undefined on input l
-ine 297.
-
+) [2]
 ** ATTENTION: \proof is deprecated (line 323). Use \IEEEproof instead.
-
-LaTeX Warning: Reference `fig:rara' on page 3 undefined on input line 342.
-
 <model1.pdf, id=21, 400.04456pt x 287.82532pt>
 File: model1.pdf Graphic file (type pdf)
  <use model1.pdf>
@@ -789,16 +636,6 @@ Overfull \hbox (1.77827pt too wide) in paragraph at lines 375--382
  []
 
 
-LaTeX Warning: Reference `th:model1-lb' on page 3 undefined on input line 382.
-
-
-LaTeX Warning: Reference `th:model1-lb' on page 3 undefined on input line 382.
-
-
-LaTeX Warning: Citation `Graham69boundson' on page 3 undefined on input line 39
-7.
-
-
 Underfull \hbox (badness 2529) in paragraph at lines 394--402
 []\OT1/ptm/m/n/10 We present the al-go-rithm \OT1/ptm/b/n/10 LPT-No Choice\OT1/
 ptm/m/n/10 . In
@@ -806,35 +643,9 @@ ptm/m/n/10 . In
 
 [3]
 ** ATTENTION: \proof is deprecated (line 414). Use \IEEEproof instead.
-
-LaTeX Warning: Reference `eq1' on page 4 undefined on input line 427.
-
-
-LaTeX Warning: Citation `Graham69boundson' on page 4 undefined on input line 47
-0.
-
-
-LaTeX Warning: Reference `eq3' on page 4 undefined on input line 482.
-
 [4 <./model1.pdf>]
 ** ATTENTION: \proof is deprecated (line 514). Use \IEEEproof instead.
 ** ATTENTION: \proof is deprecated (line 545). Use \IEEEproof instead.
-
-LaTeX Warning: Reference `eq7' on page 5 undefined on input line 565.
-
-
-LaTeX Warning: Reference `eq8' on page 5 undefined on input line 565.
-
-
-LaTeX Warning: Reference `No Restriction' on page 5 undefined on input line 570
-.
-
-
-LaTeX Warning: Reference `th:strategy2' on page 5 undefined on input line 581.
-
-
-LaTeX Warning: Reference `fig:Model 3' on page 5 undefined on input line 599.
-
 <model3.pdf, id=57, 500.77087pt x 154.4972pt>
 File: model3.pdf Graphic file (type pdf)
  <use model3.pdf>
@@ -843,22 +654,9 @@ Package pdftex.def Info: model3.pdf used on input line 609.
 
 ** ATTENTION: \proof is deprecated (line 623). Use \IEEEproof instead.
 [5]
-
-LaTeX Warning: Reference `eq9' on page 6 undefined on input line 674.
-
-
-LaTeX Warning: Reference `eq11' on page 6 undefined on input line 674.
-
-
 Overfull \hbox (21.52602pt too wide) detected at line 677
 []\OML/cmm/m/it/10 C[] \OMS/cmsy/m/n/10 ^^U []
  []
-
-
-LaTeX Warning: Reference `eq10' on page 6 undefined on input line 685.
-
-
-LaTeX Warning: Reference `eq12' on page 6 undefined on input line 685.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 699--700
@@ -870,43 +668,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 701--702
 
  []
 
-[6 <./model3.pdf>]
-
-LaTeX Warning: Reference `eq11' on page 7 undefined on input line 710.
-
-
-LaTeX Warning: Reference `eq10' on page 7 undefined on input line 714.
-
-
-LaTeX Warning: Reference `eq13' on page 7 undefined on input line 714.
-
-
-LaTeX Warning: Reference `tab:template' on page 7 undefined on input line 742.
-
-
-LaTeX Warning: Reference `th:model1-lb' on page 7 undefined on input line 744.
-
-
-LaTeX Warning: Reference `th:strat1-ub' on page 7 undefined on input line 765.
-
-
-LaTeX Warning: Reference `th:model1-lb' on page 7 undefined on input line 766.
-
-
-LaTeX Warning: Reference `th:strategy2' on page 7 undefined on input line 769.
-
-
-LaTeX Warning: Citation `Graham66' on page 7 undefined on input line 770.
-
-
-LaTeX Warning: Reference `th:strategy3' on page 7 undefined on input line 773.
-
-
-LaTeX Warning: Reference `fig:Graph' on page 7 undefined on input line 787.
-
-<alpha_11.pdf, id=78, 170.6375pt x 127.47626pt>
+[6 <./model3.pdf>] <alpha_11.pdf, id=78, 170.6375pt x 127.47626pt>
 File: alpha_11.pdf Graphic file (type pdf)
- <use alpha_11.pdf>
+
+<use alpha_11.pdf>
 Package pdftex.def Info: alpha_11.pdf used on input line 820.
 (pdftex.def)             Requested size: 234.8775pt x 175.47781pt.
 
@@ -969,48 +734,41 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[9] (./final.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[9] (./final.aux) ) 
 Here is how much of TeX's memory you used:
- 5546 strings out of 493485
- 84475 string characters out of 3143526
- 158384 words of memory out of 3000000
+ 5547 strings out of 493485
+ 84489 string characters out of 3143526
+ 158766 words of memory out of 3000000
  8739 multiletter control sequences out of 15000+200000
- 44658 words of font info for 94 fonts, out of 3000000 for 9000
+ 43551 words of font info for 93 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 38i,12n,38p,640b,457s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
-mes/utmri8a.pfb>
-Output written on final.pdf (9 pages, 330714 bytes).
+ 38i,12n,38p,499b,457s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}<
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmri8a.pfb>
+Output written on final.pdf (9 pages, 329764 bytes).
 PDF statistics:
  196 PDF objects out of 1000 (max. 8388607)
  146 compressed objects within 2 object streams
