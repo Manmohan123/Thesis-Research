@@ -514,7 +514,7 @@ the task scheduled onto it elapses.
 \begin{proof}
   Since there are at least two tasks on the machine that executes $l$
   in \textbf{LPT-No Restriction}, there are at least $m+1$ tasks $j$
-  such that $\tilde{p_j} \geq \tilde{p_l}$. Therefore in any solution
+  such that $\tilde{p_j} \geq \tilde{p_l}$. Therefore, in any solution,
   at least one machine gets two tasks $c$ and $d$, such that $\tilde
   p_c \geq \tilde p_l$ and $\tilde p_d \geq \tilde p_l$. $C_{max}^{*}$
   must be greater than sum of the processing time of these two tasks.
@@ -576,8 +576,8 @@ Since, $\tilde p_l \geq \frac{1}{\alpha} p_l$, we have
 
 Graham's List Scheduling algorithm always has a competitive ratio
 of $2-\frac{1}{m}$. For $\alpha^2 < 2$, the \textbf{LPT-No
-  Restriction} algorithm has better approximation than List
-Scheduling. For $\alpha^2 > 2$ List Scheduling has better guarantee
+  Restriction} algorithm has a better approximation than List
+Scheduling. For $\alpha^2 > 2$, List Scheduling has better guarantee
 than the one expressed in Theorem~\ref{th:strategy2}. Since
 \textbf{LPT-No Restriction} is a variant of List Scheduling,
 the algorithm has a competitive ratio of $\min (1 +
