@@ -95,7 +95,7 @@
   online phase where the tasks are actually scheduled.
 
   For this problem we investigate three different strategies, each
-  allowing a different degree of replication of jobs: a) No
+  allowing a different degree of replication of tasks: a) No
   Replication b) Replication everywhere and c) Replication in
   groups. We propose approximation algorithms and theoretical lower
   bound on achievable approximation ratios.  This allows us to study
@@ -175,7 +175,7 @@ guarantee that one can achieve in this case. Section~\ref{sec5} takes
 the reverse case and investigates what can be achieved if the data are
 replicated everywhere, leaving the maximum flexibility at runtime. We
 investigate one algorithm in this case and analyze its performance
-guarantee. Section~\ref{sec6} investigates grouping processors
+guarantee. Section~\ref{sec6} investigates grouping machines
 together and replicating data in these groups as an intermediate
 between the previous two strategies and provide a guaranteed algorithm
 in that case. Section~\ref{sec7} summarizes the various results we
@@ -183,16 +183,16 @@ derived and study the tradeoff between performance guarantee and data
 replication.
 
 \section{Problem Definition}\label{sec2}
-Let $J$ be a set of $n$ jobs which need to be scheduled onto a set $M$
-of $m$ machines. We will use interchangeably the terms machines and
-processors. Also we will use interchangeably the terms jobs and
-tasks. We are considering the problem where the scheduler does not
+Let $J$ be a set of $n$ tasks which need to be scheduled onto a set $M$
+of $m$ machines. Notice that scheduling theory commonly use interchangeably the terms ``machines'' and
+``processors'' and the terms ``jobs'' and
+``tasks''. We are considering the problem where the scheduler does not
 know the processing time $p_j$ of task $j$ exactly before the task
 completes.  But the scheduler has access to some estimation of the
 processing time $\tilde{p_j}$ of task $j$ before making any scheduling
 decisions. We assume that the actual processing time $p_j$ of a task
 $j$ is within a multiplicative factor $\alpha$ of the estimated
-processing time $\tilde{p_j}$. $\alpha$ is a quantity known to the
+processing time $\tilde{p_j}$. (An inaccuracy of the throughput of the system leads to a multiplicative factor and that any interval of confidence of a runtime can be transformed into a value and a multiplicative error.) $\alpha$ is a quantity known to the
 scheduler. In other words the scheduler knows that:
  \begin{equation}\label{eq1}
 \frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}
@@ -244,10 +244,10 @@ NP-Hard~\cite{GareyJohnson79}. We use Graham's List Scheduling
 (LS)~\cite{Graham66} and Largest Processing Time (LPT)
 algorithms~\cite{Graham69boundson} to derive approximation ratios in
 different scenarios. The LS algorithm takes tasks one at a time and
-assigns them to the processor having the least load at that time. LS is a
+assigns them to the machine having the least load at that time. LS is a
 2-approximation algorithm and is widely used in online scheduling
 problems. LPT sorts the tasks in a non-increasing order of processing time and
-assigns them one at a time in this order to the processor with the
+assigns them one at a time in this order to the machine with the
 smallest current load. The LPT algorithm has a worst case approximation
 ratio of $\frac{4}{3}-\frac{1}{3m}$ in the offline setting. One can
 even obtain an arbitrarily good approximation algorithm for this problem by increasing
@@ -284,7 +284,7 @@ using a single machine. Davenport, Gefflot, and Bek analyzed slack
 based technique (adding extra idle time) to cope with
 uncertainty~\cite{Davenport_slack-basedtechniques}. Gatto and Widmayer
 derives bounds on competitive ratio of Graham’s online algorithm in
-scenario where processing times of jobs either increase or decrease
+scenario where processing times of tasks either increase or decrease
 arbitrarily due to perturbations~\cite{Gatto07}.  These works
 considered augmenting or decreasing of job processing times as
 different problem scenario that need to be optimized. We 
@@ -305,7 +305,7 @@ service and minimize the memory occupation.
 
 This section considers the situation where the data of each task is
 restricted to be on only one machine, {\em i.e.}, $\forall j, |M_j|=1$.  We
-have a set $J$ of $ n$ jobs, and a set $M$ of $m$ machines.  Let $f :
+have a set $J$ of $n$ tasks, and a set $M$ of $m$ machines.  Let $f :
 J \mapsto M$ be a function that assigns each job to exactly one
 machine. The restriction that the data of each task is deployed on a
 single machine puts all the decision in phase 1: each task can only be
@@ -330,14 +330,14 @@ scheduled on one machine in phase 2.
  
   Let us consider an instance with $\lambda m$ tasks of equal
   estimated processing time $\forall j, \tilde{p_j} = 1$. After phase
-  1, let $i$ be the most loaded processor which has $B$
+  1, let $i$ be the most loaded machine which has $B$
   tasks. Obviously, $B \geq \lambda$. In phase 2 the adversary
-  increases the processing time of the tasks on processor $i$ by a
+  increases the processing time of the tasks on machine $i$ by a
   factor of $\alpha$ and changes the processing time of the other
   tasks by a factor of $\frac{1}{\alpha}$. So, $ C_{max}$ = $\alpha
   B$. ${C^{*}_{max}}$ will be no worse than any feasible solution. In
-  particular, the solution that distributes equally the jobs of size
-  $\alpha$ and the jobs of size $\frac{1}{\alpha}$. Therefore
+  particular, the solution that distributes equally the tasks of size
+  $\alpha$ and the tasks of size $\frac{1}{\alpha}$. Therefore
   ${C^{*}_{max}} \leq \frac{1}{\alpha }\ceil {\frac{\lambda m - B
     }{m}}+ \alpha\ceil{\frac{B}{m}} $.  Figure~\ref{fig:rara} depicts
   the online solution and the offline optimal. We have,
@@ -379,7 +379,7 @@ scheduled on one machine in phase 2.
     the processing time of a task of the most loaded machine by a factor of $\alpha$. If
     that information was available beforehand, an optimal offline
     algorithm could have distributed these longer tasks to other
-    processors.}
+    machines.}
   \label{fig:rara}
   \end{figure}
 \end{proof}    
@@ -392,12 +392,12 @@ scheduled on one machine in phase 2.
 \subsection{Algorithm}
 
 We present the algorithm \textbf{LPT-No Choice}. In phase~1, the
-algorithm distributes the data of the tasks to the processor using
+algorithm distributes the data of the tasks to the machine using
 their estimated processing times according to 
 LPT~\cite{Graham69boundson}: The tasks are sorted in non-increasing
 order of their processing time and are greedily scheduled on the
-processor that minimizes the sum of $\tilde{p_j}$ of the tasks
-already allocated on that processor. Since there is no replication, there is
+machine that minimizes the sum of $\tilde{p_j}$ of the tasks
+already allocated on that machine. Since there is no replication, there is
 no decision to take in phase~2.
 
 The performance of the algorithm depends mostly on how much the actual
@@ -412,7 +412,7 @@ The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\al
 \end{theorem} 
 
 \begin{proof}
-  The algorithm assigns the jobs to processors based on their
+  The algorithm assigns the tasks to machines based on their
   estimated processing times using LPT in phase~1. So, the
   planned makespan considering the estimated processing times of tasks,
   $\tilde{C}_{max}$ have the following relation with the total
@@ -423,18 +423,18 @@ The \textbf{LPT-No Choice} has a competitive ratio of $ \frac{2\alpha^{2}m}{2\al
 \end{equation}
 
 The actual makespan of a schedule, $C_{max}$, obtained using the
-actual processing times of all the jobs, must be smaller than $C_{max} \leq \alpha
+actual processing times of all the tasks, must be smaller than $C_{max} \leq \alpha
 \tilde C_{max}$ (thanks to Equation~\ref{eq1}). We
 have following inequality:
 \begin{equation}\label{eq3}
   C_{max}\leq \alpha \tilde C_{max}\leq \alpha \left ( \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m} \right )
 \end{equation} 
 
-The worst case situation is when the tasks of the processor where the
+The worst case situation is when the tasks of the machine where the
 sum of estimated processing time is $\tilde C_{max}$ sees the actual
 processing time of its tasks being $\alpha$ times larger than their
 estimate; meanwhile the processing time of the tasks on the rest of the
-processors is $\frac{1}{\alpha}$ times their estimation. The argument
+machines is $\frac{1}{\alpha}$ times their estimation. The argument
 behind this statement is that greater the value of ratio
 $\frac{C_{max}}{\sum{p_j}}$, the worse the algorithm approximation
 ratio will be. So the total actual processing time is
@@ -464,14 +464,14 @@ Substituting for  $ \sum {p_j}$, we have
   m C_{max}^{*}\geq \frac{m-1}{\alpha } \left( \tilde{C_{max}} - \tilde{ p_l} \right) + {C_{max}}
  \end{equation}
  
- All the instances where there is only one task per processor are always
+ All the instances where there is only one task per machine are always
  optimal. Therefore, we can restrict our analysis without loss of
- generality to instances with at least two jobs per processor. (Notice
+ generality to instances with at least two tasks per machine. (Notice
  that in the original proof of Graham's LPT~\cite{Graham69boundson},
  an argument is made that all instances with two tasks per machine are
  optimal. However, the argument does not port in our case where only
- estimated processing times are known.) For at least two jobs on the
- processor that reaches $\tilde{C}_{max}$, the (estimated)
+ estimated processing times are known.) For at least two tasks on the
+ machine that reaches $\tilde{C}_{max}$, the (estimated)
  processing time of last job is smaller than half the estimated
  makespan, $\tilde{p_l} \leq \frac{\tilde{C}_{max}}{2}$. Substituting
  this expression in the above equation, we have
@@ -501,8 +501,8 @@ the Longest Processing Time algorithm (LPT) in an online fashion using
 the estimated processing time of the task. That is to say, the tasks
 are sorted in non-increasing order of their estimated processing
 time. Then the task are greedily allocated on the first
-processor that becomes available. Note that this is done in phase~2,
-the processor become available when the actual processing time of
+machine that becomes available. Note that this is done in phase~2,
+the machine become available when the actual processing time of
 the task scheduled onto it elapses.
 
 \begin{lemma}\label{No Restriction}
@@ -588,20 +588,20 @@ the algorithm has a competitive ratio of $\min (1 +
 \section{Strategy 3: Replication in groups}\label{sec6}
 
 
-This strategy partitions the processors into $k$ groups
+This strategy partitions the machines into $k$ groups
 $G1$,$G2$...$Gk$. The size of each group is equal and have
-$\frac{m}{k}$ processors within each group. For the sake of
+$\frac{m}{k}$ machines within each group. For the sake of
 simplicity, we assume that we will only use values of $k$ such that
 $k$ divides $m$. In the first phase, the data of each task is
-replicated on all the processors of one of the $k$ groups,
+replicated on all the machines of one of the $k$ groups,
 {\em i.e.}, $\forall j, |M_j|= \frac{m}{k}$. In the second phase the tasks
 are scheduled within the group they are assigned to in first phase.
 Figure~\ref{fig:Model 3} shows the construction of the two phases.
 
 We propose the \textbf{LS-Group} algorithm which is based on Graham's
 List Scheduling algorithm. In phase 1, we use List Scheduling to
-distribute the tasks to the $k$ groups of processors. In phase 2 each
-task is scheduled to a particular processor within the group it was
+distribute the tasks to the $k$ groups of machines. In phase 2 each
+task is scheduled to a particular machine within the group it was
 allocated in phase 1 using the online List Scheduling algorithm.
 
 \begin{figure*}[htp] 
@@ -862,7 +862,7 @@ and when it is large, the problem converges to the non-clairvoyant
 online problem. Having a clearer idea of where the boundary is will
 certainly prove useful in understanding how much can be gained using
 data replication. Also, while replicating data using groups of
-processors proved effective, more general replication policies can
+machines proved effective, more general replication policies can
 certainly lead to better guarantees.
 
 Though, we assumed that every tasks were replicated the same amount of
