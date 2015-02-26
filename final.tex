@@ -255,19 +255,19 @@ its complexity with a dual approximation
 algorithm~\cite{Hoch87}.
 
 
-Based on various models for describing the uncertain input parameter,
+Based on various models for describing the uncertain input parameters,
 various methodologies can be used including reactive, stochastic,
 fuzzy and robust approach~\cite{DBLP:journals/cce/LiI08}. We are using
 the bounded uncertainty model which assumes that an input parameter
-have value between a lower and upper bound.  Wierman and
+has a value between a lower and upper bound.  Wierman and
 Nuyens~\cite{conf/sigmetrics/WiermanN08} introduce SMART, a
 classification to understand size-based policies and draw analytic
 co-relation between response time and estimated job size in single
 server problem. Robust approaches to deal with uncertainty are widely
 used on MapReduce
-systems~\cite{Kavulya:2010:ATP:1844765.1845224}~\cite{Verma:2011:AAR:1998582.1998637},
+systems~\cite{Kavulya:2010:ATP:1844765.1845224,Verma:2011:AAR:1998582.1998637},
 in
-Hadoop~\cite{Wolf:2010:FSA:2023718.2023720}~\cite{White:2009:HDG:1717298},
+Hadoop~\cite{Wolf:2010:FSA:2023718.2023720,White:2009:HDG:1717298},
 on databases~\cite{Lipton199518} and on web
 servers~\cite{Cardellini99dynamicload}. The HSFS and FLEX schedulers
 provide robustness in scheduling against uncertain job
@@ -283,18 +283,18 @@ Kouvelis~\cite{citeulike:8334169} used them to optimize the flow-time
 using a single machine. Davenport, Gefflot, and Bek analyzed slack
 based technique (adding extra idle time) to cope with
 uncertainty~\cite{Davenport_slack-basedtechniques}. Gatto and Widmayer
-derives bounds on competitive ratio of Graham’s online algorithm in
-scenario where processing times of tasks either increase or decrease
+derive bounds on competitive ratio of Graham’s online algorithm in
+scenarios where the processing times of tasks either increase or decrease
 arbitrarily due to perturbations~\cite{Gatto07}.  These works
 considered augmenting or decreasing of job processing times as
-different problem scenario that need to be optimized. We 
+different problem scenarios that need to be optimized. We 
 approach the problem using worst case analysis where some tasks may
 increase and some may decrease within the same schedule.
   
 Data placement and replication methodologies are highly used in
 distributed systems including peer-to-peer and Grid systems to achieve
 effective data management and improve
-performance~\cite{Cirne2007213}\cite{Abawajy}\cite{4215379}. Tse~\cite{DBLP:journals/tc/Tse12}
+performance~\cite{Cirne2007213,Abawajy,4215379}. Tse~\cite{DBLP:journals/tc/Tse12}
 used selective replication of documents to increase the available
 bandwidth to serve files using web servers and study the problem
 through bi-criteria optimization techniques to maximize the quality of
