@@ -1,0 +1,332 @@
+\documentclass[usenames,dvipsnames]{beamer}
+
+
+\usepackage{soul}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage{subfigure}
+
+
+
+
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{verbatim}
+
+
+%\usepackage{algorithm}
+%\usepackage[noend]{algpseudocode}
+
+
+\usepackage[ruled,vlined]{algorithm2e}
+
+\usepackage{float}
+
+%\usetheme{Columbus}
+\usetheme{Madrid}
+ \setbeamertemplate{navigation symbols}{}
+ \setbeamercovered{transparent}
+
+\newcommand{\card}[1]{\ensuremath{|#1|}}
+\newcommand{\union}{\ensuremath{\cup}}
+
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+
+\usealerttemplate{\color{red}\bf}{}
+
+\graphicspath{{fig/}}
+
+\title[Uncertain Scheduling]{Replicated Data Placement for Uncertain Scheduling}
+
+\date[APDCM 2015]{APDCM 2015\\May 25th}
+
+\author[Erik Saule]{ Manmohan Chaubey$^1$,{\bf Erik Saule}$^1$}
+ 
+\institute[UNCC]{ mchaubey@uncc.edu, esaule@uncc.edu\\
+  $^1$ University of North Carolina at Charlotte, Computer Science
+}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents[subsectionstyle=hide/hide/hide]
+\end{frame}
+
+\section{Introduction}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection,subsectionstyle=hide/hide/hide]
+  \end{frame}
+}
+
+\subsection{Motivation}
+
+\begin{frame}
+  \frametitle{Uncertainty in Scheduling}
+
+  \begin{itemize}
+  \item Scheduling is a common tool to manage load balance
+  \item Make many assumption
+    \begin{itemize}
+    \item Release date are known (offline/online), or release ``rates''
+    \item All machines are the same (or predictabily heterogeneous)
+    \item Processing times are known
+    \end{itemize}
+  \item All of these assumption are typically incorrect
+    \begin{itemize}
+    \item Release dates are unknown, release rates are not ``constant''
+    \item Machines slightly differ
+    \item Processing times are either unknown or estimated
+    \end{itemize}
+  \end{itemize}
+
+  \pause
+
+  \begin{center}
+    \Large How can scheduling account for this?
+  \end{center}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data Placement}
+  
+  \begin{itemize}
+  \item If there was cost-free migration, many techniques apply:
+    \begin{itemize}
+    \item Having a shared work queue
+    \item Workstealing
+    \end{itemize}
+  \item Data locality makes the difference
+    \begin{itemize}
+      \item If you do not have the data, you can not compute
+      \item You need to access them somehow
+    \end{itemize}
+  \item In many applications tasks are ``pinned'' to a particular machine
+    \begin{itemize}
+    \item with dynamic data (i.e. Particle in Cell) little can be done
+    \item opportunities with static data (Hadoop, DOoC+LAF, Out of Core)
+    \end{itemize}
+  \end{itemize}
+
+  \pause
+  
+  \begin{block}{This paper}
+    \begin{itemize}
+    \item Where to place the (mostly static) data to manage uncertainty?
+    \item Can replicating the data of some tasks help ?
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\section{Model}
+
+\subsection{Notations}
+
+\begin{frame}
+  \frametitle{Notations}
+
+
+  one more slide to justify $\alpha$?
+\end{frame}
+
+
+\subsection{2 Phases Algorithms}
+
+\begin{frame}
+  \frametitle{2 Phases Algorithms}
+
+
+  Note: Other kinds might be better
+\end{frame}
+
+
+\section{Strategy 1: No Replication}
+
+\subsection{Lower Bound}
+
+\begin{frame}
+  \frametitle{No better than $\alpha^2$}
+
+  picture
+\end{frame}
+
+\subsection{LPT-No choice}
+
+\begin{frame}
+  \frametitle{LPT-No choice}
+
+  \begin{block}{Algorithm}
+  \end{block}
+
+  \begin{block}{LPT-No choice is a foo competitive algorithm}
+  \end{block}
+\end{frame}
+
+\section{Strategy 2: Replicate Everywhere}
+
+\subsection{LPT-No Restriction}
+
+\begin{frame}
+  \frametitle{LPT-No Restriction}
+
+  \begin{block}{Algorithm}
+  \end{block}
+  
+  \begin{block}{LPT-No Restriction is a foo competitive algorithm}
+  \end{block}  
+\end{frame}
+
+\section{Strategy 3: Replicate in Groups}
+
+\subsection{LS-Groups}
+
+\begin{frame}
+  \frametitle{LS groups}
+
+  \begin{block}{Algorithm}
+    Phase 1:
+    \begin{itemize}
+    \item Partition the machines in $k$ groups
+    \item Allocate the task to the groups with List Scheduling
+    \item Replicate the data of each task on all the groups it is allocated to
+    \end{itemize}
+    
+    Phase 2:
+    \begin{itemize}
+    \item Use List Scheduling in each group
+    \end{itemize}    
+  \end{block}
+  
+  \includegraphics[width=\textwidth]{figs/model3.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{LS groups is $ \frac{k\alpha^{2}}{\alpha^{2}+k-1} (1+
+  {\frac{k-1}{m}} ) + \frac{m-k}{m}$-competitive}
+
+\end{frame}
+
+
+
+\section{Conclusion}
+
+\subsection{Summary}
+
+\begin{frame}
+  \frametitle{All results}
+  
+  \begin{center}
+
+    \begin{tabular}{|l|c|c|c|c|c|}
+      \hline
+      Replication & Approximation ratio  \\
+      \hline
+      $|M_j|=1$ & $\frac{C_{max}}{C_{max}^{*}}\leq \frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$ \\
+      & No approximation better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$  \\
+      
+      \hline
+      $|M_j|=m$ & $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m})\frac{\alpha^{2}}{2}$  \\
+      & $\frac{C_{max}}{C_{max}^{*}} \leq 2-\frac{1}{m}$ [Graham66]   \\
+      \hline
+      
+      $|M_j|= \frac{m}{k} $ & $\frac{C_{max}}{C_{max}^{*}} \leq \frac{k\alpha^{2}}{\alpha^{2}+k-1} \left(1+ {\frac{k-1}{m}} \right)+ {\frac{m-k}{m}}$ \\
+      
+      \hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{All results - With numbers}
+
+  \vspace{-1.5em}
+
+  \begin{columns}
+    \column{.4\linewidth}
+
+    \begin{center}
+      \includegraphics[width=\textwidth]{figs/alpha_11.pdf}
+      
+      {\footnotesize $m=210$, $\alpha=1.1$}
+    \end{center}
+    
+    \column{.2\linewidth}
+
+    \column{.4\linewidth}
+  
+    \begin{center}
+      \includegraphics[width=\textwidth]{figs/alpha_15.pdf}
+
+      {\footnotesize $m=210$, $\alpha=1.5$}
+    \end{center}
+    
+  \end{columns}
+
+  \vspace{-1.1em}
+
+  \begin{columns}
+    \column{.4\linewidth}
+    
+    \begin{center}
+      \includegraphics[width=\textwidth]{figs/alpha_2.pdf}
+  
+      {\footnotesize $m=210$, $\alpha=2$}
+    \end{center}
+
+    \column{.6\linewidth}
+    \begin{block}{Remarkables}
+      \begin{itemize}
+      \item Tradeoffs are found by LS-Groups
+      \item LS-Groups might benefit from LPT for low $\alpha$
+      \end{itemize}
+    \end{block}
+  \end{columns}
+  
+\end{frame}
+
+\subsection{Conclusion and Future Works}
+
+\begin{frame}
+  \frametitle{Conclusion and Future Works}
+
+  \begin{block}{Conclusion}
+    
+    What does it all mean?
+  \end{block}
+
+  \begin{block}{Future works}
+    \begin{itemize}
+      \item Can more complex strategy help?
+      \item Better lower bounds? (In particular for replicate everywhere)
+      \item Some replication are more ``expensive''.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Thank you}
+
+    \begin{block}{More information}
+    contact : esaule@uncc.edu
+    
+    visit: \url{http://webpages.uncc.edu/~esaule}
+  \end{block}
+
+\end{frame}
+
+
+\end{document}
