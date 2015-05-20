@@ -19,6 +19,7 @@
 
 %\usepackage{algorithm}
 %\usepackage[noend]{algpseudocode}
+\newcommand{\todo}[1]{{\color{red}\textbf{\hl{#1}}\xspace}}
 
 
 \usepackage[ruled,vlined]{algorithm2e}
@@ -137,18 +138,58 @@
 \begin{frame}
   \frametitle{Notations}
 
-
-  one more slide to justify $\alpha$?
+  \begin{block}{Model}
+    \begin{itemize}
+    \item $m$ machines
+    \item $n$ tasks
+    \item Estimated processing time $\tilde{p}_j$
+    \item Imprecision factor $\alpha \geq 1$
+    \item Real (unknown) processing time $p_j$ such that $\frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}$
+    \end{itemize}
+  \end{block}
+  
+  \begin{block}{Is $\alpha$ reasonable?}
+    Depends on where the uncertainty comes from
+    \begin{itemize}
+    \item Variability in processing power (cloud allocation)
+    \item Models often predicts range of performance (SpMV out of nnz)
+    \item Guesses in predicted performance
+    \item System jitter
+    \end{itemize}
+  \end{block}
+  
 \end{frame}
-
 
 \subsection{2 Phases Algorithms}
 
 \begin{frame}
-  \frametitle{2 Phases Algorithms}
+  \frametitle{A Two Sided Problem}
 
+  \begin{block}{Scheduling model}
+    \begin{itemize}
+    \item Phase 1: Offline data placement
+      \begin{itemize}
+      \item The algorithm decides where each task data will be
+        replicated
+      \item Purely offline and only uses processing time estimates $\tilde{p}_j$
+      \end{itemize}
+    \item Phase 2: Online semi clairvoyant scheduling
+      \begin{itemize}
+      \item A task can only be scheduled where its data are available
+      \item Scheduling happens based on estimate $\tilde{p}_j$
+      \item The actual processing time $p_j$ is only known when the task completes
+      \end{itemize}
+    \end{itemize}
 
-  Note: Other kinds might be better
+    Applications: all large data iterative problems
+  \end{block}
+  
+  \begin{block}{Goals}
+    \begin{itemize}
+    \item Minimize replication
+    \item Minimize makespan
+    \end{itemize}
+  \end{block}
 \end{frame}
 
 
@@ -159,7 +200,7 @@
 \begin{frame}
   \frametitle{No better than $\alpha^2$}
 
-  picture
+  \todo{picture}
 \end{frame}
 
 \subsection{LPT-No choice}
@@ -168,9 +209,19 @@
   \frametitle{LPT-No choice}
 
   \begin{block}{Algorithm}
+    Phase 1:
+    \begin{itemize}
+    \item Distribute the data to a single machine
+    \item Using List Scheduling on estimated processing times $\tilde{p}_j$
+    \end{itemize}
+    Phase 2:
+    \begin{itemize}
+    \item Schedule tasks in any order where they are pinned
+    \end{itemize}
   \end{block}
 
-  \begin{block}{LPT-No choice is a foo competitive algorithm}
+  \begin{block}{LPT-No choice is $\frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$-competitive}
+    \todo{proof}
   \end{block}
 \end{frame}
 
@@ -182,9 +233,19 @@
   \frametitle{LPT-No Restriction}
 
   \begin{block}{Algorithm}
+    Phase 1:
+    \begin{itemize}
+    \item Replicate all tasks on all machines
+    \end{itemize}
+    Phase 2:
+    \begin{itemize}
+    \item Sort task in decreasing estimated processing time $\tilde{p}_j$
+    \item Schedule tasks online as soon as possible
+    \end{itemize}
   \end{block}
   
-  \begin{block}{LPT-No Restriction is a foo competitive algorithm}
+  \begin{block}{LPT-No Restriction is $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m}) \frac{\alpha^{2}}{2}$-competitive}
+    \todo{proof}
   \end{block}  
 \end{frame}
 
@@ -214,7 +275,9 @@
 
 \begin{frame}
   \frametitle{LS groups is $ \frac{k\alpha^{2}}{\alpha^{2}+k-1} (1+
-  {\frac{k-1}{m}} ) + \frac{m-k}{m}$-competitive}
+    \frac{k-1}{m} ) + \frac{m-k}{m}$-competitive }
+  
+  \todo{proof}
 
 \end{frame}
 
@@ -302,15 +365,17 @@
   \frametitle{Conclusion and Future Works}
 
   \begin{block}{Conclusion}
+
+    \todo{ccl}
     
     What does it all mean?
   \end{block}
 
   \begin{block}{Future works}
     \begin{itemize}
-      \item Can more complex strategy help?
-      \item Better lower bounds? (In particular for replicate everywhere)
-      \item Some replication are more ``expensive''.
+    \item Can more complex strategy help?
+    \item Better lower bounds? (In particular for replicate everywhere)
+    \item Some replication are more ``expensive''
     \end{itemize}
   \end{block}
 \end{frame}
