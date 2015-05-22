@@ -95,7 +95,9 @@
   \pause
 
   \begin{center}
-    \Large How can scheduling account for this?
+    {\Large How can scheduling account for this?}
+
+    Ready to simply the problem for the investigation
   \end{center}
   
 \end{frame}
@@ -148,6 +150,8 @@
     \end{itemize}
   \end{block}
   
+  \pause
+
   \begin{block}{Is $\alpha$ reasonable?}
     Depends on where the uncertainty comes from
     \begin{itemize}
@@ -400,6 +404,7 @@
       \begin{itemize}
       \item Tradeoffs are found by LS-Groups
       \item LS-Groups might benefit from LPT for low $\alpha$
+      \item Replication allows to guarantee better than no replication lower bound
       \end{itemize}
     \end{block}
   \end{columns}
@@ -411,18 +416,23 @@
 \begin{frame}
   \frametitle{Conclusion and Future Works}
 
-  \begin{block}{Conclusion}
-
-    \todo{ccl}
-    
-    What does it all mean?
+  \begin{block}{Conclusion (aka What does it all mean?)}
+    \begin{itemize}
+    \item Identified a new lower bound for the problem and provided guaranteed algorithms
+    \item The algorithm can leverage the tradeoff between replication and load balance guarantee
+    \item Imbalance caused by uncertainty can be fought by enabling tasks to execute on more machines
+    \item Even few replication can alleviate the problem cause by uncertainity on load balance 
+    \end{itemize}
   \end{block}
+
+  \pause
 
   \begin{block}{Future works}
     \begin{itemize}
     \item Can more complex strategy help?
     \item Better lower bounds? (In particular for replicate everywhere)
     \item Some replication are more ``expensive''
+    \item In brief, look at more realistic models
     \end{itemize}
   \end{block}
 \end{frame}
