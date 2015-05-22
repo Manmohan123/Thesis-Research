@@ -198,9 +198,19 @@
 \subsection{Lower Bound}
 
 \begin{frame}
-  \frametitle{No better than $\alpha^2$}
+  \frametitle{No better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1} \approx \alpha^2$}
 
-  \todo{picture}
+  \begin{itemize}
+  \item The adversary sends tasks of identical size
+  \item The adversary identifies the most loaded processor in the solution
+  \item The tasks on the most loaded processor are increased by $\alpha$
+  \item Other are shrunk by $\alpha$
+  \item The best algorithm will balance the tasks
+  \end{itemize}
+  
+  \begin{center}
+    \includegraphics[width=.6\linewidth]{figs/model1.pdf}
+  \end{center}
 \end{frame}
 
 \subsection{LPT-No choice}
