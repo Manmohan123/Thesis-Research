@@ -209,10 +209,9 @@
   \frametitle{LPT-No choice}
 
   \begin{block}{Algorithm}
-    Phase 1:
+    Phase 1: (Distribute the data to a single machine)
     \begin{itemize}
-    \item Distribute the data to a single machine
-    \item Using List Scheduling on estimated processing times $\tilde{p}_j$
+    \item Use Largest Processing Time on estimated processing times $\tilde{p}_j$
     \end{itemize}
     Phase 2:
     \begin{itemize}
@@ -220,8 +219,19 @@
     \end{itemize}
   \end{block}
 
+  \pause
+
   \begin{block}{LPT-No choice is $\frac{2\alpha^{2}m}{2\alpha^{2}+ m-1}$-competitive}
-    \todo{proof}
+    \begin{itemize}
+    \item List Scheduling on estimated processing time:
+      $\tilde C_{max}\leq  \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m}$
+    \item Increase critical tasks: $C_{max}\leq \alpha \tilde C_{max}\leq \alpha \left ( \frac{\sum{\tilde p_j + (m-1) \tilde p_l} }{m} \right )$
+    \item Shrink non critical tasks: $ \sum {p_j} = \frac{\sum \tilde{p_j}- \tilde{C_{max}}}{\alpha} + \alpha \tilde C_{max}$
+    \item Perfect balance condition: $m C_{max}^{*}\geq \frac{m-1}{\alpha m} \left( \sum \tilde p_j - \tilde{p_l} \right) + {C_{max}}$
+
+    \item LPT guarantees $\sum \tilde p_j-\tilde p_l \geq m (\tilde C_{max}-\tilde p_l)$ and $\tilde{p_l} \leq \frac{\tilde{C}_{max}}{2}$
+    \end{itemize}
+    
   \end{block}
 \end{frame}
 
@@ -244,8 +254,15 @@
     \end{itemize}
   \end{block}
   
-  \begin{block}{LPT-No Restriction is $\frac{C_{max}}{C_{max}^{*}} \leq 1 + (\frac{m-1}{m}) \frac{\alpha^{2}}{2}$-competitive}
-    \todo{proof}
+  \pause
+
+  \begin{block}{LPT-No Restriction is $\min(2-\frac{1}{m}, 1 + (\frac{m-1}{m}) \frac{\alpha^{2}}{2})$-competitive}
+    \begin{itemize}
+    \item By property of List Scheduling : $C_{max} \leq  \frac{\sum {p_j}}{m} + \frac{(m-1)}{m}p_l$
+    \item Lower bound: $C_{max}^{*}\geq\frac{\sum p_j}{m}$
+    \item Ratio: $\frac{C_{max}}{C_{max}^{*}} \leq 1 + {\frac{m-1}{m}}\left(\frac{p_l}{C_{max}^{*}}\right)$
+    \item If there are two tasks on the most loaded machine then $C_{max}^* \geq {\frac{2}{\alpha^{2}}} p_l$
+    \end{itemize}
   \end{block}  
 \end{frame}
 
@@ -277,8 +294,28 @@
   \frametitle{LS groups is $ \frac{k\alpha^{2}}{\alpha^{2}+k-1} (1+
     \frac{k-1}{m} ) + \frac{m-k}{m}$-competitive }
   
-  \todo{proof}
+  
+  \begin{itemize}
+  \item Without loss of generality, Group 1 is most loaded
+  \item Lower bound can be written as:
+    $C_{max}^{*} \geq  \frac{\sum_{j \in G1 }^{}{{p_{j}}}+ \sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}}}{m}$
+  \item List scheduling in phase 2: $C_{max} \leq \frac{\sum_{j \in G1 }^{}{{p_{j}}}}{m/k} + {\frac{m/k-1}{m/k}} p_{max}$
+  \item Almost balanced at the end of phase 1: $\left | (k-1)\sum_{j \in G1 }^{}{\tilde p_{j}}- \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}} \right | \leq (k-1) {max_{j \in J}}{\tilde p_{j}}$
+  \pause
+  \item Case 1: $(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}} >
+  \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}$
+    \begin{itemize}
+      \item Quality of the estimation: $\sum_{l=2}^{k}\sum_{j \in Gl }^{}{{p_{j}}} \geq (k-1) \left(\frac{1}{\alpha^{2}}\sum_{j \in G1 }^{}{{p_{j}}}-  {max_{j \in J}}{{p_{j}}} \right)$
+      \item Mashing all together
+    \end{itemize}
+    \pause
+  \item Case 2: $(k-1)\sum_{j \in G1 }^{}{\tilde p_{j}} \leq \sum_{l=2}^{k}\sum_{j \in Gl }^{}{\tilde p_{j}}$
+    \begin{itemize}
+    \item Quality of the estimation : $\sum_{l=2}^{k}\sum_{j \in Gl }^{}{ p_{j}} \geq \frac{1}{\alpha^2} (k-1)\sum_{j \in G1 }^{}{ p_{j}}$
+    \item Mashing all together
+    \end{itemize}
 
+  \end{itemize}
 \end{frame}
 
 
