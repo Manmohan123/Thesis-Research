@@ -78,13 +78,13 @@
 
   \begin{itemize}
   \item Scheduling is a common tool to manage load balance
-  \item Make many assumption
+  \item Often make many assumptions
     \begin{itemize}
     \item Release date are known (offline/online), or release ``rates''
     \item All machines are the same (or predictabily heterogeneous)
     \item Processing times are known
     \end{itemize}
-  \item All of these assumption are typically incorrect
+  \item All of these assumptions are typically incorrect
     \begin{itemize}
     \item Release dates are unknown, release rates are not ``constant''
     \item Machines slightly differ
@@ -97,7 +97,7 @@
   \begin{center}
     {\Large How can scheduling account for this?}
 
-    Ready to simply the problem for the investigation
+    Ready to simplify the problem for the investigation
   \end{center}
   
 \end{frame}
@@ -146,7 +146,7 @@
     \item $n$ tasks
     \item Estimated processing time $\tilde{p}_j$
     \item Imprecision factor $\alpha \geq 1$
-    \item Real (unknown) processing time $p_j$ such that $\frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}$
+    \item Real (unknown) processing time $p_j$ are such that $\frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}$
     \end{itemize}
   \end{block}
   
@@ -179,7 +179,7 @@
       \end{itemize}
     \item Phase 2: Online semi clairvoyant scheduling
       \begin{itemize}
-      \item A task can only be scheduled where its data are available
+      \item A task can only be scheduled where its data is available
       \item Scheduling happens based on estimate $\tilde{p}_j$
       \item The actual processing time $p_j$ is only known when the task completes
       \end{itemize}
@@ -208,7 +208,7 @@
   \item The adversary sends tasks of identical size
   \item The adversary identifies the most loaded processor in the solution
   \item The tasks on the most loaded processor are increased by $\alpha$
-  \item Other are shrunk by $\alpha$
+  \item Others are shrunk by $\alpha$
   \item The best algorithm will balance the tasks
   \end{itemize}
   
@@ -263,7 +263,7 @@
     \end{itemize}
     Phase 2:
     \begin{itemize}
-    \item Sort task in decreasing estimated processing time $\tilde{p}_j$
+    \item Sort tasks in non-increasing estimated processing time $\tilde{p}_j$
     \item Schedule tasks online as soon as possible
     \end{itemize}
   \end{block}
@@ -368,7 +368,7 @@
   \vspace{-1.5em}
 
   \begin{columns}
-    \column{.4\linewidth}
+    \column{.49\linewidth}
 
     \begin{center}
       \includegraphics[width=\textwidth]{figs/alpha_11.pdf}
@@ -376,38 +376,36 @@
       {\footnotesize $m=210$, $\alpha=1.1$}
     \end{center}
     
-    \column{.2\linewidth}
+    \column{.49\linewidth}
 
-    \column{.4\linewidth}
+    % \column{.4\linewidth}
   
-    \begin{center}
-      \includegraphics[width=\textwidth]{figs/alpha_15.pdf}
+    % \begin{center}
+    %   \includegraphics[width=\textwidth]{figs/alpha_15.pdf}
 
-      {\footnotesize $m=210$, $\alpha=1.5$}
-    \end{center}
-    
-  \end{columns}
+    %   {\footnotesize $m=210$, $\alpha=1.5$}
+    % \end{center}
 
-  \vspace{-1.1em}
-
-  \begin{columns}
-    \column{.4\linewidth}
-    
     \begin{center}
       \includegraphics[width=\textwidth]{figs/alpha_2.pdf}
   
       {\footnotesize $m=210$, $\alpha=2$}
     \end{center}
 
-    \column{.6\linewidth}
+
+    
+  \end{columns}
+
+%  \vspace{-1.1em}
+
     \begin{block}{Remarkables}
       \begin{itemize}
       \item Tradeoffs are found by LS-Groups
       \item LS-Groups might benefit from LPT for low $\alpha$
+      \item Few replication can make a large difference
       \item Replication allows to guarantee better than no replication lower bound
       \end{itemize}
     \end{block}
-  \end{columns}
   
 \end{frame}
 
@@ -421,7 +419,7 @@
     \item Identified a new lower bound for the problem and provided guaranteed algorithms
     \item The algorithm can leverage the tradeoff between replication and load balance guarantee
     \item Imbalance caused by uncertainty can be fought by enabling tasks to execute on more machines
-    \item Even few replication can alleviate the problem cause by uncertainity on load balance 
+    \item Even few replications can alleviate the problem cause by uncertainty on load balance 
     \end{itemize}
   \end{block}
 
