@@ -149,13 +149,13 @@ linear algebra, executing a task where the data are not locally
 available would have a prohibitive
 overhead~\cite{Zhou12-Cluster,Zhou12-P2S2}.
 
-One approach for dealing with the uncertainty of processing times is to
-build a robust schedule~\cite{cj09c,Gatto07,
-  Davenport_slack-basedtechniques}, that is, building a schedule that
-can naturally cope with variations in the processing times. These
-techniques often use sensitivity analysis to determine the robustness
-of the schedule. However, a better approach would be to be able to
-dynamically change the schedule. 
+One approach for dealing with the uncertainty of processing times is
+to build a robust
+schedule~\cite{cj09c,Gatto07,Davenport_slack-basedtechniques}, that
+is, building a schedule that can naturally cope with variations in the
+processing times. These techniques often use sensitivity analysis to
+determine the robustness of the schedule. However, a better approach
+would be to be able to dynamically change the schedule.
 
 The idea we are pursuing in this paper is to replicate the input data
 of the tasks onto multiple machines. This way, when the actual
@@ -189,59 +189,7 @@ in that case. Section~\ref{sec7} summarizes the various results we
 derived and study the tradeoff between performance guarantee and data
 replication.
 
-\section{Problem Definition}\label{sec2}
-Let $J$ be a set of $n$ tasks which need to be scheduled onto a set $M$
-of $m$ machines. Notice that scheduling theory commonly use interchangeably the terms ``machines'' and
-``processors'' and the terms ``jobs'' and
-``tasks''. We are considering the problem where the scheduler does not
-know the processing time $p_j$ of task $j$ precisely before the task
-completes.  But the scheduler has access to some estimation of the
-processing time $\tilde{p_j}$ of task $j$ before making any scheduling
-decisions. We assume that the actual processing time $p_j$ of a task
-$j$ is within a multiplicative factor $\alpha$ of the estimated
-processing time $\tilde{p_j}$. (An inaccuracy of the throughput of the system leads to a multiplicative error and any interval of confidence of a runtime can be transformed into a value and a multiplicative error.) $\alpha$ is a quantity known to the
-scheduler. In other words the scheduler knows that:
- \begin{equation}\label{eq1}
-\frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}
-\end{equation}
-
-Assuming that the processing time of the tasks is known to be in an
-interval is reasonable in many application scenarios. One could derive
-bounds experimentally using machine learning techniques: for
-instance~\cite{You14-ICPP} used Support Vector Machines to predict the time it
-will take to run graph traversal algorithms. Models of runtime of
-algorithms can also be derived analytically:
-in~\cite{Erlebacher14-ICS} the authors provide bounds for the
-performance of various sparse linear algebra operations using only the
-size of the matrices and vectors involved.
-
-
-Scheduling for this problem is performed in two phases. Phase 1
-chooses where data are replicated using the estimated processing time
-$\tilde p_j $, for each of the task $j$. The phase takes
-$\tilde{p_j}$, $m$ and $\alpha$ as inputs and outputs sets of machines,
-$M_j \subseteq M $ where each task $j$ can be scheduled. This phase is
-purely offline and corresponds to the operations performed to prepare
-the execution of the application.
-
-Phase 2 takes the output of phase 1 as its input and maps each task $j$
-to a machine within the set of machines $M_j$. For each machine $i$,
-let $E_i \subseteq J$ be the set of tasks assigned to machine
-$i$. This phase chooses the actual schedule following an online
-semi-clairvoyant process. Only the approximate processing time is
-known when a task is placed, but the scheduler can wait for a machine
-to become idle, to place the next one. Therefore, it can dynamically
-schedule the tasks and the actual processing time of the tasks are
-known once they complete.
-
-The problem is to optimize the makespan, $C_{max} = \max_i \sum_{j \in
-  E_i} p_j$ which is the completion time of the last task of the
-system. $C_{max}^{*}$ denotes the optimal makespan of an instance of
-the problem (knowing the actual processing times). An offline algorithm is
-said to be a $\rho$-approximation algorithm (or to have an
-approximation ratio of $\rho$) if it guarantees for all the instances
-that $C_{max} \leq \rho C_{max}^*$. When the problem is online, we are
-talking about competitive ratios.
+\todo{part of these results published in APDCM}
 
 \section{Related Work}\label{sec3}
 
@@ -307,16 +255,61 @@ bandwidth to serve files using web servers and study the problem
 through bi-criteria optimization techniques to maximize the quality of
 service and minimize the memory occupation.
 
-\section{Strategy 1: No Replication}\label{sec4}
+
+\section{Problem Definition}\label{sec2}
+Let $J$ be a set of $n$ tasks which need to be scheduled onto a set $M$
+of $m$ machines. Notice that scheduling theory commonly use interchangeably the terms ``machines'' and
+``processors'' and the terms ``jobs'' and
+``tasks''. We are considering the problem where the scheduler does not
+know the processing time $p_j$ of task $j$ precisely before the task
+completes.  But the scheduler has access to some estimation of the
+processing time $\tilde{p_j}$ of task $j$ before making any scheduling
+decisions. We assume that the actual processing time $p_j$ of a task
+$j$ is within a multiplicative factor $\alpha$ of the estimated
+processing time $\tilde{p_j}$. (An inaccuracy of the throughput of the system leads to a multiplicative error and any interval of confidence of a runtime can be transformed into a value and a multiplicative error.) $\alpha$ is a quantity known to the
+scheduler. In other words the scheduler knows that:
+ \begin{equation}\label{eq1}
+\frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}
+\end{equation}
+
+Assuming that the processing time of the tasks is known to be in an
+interval is reasonable in many application scenarios. One could derive
+bounds experimentally using machine learning techniques: for
+instance~\cite{You14-ICPP} used Support Vector Machines to predict the time it
+will take to run graph traversal algorithms. Models of runtime of
+algorithms can also be derived analytically:
+in~\cite{Erlebacher14-ICS} the authors provide bounds for the
+performance of various sparse linear algebra operations using only the
+size of the matrices and vectors involved.
 
 
-This section considers the situation where the data of each task is
-restricted to be on only one machine, {\em i.e.}, $\forall j, |M_j|=1$.  We
-have a set $J$ of $n$ tasks, and a set $M$ of $m$ machines.  Let $f :
-J \mapsto M$ be a function that assigns each job to exactly one
-machine. The restriction that the data of each task is deployed on a
-single machine puts all the decisions in phase 1: each task can only be
-scheduled on one machine in phase 2.
+Scheduling for this problem is performed in two phases. Phase 1
+chooses where data are replicated using the estimated processing time
+$\tilde p_j $, for each of the task $j$. The phase takes
+$\tilde{p_j}$, $m$ and $\alpha$ as inputs and outputs sets of machines,
+$M_j \subseteq M $ where each task $j$ can be scheduled. This phase is
+purely offline and corresponds to the operations performed to prepare
+the execution of the application.
+
+Phase 2 takes the output of phase 1 as its input and maps each task $j$
+to a machine within the set of machines $M_j$. For each machine $i$,
+let $E_i \subseteq J$ be the set of tasks assigned to machine
+$i$. This phase chooses the actual schedule following an online
+semi-clairvoyant process. Only the approximate processing time is
+known when a task is placed, but the scheduler can wait for a machine
+to become idle, to place the next one. Therefore, it can dynamically
+schedule the tasks and the actual processing time of the tasks are
+known once they complete.
+
+The problem is to optimize the makespan, $C_{max} = \max_i \sum_{j \in
+  E_i} p_j$ which is the completion time of the last task of the
+system. $C_{max}^{*}$ denotes the optimal makespan of an instance of
+the problem (knowing the actual processing times). An offline algorithm is
+said to be a $\rho$-approximation algorithm (or to have an
+approximation ratio of $\rho$) if it guarantees for all the instances
+that $C_{max} \leq \rho C_{max}^*$. When the problem is online, we are
+talking about competitive ratios.
+
 
 \subsection{Lower Bound}
 
@@ -395,8 +388,21 @@ scheduled on one machine in phase 2.
   \begin{corollary}
   When $m$ goes to $\infty$ there is no online algorithm having competitive ratio better than $\alpha^{2}$.
   \end{corollary}
-  
-\subsection{Algorithm}
+
+
+\section{Algorithms for this problem}
+
+\subsection{Strategy 1: No Replication}\label{sec4}
+
+
+This section considers the situation where the data of each task is
+restricted to be on only one machine, {\em i.e.}, $\forall j, |M_j|=1$.  We
+have a set $J$ of $n$ tasks, and a set $M$ of $m$ machines.  Let $f :
+J \mapsto M$ be a function that assigns each job to exactly one
+machine. The restriction that the data of each task is deployed on a
+single machine puts all the decisions in phase 1: each task can only be
+scheduled on one machine in phase 2.
+
 
 We present the algorithm \textbf{LPT-No Choice}. In phase~1, the
 algorithm distributes the data of the tasks to the machine using
@@ -498,7 +504,7 @@ Using equation~\ref{eq3},
 \end{equation}
 \end{proof} 
 
-\section{Strategy 2: replicate data everywhere}\label{sec5}
+\subsection{Strategy 2: replicate data everywhere}\label{sec5}
 
 With this strategy, we put no restriction on phase 2. The tasks are
 replicated everywhere i.e. $\forall j, |M_{j}|=|M|$. We introduce the
@@ -592,7 +598,7 @@ the algorithm has a competitive ratio of $\min (1 +
 
 
 
-\section{Strategy 3: Replication in groups}\label{sec6}
+\subsection{Strategy 3: Replication in groups}\label{sec6}
 
 
 This strategy partitions the machines into $k$ groups
@@ -745,7 +751,7 @@ the number of machines $m$ is large and the value of $\alpha$ is
 within practical range. This indicates an LPT-based algorithm for
 strategy 3 would likely not have a much more interesting guarantee.
 
-\section{Summary}\label{sec7}
+\section{Summary of problem 1}\label{sec7}
 Table~\ref{tab:template} summarizes the results of this paper in terms
 of approximation ratios. Based on adversary technique,
 Theorem~\ref{th:model1-lb} states that there is no algorithm which can
@@ -883,8 +889,10 @@ algorithm. $SBO_\triangle$~\cite{10.1109/IPDPS.2008.4536292} is
 bi-objective algorithm for minimizing makespan and memory usage for
 independent tasks by combining results of two symmetric schedules each
 dedicated to a single objective.
-     
-\section{The $SABO_\triangle$ Algorithm}
+    
+\section{Algorithms}
+ 
+\subsection{The $SABO_\triangle$ Algorithm}
                      
 We propose $SABO_\triangle$ Algorithm which is static in nature and
 restrict each task to be scheduled to only one machine. Similar to
@@ -993,7 +1001,7 @@ In phase 2, the algorithm loads the tasks to the machines they were assigned in 
   in chapter~\ref{ch3}.
 \end{proof}    
     
-\section{The $ABO_\triangle$ Algorithm} 
+\subsection{The $ABO_\triangle$ Algorithm} 
 
 We propose a two phase algorithm. In phase 1 the algorithm assigns
 tasks to all the machines such that it minimizes both the makespan as
