@@ -1,5 +1,6 @@
  
-\documentclass[10pt, conference, compsocconf]{IEEEtran}
+%\documentclass[10pt, conference, compsocconf]{IEEEtran}
+\documentclass[twocolumn]{svjour3}
 
 
 % *** CITATION PACKAGES ***
@@ -11,7 +12,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{amsthm}
+%\usepackage{amsthm}
 \usepackage{aliascnt}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
@@ -23,9 +24,9 @@
 \usepackage{xspace}
 \usepackage{hyperref} 
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\newtheorem{lemma}[theorem]{Lemma}
 
 \newcommand{\todo}[1]{{\color{red}\textbf{\hl{#1}}\xspace}}
 
@@ -33,16 +34,16 @@
 
 % *** GRAPHICS RELATED PACKAGES ***
 % 
-\ifCLASSINFOpdf
+%\ifCLASSINFOpdf
   % \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
   % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
-\else
+%\else
  
-\fi
+%\fi
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -63,13 +64,20 @@
 
 \title{Replicated Data Placement for Uncertain Scheduling}
 
+\author{Manmohan Chaubey \and Erik Saule}
 
-\author{\IEEEauthorblockN{Manmohan Chaubey and Erik Saule }
-\IEEEauthorblockA{Department of Computer Science\\
+\institute{E. Saule \at Department of Computer Science\\
  University of North Carolina at Charlotte\\
  Charlotte, USA\\
- Email: mchaubey@uncc.edu, esaule@uncc.edu}
-}
+Tel: +1 (704) 687-8580 \\
+\email{esaule@uncc.edu}}
+
+% \author{\IEEEauthorblockN{Manmohan Chaubey and Erik Saule }
+% \IEEEauthorblockA{Department of Computer Science\\
+%  University of North Carolina at Charlotte\\
+%  Charlotte, USA\\
+%  Email: mchaubey@uncc.edu, esaule@uncc.edu}
+% }
 
 \maketitle
 
@@ -100,15 +108,11 @@
   bound on achievable approximation ratios.  This allows us to study
   the tradeoff between the number of replication and the guarantee on
   the makespan.
+
+\keywords{Scheduling \and Uncertainty \and Robustness \and Replication \and Approximation Algorithms \and Parallel System}
+
 \end{abstract}
 
-\begin{IEEEkeywords}
-Scheduling; Uncertainty; Robustness; Replication; Approximation Algorithms; Parallel System
-
-\end{IEEEkeywords}
-
-
-\IEEEpeerreviewmaketitle
 
 \section{Introduction}
 
@@ -869,7 +873,7 @@ time. A more realistic model would introduce a cost of replicating a
 task (either global or per machine). This would allow to replicate
 only some critical tasks and limit memory usage.
 
-\bibliographystyle{abbrv}
+\bibliographystyle{spmpsci}
 \bibliography{josh} 
 
 
