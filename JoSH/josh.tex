@@ -87,8 +87,10 @@ Tel: +1 (704) 687-8580 \\
 
 
 \begin{abstract}
-  Scheduling theory is a common tool to analyze the
-  performance of parallel and distributed computing systems, such as their load
+\todo{rewrite}
+
+  Scheduling theory is a common tool to analyze the performance of
+  parallel and distributed computing systems, such as their load
   balance. How to distribute the input data to be able to execute a
   set of tasks in a minimum amount of time can be modeled as a
   scheduling problem. Often these models assume that the computation
@@ -102,8 +104,8 @@ Tel: +1 (704) 687-8580 \\
   independent tasks to optimize the makespan on a parallel system
   where the processing times of the tasks are only known up to a
   multiplicative factor. The problem is decomposed in two phases: a
-  first offline phase where the data of the tasks are placed and a second
-  online phase where the tasks are actually scheduled.
+  first offline phase where the data of the tasks are placed and a
+  second online phase where the tasks are actually scheduled.
 
   For this problem we investigate three different strategies, each
   allowing a different degree of replication of tasks: a) No
@@ -113,8 +115,8 @@ Tel: +1 (704) 687-8580 \\
   the tradeoff between the number of replication and the guarantee on
   the makespan.
 
-\keywords{Scheduling \and Uncertainty \and Robustness \and Replication \and Approximation Algorithms \and Parallel System}
-
+  \keywords{Scheduling \and Uncertainty \and Robustness \and
+    Replication \and Approximation Algorithms \and Parallel System}
 \end{abstract}
 
 
@@ -168,10 +170,33 @@ faults~\cite{White:2009:HDG:1717298}. And it has been shown that
 launching the same task multiple times can help cope with hardware
 differences~\cite{DBLP:journals/corr/WangJW14} but increases resource
 usage. The cost of replicating the data might be amortized in many
-applications where the application will iterate over the data
-multiple times ({\em e.g.}, in an iterative solver~\cite{Zhou12-P2S2,Zhou12-Cluster}). In this paper, we
-answer the question ``can data replication help cope with the
-uncertainty of processing time?''  And the answer is that it can. (The technical contribution of this paper are summarized in Table~\ref{tab:template}.)
+applications where the application will iterate over the data multiple
+times ({\em e.g.}, in an iterative
+solver~\cite{Zhou12-P2S2,Zhou12-Cluster}). In this paper, we answer
+the question ``can data replication help cope with the uncertainty of
+processing time?'' by considering two different models of the cost of
+replicating tasks. Under either model, we show that replication does
+help dealing with uncertainty.
+
+In the first case, we model the cost of replication simply by allowing
+a given number of replica for each task: we will propose a lower bound
+when no replication is allowed and propose algorithms for the three
+cases where no replication is allowed, the tasks are replicated
+everywhere and the number of replica is bounded by an integer
+$k$. We introduced this model in~\cite{Chaubey2015}.
+
+In the second model, we measure the per processor cost of the tasks
+that are replicated on it. In a computer system context, placing a
+task on a processor increases the required memory of this
+processor. Rather than bounding the available memory, we treat the
+maximum memory occupation as a objective to minimize in itself. Memory
+occupation boils down to a secondary makespan objective (except it
+does not suffer from uncertainty). We investigated the memory-makespan
+tradeoff in the case of certain processing times (and no replication)
+in~\cite{SDM2008}. We analyze the non-replication algorithm
+of~\cite{SDM2008} under the uncertain processing time model. And we
+propose a new memory-aware replication algorithm that provides more
+interesting memory makespan tradeoffs.
 
 The remaining of the paper is organized as follows: we describe system
 model and notations in Section~\ref{sec2}. Related works are presented
@@ -189,25 +214,24 @@ in that case. Section~\ref{sec7} summarizes the various results we
 derived and study the tradeoff between performance guarantee and data
 replication.
 
-\todo{part of these results published in APDCM}
 
 \section{Related Work}\label{sec3}
 
-When $\alpha = 1$, the problem is exactly the classical independent
-tasks scheduling problem on identical machines, which is known to be
-NP-Hard~\cite{GareyJohnson79}. We use Graham's List Scheduling
-(LS)~\cite{Graham66} and Largest Processing Time (LPT)
+When no replication is allowed, the problem is exactly the classical
+independent tasks scheduling problem on identical machines, which is
+known to be NP-Hard~\cite{GareyJohnson79}. We use Graham's List
+Scheduling (LS)~\cite{Graham66} and Largest Processing Time (LPT)
 algorithms~\cite{Graham69boundson} to derive approximation ratios in
 different scenarios. The LS algorithm takes tasks one at a time and
-assigns them to the machine having the least load at that time. LS is a
-2-approximation algorithm and is widely used in online scheduling
-problems. LPT sorts the tasks in a non-increasing order of processing time and
-assigns them one at a time in this order to the machine with the
-smallest current load. The LPT algorithm has a worst case approximation
-ratio of $\frac{4}{3}-\frac{1}{3m}$ in the offline setting. One can
-even obtain an arbitrarily good approximation algorithm for this problem by increasing
-its complexity with a dual approximation
-algorithm~\cite{Hoch87}.
+assigns them to the machine having the least load at that time. LS is
+a 2-approximation algorithm and is widely used in online scheduling
+problems. LPT sorts the tasks in a non-increasing order of processing
+time and assigns them one at a time in this order to the machine with
+the smallest current load. The LPT algorithm has a worst case
+approximation ratio of $\frac{4}{3}$ in the offline
+setting. One can even obtain an arbitrarily good approximation
+algorithm for this problem by increasing its complexity with a dual
+approximation algorithm~\cite{Hoch87}.
 
 
 Based on various models for describing the uncertain input parameters,
@@ -256,18 +280,21 @@ through bi-criteria optimization techniques to maximize the quality of
 service and minimize the memory occupation.
 
 
-\section{Problem Definition}\label{sec2}
-Let $J$ be a set of $n$ tasks which need to be scheduled onto a set $M$
-of $m$ machines. Notice that scheduling theory commonly use interchangeably the terms ``machines'' and
-``processors'' and the terms ``jobs'' and
-``tasks''. We are considering the problem where the scheduler does not
-know the processing time $p_j$ of task $j$ precisely before the task
-completes.  But the scheduler has access to some estimation of the
-processing time $\tilde{p_j}$ of task $j$ before making any scheduling
-decisions. We assume that the actual processing time $p_j$ of a task
-$j$ is within a multiplicative factor $\alpha$ of the estimated
-processing time $\tilde{p_j}$. (An inaccuracy of the throughput of the system leads to a multiplicative error and any interval of confidence of a runtime can be transformed into a value and a multiplicative error.) $\alpha$ is a quantity known to the
-scheduler. In other words the scheduler knows that:
+\section{Problems Definition}\label{sec2}
+Let $J$ be a set of $n$ tasks which need to be scheduled onto a set
+$M$ of $m$ machines. Notice that scheduling theory commonly use
+interchangeably the terms ``machines'' and ``processors'' and the
+terms ``jobs'' and ``tasks''. We are considering the problem where the
+scheduler does not know the processing time $p_j$ of task $j$
+precisely before the task completes.  But the scheduler has access to
+some estimation of the processing time $\tilde{p_j}$ of task $j$
+before making any scheduling decisions. We assume that the actual
+processing time $p_j$ of a task $j$ is within a multiplicative factor
+$\alpha$ of the estimated processing time $\tilde{p_j}$. (An
+inaccuracy of the throughput of the system leads to a multiplicative
+error and any interval of confidence of a runtime can be transformed
+into a value and a multiplicative error.) $\alpha$ is a quantity known
+to the scheduler. In other words the scheduler knows that:
  \begin{equation}\label{eq1}
 \frac{\tilde{p}_{j}}{\alpha}\leq p_{j}\leq \alpha \tilde{p}_{j}
 \end{equation}
@@ -275,25 +302,24 @@ scheduler. In other words the scheduler knows that:
 Assuming that the processing time of the tasks is known to be in an
 interval is reasonable in many application scenarios. One could derive
 bounds experimentally using machine learning techniques: for
-instance~\cite{You14-ICPP} used Support Vector Machines to predict the time it
-will take to run graph traversal algorithms. Models of runtime of
-algorithms can also be derived analytically:
+instance~\cite{You14-ICPP} used Support Vector Machines to predict the
+time it will take to run graph traversal algorithms. Models of runtime
+of algorithms can also be derived analytically:
 in~\cite{Erlebacher14-ICS} the authors provide bounds for the
 performance of various sparse linear algebra operations using only the
 size of the matrices and vectors involved.
 
-
 Scheduling for this problem is performed in two phases. Phase 1
 chooses where data are replicated using the estimated processing time
 $\tilde p_j $, for each of the task $j$. The phase takes
-$\tilde{p_j}$, $m$ and $\alpha$ as inputs and outputs sets of machines,
-$M_j \subseteq M $ where each task $j$ can be scheduled. This phase is
-purely offline and corresponds to the operations performed to prepare
-the execution of the application.
+$\tilde{p_j}$, $m$ and $\alpha$ as inputs and outputs sets of
+machines, $M_j \subseteq M $ where each task $j$ can be
+scheduled. This phase is purely offline and corresponds to the
+operations performed to prepare the execution of the application.
 
-Phase 2 takes the output of phase 1 as its input and maps each task $j$
-to a machine within the set of machines $M_j$. For each machine $i$,
-let $E_i \subseteq J$ be the set of tasks assigned to machine
+Phase 2 takes the output of phase 1 as its input and maps each task
+$j$ to a machine within the set of machines $M_j$. For each machine
+$i$, let $E_i \subseteq J$ be the set of tasks assigned to machine
 $i$. This phase chooses the actual schedule following an online
 semi-clairvoyant process. Only the approximate processing time is
 known when a task is placed, but the scheduler can wait for a machine
@@ -304,20 +330,37 @@ known once they complete.
 The problem is to optimize the makespan, $C_{max} = \max_i \sum_{j \in
   E_i} p_j$ which is the completion time of the last task of the
 system. $C_{max}^{*}$ denotes the optimal makespan of an instance of
-the problem (knowing the actual processing times). An offline algorithm is
-said to be a $\rho$-approximation algorithm (or to have an
-approximation ratio of $\rho$) if it guarantees for all the instances
-that $C_{max} \leq \rho C_{max}^*$. When the problem is online, we are
-talking about competitive ratios.
+the problem (knowing the actual processing times). An offline
+algorithm is said to be a $\rho$-approximation algorithm (or to have
+an approximation ratio of $\rho$) if it guarantees for all the
+instances that $C_{max} \leq \rho C_{max}^*$. When the problem is
+online, we are talking about competitive ratios. And we will use the
+online language here since our problem is partly online.
 
+In the {\bf the replication bound model}, the cost of replication is
+modeled by using a task centric approach. Each task must be replicated
+less than $k$ times, that is to say $\forall j, | M_j | \leq k$. In
+this model, we will provide algorithms that take $k$ as a parameter. .
+
+In {\bf the memory-aware model} each task $j$ has a size $s_j$. The
+memory occupation $Mem_i$ of processor $i$ is the total size of the
+task replicated on $i$: $Mem_i = \sum_{j \in E_i} s_j$. And the
+problem is to minimize the maximum memory occupation $Mem_{max} =
+\max_i Mem_i$. Notice that $Mem_{max}$ is an objective similar to the
+makespan. In this model, we will provide bi-objective algorithm and
+will measure their quality by using Zenith-approximation. That is to
+say, we will design algorihtms to be competitive on the makespan and
+approximated on the memory occupation at the same.
+
+
+\section{The Replication Bound Model}
 
 \subsection{Lower Bound}
 
-
 \begin{theorem}
 \label{th:model1-lb}
-  When $|M_j| = 1$, there is no online algorithm having competitive
-  ratio better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
+When $\forall j, |M_j| = 1$, there is no online algorithm having
+competitive ratio better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
 \end{theorem}
  
 \begin{proof}
@@ -390,7 +433,7 @@ talking about competitive ratios.
   \end{corollary}
 
 
-\section{Algorithms for this problem}
+\section{Replication Bound Algorithms}
 
 \subsection{Strategy 1: No Replication}\label{sec4}
 
@@ -751,7 +794,7 @@ the number of machines $m$ is large and the value of $\alpha$ is
 within practical range. This indicates an LPT-based algorithm for
 strategy 3 would likely not have a much more interesting guarantee.
 
-\section{Summary of problem 1}\label{sec7}
+\subsection{Summarizing the Replication Bound Model}\label{sec7}
 Table~\ref{tab:template} summarizes the results of this paper in terms
 of approximation ratios. Based on adversary technique,
 Theorem~\ref{th:model1-lb} states that there is no algorithm which can
@@ -852,10 +895,9 @@ performance significantly.
 \end{figure}
 
 
-\newpage
-
-\section{Memory Aware Replication Under Uncertainty}\label{ch5}
+\section{Memory Aware Replications}\label{ch5}
    
+\todo{Be carfeul of $M_{max}$ and $M_j$}
    
 Replication improves performance but incurs a cost in terms of memory
 consumption.  Replication allows to obtain a better load balancing by
@@ -889,8 +931,6 @@ algorithm. $SBO_\triangle$~\cite{10.1109/IPDPS.2008.4536292} is
 bi-objective algorithm for minimizing makespan and memory usage for
 independent tasks by combining results of two symmetric schedules each
 dedicated to a single objective.
-    
-\section{Algorithms}
  
 \subsection{The $SABO_\triangle$ Algorithm}
                      
@@ -920,9 +960,9 @@ In phase 2, the algorithm loads the tasks to the machines they were assigned in 
   \label{alg2}
   \begin{algorithmic} 
     \State \textbf{Input:} $m$ machines 
-    \State \hspace*{42pt}Set $J$ of $n$ tasks
-    \State\hspace*{42pt}Let $\pi_1$ be a $ \rho_1$-approximated schedule on makespan $\tilde{C}_{max}$ 
-    \State \hspace*{42pt}Let $\pi_2$ be a $\rho_2$- approximated schedule on memory ${M_{max}}$
+    \State \hspace*{15pt}Set $J$ of $n$ tasks
+    \State\hspace*{15pt}Let $\pi_1$ be a $ \rho_1$-approximated schedule on makespan $\tilde{C}_{max}$ 
+    \State \hspace*{15pt}Let $\pi_2$ be a $\rho_2$- approximated schedule on memory ${M_{max}}$
     \State
     \State \textbf{Phase 1:} [Uses $SBO_\triangle$]
     \ForAll{$j\in J$}
@@ -1151,8 +1191,7 @@ instance using the algorithm.
   Also,  ${M^{\pi_2}_{max}} \leq \rho_2 {M^{*}_{max}}$.  Hence, The Algorithm generate $ (1+\frac{m}{\triangle})\rho_2 $- approximated schedule on memory.
 \end{proof}
                   
-                  
-\section{Summary}
+\subsection{Summarizing the Memory Aware Model}
 Table~\ref{tab:template2} summarizes the results for $SABO_\triangle$
 and $ABO_\triangle$ algorithms. $SABO_\triangle$ is similar to $
 SBO_\triangle$ algorithm in its first phase and has a approximation
@@ -1238,9 +1277,6 @@ case depicted in Figure~\ref{fig:ch5-3.2}, you should use
 $ABO_\triangle$. However if you want a better guarantee on memory, you
 should always use $SABO_\triangle$ for task scheduling.
      
-
-\newpage
-
 
 \section{Conclusion and Future Work}\label{sec8}
 
