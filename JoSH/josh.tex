@@ -183,7 +183,7 @@ a given number of replica for each task: we will propose a lower bound
 when no replication is allowed and propose algorithms for the three
 cases where no replication is allowed, the tasks are replicated
 everywhere and the number of replica is bounded by an integer
-$k$. We introduced this model in~\cite{Chaubey2015}.
+$k$. We introduced this model in~\cite{Chaubey15-APDCM}.
 
 In the second model, we measure the per processor cost of the tasks
 that are replicated on it. In a computer system context, placing a
@@ -198,22 +198,7 @@ of~\cite{SDM2008} under the uncertain processing time model. And we
 propose a new memory-aware replication algorithm that provides more
 interesting memory makespan tradeoffs.
 
-The remaining of the paper is organized as follows: we describe system
-model and notations in Section~\ref{sec2}. Related works are presented
-in Section~\ref{sec3}.  Section~\ref{sec4} investigates what can be
-done if the tasks can only be deployed on a single machine, we
-provide a guaranteed algorithm and provide a lower bound on the best
-guarantee that one can achieve in this case. Section~\ref{sec5} takes
-the reverse case and investigates what can be achieved if the data are
-replicated everywhere, leaving the maximum flexibility at runtime. We
-investigate one algorithm in this case and analyze its performance
-guarantee. Section~\ref{sec6} investigates grouping machines
-together and replicating data in these groups as an intermediate
-between the previous two strategies and provide a guaranteed algorithm
-in that case. Section~\ref{sec7} summarizes the various results we
-derived and study the tradeoff between performance guarantee and data
-replication.
-
+\todo{The remaining of the paper is organized as follows: }
 
 \section{Related Work}\label{sec3}
 
@@ -281,6 +266,9 @@ service and minimize the memory occupation.
 
 
 \section{Problems Definition}\label{sec2}
+\todo{harmonize processor/machine}
+\todo{harmonize task/job}
+
 Let $J$ be a set of $n$ tasks which need to be scheduled onto a set
 $M$ of $m$ machines. Notice that scheduling theory commonly use
 interchangeably the terms ``machines'' and ``processors'' and the
@@ -337,25 +325,42 @@ instances that $C_{max} \leq \rho C_{max}^*$. When the problem is
 online, we are talking about competitive ratios. And we will use the
 online language here since our problem is partly online.
 
-In the {\bf the replication bound model}, the cost of replication is
+In the {\bf replication bound model}, the cost of replication is
 modeled by using a task centric approach. Each task must be replicated
-less than $k$ times, that is to say $\forall j, | M_j | \leq k$. In
-this model, we will provide algorithms that take $k$ as a parameter. .
+less than $r$ times, that is to say $\forall j, | M_j | \leq r$. In
+this model, we will provide algorithms that take $r$ as a parameter. .
 
-In {\bf the memory-aware model} each task $j$ has a size $s_j$. The
+In the {\bf memory-aware model} each task $j$ has a size $s_j$. The
 memory occupation $Mem_i$ of processor $i$ is the total size of the
 task replicated on $i$: $Mem_i = \sum_{j \in E_i} s_j$. And the
 problem is to minimize the maximum memory occupation $Mem_{max} =
 \max_i Mem_i$. Notice that $Mem_{max}$ is an objective similar to the
 makespan. In this model, we will provide bi-objective algorithm and
 will measure their quality by using Zenith-approximation. That is to
-say, we will design algorihtms to be competitive on the makespan and
+say, we will design algorithms to be competitive on the makespan and
 approximated on the memory occupation at the same.
-
 
 \section{The Replication Bound Model}
 
+In the replication bound model, the data of each task is deployed on
+$k$ processors in phase~1. In phase~2, we will schedule online the
+tasks bound by phase~1 allocation.
+
+We first start by giving a lower bound on the competitive ratio of any
+algorithm that deploys the data on only one processor by using the
+adversary technique in Section~\ref{sec:rbmlb}. We will present the
+{\bf LPT-No Choice} for the case where the data of each task is
+deployed on only one processor in Section~\ref{sec:rbm-norep}. We will
+present the {\bf LPT-No Restriction} algorithm for the other extre
+case where the data of each task is deployed on all processors in
+Section~\ref{sec:rbm-allrep}. Section~\ref{sec:rbm-groups} presents
+the {\bf LS-Group} algorithm that makes groups of processors and
+replicates the data of each task on all the processors of that
+group. Finally, we summarize all these results in
+Section~\ref{sec:rbm-sum}.
+
 \subsection{Lower Bound}
+\label{sec:rbmlb}
 
 \begin{theorem}
 \label{th:model1-lb}
@@ -433,10 +438,8 @@ competitive ratio better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
   \end{corollary}
 
 
-\section{Replication Bound Algorithms}
-
 \subsection{Strategy 1: No Replication}\label{sec4}
-
+\label{sec:rbm-norep}
 
 This section considers the situation where the data of each task is
 restricted to be on only one machine, {\em i.e.}, $\forall j, |M_j|=1$.  We
@@ -547,7 +550,8 @@ Using equation~\ref{eq3},
 \end{equation}
 \end{proof} 
 
-\subsection{Strategy 2: replicate data everywhere}\label{sec5}
+\subsection{Strategy 2: Replicate Data Everywhere}\label{sec5}
+\label{sec:rbm-allrep}
 
 With this strategy, we put no restriction on phase 2. The tasks are
 replicated everywhere i.e. $\forall j, |M_{j}|=|M|$. We introduce the
@@ -642,7 +646,7 @@ the algorithm has a competitive ratio of $\min (1 +
 
 
 \subsection{Strategy 3: Replication in groups}\label{sec6}
-
+\label{sec:rbm-groups}
 
 This strategy partitions the machines into $k$ groups
 $G1$,$G2$...$Gk$. The size of each group is equal and have
@@ -795,6 +799,8 @@ within practical range. This indicates an LPT-based algorithm for
 strategy 3 would likely not have a much more interesting guarantee.
 
 \subsection{Summarizing the Replication Bound Model}\label{sec7}
+\label{sec:rbm-sum}
+
 Table~\ref{tab:template} summarizes the results of this paper in terms
 of approximation ratios. Based on adversary technique,
 Theorem~\ref{th:model1-lb} states that there is no algorithm which can
@@ -910,7 +916,7 @@ this chapter we investigate the bi-objective problem of minimizing the
 makespan as well as the memory consumption. A memory-aware replication
 strategy improves execution times with little increase in memory
 consumption.
-   
+
 The problem is to schedule a set $J$ of $n$ tasks on $m$ machines such
 that both makespan $C_{max}$ as well as memory usage $Mem_{max}$ is
 optimized.  Let $\pi_1$ be the schedule which minimizes makespan and
@@ -927,7 +933,7 @@ objectives.
 We propose two algorithms $SABO_\triangle$ (stands for static
 asymmetric bi-objective) and $ABO_\triangle$ (stands for asymmetric
 bi-objective), which are based on $SBO_\triangle$
-algorithm. $SBO_\triangle$~\cite{10.1109/IPDPS.2008.4536292} is
+algorithm. $SBO_\triangle$~\cite{SDM2008} is
 bi-objective algorithm for minimizing makespan and memory usage for
 independent tasks by combining results of two symmetric schedules each
 dedicated to a single objective.
@@ -1039,6 +1045,8 @@ In phase 2, the algorithm loads the tasks to the machines they were assigned in 
 \begin{proof}  
   The proof is identical to $SBO_\triangle$ algorithm and is presented
   in chapter~\ref{ch3}.
+
+  \todo{but is presented here for completeness.}
 \end{proof}    
     
 \subsection{The $ABO_\triangle$ Algorithm} 
@@ -1192,6 +1200,8 @@ instance using the algorithm.
 \end{proof}
                   
 \subsection{Summarizing the Memory Aware Model}
+\todo{check figure parameter for pertinence}
+
 Table~\ref{tab:template2} summarizes the results for $SABO_\triangle$
 and $ABO_\triangle$ algorithms. $SABO_\triangle$ is similar to $
 SBO_\triangle$ algorithm in its first phase and has a approximation
@@ -1255,7 +1265,7 @@ To better understand the tradeoff between memory consumption and
 makespan Figure~\ref{fig:ch5-3} shows memory-makespan guarantees for
 the two algorithms.  The bold lines shows impossibilities in the
 tradeoff between makespan and memory and means that no algorithm can
-guarantee better tradeoff than this. \cite{10.1109/IPDPS.2008.4536292}
+guarantee better tradeoff than this. \cite{SDM2008}
 discusses about these impossibilities in context of $SBO_\triangle$
 algorithm.
    
@@ -1279,6 +1289,7 @@ should always use $SABO_\triangle$ for task scheduling.
      
 
 \section{Conclusion and Future Work}\label{sec8}
+\todo{check conclusion}
 
 We studied the effect of uncertainty in the processing time of tasks
 when scheduling for parallel and distributed machines. In particular, we
