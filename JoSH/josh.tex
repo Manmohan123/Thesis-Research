@@ -87,8 +87,6 @@ Tel: +1 (704) 687-8580 \\
 
 
 \begin{abstract}
-\todo{rewrite}
-
   Scheduling theory is a common tool to analyze the performance of
   parallel and distributed computing systems, such as their load
   balance. How to distribute the input data to be able to execute a
@@ -107,13 +105,14 @@ Tel: +1 (704) 687-8580 \\
   first offline phase where the data of the tasks are placed and a
   second online phase where the tasks are actually scheduled.
 
-  For this problem we investigate three different strategies, each
-  allowing a different degree of replication of tasks: a) No
-  Replication b) Replication everywhere and c) Replication in
-  groups. We propose approximation algorithms and theoretical lower
-  bound on achievable approximation ratios.  This allows us to study
-  the tradeoff between the number of replication and the guarantee on
-  the makespan.
+  Replicating the data of a task on processors has a cost
+  which we model this cost in two different way. The first model sets a
+  maximum number of times a task can be replicated. The second model
+  associate a memory cost to each task and introduce a second
+  objective which is to minimize the memory occupation. We propose
+  various algorithms with theoretical guarantees and lower bounds on
+  achievable result to study the tradeoff between the number of
+  replication and the guarantee on the makespan.
 
   \keywords{Scheduling \and Uncertainty \and Robustness \and
     Replication \and Approximation Algorithms \and Parallel System}
@@ -178,18 +177,18 @@ processing time?'' by considering two different models of the cost of
 replicating tasks. Under either model, we show that replication does
 help dealing with uncertainty.
 
-In the first case, we model the cost of replication simply by allowing
-a given number of replica for each task: we will propose a lower bound
-when no replication is allowed and propose algorithms for the three
-cases where no replication is allowed, the tasks are replicated
-everywhere and the number of replica is bounded by an integer
-$k$. We introduced this model in~\cite{Chaubey15-APDCM}.
+In the {\bf replication-bound model}, the cost of replication is
+simply the maximum number of replica for each task: we will propose a
+lower bound when no replication is allowed and propose algorithms for
+the three cases where no replication is allowed, the tasks are
+replicated everywhere and the number of replica is bounded by an
+integer $k$. We introduced this model in~\cite{Chaubey15-APDCM}.
 
 In the second model, we measure the per processor cost of the tasks
 that are replicated on it. In a computer system context, placing a
 task on a processor increases the required memory of this
-processor. Rather than bounding the available memory, we treat the
-maximum memory occupation as a objective to minimize in itself. Memory
+processor. In the {\bf memory-aware model}, tather than bounding the available memory, we treat the
+maximum memory occupation as an objective to minimize in itself. Memory
 occupation boils down to a secondary makespan objective (except it
 does not suffer from uncertainty). We investigated the memory-makespan
 tradeoff in the case of certain processing times (and no replication)
@@ -198,9 +197,17 @@ of~\cite{SDM2008} under the uncertain processing time model. And we
 propose a new memory-aware replication algorithm that provides more
 interesting memory makespan tradeoffs.
 
-\todo{The remaining of the paper is organized as follows: }
+The remaining of the paper is organized as
+follows. Section~\ref{sec:related} presents some related works. The
+problem and in particular the model for uncertainty is presented in
+Section~\ref{sec:model}. The replication bound model is investigated
+in Section~\ref{sec:rbm} where we provide lower bound and analyze
+three algorithms. The memory-aware model is investigated in
+Section~\ref{sec:mem} where we analyze two bi-objective algorithms. We
+conclude the paper in Section~\ref{sec:ccl}.
 
-\section{Related Work}\label{sec3}
+\section{Related Work}
+\label{sec:related}
 
 When no replication is allowed, the problem is exactly the classical
 independent tasks scheduling problem on identical machines, which is
@@ -265,7 +272,8 @@ through bi-criteria optimization techniques to maximize the quality of
 service and minimize the memory occupation.
 
 
-\section{Problems Definition}\label{sec2}
+\section{Problems Definition}
+\label{sec:model}
 \todo{harmonize processor/machine}
 \todo{harmonize task/job}
 
@@ -341,6 +349,7 @@ say, we will design algorithms to be competitive on the makespan and
 approximated on the memory occupation at the same.
 
 \section{The Replication Bound Model}
+\label{sec:rbm}
 
 In the replication bound model, the data of each task is deployed on
 $k$ processors in phase~1. In phase~2, we will schedule online the
@@ -438,7 +447,7 @@ competitive ratio better than $\frac{\alpha^{2}m }{\alpha^{2} + m-1}$.
   \end{corollary}
 
 
-\subsection{Strategy 1: No Replication}\label{sec4}
+\subsection{Strategy 1: No Replication}
 \label{sec:rbm-norep}
 
 This section considers the situation where the data of each task is
@@ -550,7 +559,7 @@ Using equation~\ref{eq3},
 \end{equation}
 \end{proof} 
 
-\subsection{Strategy 2: Replicate Data Everywhere}\label{sec5}
+\subsection{Strategy 2: Replicate Data Everywhere}
 \label{sec:rbm-allrep}
 
 With this strategy, we put no restriction on phase 2. The tasks are
@@ -645,7 +654,7 @@ the algorithm has a competitive ratio of $\min (1 +
 
 
 
-\subsection{Strategy 3: Replication in groups}\label{sec6}
+\subsection{Strategy 3: Replication in groups}
 \label{sec:rbm-groups}
 
 This strategy partitions the machines into $k$ groups
@@ -798,7 +807,7 @@ the number of machines $m$ is large and the value of $\alpha$ is
 within practical range. This indicates an LPT-based algorithm for
 strategy 3 would likely not have a much more interesting guarantee.
 
-\subsection{Summarizing the Replication Bound Model}\label{sec7}
+\subsection{Summarizing the Replication Bound Model}
 \label{sec:rbm-sum}
 
 Table~\ref{tab:template} summarizes the results of this paper in terms
@@ -901,47 +910,52 @@ performance significantly.
 \end{figure}
 
 
-\section{Memory Aware Replications}\label{ch5}
+\section{Memory Aware Replications}
+\label{sec:mem}
    
-\todo{Be carfeul of $M_{max}$ and $M_j$}
-   
-Replication improves performance but incurs a cost in terms of memory
-consumption.  Replication allows to obtain a better load balancing by
-reducing the effect of uncertainties in processing times of tasks. But
-each replica occupies memory, and increases the memory consumption.
-So, replicating all the tasks is not possible in real scenarios. This
-justify the need for an efficient replication strategy which allows an
-algorithm to choose which tasks are to be replicated and where.  In
-this chapter we investigate the bi-objective problem of minimizing the
-makespan as well as the memory consumption. A memory-aware replication
-strategy improves execution times with little increase in memory
-consumption.
+In the memory aware model, the problem is to schedule a set $J$ of $n$
+tasks on $m$ machines such that both makespan $C_{max}$ as well as
+memory usage $Mem_{max}$ is optimized. Each task $j$ is associated
+with a memory cost $s_j$. Processor $i$ which has the data of the
+tasks in $E_i$, as determined by the phase 1 algorithm, has a memory
+occupation of $Mem_i = \sum_{j \in E_i} s_j$. The second objective is
+to minimize $Mem_{max} = \max_i Mem_i$.
 
-The problem is to schedule a set $J$ of $n$ tasks on $m$ machines such
-that both makespan $C_{max}$ as well as memory usage $Mem_{max}$ is
-optimized.  Let $\pi_1$ be the schedule which minimizes makespan and
-$\pi_2$ be the memory-aware schedule. $\tilde{C}^{\pi_1}_{max}$ and
-$\tilde{C}^{*}_{max}$ are makespan and optimal makespan when all the
-tasks are scheduled according to $\pi_1$. Similarly, $Mem^{\pi_2}_{max}$
-is memory consumption of the most occupied machine and $Mem^*_{max}$ is
-its optimal value. The strategy is to divide tasks into two sets $S_1$
-and $S_2$ such that set $S_1$ contains the processing time intensive
-tasks and set $S_2$ contains the memory intensive tasks, and schedule
-them differently and in such a way that it optimizes both the
-objectives.
+The algorithms we propose are inspired from the $SBO_\triangle$
+algorithm~\cite{SDM2008} which is bi-objective algorithm for
+minimizing makespan and memory usage for independent tasks with
+certain processing time. $SBO_\triangle$ combines the two schedules
+each dedicated to a single objective. $SBO$ stands for Symmetric
+Bi-Objective which recalls that when the processing times are
+certain, the two objectives are intercheangable.
+
+Let $\pi_1$ be an offline schedule which minimizes the predicted
+makespan and which schedules each task on one processor. Let
+$\tilde{C}^{\pi_1}_{max}$ be the predicted makespan when all the tasks
+are scheduled according to $\pi_1$ and $\tilde{C}^{*}_{max}$ be the
+optimal predicted makespan. Similarly, let $\pi_2$ be a memory-aware
+schedule of each task to a single processor. Let $Mem^{\pi_2}_{max}$
+be the memory consumption of the most occupied machine in $\pi_2$ and
+$Mem^*_{max}$ be the optimal memory consumption. Note that since
+optimizing the predicted makespan and the memory consumption are
+equivalent to the classical $P|p_i|C_{max}$ problem which admits a
+PTAS~\cite{Hoch87}, we assume that $\pi_1$ is a $\rho_1$ approximated
+schedule for the predicted makespan and that $\pi_2$ is a $\rho_2$
+approximated schedule for the memory consumption.
+
+The strategy is to divide tasks into two sets $S_1$ and
+$S_2$ such that set $S_1$ contains the processing time intensive tasks
+and set $S_2$ contains the memory intensive tasks, and schedule them
+differently and in such a way that it optimizes both the objectives.
      
-We propose two algorithms $SABO_\triangle$ (stands for static
-asymmetric bi-objective) and $ABO_\triangle$ (stands for asymmetric
-bi-objective), which are based on $SBO_\triangle$
-algorithm. $SBO_\triangle$~\cite{SDM2008} is
-bi-objective algorithm for minimizing makespan and memory usage for
-independent tasks by combining results of two symmetric schedules each
-dedicated to a single objective.
+We propose two algorithms $SABO_\triangle$ (Static Asymmetric
+Bi-Objective) and $ABO_\triangle$ (Asymmetric Bi-Objective), which are
+based on $SBO_\triangle$. 
  
 \subsection{The $SABO_\triangle$ Algorithm}
-                     
-We propose $SABO_\triangle$ Algorithm which is static in nature and
-restrict each task to be scheduled to only one machine. Similar to
+          
+$SABO_\triangle$ is static in nature and
+restricts each task to be scheduled to only one machine. Similar to
 $SBO_\triangle$ this algorithm assigns tasks to all the machines in
 phase 1 such that it minimizes both the objectives. As each task is
 restricted to only one machine, there is no task replication. Based on
@@ -1288,7 +1302,8 @@ $ABO_\triangle$. However if you want a better guarantee on memory, you
 should always use $SABO_\triangle$ for task scheduling.
      
 
-\section{Conclusion and Future Work}\label{sec8}
+\section{Conclusion and Future Work}
+\label{sec:ccl}
 \todo{check conclusion}
 
 We studied the effect of uncertainty in the processing time of tasks
