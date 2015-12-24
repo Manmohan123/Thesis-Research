@@ -1200,13 +1200,13 @@ instance using the algorithm.
   \end{equation}    
   $\sum\limits_{j \in S_2\cap E_k}^{}s_j$ at most be equal to
   $Mem^{\pi_2}_{max} $ and $\sum\limits_{j\in S_1}s_j$ is bounded by
-  $\sum\limits_{j \in J}^{} {Mem^{\pi_2}_{max}}
+  $\sum\limits_{j \in S_1}^{} {Mem^{\pi_2}_{max}}
   \frac{\tilde{p_j}}{\triangle \tilde{C}^{\pi_1}_{max}} $ as per
   condition for $\pi_1$ scheduling, using this we have
   \begin{equation}\nonumber
-    Mem_{max}\leq \sum_{j \in J}^{} {Mem^{\pi_2}_{max}} \frac{\tilde{p_j}}{\triangle \tilde{C}^{\pi_1}_{max}}+{Mem^{\pi_2}_{max}}
+    Mem_{max}\leq \sum_{j \in S_1}^{} {Mem^{\pi_2}_{max}} \frac{\tilde{p_j}}{\triangle \tilde{C}^{\pi_1}_{max}}+{Mem^{\pi_2}_{max}}
   \end{equation}
-  Since $ \sum\limits_{j \in J}\tilde{p}_j \leq m\tilde{C}^{\pi_1}_{max} $, we have 
+  Since $ \sum\limits_{j \in S_1}\tilde{p}_j \leq m\tilde{C}^{\pi_1}_{max} $, we have 
   \begin{equation}\nonumber
     Mem_{max}\leq   \frac{m}{\triangle}{Mem^{\pi_2}_{max}}+{Mem^{\pi_2}_{max}}
   \end{equation}
